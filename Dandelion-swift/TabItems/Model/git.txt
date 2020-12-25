@@ -1,0 +1,98 @@
+Git init 
+Git add .
+Git commit -m ""
+Git remote add origin https://github.com/ZanGezz/Dandelion.git
+Git push -u origin master  //首次提交
+Git push origin master.    //以后提交
+Git clone https://github.com/ZanGezz/Dandelion.git
+Git pull origin master    //相当于是从远程获取最新版本并merge到本地
+
+clone单个分支可以用：git clone -b branchA http://admin@192.168.1.101:7070/r/virtualbox_all_versions.git
+
+ 
+ZanGezz
+Ls1991110827
+D_OC_Test
+
+//处理冲突
+Git stash 备份工作内容
+Git pull  更新内容
+git stash pop 从备份读取
+
+Dandelion-swift.xcworkspace/xcuserdata/liushuai.xcuserdatad/UserInterfaceState.xcuserstate
+git rm --cached project.xcworkspace/xcuserdata/myUserName.xcuserdatad/UserInterfaceState.xcuserstate
+git commit -m "Removed file that shouldn't be tracked"
+
+*.xcuserstate
+project.xcworkspace
+xcuserdata
+UserInterfaceState.xcuserstate
+
+Git checkout 分支
+Git merge 另一个分支到当前分支
+
+一 本地分支
+
+创建本地分支，然后切换到dev分支
+
+$ git checkout -b dev
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
+
+$ git branch dev
+$ git checkout dev
+然后，用git branch命令查看当前分支：
+
+$ git branch
+* dev
+  master
+ 添加文件 "Readme.txt", 提交到本地dev分支
+
+$ git add Readme.txt 
+$ git commit -m "branch dev test"
+dev分支的工作完成，切换回master分支：
+
+$ git checkout master
+把dev分支的工作内容合并到master分支上：
+
+$ git merge dev
+git merge命令用于合并指定分支到当前分支。合并后，再查看Readme.txt的内容，和dev分支的最新提交是完全一致的。
+
+Fast-forward信息代表：“快进模式”，直接把master指向dev的当前提交，合并速度快。
+
+并非每次代码合并都能实现Fast-forward。
+
+合并完成后，删除dev分支：
+
+$ git branch -d dev
+删除后，查看branch，就只有master分支了：
+
+$ git branch
+* master
+创建、合并和删除分支非常快，鼓励你使用分支来完成某个短期任务，合并后再删掉，比起直接在master上工作过程更安全。
+
+二 远程分支
+
+删除远程分支
+
+ git push origin --delete Chapater6 
+查看远程分支 
+
+git branch -r
+ 拉取远程分支并创建本地分支
+
+git checkout -b 本地分支名x origin/远程分支名x
+这样远程仓库中也就创建了一个test分支
+
+git checkout -b test
+ 
+git push origin test
+ 查看所有分支
+
+git branch -a
+注：remote/origin/[name]表示的是远程分支
+清除本地更改
+
+// 清楚所有更改
+git checkout . && git clean -xdf
+// 清除某一个文件的更改
+git checkout -- file

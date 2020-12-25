@@ -14,6 +14,7 @@
 		4B83E14A2589AB7D0041B601 /* Dandelion_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1492589AB7D0041B601 /* Dandelion_swiftTests.swift */; };
 		4B83E1552589AB7D0041B601 /* Dandelion_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1542589AB7D0041B601 /* Dandelion_swiftUITests.swift */; };
 		4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */; };
+		4B83E1D42595D9B70041B601 /* git.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E1D32595D9B70041B601 /* git.txt */; };
 		6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */; };
 		A4A3119BE950055AD5CE2B5A /* Pods_Dandelion_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		4B83E1542589AB7D0041B601 /* Dandelion_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dandelion_swiftUITests.swift; sourceTree = "<group>"; };
 		4B83E1562589AB7D0041B601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainViewController.swift; sourceTree = "<group>"; };
+		4B83E1D32595D9B70041B601 /* git.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git.txt; sourceTree = "<group>"; };
 		5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9014D35F43638A5BA7C5E7 /* Pods-Dandelion-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		4B83E1A3258CB2780041B601 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B83E1D32595D9B70041B601 /* git.txt */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +194,6 @@
 				5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */,
 				121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -301,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B83E1D42595D9B70041B601 /* git.txt in Resources */,
 				4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */,
 				4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */,
 			);

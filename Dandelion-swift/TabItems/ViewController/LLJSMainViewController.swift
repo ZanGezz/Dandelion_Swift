@@ -25,6 +25,12 @@ class LLJSMainViewController: UIViewController {
         titleLabel1.textColor = UIColor.black
         titleLabel1.backgroundColor = UIColor.orange
         self.view.addSubview(titleLabel1)
+        
+        let titleLabel2 = UILabel(frame: CGRect(x: 100, y: 300, width: 100, height: 20))
+        titleLabel2.text = "Swift1"
+        titleLabel2.textColor = UIColor.black
+        titleLabel2.backgroundColor = UIColor.orange
+        self.view.addSubview(titleLabel2)
     }
 
 }
