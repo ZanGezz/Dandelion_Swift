@@ -1,0 +1,733 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E6E2B61F035CF65ED2AFE29 /* Pods_Dandelion_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */; };
+		4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1322589AB7A0041B601 /* AppDelegate.swift */; };
+		4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13B2589AB7D0041B601 /* Assets.xcassets */; };
+		4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13D2589AB7D0041B601 /* LaunchScreen.storyboard */; };
+		4B83E14A2589AB7D0041B601 /* Dandelion_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1492589AB7D0041B601 /* Dandelion_swiftTests.swift */; };
+		4B83E1552589AB7D0041B601 /* Dandelion_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1542589AB7D0041B601 /* Dandelion_swiftUITests.swift */; };
+		4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */; };
+		6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */; };
+		A4A3119BE950055AD5CE2B5A /* Pods_Dandelion_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B83E1462589AB7D0041B601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B83E1272589AB7A0041B601 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B83E12E2589AB7A0041B601;
+			remoteInfo = "Dandelion-swift";
+		};
+		4B83E1512589AB7D0041B601 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B83E1272589AB7A0041B601 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B83E12E2589AB7A0041B601;
+			remoteInfo = "Dandelion-swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		4B83E12F2589AB7A0041B601 /* Dandelion-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dandelion-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B83E1322589AB7A0041B601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4B83E13B2589AB7D0041B601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B83E13E2589AB7D0041B601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B83E1402589AB7D0041B601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B83E1452589AB7D0041B601 /* Dandelion-swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dandelion-swiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B83E1492589AB7D0041B601 /* Dandelion_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dandelion_swiftTests.swift; sourceTree = "<group>"; };
+		4B83E14B2589AB7D0041B601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B83E1502589AB7D0041B601 /* Dandelion-swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dandelion-swiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B83E1542589AB7D0041B601 /* Dandelion_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dandelion_swiftUITests.swift; sourceTree = "<group>"; };
+		4B83E1562589AB7D0041B601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainViewController.swift; sourceTree = "<group>"; };
+		5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A9014D35F43638A5BA7C5E7 /* Pods-Dandelion-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.release.xcconfig"; sourceTree = "<group>"; };
+		8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swift_Dandelion_swiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D60BD14ABC6C5F38A372117A /* Pods-Dandelion-swift-Dandelion-swiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift-Dandelion-swiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift-Dandelion-swiftUITests/Pods-Dandelion-swift-Dandelion-swiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F105E942525646A595ECF1 /* Pods-Dandelion-swift-Dandelion-swiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift-Dandelion-swiftUITests.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift-Dandelion-swiftUITests/Pods-Dandelion-swift-Dandelion-swiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B83E12C2589AB7A0041B601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4A3119BE950055AD5CE2B5A /* Pods_Dandelion_swift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B83E1422589AB7D0041B601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E6E2B61F035CF65ED2AFE29 /* Pods_Dandelion_swiftTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B83E14D2589AB7D0041B601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B83E1262589AB7A0041B601 = {
+			isa = PBXGroup;
+			children = (
+				4B83E1312589AB7A0041B601 /* Dandelion-swift */,
+				4B83E1482589AB7D0041B601 /* Dandelion-swiftTests */,
+				4B83E1532589AB7D0041B601 /* Dandelion-swiftUITests */,
+				4B83E1302589AB7A0041B601 /* Products */,
+				AFC3B85A20954B7EC92E43BB /* Pods */,
+				80B40C6B93A042C3CC840C52 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4B83E1302589AB7A0041B601 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E12F2589AB7A0041B601 /* Dandelion-swift.app */,
+				4B83E1452589AB7D0041B601 /* Dandelion-swiftTests.xctest */,
+				4B83E1502589AB7D0041B601 /* Dandelion-swiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B83E1312589AB7A0041B601 /* Dandelion-swift */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E1A5258CB28B0041B601 /* TabItems */,
+				4B83E1322589AB7A0041B601 /* AppDelegate.swift */,
+				4B83E13B2589AB7D0041B601 /* Assets.xcassets */,
+				4B83E13D2589AB7D0041B601 /* LaunchScreen.storyboard */,
+				4B83E1402589AB7D0041B601 /* Info.plist */,
+			);
+			path = "Dandelion-swift";
+			sourceTree = "<group>";
+		};
+		4B83E1482589AB7D0041B601 /* Dandelion-swiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E1492589AB7D0041B601 /* Dandelion_swiftTests.swift */,
+				4B83E14B2589AB7D0041B601 /* Info.plist */,
+			);
+			path = "Dandelion-swiftTests";
+			sourceTree = "<group>";
+		};
+		4B83E1532589AB7D0041B601 /* Dandelion-swiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E1542589AB7D0041B601 /* Dandelion_swiftUITests.swift */,
+				4B83E1562589AB7D0041B601 /* Info.plist */,
+			);
+			path = "Dandelion-swiftUITests";
+			sourceTree = "<group>";
+		};
+		4B83E1A2258CB2660041B601 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4B83E1A3258CB2780041B601 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B83E1A4258CB27E0041B601 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B83E1A5258CB28B0041B601 /* TabItems */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E1A2258CB2660041B601 /* ViewController */,
+				4B83E1A4258CB27E0041B601 /* View */,
+				4B83E1A3258CB2780041B601 /* Model */,
+			);
+			path = TabItems;
+			sourceTree = "<group>";
+		};
+		80B40C6B93A042C3CC840C52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */,
+				8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */,
+				87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AFC3B85A20954B7EC92E43BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */,
+				8A9014D35F43638A5BA7C5E7 /* Pods-Dandelion-swift.release.xcconfig */,
+				D60BD14ABC6C5F38A372117A /* Pods-Dandelion-swift-Dandelion-swiftUITests.debug.xcconfig */,
+				F7F105E942525646A595ECF1 /* Pods-Dandelion-swift-Dandelion-swiftUITests.release.xcconfig */,
+				5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */,
+				121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B83E12E2589AB7A0041B601 /* Dandelion-swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B83E1592589AB7D0041B601 /* Build configuration list for PBXNativeTarget "Dandelion-swift" */;
+			buildPhases = (
+				A9023D37135625E3C2937354 /* [CP] Check Pods Manifest.lock */,
+				4B83E12B2589AB7A0041B601 /* Sources */,
+				4B83E12C2589AB7A0041B601 /* Frameworks */,
+				4B83E12D2589AB7A0041B601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dandelion-swift";
+			productName = "Dandelion-swift";
+			productReference = 4B83E12F2589AB7A0041B601 /* Dandelion-swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B83E1442589AB7D0041B601 /* Dandelion-swiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B83E15C2589AB7D0041B601 /* Build configuration list for PBXNativeTarget "Dandelion-swiftTests" */;
+			buildPhases = (
+				CB95F802A2A1AC0FAC57CB48 /* [CP] Check Pods Manifest.lock */,
+				4B83E1412589AB7D0041B601 /* Sources */,
+				4B83E1422589AB7D0041B601 /* Frameworks */,
+				4B83E1432589AB7D0041B601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B83E1472589AB7D0041B601 /* PBXTargetDependency */,
+			);
+			name = "Dandelion-swiftTests";
+			productName = "Dandelion-swiftTests";
+			productReference = 4B83E1452589AB7D0041B601 /* Dandelion-swiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4B83E14F2589AB7D0041B601 /* Dandelion-swiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B83E15F2589AB7D0041B601 /* Build configuration list for PBXNativeTarget "Dandelion-swiftUITests" */;
+			buildPhases = (
+				1CE3ECC5AE1EA4DE452BC26C /* [CP] Check Pods Manifest.lock */,
+				4B83E14C2589AB7D0041B601 /* Sources */,
+				4B83E14D2589AB7D0041B601 /* Frameworks */,
+				4B83E14E2589AB7D0041B601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B83E1522589AB7D0041B601 /* PBXTargetDependency */,
+			);
+			name = "Dandelion-swiftUITests";
+			productName = "Dandelion-swiftUITests";
+			productReference = 4B83E1502589AB7D0041B601 /* Dandelion-swiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B83E1272589AB7A0041B601 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					4B83E12E2589AB7A0041B601 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					4B83E1442589AB7D0041B601 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 4B83E12E2589AB7A0041B601;
+					};
+					4B83E14F2589AB7D0041B601 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 4B83E12E2589AB7A0041B601;
+					};
+				};
+			};
+			buildConfigurationList = 4B83E12A2589AB7A0041B601 /* Build configuration list for PBXProject "Dandelion-swift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B83E1262589AB7A0041B601;
+			productRefGroup = 4B83E1302589AB7A0041B601 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B83E12E2589AB7A0041B601 /* Dandelion-swift */,
+				4B83E1442589AB7D0041B601 /* Dandelion-swiftTests */,
+				4B83E14F2589AB7D0041B601 /* Dandelion-swiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B83E12D2589AB7A0041B601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */,
+				4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B83E1432589AB7D0041B601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B83E14E2589AB7D0041B601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CE3ECC5AE1EA4DE452BC26C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dandelion-swift-Dandelion-swiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9023D37135625E3C2937354 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dandelion-swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB95F802A2A1AC0FAC57CB48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dandelion-swiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B83E12B2589AB7A0041B601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
+				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B83E1412589AB7D0041B601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B83E14A2589AB7D0041B601 /* Dandelion_swiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B83E14C2589AB7D0041B601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B83E1552589AB7D0041B601 /* Dandelion_swiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B83E1472589AB7D0041B601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B83E12E2589AB7A0041B601 /* Dandelion-swift */;
+			targetProxy = 4B83E1462589AB7D0041B601 /* PBXContainerItemProxy */;
+		};
+		4B83E1522589AB7D0041B601 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B83E12E2589AB7A0041B601 /* Dandelion-swift */;
+			targetProxy = 4B83E1512589AB7D0041B601 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4B83E13D2589AB7D0041B601 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B83E13E2589AB7D0041B601 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B83E1572589AB7D0041B601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4B83E1582589AB7D0041B601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B83E15A2589AB7D0041B601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X44CE4T999;
+				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dandelion-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B83E15B2589AB7D0041B601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A9014D35F43638A5BA7C5E7 /* Pods-Dandelion-swift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X44CE4T999;
+				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dandelion-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4B83E15D2589AB7D0041B601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X44CE4T999;
+				INFOPLIST_FILE = "Dandelion-swiftTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dandelion-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dandelion-swift.app/Dandelion-swift";
+			};
+			name = Debug;
+		};
+		4B83E15E2589AB7D0041B601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X44CE4T999;
+				INFOPLIST_FILE = "Dandelion-swiftTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dandelion-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dandelion-swift.app/Dandelion-swift";
+			};
+			name = Release;
+		};
+		4B83E1602589AB7D0041B601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D60BD14ABC6C5F38A372117A /* Pods-Dandelion-swift-Dandelion-swiftUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X44CE4T999;
+				INFOPLIST_FILE = "Dandelion-swiftUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dandelion-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Dandelion-swift";
+			};
+			name = Debug;
+		};
+		4B83E1612589AB7D0041B601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7F105E942525646A595ECF1 /* Pods-Dandelion-swift-Dandelion-swiftUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X44CE4T999;
+				INFOPLIST_FILE = "Dandelion-swiftUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Dandelion-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Dandelion-swift";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B83E12A2589AB7A0041B601 /* Build configuration list for PBXProject "Dandelion-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B83E1572589AB7D0041B601 /* Debug */,
+				4B83E1582589AB7D0041B601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B83E1592589AB7D0041B601 /* Build configuration list for PBXNativeTarget "Dandelion-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B83E15A2589AB7D0041B601 /* Debug */,
+				4B83E15B2589AB7D0041B601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B83E15C2589AB7D0041B601 /* Build configuration list for PBXNativeTarget "Dandelion-swiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B83E15D2589AB7D0041B601 /* Debug */,
+				4B83E15E2589AB7D0041B601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B83E15F2589AB7D0041B601 /* Build configuration list for PBXNativeTarget "Dandelion-swiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B83E1602589AB7D0041B601 /* Debug */,
+				4B83E1612589AB7D0041B601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B83E1272589AB7A0041B601 /* Project object */;
+}

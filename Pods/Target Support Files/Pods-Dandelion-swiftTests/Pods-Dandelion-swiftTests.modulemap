@@ -1,0 +1,6 @@
+framework module Pods_Dandelion_swiftTests {
+  umbrella header "Pods-Dandelion-swiftTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
