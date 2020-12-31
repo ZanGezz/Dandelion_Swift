@@ -101,6 +101,30 @@
 			path = Commen;
 			sourceTree = "<group>";
 		};
+		4B49C613259D819E0004936B /* LLJNevAndTabbarAndBaseItem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LLJNevAndTabbarAndBaseItem;
+			sourceTree = "<group>";
+		};
+		4B49C614259D81F00004936B /* MainItem */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E1A2258CB2660041B601 /* Controller */,
+				4B83E1A4258CB27E0041B601 /* View */,
+				4B83E1A3258CB2780041B601 /* Model */,
+			);
+			path = MainItem;
+			sourceTree = "<group>";
+		};
+		4B49C618259D82180004936B /* MineItem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MineItem;
+			sourceTree = "<group>";
+		};
 		4B83E1262589AB7A0041B601 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				4B49C5FF259C65390004936B /* Commen */,
+				4B49C613259D819E0004936B /* LLJNevAndTabbarAndBaseItem */,
 				4B83E1A5258CB28B0041B601 /* TabItems */,
 				4B83E1322589AB7A0041B601 /* AppDelegate.swift */,
 				4B83E13B2589AB7D0041B601 /* Assets.xcassets */,
@@ -154,12 +179,12 @@
 			path = "Dandelion-swiftUITests";
 			sourceTree = "<group>";
 		};
-		4B83E1A2258CB2660041B601 /* ViewController */ = {
+		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */,
 			);
-			path = ViewController;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4B83E1A3258CB2780041B601 /* Model */ = {
@@ -181,9 +206,8 @@
 		4B83E1A5258CB28B0041B601 /* TabItems */ = {
 			isa = PBXGroup;
 			children = (
-				4B83E1A2258CB2660041B601 /* ViewController */,
-				4B83E1A4258CB27E0041B601 /* View */,
-				4B83E1A3258CB2780041B601 /* Model */,
+				4B49C614259D81F00004936B /* MainItem */,
+				4B49C618259D82180004936B /* MineItem */,
 			);
 			path = TabItems;
 			sourceTree = "<group>";

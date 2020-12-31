@@ -23,10 +23,19 @@ class LLJSMainViewController: UIViewController {
 
 }
 
+
+//MARK:设置UI + 布局
 extension LLJSMainViewController {
     
-    //MARK:设置UI
-    func setUpUI() {
+    //设置UI
+    private func setUpUI() {
+        //背景色
         self.view.backgroundColor = LLJWhiteColor()
+        //添加TableView
+        self.view.addSubview(self.myTableView)
+    }
+    //布局
+    private func layoutSubView() {
+        
     }
 }
