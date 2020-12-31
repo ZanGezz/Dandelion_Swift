@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E6E2B61F035CF65ED2AFE29 /* Pods_Dandelion_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */; };
+		4B49C60A259C66550004936B /* LLJConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B49C609259C66550004936B /* LLJConfig.swift */; };
+		4B49C60F259D7CB10004936B /* LLJMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B49C60E259D7CB10004936B /* LLJMainCell.swift */; };
 		4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1322589AB7A0041B601 /* AppDelegate.swift */; };
 		4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13B2589AB7D0041B601 /* Assets.xcassets */; };
 		4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13D2589AB7D0041B601 /* LaunchScreen.storyboard */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		4B49C609259C66550004936B /* LLJConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJConfig.swift; sourceTree = "<group>"; };
+		4B49C60E259D7CB10004936B /* LLJMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMainCell.swift; sourceTree = "<group>"; };
 		4B83E12F2589AB7A0041B601 /* Dandelion-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dandelion-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B83E1322589AB7A0041B601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B83E13B2589AB7D0041B601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B49C5FF259C65390004936B /* Commen */ = {
+			isa = PBXGroup;
+			children = (
+				4B49C609259C66550004936B /* LLJConfig.swift */,
+			);
+			path = Commen;
+			sourceTree = "<group>";
+		};
 		4B83E1262589AB7A0041B601 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +126,7 @@
 		4B83E1312589AB7A0041B601 /* Dandelion-swift */ = {
 			isa = PBXGroup;
 			children = (
+				4B49C5FF259C65390004936B /* Commen */,
 				4B83E1A5258CB28B0041B601 /* TabItems */,
 				4B83E1322589AB7A0041B601 /* AppDelegate.swift */,
 				4B83E13B2589AB7D0041B601 /* Assets.xcassets */,
@@ -160,6 +173,7 @@
 		4B83E1A4258CB27E0041B601 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B49C60E259D7CB10004936B /* LLJMainCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,8 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
+				4B49C60F259D7CB10004936B /* LLJMainCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
