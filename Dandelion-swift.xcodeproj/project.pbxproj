@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2E6E2B61F035CF65ED2AFE29 /* Pods_Dandelion_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */; };
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
-		4B46034025AEE4A9008BCF69 /* LLJBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46033F25AEE4A9008BCF69 /* LLJBaseCell.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
 		4B49C60A259C66550004936B /* LLJConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B49C609259C66550004936B /* LLJConfig.swift */; };
+		4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80821D25B57D5900F89B9C /* LLJFViewController.swift */; };
+		4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80822225B57D7600F89B9C /* LLJNaviController.swift */; };
+		4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80822725B57DA100F89B9C /* LLJTabBarController.swift */; };
 		4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1322589AB7A0041B601 /* AppDelegate.swift */; };
 		4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13B2589AB7D0041B601 /* Assets.xcassets */; };
 		4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13D2589AB7D0041B601 /* LaunchScreen.storyboard */; };
@@ -20,8 +22,9 @@
 		4B83E1552589AB7D0041B601 /* Dandelion_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1542589AB7D0041B601 /* Dandelion_swiftUITests.swift */; };
 		4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */; };
 		4B83E1D42595D9B70041B601 /* git.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E1D32595D9B70041B601 /* git.txt */; };
+		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
+		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
 		6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */; };
-		A4A3119BE950055AD5CE2B5A /* Pods_Dandelion_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +49,11 @@
 		122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
-		4B46033F25AEE4A9008BCF69 /* LLJBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBaseCell.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
 		4B49C609259C66550004936B /* LLJConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJConfig.swift; sourceTree = "<group>"; };
+		4B80821D25B57D5900F89B9C /* LLJFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFViewController.swift; sourceTree = "<group>"; };
+		4B80822225B57D7600F89B9C /* LLJNaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNaviController.swift; sourceTree = "<group>"; };
+		4B80822725B57DA100F89B9C /* LLJTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJTabBarController.swift; sourceTree = "<group>"; };
 		4B83E12F2589AB7A0041B601 /* Dandelion-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dandelion-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B83E1322589AB7A0041B601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B83E13B2589AB7D0041B601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +67,8 @@
 		4B83E1562589AB7D0041B601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainViewController.swift; sourceTree = "<group>"; };
 		4B83E1D32595D9B70041B601 /* git.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git.txt; sourceTree = "<group>"; };
+		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
+		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
 		5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9014D35F43638A5BA7C5E7 /* Pods-Dandelion-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4A3119BE950055AD5CE2B5A /* Pods_Dandelion_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,7 @@
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */,
 				4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */,
 			);
 			path = LLJSHelper;
@@ -118,7 +125,9 @@
 		4B49C613259D819E0004936B /* LLJNevAndTabbarAndBaseItem */ = {
 			isa = PBXGroup;
 			children = (
-				4B46033F25AEE4A9008BCF69 /* LLJBaseCell.swift */,
+				4B80821D25B57D5900F89B9C /* LLJFViewController.swift */,
+				4B80822225B57D7600F89B9C /* LLJNaviController.swift */,
+				4B80822725B57DA100F89B9C /* LLJTabBarController.swift */,
 			);
 			path = LLJNevAndTabbarAndBaseItem;
 			sourceTree = "<group>";
@@ -200,6 +209,7 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,6 +237,14 @@
 				4B49C618259D82180004936B /* MineItem */,
 			);
 			path = TabItems;
+			sourceTree = "<group>";
+		};
+		4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */,
+			);
+			path = LLJSCoreDataHelper;
 			sourceTree = "<group>";
 		};
 		80B40C6B93A042C3CC840C52 /* Frameworks */ = {
@@ -263,6 +281,7 @@
 				4B83E12B2589AB7A0041B601 /* Sources */,
 				4B83E12C2589AB7A0041B601 /* Frameworks */,
 				4B83E12D2589AB7A0041B601 /* Resources */,
+				A9757AECAEA241F47E4DE046 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,6 +319,7 @@
 				4B83E14C2589AB7D0041B601 /* Sources */,
 				4B83E14D2589AB7D0041B601 /* Frameworks */,
 				4B83E14E2589AB7D0041B601 /* Resources */,
+				795F5743EDCBCE60C59D977B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -404,6 +424,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		795F5743EDCBCE60C59D977B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dandelion-swift-Dandelion-swiftUITests/Pods-Dandelion-swift-Dandelion-swiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dandelion-swift-Dandelion-swiftUITests/Pods-Dandelion-swift-Dandelion-swiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dandelion-swift-Dandelion-swiftUITests/Pods-Dandelion-swift-Dandelion-swiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A9023D37135625E3C2937354 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,6 +461,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9757AECAEA241F47E4DE046 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CB95F802A2A1AC0FAC57CB48 /* [CP] Check Pods Manifest.lock */ = {
@@ -457,9 +511,13 @@
 			files = (
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
+				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
+				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
+				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
+				4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
-				4B46034025AEE4A9008BCF69 /* LLJBaseCell.swift in Sources */,
+				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

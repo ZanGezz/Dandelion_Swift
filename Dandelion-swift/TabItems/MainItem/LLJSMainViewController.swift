@@ -20,10 +20,14 @@ class LLJSMainViewController: UIViewController {
     
     //MARK:懒加载属性
     private lazy var myTableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT), style: UITableView.Style.plain)
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTabBarHeight - LLJTopHeight), style: UITableView.Style.plain)
+        tableView.register(LLJSMainCell.self, forCellReuseIdentifier: "MainCell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.lightGray
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         return tableView
     }()
     //数据数组
@@ -39,13 +43,16 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
         return self.sourceArray!.count;
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return LLJDX(80);
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView .dequeueReusableCell(withIdentifier: "MainCell")
-        if (cell == nil) {
-            cell = LLJMainCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "MainCell")
-        }
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell") as! LLJSMainCell
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        cell.setDataSource(self.sourceArray!.object(at: indexPath.row) as! String)
+        return cell
     }
 }
 
@@ -55,7 +62,7 @@ extension LLJSMainViewController {
     //获取本地数据
     private func getLocalTxtSource() {
         //获取本地数据
-        let path = Bundle.main.path(forResource: "LLJSMainViewController", ofType: "txt")
+        let path = Bundle.main.path(forResource: "LLJMainSource", ofType: "txt")
         self.sourceArray = LLJSHelper.getLocalSource(path: path!) as? NSArray
     }
     //设置UI

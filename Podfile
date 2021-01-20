@@ -4,9 +4,12 @@
 target 'Dandelion-swift' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for Dandelion-swift
-
+  
+  pod "SnapKit"
+  pod 'Alamofire'
+  
   target 'Dandelion-swiftTests' do
     inherit! :search_paths
     # Pods for testing
