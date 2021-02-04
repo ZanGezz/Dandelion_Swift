@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //创建文件存储路径
+        createSourcePath()
+        //设置根视图
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = LLJTabBarController()
         self.window?.makeKeyAndVisible()
@@ -22,5 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+}
+
+extension AppDelegate {
+    //创建存储路径
+    private func createSourcePath() {
+        //图片存储路径
+        LLJSHelper.createLocalDirectoryPath(path: LLJ_Image_Path())
+        //视频存储路径
+        LLJSHelper.createLocalDirectoryPath(path: LLJ_Video_Path())
+        //CoreData存储路径
+        LLJSHelper.createLocalDirectoryPath(path: LLJ_CoreData_Path())
+    }
 }
 

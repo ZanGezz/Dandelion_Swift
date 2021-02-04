@@ -111,7 +111,42 @@ func LLJBoldFont(_ size: CGFloat) -> UIFont {
 /**
  * 本地存储地址设置
  */
-let LLJ_Base_Path = NSSearchPathForDirectoriesInDomains(<#T##directory: FileManager.SearchPathDirectory##FileManager.SearchPathDirectory#>, <#T##domainMask: FileManager.SearchPathDomainMask##FileManager.SearchPathDomainMask#>, <#T##expandTilde: Bool##Bool#>)
+//基础路径
+func LLJ_Base_Path() -> String {
+    let lib = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last! as NSString
+    let path = lib.appendingPathComponent("LLJSource")
+    return path
+}
+//CoreData数据库路径
+func LLJ_CoreData_Path() -> String {
+    let path = LLJ_Base_Path() as NSString
+    let coreDataPath = path.appendingPathComponent("LLJCoreData")
+    return coreDataPath
+}
+//图片路径
+func LLJ_Image_Path() -> String {
+    let path = LLJ_Base_Path() as NSString
+    let image = path.appendingPathComponent("LLJImage")
+    return image
+}
+//视频路径
+func LLJ_Video_Path() -> String {
+    let path = LLJ_Base_Path() as NSString
+    let video = path.appendingPathComponent("LLJVideo")
+    return video
+}
+//视频录制路径
+func LLJ_Record_Path() -> String {
+    let path = LLJ_Base_Path() as NSString
+    let record = path.appendingPathComponent("LLJRecord")
+    return record
+}
+//视频下载路径
+func LLJ_DownLoad_Path() -> String {
+    let path = LLJ_Base_Path() as NSString
+    let downLoad = path.appendingPathComponent("LLJDownLoad")
+    return downLoad
+}
 
 /**
  * 非空判断

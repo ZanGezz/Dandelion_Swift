@@ -50,21 +50,37 @@ extension LLJTabBarController {
 extension LLJTabBarController {
     //添加子item
     func addClildControllers() {
-        //创建item
+        //创建item首页
         addChildTabItem(chlidController: LLJSMainViewController(), title: "首页", titleColor: nil, titleFont: nil, naviBackColor: nil, naviBackImage: nil, imageName: "shouye_unSelect", selectImageName: "shouye_select")
+        //SwiftUI
+        addChildTabItem(chlidController: LLJSwiftUIController(), title: "SwiftUI", titleColor: nil, titleFont: nil, naviBackColor: nil, naviBackImage: nil, imageName: LLJSHelper.getImageByColorAndSize(LLJPurpleColor(), CGSize(width: 20, height: 20)), selectImageName: LLJSHelper.getImageByColorAndSize(LLJPurpleColor(), CGSize(width: 20, height: 20)))
+        //我的
+        addChildTabItem(chlidController: LLJMineViewController(), title: "我的", titleColor: nil, titleFont: nil, naviBackColor: nil, naviBackImage: nil, imageName: "wode_unselect", selectImageName: "wode_select")
+        
         //设置tabbar子Item
         self.viewControllers = self.subControllers
     }
+    
     /**
      * 添加TabBar子Item
      */
-    func addChildTabItem(chlidController: UIViewController, title: String, titleColor: UIColor?, titleFont: UIFont?, naviBackColor: UIColor?, naviBackImage: UIImage?, imageName: String, selectImageName: String) {
+    func addChildTabItem(chlidController: UIViewController, title: String, titleColor: UIColor?, titleFont: UIFont?, naviBackColor: UIColor?, naviBackImage: UIImage?, imageName: Any?, selectImageName: Any?) {
         //设置名称
         chlidController.title = title
         //设置图标
-        chlidController.tabBarItem.image = UIImage(named: imageName)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        if (imageName is String) {
+            chlidController.tabBarItem.image = UIImage(named: imageName as! String)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        }
+        if (imageName is UIImage) {
+            chlidController.tabBarItem.image = imageName as? UIImage
+        }
         //设置选中图标
-        chlidController.tabBarItem.selectedImage = UIImage(named: selectImageName)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        if (selectImageName is String) {
+            chlidController.tabBarItem.selectedImage = UIImage(named: selectImageName as! String)?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        }
+        if (selectImageName is UIImage) {
+            chlidController.tabBarItem.image = selectImageName as? UIImage
+        }
         //设置选中字体颜色
         chlidController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:LLJPurpleColor()], for: UIControl.State.selected)
         //设置未选中字体颜色

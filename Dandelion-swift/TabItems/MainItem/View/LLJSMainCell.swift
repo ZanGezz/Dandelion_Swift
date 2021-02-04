@@ -63,6 +63,7 @@ extension LLJSMainCell {
         self.indictor.snp_makeConstraints { (make) in
             make.right.equalTo(contentView.snp_right).offset(-Cell_OffSet_right)
             make.centerY.equalTo(contentView.snp_centerY)
+            make.width.equalTo(7)
         }
         //标题
         self.titleLabel.snp_makeConstraints { (make) in
@@ -70,7 +71,7 @@ extension LLJSMainCell {
             make.centerY.equalTo(contentView.snp_centerY)
             make.right.equalTo(self.indictor.snp_left).offset(-Cell_OffSet_right)
         }
-        //箭头
+        //底线
         self.lineView.snp_makeConstraints { (make) in
             make.left.equalTo(contentView.snp_left)
             make.right.equalTo(contentView.snp_right)

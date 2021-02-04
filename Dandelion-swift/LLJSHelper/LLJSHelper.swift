@@ -38,11 +38,28 @@ class LLJSHelper: NSObject {
      * 颜色转图片
      */
     class func getImageByColorAndSize(_ color: UIColor, _ size: CGSize) -> UIImage {
+        
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0);
-        color.setFill()
-        UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        let context: CGContext = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.setStrokeColor(color.cgColor)
+        context.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
+    }
+    /**
+     * 类名获取类
+     */
+    class func getClassFromString(_ classString: String) -> LLJFViewController {
+        //拼接字符串className时 - 需替换为 _ 。
+        let className = "Dandelion_swift" + "." + classString
+        var anyClass: AnyClass? = NSClassFromString(className)
+        if (anyClass == nil) {
+            anyClass = NSClassFromString(classString)
+        }
+        let viewControllerClass = anyClass as! LLJFViewController.Type
+        let viewController = viewControllerClass.init()
+        return viewController
     }
 }

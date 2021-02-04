@@ -22,10 +22,26 @@ class LLJFViewController: UIViewController {
      */
     var hiddenNavgationBarWhenPushIn: Bool = false
     
+    lazy var myTableView: UITableView = {
+        let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.bounces = false
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.backgroundColor = LLJColor(248, 248, 248, 1)
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //设置UI
         setUpUI()
+    }
+    
+    //返回按钮触发事件(在子类重写该方法触发事件)
+    func backAction() {
+        LLJLog("点击了返回")
     }
 }
 
@@ -35,16 +51,15 @@ extension LLJFViewController {
     private func setUpUI() {
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
         button.setImage(UIImage.init(named: "back_white"), for: UIControl.State.normal)
-        button.addTarget(self, action: #selector(buttonClick(_ :)), for: UIControl.Event.touchUpInside)
+        button.addTarget(self, action: #selector(backButtonClick(sender:)), for: UIControl.Event.touchUpInside)
         let leftItem = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftItem
     }
     //按钮事件
-    @objc private func buttonClick(_ sender: UIButton) {
+    @objc private func backButtonClick(sender: UIButton) {
+        //pop返回
         self.navigationController?.popViewController(animated: true)
-    }
-    //返回按钮触发事件(在子类重写该方法触发事件)
-    func backAction() {
-        LLJLog("点击了返回")
+        //触发返回事件
+        backAction()
     }
 }

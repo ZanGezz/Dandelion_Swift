@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E6E2B61F035CF65ED2AFE29 /* Pods_Dandelion_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */; };
+		4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02463925C151A600E2193C /* LLJSwiftUIController.swift */; };
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
@@ -24,6 +25,11 @@
 		4B83E1D42595D9B70041B601 /* git.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E1D32595D9B70041B601 /* git.txt */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
+		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
+		4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */; };
+		4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */; };
+		4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1879125B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld */; };
+		4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF187A525BAC45800B75EA6 /* LLJSUIKitHelper.swift */; };
 		6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +53,7 @@
 /* Begin PBXFileReference section */
 		121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		4B02463925C151A600E2193C /* LLJSwiftUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSwiftUIController.swift; sourceTree = "<group>"; };
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
@@ -69,6 +76,11 @@
 		4B83E1D32595D9B70041B601 /* git.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git.txt; sourceTree = "<group>"; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
+		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
+		4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMineViewController.swift; sourceTree = "<group>"; };
+		4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMyKnowledge.txt; sourceTree = "<group>"; };
+		4BF1879225B9555E00B75EA6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		4BF187A525BAC45800B75EA6 /* LLJSUIKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSUIKitHelper.swift; sourceTree = "<group>"; };
 		5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9014D35F43638A5BA7C5E7 /* Pods-Dandelion-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,9 +117,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B02463825C1515300E2193C /* SwiftUIItem */ = {
+			isa = PBXGroup;
+			children = (
+				4B02463925C151A600E2193C /* LLJSwiftUIController.swift */,
+				4B02464025C151B700E2193C /* Controller */,
+				4B02463F25C151B200E2193C /* Model */,
+				4B02463E25C151AC00E2193C /* View */,
+			);
+			path = SwiftUIItem;
+			sourceTree = "<group>";
+		};
+		4B02463E25C151AC00E2193C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B02463F25C151B200E2193C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B02464025C151B700E2193C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4BF187A425BAC43600B75EA6 /* LLJSUIKitHelper */,
 				4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */,
 				4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */,
 			);
@@ -147,6 +192,10 @@
 		4B49C618259D82180004936B /* MineItem */ = {
 			isa = PBXGroup;
 			children = (
+				4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */,
+				4BF1878B25B92A7300B75EA6 /* Controller */,
+				4BF1878A25B92A7300B75EA6 /* Model */,
+				4BF1878925B92A7300B75EA6 /* View */,
 			);
 			path = MineItem;
 			sourceTree = "<group>";
@@ -209,7 +258,8 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */,
+				4BDE20F025C944050079960D /* TableView相关 */,
+				4BDE20EC25C943670079960D /* CoreData相关 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,6 +283,7 @@
 		4B83E1A5258CB28B0041B601 /* TabItems */ = {
 			isa = PBXGroup;
 			children = (
+				4B02463825C1515300E2193C /* SwiftUIItem */,
 				4B49C614259D81F00004936B /* MainItem */,
 				4B49C618259D82180004936B /* MineItem */,
 			);
@@ -243,8 +294,103 @@
 			isa = PBXGroup;
 			children = (
 				4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */,
+				4BF1879125B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld */,
 			);
 			path = LLJSCoreDataHelper;
+			sourceTree = "<group>";
+		};
+		4BDE20EC25C943670079960D /* CoreData相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE20EF25C9439B0079960D /* Controller */,
+				4BDE20EE25C943940079960D /* Model */,
+				4BDE20ED25C9438D0079960D /* View */,
+			);
+			path = "CoreData相关";
+			sourceTree = "<group>";
+		};
+		4BDE20ED25C9438D0079960D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BDE20EE25C943940079960D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BDE20EF25C9439B0079960D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BDE20F025C944050079960D /* TableView相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE20F325C944310079960D /* Controller */,
+				4BDE20F225C9442D0079960D /* Model */,
+				4BDE20F125C944250079960D /* View */,
+			);
+			path = "TableView相关";
+			sourceTree = "<group>";
+		};
+		4BDE20F125C944250079960D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BDE20F225C9442D0079960D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BDE20F325C944310079960D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE20F425C944670079960D /* LLJSTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BF1878925B92A7300B75EA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BF1878A25B92A7300B75EA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BF1878B25B92A7300B75EA6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BF187A425BAC43600B75EA6 /* LLJSUIKitHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4BF187A525BAC45800B75EA6 /* LLJSUIKitHelper.swift */,
+			);
+			path = LLJSUIKitHelper;
 			sourceTree = "<group>";
 		};
 		80B40C6B93A042C3CC840C52 /* Frameworks */ = {
@@ -382,6 +528,7 @@
 				4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */,
 				4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */,
 				4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */,
+				4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,12 +660,17 @@
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
+				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
+				4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
+				4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */,
 				4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */,
+				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
+				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +768,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -671,7 +823,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -851,6 +1003,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4BF1879125B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4BF1879225B9555E00B75EA6 /* Model.xcdatamodel */,
+			);
+			currentVersion = 4BF1879225B9555E00B75EA6 /* Model.xcdatamodel */;
+			path = LLJSCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4B83E1272589AB7A0041B601 /* Project object */;
 }

@@ -1,17 +1,17 @@
 //
-//  LLJSMainViewController.swift
+//  LLJMineViewController.swift
 //  Dandelion-swift
 //
-//  Created by 刘帅 on 2020/12/18.
+//  Created by 刘帅 on 2021/1/21.
 //
 
 import UIKit
 
-class LLJSMainViewController: UIViewController {
-    
+class LLJMineViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //获取本地数据
         getLocalTxtSource()
         //设置UI
@@ -31,12 +31,11 @@ class LLJSMainViewController: UIViewController {
         return tableView
     }()
     //数据数组
-    var sourceArray : NSArray?
-    
+    var sourceArray: NSArray?
 }
 
 //MARK: - UITableViewDelegate -
-extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
+extension LLJMineViewController: UITableViewDelegate, UITableViewDataSource {
         
     //UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,25 +50,25 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell") as! LLJSMainCell
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        cell.setDataSource(self.sourceArray!.object(at: indexPath.row) as! String)
+        cell.setDataSource((self.sourceArray!.object(at: indexPath.row) as! Array<Any>).first as! String)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sub = (self.sourceArray!.object(at: indexPath.row) as! NSString).components(separatedBy: ":")
-        let str = sub.last!
-        self.navigationController?.pushViewController(LLJSHelper.getClassFromString(str), animated: true)
     }
 }
 
 //MARK:设置UI + 布局
-extension LLJSMainViewController {
+extension LLJMineViewController {
     
     //获取本地数据
     private func getLocalTxtSource() {
         //获取本地数据
-        let path = Bundle.main.path(forResource: "LLJMainSource", ofType: "txt")
-        self.sourceArray = LLJSHelper.getLocalSource(path: path!) as? NSArray
+        let path = Bundle.main.path(forResource: "LLJMyKnowledge", ofType: "txt")
+        let local = LLJSHelper.getLocalSource(path: path!) as! Array<Any>
+        var subArray: [Any] = Array()
+        for sub in local {
+            let sep = (sub as! NSString).components(separatedBy: "-")
+            subArray.append(sep)
+        }
+        self.sourceArray = subArray as NSArray?
     }
     //设置UI
     private func setUpUI() {
