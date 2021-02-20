@@ -65,25 +65,44 @@ extension LLJSCoreDataHelper {
     /**
      * 增 * 根据模型名称和查询条件插入数据 *
      */
-    func insertRosource() {
+    func insertRosource() -> Bool {
         
-        try! self.context?.save()
+        do {
+            try self.context?.save()
+        } catch {
+            LLJLog("coreDataSaveError")
+            return false
+        }
+        return true
     }
     /**
      * 删 * 根据模型名称和查询条件删除数据 *
      */
-    func deleteRosource(entityName: String, predicate: String) {
+    func deleteRosource(entityName: String, predicate: String) -> Bool {
         
         let array = self.getRosource(entityName: entityName, predicate: predicate)
         for object in array {
             self.context?.delete(object as! NSManagedObject)
         }
+        do {
+            try self.context?.save()
+        } catch {
+            LLJLog("coreDataSaveError")
+            return false
+        }
+        return true
     }
     /**
      * 改 * 根据模型名称和查询条件修改数据 *
      */
-    func updateRosource() {
-        try! self.context?.save()
+    func updateRosource() -> Bool {
+        do {
+            try self.context?.save()
+        } catch {
+            LLJLog("coreDataSaveError")
+            return false
+        }
+        return true
     }
     /**
      * 查 * 根据模型名称和查询条件查询数据 *

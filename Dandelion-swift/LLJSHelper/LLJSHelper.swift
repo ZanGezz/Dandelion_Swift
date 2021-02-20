@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LLJSHelper: NSObject {
+public class LLJSHelper {
     
     /**
      * 获取本地文件资源如txt等
@@ -61,5 +61,27 @@ class LLJSHelper: NSObject {
         let viewControllerClass = anyClass as! LLJFViewController.Type
         let viewController = viewControllerClass.init()
         return viewController
+    }
+    
+    /**
+     * 生成随机数
+     */
+    class func arc4random(duration: Int) -> Int {
+        return Int(Darwin.arc4random()) % duration
+    }
+    
+    /**
+     * 退出app
+     */
+    class func exitApplication() {
+        
+        let window = UIApplication.shared.keyWindow
+        UIView.animate(withDuration: 0.35) {
+            window!.alpha = 0
+            window!.frame = CGRect(x: 0, y: window!.bounds.size.height / 2, width: window!.bounds.size.width, height: 0.5)
+        } completion: { (finished) in
+            exit(0)
+        }
+
     }
 }

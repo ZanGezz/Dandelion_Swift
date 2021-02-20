@@ -32,7 +32,6 @@ class LLJSMainViewController: UIViewController {
     }()
     //数据数组
     var sourceArray : NSArray?
-    
 }
 
 //MARK: - UITableViewDelegate -
@@ -57,8 +56,9 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sub = (self.sourceArray!.object(at: indexPath.row) as! NSString).components(separatedBy: ":")
-        let str = sub.last!
-        self.navigationController?.pushViewController(LLJSHelper.getClassFromString(str), animated: true)
+        let viewController: LLJFViewController = LLJSHelper.getClassFromString(sub.last!)
+        viewController.titleName = sub.first!
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -77,5 +77,15 @@ extension LLJSMainViewController {
         self.view.backgroundColor = LLJWhiteColor()
         //添加TableView
         self.view.addSubview(self.myTableView)
+        //网络请求
+        loadData()
+    }
+    //网络请求
+    private func loadData() {
+        LLJNetHelper.loadData(target: LLJMainReq.mainList, model: LLJMainModel.self) { (decode) in
+            
+        } failure: { (int, string) in
+            
+        }
     }
 }

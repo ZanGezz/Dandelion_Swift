@@ -8,7 +8,7 @@ target 'Dandelion-swift' do
   # Pods for Dandelion-swift
   
   pod "SnapKit"
-  pod 'Alamofire'
+  pod 'Moya'
   
   target 'Dandelion-swiftTests' do
     inherit! :search_paths

@@ -13,6 +13,10 @@
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
 		4B49C60A259C66550004936B /* LLJConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B49C609259C66550004936B /* LLJConfig.swift */; };
+		4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D1BD25DF5FA6001532E7 /* LLJNetHelper.swift */; };
+		4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */; };
+		4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72586025E0FE7C00B4F9AC /* LLJMainReq.swift */; };
+		4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72586525E100A500B4F9AC /* LLJMainModel.swift */; };
 		4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80821D25B57D5900F89B9C /* LLJFViewController.swift */; };
 		4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80822225B57D7600F89B9C /* LLJNaviController.swift */; };
 		4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80822725B57DA100F89B9C /* LLJTabBarController.swift */; };
@@ -58,6 +62,10 @@
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
 		4B49C609259C66550004936B /* LLJConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJConfig.swift; sourceTree = "<group>"; };
+		4B68D1BD25DF5FA6001532E7 /* LLJNetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNetHelper.swift; sourceTree = "<group>"; };
+		4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMoyaConfig.swift; sourceTree = "<group>"; };
+		4B72586025E0FE7C00B4F9AC /* LLJMainReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMainReq.swift; sourceTree = "<group>"; };
+		4B72586525E100A500B4F9AC /* LLJMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMainModel.swift; sourceTree = "<group>"; };
 		4B80821D25B57D5900F89B9C /* LLJFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFViewController.swift; sourceTree = "<group>"; };
 		4B80822225B57D7600F89B9C /* LLJNaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNaviController.swift; sourceTree = "<group>"; };
 		4B80822725B57DA100F89B9C /* LLJTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJTabBarController.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4B68D1BC25DF5F7C001532E7 /* LLJNetHelper */,
 				4BF187A425BAC43600B75EA6 /* LLJSUIKitHelper */,
 				4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */,
 				4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */,
@@ -198,6 +207,15 @@
 				4BF1878925B92A7300B75EA6 /* View */,
 			);
 			path = MineItem;
+			sourceTree = "<group>";
+		};
+		4B68D1BC25DF5F7C001532E7 /* LLJNetHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4B68D1BD25DF5FA6001532E7 /* LLJNetHelper.swift */,
+				4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */,
+			);
+			path = LLJNetHelper;
 			sourceTree = "<group>";
 		};
 		4B83E1262589AB7A0041B601 = {
@@ -268,6 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				4B83E1D32595D9B70041B601 /* git.txt */,
+				4B72586025E0FE7C00B4F9AC /* LLJMainReq.swift */,
+				4B72586525E100A500B4F9AC /* LLJMainModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -656,18 +676,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
 				4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */,
+				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
 				4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */,
+				4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */,
 				4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */,
 				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
+				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
 				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,

@@ -21,6 +21,10 @@ class LLJFViewController: UIViewController {
      * 进入页面隐藏导航栏 默认不隐藏
      */
     var hiddenNavgationBarWhenPushIn: Bool = false
+    /*
+     * 标题title
+     */
+    var titleName: String = ""
     
     lazy var myTableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
@@ -49,11 +53,14 @@ extension LLJFViewController {
         
     //设置按钮
     private func setUpUI() {
+        //左侧返回按钮
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
         button.setImage(UIImage.init(named: "back_white"), for: UIControl.State.normal)
         button.addTarget(self, action: #selector(backButtonClick(sender:)), for: UIControl.Event.touchUpInside)
         let leftItem = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftItem
+        //标题
+        self.title = self.titleName;
     }
     //按钮事件
     @objc private func backButtonClick(sender: UIButton) {

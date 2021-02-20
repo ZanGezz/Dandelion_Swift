@@ -61,27 +61,32 @@ extension LLJSMainCell {
     private func layoutSubview() {
         //箭头
         self.indictor.snp_makeConstraints { (make) in
-            make.right.equalTo(contentView.snp_right).offset(-Cell_OffSet_right)
-            make.centerY.equalTo(contentView.snp_centerY)
-            make.width.equalTo(7)
+            make.right.equalTo(self.snp_right).offset(-Cell_OffSet_right)
+            make.centerY.equalTo(self.snp_centerY)
+            make.width.equalTo(LLJDX(7))
         }
         //标题
         self.titleLabel.snp_makeConstraints { (make) in
-            make.left.equalTo(contentView.snp_left).offset(Cell_OffSet_left);
-            make.centerY.equalTo(contentView.snp_centerY)
-            make.right.equalTo(self.indictor.snp_left).offset(-Cell_OffSet_right)
+            make.left.equalTo(self.snp_left).offset(Cell_OffSet_left);
+            make.centerY.equalTo(self.snp_centerY)
+            make.right.equalTo(self.snp_right).offset(LLJDX(-40))
         }
         //底线
         self.lineView.snp_makeConstraints { (make) in
-            make.left.equalTo(contentView.snp_left)
-            make.right.equalTo(contentView.snp_right)
-            make.bottom.equalTo(contentView.snp_bottom)
-            make.height.equalTo(1.0)
+            make.left.equalTo(self.snp_left)
+            make.right.equalTo(self.snp_right)
+            make.bottom.equalTo(self.snp_bottom)
+            make.height.equalTo(0.5)
         }
     }
     
     //赋值
     func setDataSource(_ title: String) {
         self.titleLabel.text = title;
+    }
+    
+    //是否隐藏箭头
+    func setIndictorHidden(_ hidden: Bool) {
+        self.indictor.isHidden = hidden
     }
 }

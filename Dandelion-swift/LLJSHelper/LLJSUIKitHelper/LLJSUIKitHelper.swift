@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LLJSUIKitHelper: NSObject {
+public class LLJSUIKitHelper {
 
     //UIView
     class func LLJView(backGroundColor: UIColor?, frame: CGRect?) -> UIView {
