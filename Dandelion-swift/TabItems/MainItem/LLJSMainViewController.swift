@@ -56,9 +56,11 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sub = (self.sourceArray!.object(at: indexPath.row) as! NSString).components(separatedBy: ":")
-        let viewController: LLJFViewController = LLJSHelper.getClassFromString(sub.last!)
-        viewController.titleName = sub.first!
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController: LLJFViewController? = LLJSHelper.getClassFromString(sub.last!)
+        if viewController != nil {
+            viewController?.titleName = sub.first!
+            self.navigationController?.pushViewController(viewController!, animated: true)
+        }
     }
 }
 

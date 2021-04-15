@@ -51,15 +51,17 @@ public class LLJSHelper {
     /**
      * 类名获取类
      */
-    class func getClassFromString(_ classString: String) -> LLJFViewController {
+    class func getClassFromString(_ classString: String) -> LLJFViewController? {
         //拼接字符串className时 - 需替换为 _ 。
         let className = "Dandelion_swift" + "." + classString
-        var anyClass: AnyClass? = NSClassFromString(className)
-        if (anyClass == nil) {
-            anyClass = NSClassFromString(classString)
+        let anyClass: AnyClass? = NSClassFromString(className)
+        let viewControllerClass = anyClass as? LLJFViewController.Type
+        // 如果不是 UIViewController类型,则renturn
+        guard (viewControllerClass != nil) else{
+            print("Can not append")
+            return nil;
         }
-        let viewControllerClass = anyClass as! LLJFViewController.Type
-        let viewController = viewControllerClass.init()
+        let viewController = viewControllerClass!.init()
         return viewController
     }
     
@@ -83,5 +85,19 @@ public class LLJSHelper {
             exit(0)
         }
 
+    }
+    
+    /**
+     * 事件响应链查找view所在viewController
+     */
+    class func getSuperViewController(_ subView: UIView) -> UIViewController? {
+        var nextResponder :UIResponder? = subView.next
+        while (nextResponder != nil) {
+            if (nextResponder!.isKind(of: UIViewController.self)) {
+                return (nextResponder as! UIViewController)
+            }
+            nextResponder = nextResponder?.next
+        }
+        return nil
     }
 }

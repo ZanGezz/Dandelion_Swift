@@ -20,7 +20,7 @@ public class LLJNetHelper {
     public class func loadData<T: TargetType, D: Decodable>(target: T, model: D.Type?, cache: ((D?) -> Void)? = nil, success: @escaping((D?) -> Void), failure: ((Int?, String) ->Void)?) {
         let provider = MoyaProvider<T>(plugins: [
             RequestHandlingPlugin(),
-            networkLoggerPlugin
+        //networkLoggerPlugin
             ])
         //如果需要读取缓存，则优先读取缓存内容
 //        if let cache = cache, let data = SaveFiles.read(path: target.path) {

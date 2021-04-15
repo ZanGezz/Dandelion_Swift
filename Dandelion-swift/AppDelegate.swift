@@ -21,10 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = LLJTabBarController()
         self.window?.makeKeyAndVisible()
+              
+        //开启
+        UIControl.swizzlAddTargetMethod()
         
         return true
     }
-
+    
 }
 
 extension AppDelegate {
