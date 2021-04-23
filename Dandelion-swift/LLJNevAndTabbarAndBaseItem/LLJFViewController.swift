@@ -43,6 +43,12 @@ class LLJFViewController: UIViewController {
         setUpUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //设置代理
+        self.navigationController?.delegate = self;
+    }
+    
     //返回按钮触发事件(在子类重写该方法触发事件)
     func backAction() {
         LLJLog("点击了返回")
@@ -61,6 +67,8 @@ extension LLJFViewController {
         self.navigationItem.leftBarButtonItem = leftItem
         //标题
         self.title = self.titleName;
+        //隐藏tabbar
+        self.hidesBottomBarWhenPushed = true
     }
     //按钮事件
     @objc private func backButtonClick(sender: UIButton) {
@@ -68,5 +76,13 @@ extension LLJFViewController {
         self.navigationController?.popViewController(animated: true)
         //触发返回事件
         backAction()
+    }
+}
+
+extension LLJFViewController: UINavigationControllerDelegate {
+    //代理
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        let hidden = self.isKind(of: viewController.classForCoder) && self.hiddenNavgationBarWhenPushIn
+        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
     }
 }

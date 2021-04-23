@@ -59,6 +59,7 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
         let viewController: LLJFViewController? = LLJSHelper.getClassFromString(sub.last!)
         if viewController != nil {
             viewController?.titleName = sub.first!
+            viewController?.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController!, animated: true)
         }
     }
@@ -84,6 +85,7 @@ extension LLJSMainViewController {
     }
     //网络请求
     private func loadData() {
+        
         LLJNetHelper.loadData(target: LLJMainReq.mainList, model: LLJMainModel.self) { (decode) in
             
         } failure: { (int, string) in

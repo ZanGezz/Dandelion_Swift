@@ -34,7 +34,9 @@ extension UIControl {
     }
 
     @objc func llj_sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {
-        LLJLog("UIButton = " + ((self as! UIButton).titleLabel?.text ?? "没有名字"));
+        if self.isKind(of: UIButton.self) {
+            LLJLog("UIButton = " + ((self as! UIButton).titleLabel?.text ?? "没有名字"));
+        }
         self.llj_sendAction(action, to: target, for: event)
     }
 }

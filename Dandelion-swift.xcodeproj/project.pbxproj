@@ -12,6 +12,9 @@
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
+		4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48B25A262D31040048A913 /* LLJBezierPathCell.swift */; };
+		4B48B260262D57280048A913 /* LLJBezierPathModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48B25F262D57280048A913 /* LLJBezierPathModel.swift */; };
+		4B48B266262E5EAB0048A913 /* LLJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48B265262E5EAB0048A913 /* LLJsonModel.swift */; };
 		4B49C60A259C66550004936B /* LLJConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B49C609259C66550004936B /* LLJConfig.swift */; };
 		4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D1BD25DF5FA6001532E7 /* LLJNetHelper.swift */; };
 		4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */; };
@@ -28,6 +31,10 @@
 		4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */; };
 		4B83E1D42595D9B70041B601 /* git.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E1D32595D9B70041B601 /* git.txt */; };
 		4B83E8CE26252F3000537DA0 /* LLJFALiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8CD26252F3000537DA0 /* LLJFALiMainViewController.swift */; };
+		4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8D72629264E00537DA0 /* LLJBezierPath.swift */; };
+		4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8E22629344300537DA0 /* LLJAnimation.swift */; };
+		4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8EB2629399F00537DA0 /* LLJBezierPathController.swift */; };
+		4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8F726293CA200537DA0 /* LLJDrawRect.swift */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
 		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
@@ -63,6 +70,9 @@
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
+		4B48B25A262D31040048A913 /* LLJBezierPathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBezierPathCell.swift; sourceTree = "<group>"; };
+		4B48B25F262D57280048A913 /* LLJBezierPathModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBezierPathModel.swift; sourceTree = "<group>"; };
+		4B48B265262E5EAB0048A913 /* LLJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJsonModel.swift; sourceTree = "<group>"; };
 		4B49C609259C66550004936B /* LLJConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJConfig.swift; sourceTree = "<group>"; };
 		4B68D1BD25DF5FA6001532E7 /* LLJNetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNetHelper.swift; sourceTree = "<group>"; };
 		4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMoyaConfig.swift; sourceTree = "<group>"; };
@@ -85,6 +95,10 @@
 		4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainViewController.swift; sourceTree = "<group>"; };
 		4B83E1D32595D9B70041B601 /* git.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git.txt; sourceTree = "<group>"; };
 		4B83E8CD26252F3000537DA0 /* LLJFALiMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFALiMainViewController.swift; sourceTree = "<group>"; };
+		4B83E8D72629264E00537DA0 /* LLJBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBezierPath.swift; sourceTree = "<group>"; };
+		4B83E8E22629344300537DA0 /* LLJAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAnimation.swift; sourceTree = "<group>"; };
+		4B83E8EB2629399F00537DA0 /* LLJBezierPathController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBezierPathController.swift; sourceTree = "<group>"; };
+		4B83E8F726293CA200537DA0 /* LLJDrawRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJDrawRect.swift; sourceTree = "<group>"; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
 		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +178,10 @@
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4B48B264262D5F9F0048A913 /* LLJsonModel */,
+				4B83E8F626293C4900537DA0 /* LLJDrawRect */,
+				4B83E8E12629342000537DA0 /* LLJAnimation */,
+				4B83E8D32629242700537DA0 /* LLJBezierPath */,
 				4BF8A211260C1B73007FD071 /* LLJCategory */,
 				4B68D1BC25DF5F7C001532E7 /* LLJNetHelper */,
 				4BF187A425BAC43600B75EA6 /* LLJSUIKitHelper */,
@@ -171,6 +189,14 @@
 				4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */,
 			);
 			path = LLJSHelper;
+			sourceTree = "<group>";
+		};
+		4B48B264262D5F9F0048A913 /* LLJsonModel */ = {
+			isa = PBXGroup;
+			children = (
+				4B48B265262E5EAB0048A913 /* LLJsonModel.swift */,
+			);
+			path = LLJsonModel;
 			sourceTree = "<group>";
 		};
 		4B49C5FF259C65390004936B /* Commen */ = {
@@ -281,6 +307,7 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B83E8E72629391400537DA0 /* 贝塞尔曲线画图篇 */,
 				4B83E8C62625279700537DA0 /* 仿支付宝首页 */,
 				4BDE20F025C944050079960D /* TableView相关 */,
 				4BDE20EC25C943670079960D /* CoreData相关 */,
@@ -346,6 +373,64 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4B83E8D32629242700537DA0 /* LLJBezierPath */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E8D72629264E00537DA0 /* LLJBezierPath.swift */,
+			);
+			path = LLJBezierPath;
+			sourceTree = "<group>";
+		};
+		4B83E8E12629342000537DA0 /* LLJAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E8E22629344300537DA0 /* LLJAnimation.swift */,
+			);
+			path = LLJAnimation;
+			sourceTree = "<group>";
+		};
+		4B83E8E72629391400537DA0 /* 贝塞尔曲线画图篇 */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E8E92629394200537DA0 /* Controller */,
+				4B83E8E82629394200537DA0 /* Model */,
+				4B83E8EA2629394200537DA0 /* View */,
+			);
+			path = "贝塞尔曲线画图篇";
+			sourceTree = "<group>";
+		};
+		4B83E8E82629394200537DA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B48B25F262D57280048A913 /* LLJBezierPathModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B83E8E92629394200537DA0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E8EB2629399F00537DA0 /* LLJBezierPathController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B83E8EA2629394200537DA0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B48B25A262D31040048A913 /* LLJBezierPathCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B83E8F626293C4900537DA0 /* LLJDrawRect */ = {
+			isa = PBXGroup;
+			children = (
+				4B83E8F726293CA200537DA0 /* LLJDrawRect.swift */,
+			);
+			path = LLJDrawRect;
 			sourceTree = "<group>";
 		};
 		4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */ = {
@@ -723,12 +808,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
+				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
+				4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */,
 				4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */,
+				4B48B260262D57280048A913 /* LLJBezierPathModel.swift in Sources */,
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
 				4B83E8CE26252F3000537DA0 /* LLJFALiMainViewController.swift in Sources */,
@@ -736,13 +824,17 @@
 				4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */,
 				4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */,
 				4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */,
+				4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */,
 				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
+				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
 				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,
+				4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */,
+				4B48B266262E5EAB0048A913 /* LLJsonModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,7 +1004,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 474CB9MP8W;
+				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -933,7 +1025,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 474CB9MP8W;
+				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
