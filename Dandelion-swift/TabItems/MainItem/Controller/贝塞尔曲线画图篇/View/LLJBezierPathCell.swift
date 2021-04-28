@@ -91,6 +91,10 @@ extension LLJBezierPathCell {
             //画圆
             LLJDrawRect.drawCyle(rect: model.rect!,lineWidth: model.lineWidth!,strokColor:model.strokeColor,fillColor: model.fillColor,superView: self.drawView);
 
+        } else if model.title == "圆一" {
+            //画椭圆
+            //LLJDrawRect.drawCyle(lineWidth: model.lineWidth, strokColor: model.strokeColor, fillColor: model.fillColor, backColor: nil, arcCenter: <#T##CGPoint#>, radius: <#T##CGFloat#>, startAngle: <#T##CGFloat#>, endAngle: <#T##CGFloat#>, clockwise: <#T##Bool#>, superView: <#T##UIView#>);
+
         } else if model.title == "椭圆" {
             //画椭圆
             LLJDrawRect.drawCyle(rect: model.rect!,lineWidth: model.lineWidth!,strokColor:model.strokeColor,fillColor: model.fillColor,superView: self.drawView);

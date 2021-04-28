@@ -18,7 +18,7 @@ class LLJBezierPathController: LLJFViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = LLJColor(240, 240, 240, 1)
-        collectionView.register(LLJBezierPathCell.self, forCellWithReuseIdentifier: "BezierPath")
+        collectionView.register(LLJBezierPathCell.self, forCellWithReuseIdentifier: "BezierPathCell")
         return collectionView
     }()
     
@@ -126,7 +126,7 @@ extension LLJBezierPathController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BezierPath", for: indexPath) as! LLJBezierPathCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BezierPathCell", for: indexPath) as! LLJBezierPathCell
         cell.setDataSource(model: self.dataSource[indexPath.row])
         return cell
     }
