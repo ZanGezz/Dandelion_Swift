@@ -30,6 +30,11 @@ class LLJAnimationController: LLJFViewController {
         //UI
         setUpUI()
     }
+    
+    //dealloc
+    deinit {
+        LLJLog("没有循环引用")
+    }
 }
 
 //MARK: - UI -
@@ -53,10 +58,26 @@ extension LLJAnimationController {
         model4.animationName = "基础动画-淡出"
         
         let model5 = LLJAnimationModel()
-        model5.animationName = "弹性动画-震动"
+        model5.animationName = "弹性动画-缩放"
         
         let model6 = LLJAnimationModel()
         model6.animationName = "弹性动画-平移"
+        
+        let model7 = LLJAnimationModel()
+        model7.animationName = "弹性动画-旋转"
+        
+        let model8 = LLJAnimationModel()
+        model8.animationName = "粒子发射-烟花"
+        
+        let model9 = LLJAnimationModel()
+        model9.animationName = "粒子发射-雪花"
+        
+        let model10 = LLJAnimationModel()
+        model10.animationName = "粒子发射-细雨"
+        
+        let model11 = LLJAnimationModel()
+        model11.animationName = "粒子发射-点赞"
+        
         //添加模型
         self.dataSource.append(model1)
         self.dataSource.append(model2)
@@ -64,6 +85,11 @@ extension LLJAnimationController {
         self.dataSource.append(model4)
         self.dataSource.append(model5)
         self.dataSource.append(model6)
+        self.dataSource.append(model7)
+        self.dataSource.append(model8)
+        self.dataSource.append(model9)
+        self.dataSource.append(model10)
+        self.dataSource.append(model11)
 
         //collectionView
         self.view.addSubview(self.collectionView)
@@ -108,3 +134,4 @@ extension LLJAnimationController: UICollectionViewDataSource {
         return cell
     }
 }
+

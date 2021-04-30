@@ -92,31 +92,4 @@ public class LLJSUIKitHelper {
         label.numberOfLines = numberOfLines
         return label;
     }
-    
-    class func shapeLayer(bounds: CGRect, position: CGPoint?, lineWidth: CGFloat?, strokeColor: UIColor?, fillColor: UIColor?, backColor: UIColor?) -> CAShapeLayer {
-        let subLayer = CAShapeLayer()
-        
-        if (position != nil) {
-            subLayer.position = position!
-        }
-        
-        if (lineWidth != nil) {
-            subLayer.lineWidth = lineWidth!
-        }
-        
-        if (strokeColor != nil) {
-            subLayer.strokeColor = strokeColor!.cgColor
-        }
-        
-        if (fillColor != nil) {
-            subLayer.fillColor = fillColor!.cgColor
-        } else {
-            subLayer.fillColor = UIColor.clear.cgColor
-        }
-        
-        if (backColor != nil) {
-            subLayer.backgroundColor = backColor!.cgColor
-        }
-        return subLayer
-    }
 }

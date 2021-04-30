@@ -26,6 +26,7 @@
 		4B8087322638EE6B009CEDFF /* LLJAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8087312638EE6B009CEDFF /* LLJAnimationController.swift */; };
 		4B8087372638EFBF009CEDFF /* LLJAnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8087362638EFBF009CEDFF /* LLJAnimationCell.swift */; };
 		4B80873C2638F21D009CEDFF /* LLJAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80873B2638F21D009CEDFF /* LLJAnimationModel.swift */; };
+		4B808749263A9386009CEDFF /* LLJLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B808748263A9386009CEDFF /* LLJLayer.swift */; };
 		4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1322589AB7A0041B601 /* AppDelegate.swift */; };
 		4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13B2589AB7D0041B601 /* Assets.xcassets */; };
 		4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E13D2589AB7D0041B601 /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 		4B8087312638EE6B009CEDFF /* LLJAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAnimationController.swift; sourceTree = "<group>"; };
 		4B8087362638EFBF009CEDFF /* LLJAnimationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAnimationCell.swift; sourceTree = "<group>"; };
 		4B80873B2638F21D009CEDFF /* LLJAnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAnimationModel.swift; sourceTree = "<group>"; };
+		4B808748263A9386009CEDFF /* LLJLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLayer.swift; sourceTree = "<group>"; };
 		4B83E12F2589AB7A0041B601 /* Dandelion-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dandelion-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B83E1322589AB7A0041B601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B83E13B2589AB7D0041B601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4B808747263A9364009CEDFF /* LLJLayer */,
 				4B48B264262D5F9F0048A913 /* LLJsonModel */,
 				4B83E8F626293C4900537DA0 /* LLJDrawRect */,
 				4B83E8E12629342000537DA0 /* LLJAnimation */,
@@ -253,6 +256,14 @@
 				4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */,
 			);
 			path = LLJNetHelper;
+			sourceTree = "<group>";
+		};
+		4B808747263A9364009CEDFF /* LLJLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4B808748263A9386009CEDFF /* LLJLayer.swift */,
+			);
+			path = LLJLayer;
 			sourceTree = "<group>";
 		};
 		4B83E1262589AB7A0041B601 = {
@@ -824,6 +835,7 @@
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
+				4B808749263A9386009CEDFF /* LLJLayer.swift in Sources */,
 				4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */,
 				4B80873C2638F21D009CEDFF /* LLJAnimationModel.swift in Sources */,
 				4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */,

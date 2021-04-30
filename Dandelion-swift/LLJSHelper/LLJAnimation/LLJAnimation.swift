@@ -75,9 +75,14 @@ class LLJAnimation {
      * initialVelocity：初始速度
      * removedOnCompletion：执行完是否移除，此属性为true时fillMode不生效
      */
-    class func keyframeAnimation(keyPath: String, fromValue: Any?, toValue: Any?, byValue: Any?, duration: CFTimeInterval, damping: CGFloat?, stiffness: CGFloat?, mass: CGFloat?, fillMode: CAMediaTimingFillMode?, initialVelocity: CGFloat?, removedOnCompletion: Bool?) -> CAKeyframeAnimation {
+    class func keyframeAnimation(keyPath: String, values: [Any]?, path: CGPath?, keyTimes: [NSNumber]?, duration: CFTimeInterval, timingFunctions: [CAMediaTimingFunction]?, fillMode: CAMediaTimingFillMode?, calculationMode: CAAnimationCalculationMode, removedOnCompletion: Bool?) -> CAKeyframeAnimation {
         let keyframeAnimation = CAKeyframeAnimation(keyPath: keyPath)
         keyframeAnimation.duration = duration
+        keyframeAnimation.values = values
+        keyframeAnimation.path = path
+        keyframeAnimation.keyTimes = keyTimes
+        keyframeAnimation.timingFunctions = timingFunctions
+        keyframeAnimation.calculationMode = calculationMode
         keyframeAnimation.fillMode = fillMode ?? CAMediaTimingFillMode.removed
         keyframeAnimation.isRemovedOnCompletion = removedOnCompletion ?? true
         return keyframeAnimation

@@ -100,4 +100,11 @@ public class LLJSHelper {
         }
         return nil
     }
+    
+    /**
+     * 根据角度获取圆周率
+     */
+    class func getPrintsByAngle(angle: Double) -> Double {
+        return angle * Double.pi / 180.0
+    }
 }

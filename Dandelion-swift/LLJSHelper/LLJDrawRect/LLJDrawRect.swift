@@ -17,7 +17,7 @@ class LLJDrawRect {
     class func drawCyle(rect: CGRect, lineWidth: CGFloat, strokColor: UIColor?, fillColor: UIColor?, superView: UIView) {
         
         let path = LLJBezierPath.drawCyle(rect: rect)
-        let layer = LLJSUIKitHelper.shapeLayer(bounds: superView.bounds, position: nil, lineWidth: lineWidth, strokeColor: strokColor, fillColor: fillColor, backColor: nil)
+        let layer = LLJLayer.shapeLayer(bounds: superView.bounds, position: nil, lineWidth: lineWidth, strokeColor: strokColor, fillColor: fillColor, backColor: nil)
         layer.path = path.cgPath
         superView.layer.addSublayer(layer)
     }
@@ -31,7 +31,7 @@ class LLJDrawRect {
     class func drawCyle(lineWidth: CGFloat, strokColor: UIColor?, fillColor: UIColor?, backColor: UIColor?, arcCenter: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool, superView: UIView) {
         
         let path = LLJBezierPath.drawCyle(arcCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: clockwise)
-        let layer = LLJSUIKitHelper.shapeLayer(bounds: superView.bounds, position: nil, lineWidth: lineWidth, strokeColor: strokColor, fillColor: fillColor, backColor: backColor)
+        let layer = LLJLayer.shapeLayer(bounds: superView.bounds, position: nil, lineWidth: lineWidth, strokeColor: strokColor, fillColor: fillColor, backColor: backColor)
         layer.path = path.cgPath
         superView.layer.addSublayer(layer)
     }
@@ -46,7 +46,7 @@ class LLJDrawRect {
     class func drawPolygon(pointArray: Array<CGPoint>, closePath: Bool, lineWidth: CGFloat, strokColor: UIColor?, fillColor: UIColor?, superView: UIView) {
         
         let path = LLJBezierPath.drawPolygon(pointArray: pointArray, closePath: closePath)
-        let layer = LLJSUIKitHelper.shapeLayer(bounds: superView.bounds, position: nil, lineWidth: lineWidth, strokeColor: strokColor, fillColor: fillColor, backColor: nil)
+        let layer = LLJLayer.shapeLayer(bounds: superView.bounds, position: nil, lineWidth: lineWidth, strokeColor: strokColor, fillColor: fillColor, backColor: nil)
         layer.path = path.cgPath
         superView.layer.addSublayer(layer)
     }

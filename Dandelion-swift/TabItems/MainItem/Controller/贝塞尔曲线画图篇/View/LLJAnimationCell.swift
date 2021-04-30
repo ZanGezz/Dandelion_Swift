@@ -42,8 +42,7 @@ class LLJAnimationCell: UICollectionViewCell {
     }()
     
     var model: LLJAnimationModel?
-    
-    var animation: CAAnimation?
+    var subLayer: CALayer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -103,6 +102,8 @@ extension LLJAnimationCell {
                 make.height.equalTo(50)
                 make.width.equalTo(50)
             }
+            self.animationView.addSubview(self.subAnimationView)
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
         } else if model.animationName == "基础动画-缩放" {
             //动画名称
             self.titleLabel.text = model.animationName
@@ -113,6 +114,8 @@ extension LLJAnimationCell {
                 make.height.equalTo(100)
                 make.width.equalTo(100)
             }
+            self.animationView.addSubview(self.subAnimationView)
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
         } else if model.animationName == "基础动画-旋转" {
             //动画名称
             self.titleLabel.text = model.animationName
@@ -123,6 +126,8 @@ extension LLJAnimationCell {
                 make.height.equalTo(50)
                 make.width.equalTo(50)
             }
+            self.animationView.addSubview(self.subAnimationView)
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
         } else if model.animationName == "基础动画-淡出" {
             //动画名称
             self.titleLabel.text = model.animationName
@@ -133,7 +138,9 @@ extension LLJAnimationCell {
                 make.height.equalTo(100)
                 make.width.equalTo(100)
             }
-        } else if model.animationName == "弹性动画-震动" {
+            self.animationView.addSubview(self.subAnimationView)
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
+        } else if model.animationName == "弹性动画-缩放" {
             //动画名称
             self.titleLabel.text = model.animationName
             
@@ -143,6 +150,8 @@ extension LLJAnimationCell {
                 make.height.equalTo(50)
                 make.width.equalTo(50)
             }
+            self.animationView.addSubview(self.subAnimationView)
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
         } else if model.animationName == "弹性动画-平移" {
             //动画名称
             self.titleLabel.text = model.animationName
@@ -153,10 +162,39 @@ extension LLJAnimationCell {
                 make.height.equalTo(50)
                 make.width.equalTo(50)
             }
+            self.animationView.addSubview(self.subAnimationView)
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
+        } else if model.animationName == "弹性动画-旋转" {
+            //动画名称
+            self.titleLabel.text = model.animationName
+            
+            self.animationView.snp_makeConstraints { (make) in
+                make.centerX.equalTo(self.drawView.snp_centerX)
+                make.centerY.equalTo(self.drawView.snp_centerY)
+                make.height.equalTo(50)
+                make.width.equalTo(50)
+            }
+            self.animationView.addSubview(self.subAnimationView)
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
+            
+        } else if model.animationName == "粒子发射-烟花" {
+            //动画名称
+            self.titleLabel.text = model.animationName
+            
+        } else if model.animationName == "粒子发射-雪花" {
+            //动画名称
+            self.titleLabel.text = model.animationName
+            self.drawView.backgroundColor = LLJBlackColor()
+            
+        } else if model.animationName == "粒子发射-细雨" {
+            //动画名称
+            self.titleLabel.text = model.animationName
+            self.drawView.backgroundColor = LLJBlackColor()
+            
+        } else if model.animationName == "粒子发射-点赞" {
+            //动画名称
+            self.titleLabel.text = model.animationName
         }
-        
-        self.animationView.addSubview(self.subAnimationView)
-        self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 10, height: 10);
     }
 }
 
@@ -164,30 +202,71 @@ extension LLJAnimationCell {
     //按钮事件
     @objc func buttonClick(sender: UIButton) {
             
-        if self.animation == nil {
-            if self.model!.animationName == "基础动画-平移" {
-                let basicAnimation = LLJAnimation.basicAnimation(keyPath: "position", fromValue: NSValue(cgPoint: CGPoint(x: self.animationView.center.x, y: self.animationView.center.y)), toValue: NSValue(cgPoint: CGPoint(x: self.drawView.bounds.size.width - self.animationView.center.x, y: self.animationView.center.y)), byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: false, removedOnCompletion: false)
-                self.animation = basicAnimation
-            } else if self.model!.animationName == "基础动画-缩放" {
-                let basicAnimation = LLJAnimation.basicAnimation(keyPath: "transform.scale", fromValue: 1, toValue: 0.5, byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: true, removedOnCompletion: false)
-                self.animation = basicAnimation
-            } else if self.model!.animationName == "基础动画-旋转" {
-                let basicAnimation = LLJAnimation.basicAnimation(keyPath: "transform.rotation.z", fromValue: nil, toValue: Double.pi, byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: true, removedOnCompletion: false)
-                self.animation = basicAnimation
-            } else if self.model!.animationName == "基础动画-淡出" {
-                let basicAnimation = LLJAnimation.basicAnimation(keyPath: "opacity", fromValue: 1, toValue: 0.2, byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: true, removedOnCompletion: false)
-                self.animation = basicAnimation
-            } else if self.model!.animationName == "弹性动画-震动" {
-                let springAnimation = LLJAnimation.springAnimation(keyPath: "bounds", fromValue: nil, toValue: CGRect(x: 0, y: 0, width: self.animationView.bounds.size.width + 50, height: self.animationView.bounds.size.height + 50), byValue: nil, duration: 5.0, damping: 10.0, stiffness: 1000.0, mass: 10, fillMode: CAMediaTimingFillMode.both, initialVelocity: 0,removedOnCompletion: false)
-                self.animation = springAnimation
-            } else if self.model!.animationName == "弹性动画-平移" {
-                let springAnimation = LLJAnimation.springAnimation(keyPath: "position.x", fromValue: nil, toValue: self.drawView.bounds.size.width - self.animationView.center.x, byValue: nil, duration: 5.0, damping: 2.0, stiffness: 100.0, mass: 1, fillMode: CAMediaTimingFillMode.both, initialVelocity: 0,removedOnCompletion: false)
-                self.animation = springAnimation
-            } else {
-                let basicAnimation = LLJAnimation.basicAnimation(keyPath: "position", fromValue: NSValue(cgPoint: CGPoint(x: self.animationView.center.x, y: self.animationView.center.y)), toValue: NSValue(cgPoint: CGPoint(x: self.drawView.bounds.size.width - self.animationView.center.x, y: self.animationView.center.y)), byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: false, removedOnCompletion: false)
-                self.animation = basicAnimation
+        if self.model!.animationName == "基础动画-平移" {
+            
+            let basicAnimation = LLJAnimation.basicAnimation(keyPath: "position", fromValue: NSValue(cgPoint: CGPoint(x: self.animationView.center.x, y: self.animationView.center.y)), toValue: NSValue(cgPoint: CGPoint(x: self.drawView.bounds.size.width - self.animationView.center.x, y: self.animationView.center.y)), byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: false, removedOnCompletion: false)
+            self.animationView.layer.add(basicAnimation, forKey: "basic")
+            
+        } else if self.model!.animationName == "基础动画-缩放" {
+            
+            let basicAnimation = LLJAnimation.basicAnimation(keyPath: "transform.scale", fromValue: 1, toValue: 0.5, byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: true, removedOnCompletion: false)
+            self.animationView.layer.add(basicAnimation, forKey: "basic")
+            
+        } else if self.model!.animationName == "基础动画-旋转" {
+            
+            let basicAnimation = LLJAnimation.basicAnimation(keyPath: "transform.rotation.z", fromValue: nil, toValue: Double.pi, byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: true, removedOnCompletion: false)
+            self.animationView.layer.add(basicAnimation, forKey: "basic")
+            
+        } else if self.model!.animationName == "基础动画-淡出" {
+            
+            let basicAnimation = LLJAnimation.basicAnimation(keyPath: "opacity", fromValue: 1, toValue: 0.2, byValue: nil, duration: 2, timingFunctionName: nil, repeatCount: 0.0, repeatDuration: 0.0, fillMode: CAMediaTimingFillMode.both, autoreverses: true, removedOnCompletion: false)
+            self.animationView.layer.add(basicAnimation, forKey: "basic")
+            
+        } else if self.model!.animationName == "弹性动画-缩放" {
+            
+            let springAnimation = LLJAnimation.springAnimation(keyPath: "bounds", fromValue: nil, toValue: CGRect(x: 0, y: 0, width: self.animationView.bounds.size.width + 50, height: self.animationView.bounds.size.height + 50), byValue: nil, duration: 5.0, damping: 10.0, stiffness: 1000.0, mass: 10, fillMode: CAMediaTimingFillMode.both, initialVelocity: 0,removedOnCompletion: false)
+            self.animationView.layer.add(springAnimation, forKey: "basic")
+            
+        } else if self.model!.animationName == "弹性动画-平移" {
+            
+            let springAnimation = LLJAnimation.springAnimation(keyPath: "position.x", fromValue: 0, toValue: self.drawView.bounds.size.width - self.animationView.center.x, byValue: -self.drawView.bounds.size.width, duration: 5.0, damping: 2.0, stiffness: 100.0, mass: 1, fillMode: CAMediaTimingFillMode.both, initialVelocity: 0,removedOnCompletion: false)
+            self.animationView.layer.add(springAnimation, forKey: "basic")
+            
+        } else if self.model!.animationName == "弹性动画-旋转" {
+            
+            let springAnimation = LLJAnimation.springAnimation(keyPath: "transform.rotation.z", fromValue: LLJSHelper.getPrintsByAngle(angle: -60), toValue: LLJSHelper.getPrintsByAngle(angle: 0), byValue: LLJSHelper.getPrintsByAngle(angle: 60), duration: 5.0, damping: 2.0, stiffness: 100.0, mass: 1, fillMode: CAMediaTimingFillMode.forwards, initialVelocity: 10,removedOnCompletion: false)
+            self.animationView.layer.add(springAnimation, forKey: "basic")
+            
+        } else if self.model!.animationName == "粒子发射-烟花" {
+            
+            self.subLayer?.removeFromSuperlayer()
+            if !sender.isSelected {
+                self.subLayer = LLJLayer.fireworkLayer(superView: self.drawView)
             }
+            sender.isSelected = !sender.isSelected
+            
+        } else if self.model!.animationName == "粒子发射-雪花" {
+            
+            self.subLayer?.removeFromSuperlayer()
+            if !sender.isSelected {
+                self.subLayer = LLJLayer.snowLayer(superView: self.drawView)
+            }
+            sender.isSelected = !sender.isSelected
+            
+        } else if self.model!.animationName == "粒子发射-细雨" {
+            
+            self.subLayer?.removeFromSuperlayer()
+            if !sender.isSelected {
+                self.subLayer = LLJLayer.rainLayer(superView: self.drawView)
+            }
+            sender.isSelected = !sender.isSelected
+        } else if self.model!.animationName == "粒子发射-点赞" {
+            
+            self.subLayer?.removeFromSuperlayer()
+            if !sender.isSelected {
+                self.subLayer = LLJLayer.zanLayer(superView: self.drawView)
+            }
+            sender.isSelected = !sender.isSelected
         }
-        self.animationView.layer.add(self.animation!, forKey: "basic")
     }
 }
