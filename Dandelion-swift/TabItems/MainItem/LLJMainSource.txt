@@ -14,5 +14,6 @@
 "自定义密码输入框:LLJSTextFieldController",
 "手势指纹密码:LLJSGesAndAuthIDController",
 "贝塞尔曲线:LLJBezierPathController",
-"动画篇:LLJAnimationController"
+"动画篇:LLJAnimationController",
+"仿微信读书首页:LLJWChatMainViewController"
 ]

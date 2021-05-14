@@ -26,30 +26,36 @@ extension LLJSCoreDataController {
     func setUpUI() {
         
         self.view.backgroundColor = LLJWhiteColor()
+        
+        //hello
+        var label = LLJSUIKitHelper.LLJLabel(title: "Hello", titleColor: UIColor.white, backGroundColor: UIColor.black, titleFont: LLJFont(16), frame: CGRect(x: 100, y: 50, width: 100, height: 20), numberOfLines: 1)
+        label = LLJSUIKitHelper.LLJCView(subView: label, cornerRadius: [4,4,4,4]) as! UILabel
+        self.view.addSubview(label)
+        
         //增加
         var button = LLJSUIKitHelper.LLJButton(title: "增加", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 100, y: 200, width: 80, height: 40))
-        button = LLJSUIKitHelper.LLJCView(subView: button, cornerRadius: 4.0, shadowColor: nil, shadowOffset: nil, shadowOpacity: nil, shadowRadius: nil) as! UIButton
+        button = LLJSUIKitHelper.LLJCView(subView: button, cornerRadius: [8,12,4,4]) as! UIButton
         button.tag = 10001
         button.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(button)
         
         //删除
         var button1 = LLJSUIKitHelper.LLJButton(title: "删除", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 100, y: 300, width: 80, height: 40))
-        button1 = LLJSUIKitHelper.LLJCView(subView: button1, cornerRadius: 4.0, shadowColor: nil, shadowOffset: nil, shadowOpacity: nil, shadowRadius: nil) as! UIButton
+        button1 = LLJSUIKitHelper.LLJCView(subView: button1, cornerRadius: [8,16,4,4]) as! UIButton
         button1.tag = 10002
         button1.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(button1)
         
         //修改
         var button2 = LLJSUIKitHelper.LLJButton(title: "修改", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 280, y: 200, width: 80, height: 40))
-        button2 = LLJSUIKitHelper.LLJCView(subView: button2, cornerRadius: 4.0, shadowColor: nil, shadowOffset: nil, shadowOpacity: nil, shadowRadius: nil) as! UIButton
+        button2 = LLJSUIKitHelper.LLJCView(subView: button2, cornerRadius: [8,8,4,4]) as! UIButton
         button2.tag = 10003
         button2.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(button2)
         
         //查询
         var button3 = LLJSUIKitHelper.LLJButton(title: "查询", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 280, y: 300, width: 80, height: 40))
-        button3 = LLJSUIKitHelper.LLJCView(subView: button3, cornerRadius: 4.0, shadowColor: nil, shadowOffset: nil, shadowOpacity: nil, shadowRadius: nil) as! UIButton
+        button3 = LLJSUIKitHelper.LLJCView(subView: button3, cornerRadius: [8,8,4,4]) as! UIButton
         button3.tag = 10004
         button3.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(button3)
