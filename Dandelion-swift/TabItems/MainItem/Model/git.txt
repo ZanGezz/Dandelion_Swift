@@ -96,3 +96,5 @@ git branch -a
 git checkout . && git clean -xdf
 // 清除某一个文件的更改
 git checkout -- file
+
+~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps 找到.ipa

@@ -22,30 +22,36 @@ public class LLJSUIKitHelper {
         return view
     }
     
-    //UIView 切圆角 阴影
-    class func LLJCView(subView: UIView, cornerRadius: CGFloat?, shadowColor: UIColor?, shadowOffset: CGSize?, shadowOpacity: Float?, shadowRadius: CGFloat?) -> UIView {
+    //UIView 切统一圆角
+    class func LLJCView(subView: UIView, cornerRadius: CGFloat) {
+        // 圆角
+        LLJCView(subView: subView, cornerRadius: [cornerRadius,cornerRadius,cornerRadius,cornerRadius])
+    }
+    
+    //UIView 切指定不同圆角 cornerRadius = [8,10,12,14] 一次对应topLeft，topRight，bottomRight，bottomLeft的圆角半径
+    class func LLJCView(subView: UIView, cornerRadius: [CGFloat]) {
         
         // 圆角
-        if (cornerRadius != nil) {
-            subView.layer.cornerRadius = cornerRadius!;
+        var path: UIBezierPath?
+        var cornerArray = [UIRectCorner]()
+
+        for i in stride(from: 0, to: cornerRadius.count, by: 1) {
+            
+            if i == 0 {
+                cornerArray.append(UIRectCorner.topLeft)
+            } else if i == 1 {
+                cornerArray.append(UIRectCorner.topRight)
+            } else if i == 2 {
+                cornerArray.append(UIRectCorner.bottomRight)
+            } else if i == 3 {
+                cornerArray.append(UIRectCorner.bottomLeft)
+            }
         }
-        // 阴影颜色
-        if (shadowColor != nil) {
-            subView.layer.shadowColor = shadowColor?.cgColor;
-        }
-        // 阴影偏移，默认(0, -3)
-        if (shadowOffset != nil) {
-            subView.layer.shadowOffset = shadowOffset!;
-        }
-        // 阴影透明度，默认0
-        if (shadowOpacity != nil) {
-            subView.layer.shadowOpacity = shadowOpacity!;
-        }
-        // 阴影半径，默认3
-        if (shadowRadius != nil) {
-            subView.layer.shadowRadius = shadowRadius!;
-        }
-        return subView
+        
+        path = LLJBezierPath.drawRoundedRect(rect: subView.bounds, byRoundingCorners: cornerArray, cornerRadius: cornerRadius)
+        let subLayer = CAShapeLayer()
+        subLayer.path = path!.cgPath
+        subView.layer.mask = subLayer;
     }
     
     //按钮

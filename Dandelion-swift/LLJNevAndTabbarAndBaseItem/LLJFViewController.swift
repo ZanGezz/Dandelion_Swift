@@ -39,6 +39,7 @@ class LLJFViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //设置UI
         setUpUI()
     }
@@ -81,7 +82,7 @@ extension LLJFViewController {
 
 extension LLJFViewController: UINavigationControllerDelegate {
     //代理
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         let hidden = self.isKind(of: viewController.classForCoder) && self.hiddenNavgationBarWhenPushIn
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
     }

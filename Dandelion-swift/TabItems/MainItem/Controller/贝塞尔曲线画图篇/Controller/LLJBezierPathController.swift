@@ -52,15 +52,10 @@ extension LLJBezierPathController {
         
         //collectionView
         self.view.addSubview(self.collectionView)
-    }
-    
-    //按钮事件
-    @objc func buttonClick() {
         
         //圆
         let model1 = LLJBezierPathModel()
         model1.title = "圆"
-        model1.rect = CGRect(x: 0, y: 0, width: 100, height: 100)
         model1.strokeColor = LLJPurpleColor()
         model1.fillColor = LLJBlackColor()
         model1.lineWidth = 2.0
@@ -68,7 +63,6 @@ extension LLJBezierPathController {
         //椭圆
         let model2 = LLJBezierPathModel()
         model2.title = "椭圆"
-        model2.rect = CGRect(x: 0, y: 10, width: 100, height: 80)
         model2.strokeColor = LLJPurpleColor()
         model2.fillColor = LLJBlackColor()
         model2.lineWidth = 2.0
@@ -80,7 +74,7 @@ extension LLJBezierPathController {
         model3.fillColor = LLJBlackColor()
         model3.lineWidth = 2.0
         model3.closePath = true
-        model3.pointArray = [CGPoint(x: 0, y: 0),CGPoint(x: 50, y: 100),CGPoint(x: 100, y: 0)]
+        model3.pointArray = [CGPoint(x: 10, y: 0),CGPoint(x: 50, y: 80),CGPoint(x: 90, y: 0)]
         
         //折线
         let model4 = LLJBezierPathModel()
@@ -88,14 +82,60 @@ extension LLJBezierPathController {
         model4.strokeColor = LLJPurpleColor()
         model4.closePath = false
         model4.lineWidth = 2.0
-        model4.pointArray = [CGPoint(x: 0, y: 0),CGPoint(x: 25, y: 100),CGPoint(x: 50, y: 0),CGPoint(x: 75, y: 100),CGPoint(x: 100, y: 0)]
+        model4.pointArray = [CGPoint(x: 10, y: 0),CGPoint(x: 30, y: 80),CGPoint(x: 50, y: 0),CGPoint(x: 70, y: 80),CGPoint(x: 90, y: 0)]
+        
+        //矩形
+        let model5 = LLJBezierPathModel()
+        model5.title = "矩形"
+        
+        //矩形
+        let model6 = LLJBezierPathModel()
+        model6.title = "圆(一)"
+        
+        //虚线
+        let model7 = LLJBezierPathModel()
+        model7.title = "虚线"
+        
+        //切圆角
+        let model8 = LLJBezierPathModel()
+        model8.title = "切圆角"
+        
+        //单曲线
+        let model9 = LLJBezierPathModel()
+        model9.title = "单曲线"
+        
+        //双曲线
+        let model10 = LLJBezierPathModel()
+        model10.title = "双曲线"
+        
+        //正弦曲线
+        let model11 = LLJBezierPathModel()
+        model11.title = "正弦曲线"
+        
+        //正切函数
+        let model12 = LLJBezierPathModel()
+        model12.title = "正切函数"
         
         self.dataSource.append(model1)
         self.dataSource.append(model2)
         self.dataSource.append(model3)
         self.dataSource.append(model4)
+        self.dataSource.append(model5)
+        self.dataSource.append(model6)
+        self.dataSource.append(model7)
+        self.dataSource.append(model8)
+        self.dataSource.append(model9)
+        self.dataSource.append(model10)
+        self.dataSource.append(model11)
+        self.dataSource.append(model12)
 
         self.collectionView.reloadData()
+    }
+    
+    //按钮事件
+    @objc func buttonClick() {
+        
+        
     }
 }
 

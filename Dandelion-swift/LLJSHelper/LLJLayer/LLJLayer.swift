@@ -9,31 +9,69 @@ import UIKit
 
 class LLJLayer: NSObject {
 
-    //shapeLayer
-    class func shapeLayer(bounds: CGRect, position: CGPoint?, lineWidth: CGFloat?, strokeColor: UIColor?, fillColor: UIColor?, backColor: UIColor?) -> CAShapeLayer {
+    /*
+     * CAShapeLayer
+     *
+     * path: 配合UIBezierPath划线路基
+     * strokeStart: 开始值[0 1]
+     * strokeEnd: 结束值[0 1]
+     * lineWidth: 划线宽
+     * strokeColor: 划线颜色
+     * fillColor: 划线封闭区域填充颜色
+     * lineWidth: 划线宽
+     * lineDashPattern: 虚线段长数组 nil表示画实线
+     */
+    class func shapeLayer(path: UIBezierPath?, strokeStart: CGFloat?, strokeEnd: CGFloat?, lineWidth: CGFloat?, strokeColor: UIColor?, fillColor: UIColor?, lineDashPattern: [NSNumber]?) -> CAShapeLayer {
+        
         let subLayer = CAShapeLayer()
         
-        if (position != nil) {
-            subLayer.position = position!
-        }
+        subLayer.path = path?.cgPath
+        subLayer.lineWidth = lineWidth ?? 1.0
+        subLayer.strokeStart = strokeStart ?? 0
+        subLayer.strokeEnd = strokeEnd ?? 1
+        subLayer.strokeColor = strokeColor?.cgColor
+        subLayer.fillColor = fillColor?.cgColor
+        //subLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        //subLayer.miterLimit = 10
+        //subLayer.lineCap = CAShapeLayerLineCap.square
+        subLayer.lineJoin = CAShapeLayerLineJoin.round
+        //subLayer.lineDashPhase = 10
+        subLayer.lineDashPattern = lineDashPattern
+        return subLayer
+    }
+    
+    /*
+     * CATextLayer
+     *
+     * emitterPosition: 发射器位置
+     * emitterSize: 发射器大小
+     * emitterMode: 发射类型(详解下面备注一)
+     * emitterShape: 发射源的形状(详解下面备注二)
+     */
+    class func textLayer(path: UIBezierPath?, strokeStart: CGFloat?, strokeEnd: CGFloat?, lineWidth: CGFloat?, strokeColor: UIColor?, fillColor: UIColor?, backColor: UIColor?) -> CATextLayer {
         
-        if (lineWidth != nil) {
-            subLayer.lineWidth = lineWidth!
-        }
+        let subLayer = CATextLayer()
         
-        if (strokeColor != nil) {
-            subLayer.strokeColor = strokeColor!.cgColor
-        }
-        
-        if (fillColor != nil) {
-            subLayer.fillColor = fillColor!.cgColor
-        } else {
-            subLayer.fillColor = UIColor.clear.cgColor
-        }
-        
-        if (backColor != nil) {
-            subLayer.backgroundColor = backColor!.cgColor
-        }
+//        subLayer.path = path?.cgPath
+//        subLayer.lineWidth = lineWidth ?? 1.0
+//
+//        subLayer.strokeStart = strokeStart ?? 0
+//
+//        subLayer.strokeEnd = strokeEnd ?? 1
+//
+//        if (strokeColor != nil) {
+//            subLayer.strokeColor = strokeColor!.cgColor
+//        }
+//
+//        if (fillColor != nil) {
+//            subLayer.fillColor = fillColor!.cgColor
+//        } else {
+//            subLayer.fillColor = UIColor.clear.cgColor
+//        }
+//
+//        if (backColor != nil) {
+//            subLayer.backgroundColor = backColor!.cgColor
+//        }
         return subLayer
     }
     
@@ -45,8 +83,11 @@ class LLJLayer: NSObject {
      * emitterMode: 发射类型(详解下面备注一)
      * emitterShape: 发射源的形状(详解下面备注二)
      */
-    class func emitterLayer(emitterPosition: CGPoint, emitterSize: CGSize, emitterMode: CAEmitterLayerEmitterMode?, emitterShape: CAEmitterLayerEmitterShape?,lifetime: Float?, shadowColor: UIColor?) -> CAEmitterLayer {
+    class func emitterLayer(emitterPosition: CGPoint, emitterSize: CGSize, emitterMode: CAEmitterLayerEmitterMode?, emitterShape: CAEmitterLayerEmitterShape?, shadowColor: UIColor?, superLayer: CALayer?) -> CAEmitterLayer {
+        
         let emitterLayer = CAEmitterLayer()
+        superLayer?.addSublayer(emitterLayer)
+        
         emitterLayer.emitterPosition = emitterPosition
         emitterLayer.emitterSize = emitterSize
         emitterLayer.emitterMode = emitterMode ?? CAEmitterLayerEmitterMode.surface
@@ -55,7 +96,6 @@ class LLJLayer: NSObject {
         emitterLayer.shadowRadius = 0.0
         emitterLayer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         emitterLayer.shadowColor = shadowColor?.cgColor;
-        emitterLayer.lifetime = lifetime ?? 100000000
         return emitterLayer
     }
     
@@ -116,18 +156,23 @@ class LLJLayer: NSObject {
         let content: UIImage = UIImage(named: "circle")!
         let sparkContent: UIImage = UIImage(named: "wujiaoxing")!
 
-        
         //火花粒子
         let sparkCell = self.emitterCell(name: "sparkCell", birthRate: 100.0, lifetime: 1.5, lifetimeRange: nil, velocity: 50, velocityRange: 0, xAcceleration: 0, yAcceleration: 75, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: CGFloat.pi*2, scale: 0.1, color: nil, greenRange: 255.0, redRange: 255.0, blueRange: 255.0, alphaRange: 1.0, contents: sparkContent.cgImage, spin: 0, spinRange: 0, redSpeed: 0.4, blueSpeed: -0.1, greenSpeed: -0.1, alphaSpeed: -0.25, emitterCells: nil)
         //爆炸粒子
-        let explodeCell = self.emitterCell(name: "explodeCell", birthRate: 1.0, lifetime: 0.5, lifetimeRange: nil, velocity: nil, velocityRange: nil, xAcceleration: nil, yAcceleration: nil, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: nil, scale: 2.0, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: nil, spin: nil, spinRange: nil, redSpeed: nil, blueSpeed: nil, greenSpeed: nil, alphaSpeed: nil, emitterCells: [sparkCell])
+        let explodeCell = self.emitterCell(name: "explodeCell", birthRate: 1.0, lifetime: 0.5, lifetimeRange: nil, velocity: nil, velocityRange: nil, xAcceleration: nil, yAcceleration: nil, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: nil, scale: 2.0, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: content.cgImage, spin: nil, spinRange: nil, redSpeed: nil, blueSpeed: nil, greenSpeed: nil, alphaSpeed: nil, emitterCells: [sparkCell])
         //尾巴粒子
         let weibaCell = self.emitterCell(name: "weibaCell", birthRate: 100, lifetime: 0.1, lifetimeRange: nil, velocity: -100, velocityRange: nil, xAcceleration: nil, yAcceleration: 50, zAcceleration: nil, emissionLatitude: CGFloat.pi/2, emissionLongitude:0.0, emissionRange: CGFloat.pi/4, scale: 0.3, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: content.cgImage, spin: nil, spinRange: nil, redSpeed: nil, blueSpeed: nil, greenSpeed: nil, alphaSpeed: nil, emitterCells: nil)
         //发射粒子
-        let emitterCell = self.emitterCell(name: "firework", birthRate: 3.0, lifetime: 1.02, lifetimeRange: nil, velocity: 250, velocityRange: 0, xAcceleration: nil, yAcceleration: 200, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: CGFloat.pi/6, scale: 0.15, color: nil, greenRange: 255.0, redRange: 255.0, blueRange: 255.0, alphaRange: 1.0, contents: content.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: [explodeCell,weibaCell])
+        let emitterCell = self.emitterCell(name: "firework", birthRate: 1.0, lifetime: 1.1, lifetimeRange: nil, velocity: 250, velocityRange: 0, xAcceleration: nil, yAcceleration: 200, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: CGFloat.pi/6, scale: 0.15, color: nil, greenRange: 255.0, redRange: 255.0, blueRange: 255.0, alphaRange: 1.0, contents: content.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: [explodeCell,weibaCell])
         
-        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: superView.bounds.size.height-5), emitterSize: CGSize(width: 10, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, lifetime: 10000, shadowColor: nil)
+        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: superView.bounds.size.height-5), emitterSize: CGSize(width: 10, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, shadowColor: nil, superLayer: superView.layer)
         fireworkLayer.emitterCells = [emitterCell]
+        superView.layer.addSublayer(fireworkLayer)
+        
+        let animation1 = LLJAnimation.basicAnimation(keyPath: "birthRate", beginTime: 0.0, fromValue: 0.01, toValue: 3, byValue: 0, duration: 4, timingFunctionName: CAMediaTimingFunctionName.easeIn, repeatCount: nil, repeatDuration: nil, fillMode: CAMediaTimingFillMode.forwards, autoreverses: false, removedOnCompletion: false)
+
+        fireworkLayer.add(animation1, forKey: "basic")
+        
         superView.layer.addSublayer(fireworkLayer)
         
         return fireworkLayer
@@ -141,13 +186,13 @@ class LLJLayer: NSObject {
         let snowflake: UIImage = UIImage(named: "snowflake")!
         
         //雪花1
-        let tubiaoCell = self.emitterCell(name: "tubiao", birthRate: 10, lifetime: 5.0, lifetimeRange: 0.0, velocity: -10, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.05, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: tubiao.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
+        let tubiaoCell = self.emitterCell(name: "tubiao", birthRate: 5.0, lifetime: 5.0, lifetimeRange: 0.0, velocity: -10, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 1.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.05, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: tubiao.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
         //雪花2
-        let snowflakeCell = self.emitterCell(name: "snowflake", birthRate: 10, lifetime: 5.0, lifetimeRange: 0.0, velocity: -10, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.05, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: snowflake.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
+        let snowflakeCell = self.emitterCell(name: "snowflake", birthRate: 5.0, lifetime: 5.0, lifetimeRange: 0.0, velocity: -10, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.05, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: snowflake.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
         
-        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: 0), emitterSize: CGSize(width: superView.bounds.size.width, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, lifetime: 10000, shadowColor: nil)
+        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: 0), emitterSize: CGSize(width: superView.bounds.size.width, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, shadowColor: nil, superLayer: superView.layer)
         fireworkLayer.emitterCells = [tubiaoCell,snowflakeCell]
-        superView.layer.addSublayer(fireworkLayer)
+        
         return fireworkLayer
     }
     
@@ -159,12 +204,12 @@ class LLJLayer: NSObject {
         let shuidi_huaban: UIImage = UIImage(named: "shuidi_huaban")!
         
         //雨滴1
-        let yudiCell = self.emitterCell(name: "yudi", birthRate: 40, lifetime: 2.0, lifetimeRange: 2.0, velocity: -260, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.2, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: yudi.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
+        let yudiCell = self.emitterCell(name: "yudi", birthRate: 40, lifetime: 0.5, lifetimeRange: 0.5, velocity: -260, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.2, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: yudi.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
         
         //雨滴2
-        let shuidiCell = self.emitterCell(name: "shuidi", birthRate: 40, lifetime: 2.0, lifetimeRange: 2.0, velocity: -300, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.2, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: shuidi_huaban.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
+        let shuidiCell = self.emitterCell(name: "shuidi", birthRate: 40, lifetime: 0.5, lifetimeRange: 0.5, velocity: -300, velocityRange: 0, xAcceleration: nil, yAcceleration: 10, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: 0.0, scale: 0.2, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: nil, contents: shuidi_huaban.cgImage, spin: 0, spinRange: 0, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
 
-        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: 0), emitterSize: CGSize(width: superView.bounds.size.width, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, lifetime: 10000, shadowColor: nil)
+        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: 0), emitterSize: CGSize(width: superView.bounds.size.width, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, shadowColor: nil, superLayer: superView.layer)
         fireworkLayer.emitterCells = [yudiCell,shuidiCell]
         superView.layer.addSublayer(fireworkLayer)
         return fireworkLayer
@@ -176,12 +221,12 @@ class LLJLayer: NSObject {
         
         let xinheart: UIImage = UIImage(named: "xinheart")!
         
-        //雨滴1
-        let heartCell = self.emitterCell(name: "xinheart", birthRate: 5, lifetime: 5, lifetimeRange: 2.0, velocity: 100, velocityRange: 0, xAcceleration: nil, yAcceleration: 50, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: CGFloat.pi/10, scale: 1.0, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: 1.0, contents: xinheart.cgImage, spin: CGFloat.pi, spinRange: CGFloat.pi/2, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
+        //点赞
+        let heartCell = self.emitterCell(name: "xinheart", birthRate: 4, lifetime: 2.0, lifetimeRange: nil, velocity: 150, velocityRange: 0, xAcceleration: nil, yAcceleration: 80, zAcceleration: nil, emissionLatitude: 0.0, emissionLongitude:0.0, emissionRange: CGFloat.pi/3, scale: 1.0, color: nil, greenRange: nil, redRange: nil, blueRange: nil, alphaRange: 1.0, contents: xinheart.cgImage, spin: CGFloat.pi, spinRange: CGFloat.pi/2, redSpeed: 0, blueSpeed: 0, greenSpeed: 0, alphaSpeed: 0, emitterCells: nil)
 
-        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: superView.bounds.size.height), emitterSize: CGSize(width: 10, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, lifetime: 2, shadowColor: nil)
+        let fireworkLayer = self.emitterLayer(emitterPosition: CGPoint(x: superView.bounds.size.width/2.0, y: superView.bounds.size.height), emitterSize: CGSize(width: 20, height: 5), emitterMode: CAEmitterLayerEmitterMode.surface, emitterShape: CAEmitterLayerEmitterShape.line, shadowColor: nil, superLayer: superView.layer)
         fireworkLayer.emitterCells = [heartCell]
-        superView.layer.addSublayer(fireworkLayer)
+                
         return fireworkLayer
     }
 }

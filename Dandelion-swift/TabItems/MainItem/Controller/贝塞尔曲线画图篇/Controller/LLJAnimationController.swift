@@ -78,6 +78,12 @@ extension LLJAnimationController {
         let model11 = LLJAnimationModel()
         model11.animationName = "粒子发射-点赞"
         
+        let model12 = LLJAnimationModel()
+        model12.animationName = "移动动画-椭圆"
+        
+        let model13 = LLJAnimationModel()
+        model13.animationName = "移动动画-正弦"
+        
         //添加模型
         self.dataSource.append(model1)
         self.dataSource.append(model2)
@@ -90,6 +96,8 @@ extension LLJAnimationController {
         self.dataSource.append(model9)
         self.dataSource.append(model10)
         self.dataSource.append(model11)
+        self.dataSource.append(model12)
+        self.dataSource.append(model13)
 
         //collectionView
         self.view.addSubview(self.collectionView)

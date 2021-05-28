@@ -21,7 +21,7 @@ class LLJAnimation {
      * autoreverses：是否反向执行动画
      * removedOnCompletion：执行完是否移除，此属性为true时fillMode不生效
      */
-    class func basicAnimation(keyPath: String, fromValue: Any?, toValue: Any?, byValue: Any?, duration: CFTimeInterval, timingFunctionName: CAMediaTimingFunctionName?, repeatCount: Float?, repeatDuration: CFTimeInterval?, fillMode: CAMediaTimingFillMode?, autoreverses: Bool?, removedOnCompletion: Bool?) -> CABasicAnimation {
+    class func basicAnimation(keyPath: String, beginTime: CFTimeInterval?, fromValue: Any?, toValue: Any?, byValue: Any?, duration: CFTimeInterval, timingFunctionName: CAMediaTimingFunctionName?, repeatCount: Float?, repeatDuration: CFTimeInterval?, fillMode: CAMediaTimingFillMode?, autoreverses: Bool?, removedOnCompletion: Bool?) -> CABasicAnimation {
         let basicAnimation = CABasicAnimation(keyPath: keyPath)
         basicAnimation.fromValue = fromValue
         basicAnimation.toValue = toValue
@@ -33,6 +33,7 @@ class LLJAnimation {
         basicAnimation.fillMode = fillMode ?? CAMediaTimingFillMode.removed
         basicAnimation.autoreverses = autoreverses ?? false
         basicAnimation.isRemovedOnCompletion = removedOnCompletion ?? true
+        basicAnimation.beginTime = beginTime ?? 0.0
         return basicAnimation
     }
     
@@ -66,27 +67,46 @@ class LLJAnimation {
     /*
      * 关键帧动画 CAKeyframeAnimation
      * keyPath: 创建动画使用key CALayer或其子类CAShapeLayer等属性中标记为Animatable的，都可以作为key创建动画 详细见注一
-     * fromValue: 开始值 toValue: 结束值 byValue: 结束值 (此三个属性值类型跟key类型改变，即：key为position，则fromValue为CGPoint。三个值直接的关系详细见注二)
+     * values: 关键帧值
      * duration: 动画持续时间
-     * mass: 质量 (越大震动幅度越大)
-     * stiffness：刚度系数 (越大震动越快)
-     * damping：阻尼系数 (越大停止越快)
+     * path: 动画路径(设置此属性后values失效)
+     * keyTimes：关键帧每个阶段的时间
      * fillMode：CAMediaTimingFillMode的枚举(详细见注三)
-     * initialVelocity：初始速度
      * removedOnCompletion：执行完是否移除，此属性为true时fillMode不生效
      */
-    class func keyframeAnimation(keyPath: String, values: [Any]?, path: CGPath?, keyTimes: [NSNumber]?, duration: CFTimeInterval, timingFunctions: [CAMediaTimingFunction]?, fillMode: CAMediaTimingFillMode?, calculationMode: CAAnimationCalculationMode, removedOnCompletion: Bool?) -> CAKeyframeAnimation {
+    class func keyframeAnimation(keyPath: String, values: [Any]?, path: CGPath?, keyTimes: [NSNumber]?, duration: CFTimeInterval, timingFunctions: [CAMediaTimingFunction]?, fillMode: CAMediaTimingFillMode?, removedOnCompletion: Bool?) -> CAKeyframeAnimation {
         let keyframeAnimation = CAKeyframeAnimation(keyPath: keyPath)
         keyframeAnimation.duration = duration
         keyframeAnimation.values = values
         keyframeAnimation.path = path
         keyframeAnimation.keyTimes = keyTimes
-        keyframeAnimation.timingFunctions = timingFunctions
-        keyframeAnimation.calculationMode = calculationMode
+        keyframeAnimation.timingFunctions = timingFunctions ?? [CAMediaTimingFunction(name: .linear)]
         keyframeAnimation.fillMode = fillMode ?? CAMediaTimingFillMode.removed
         keyframeAnimation.isRemovedOnCompletion = removedOnCompletion ?? true
         return keyframeAnimation
     }
+    
+    /*
+     * 组动画 CAAnimationGroup
+     * keyPath: 创建动画使用key CALayer或其子类CAShapeLayer等属性中标记为Animatable的，都可以作为key创建动画 详细见注一
+     * animations: 动画组
+     */
+    class func groupAnimation(keyPath: String, animations:[CAAnimation]?) -> CAAnimationGroup {
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.animations = animations
+        return groupAnimation
+    }
+    
+    /*
+     * 转场动画 CATransition
+     * keyPath: 创建动画使用key CALayer或其子类CAShapeLayer等属性中标记为Animatable的，都可以作为key创建动画 详细见注一
+     * animations: 动画组
+     */
+//    class func transitionAnimation(keyPath: String, animations:[CAAnimation]?) -> CATransition {
+//        let groupAnimation = CATransition()
+//        groupAnimation.animations = animations
+//        return groupAnimation
+//    }
 }
 
 

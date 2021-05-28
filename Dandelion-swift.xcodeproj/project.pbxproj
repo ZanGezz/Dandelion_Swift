@@ -20,6 +20,18 @@
 		4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */; };
 		4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72586025E0FE7C00B4F9AC /* LLJMainReq.swift */; };
 		4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72586525E100A500B4F9AC /* LLJMainModel.swift */; };
+		4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFE0264E732200CA9F17 /* LLJWChatMainViewController.swift */; };
+		4B7BBFEA264E956000CA9F17 /* LLJWChatSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFE9264E956000CA9F17 /* LLJWChatSubView.swift */; };
+		4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFEE264EA26500CA9F17 /* LLJWChatFirstCell.swift */; };
+		4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFF32651FEB300CA9F17 /* LLJWChatSecondCell.swift */; };
+		4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFF826520C8400CA9F17 /* LLJWChatModel.swift */; };
+		4B7BC006265609D700CA9F17 /* ZBFWYMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC005265609D700CA9F17 /* ZBFWYMainViewController.swift */; };
+		4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC00B265669C700CA9F17 /* LLJNestTableView.swift */; };
+		4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC0142657639100CA9F17 /* LLJAboutSwiftController.swift */; };
+		4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC01C265C932700CA9F17 /* LLJSegmentView.swift */; };
+		4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC021265C9C4F00CA9F17 /* LLJSegmentViewCell.swift */; };
+		4B7BC027265C9F8E00CA9F17 /* LLJSegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC026265C9F8E00CA9F17 /* LLJSegmentModel.swift */; };
+		4B7BC02C265DF0F500CA9F17 /* LLJContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC02B265DF0F500CA9F17 /* LLJContentView.swift */; };
 		4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80821D25B57D5900F89B9C /* LLJFViewController.swift */; };
 		4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80822225B57D7600F89B9C /* LLJNaviController.swift */; };
 		4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B80822725B57DA100F89B9C /* LLJTabBarController.swift */; };
@@ -34,7 +46,6 @@
 		4B83E1552589AB7D0041B601 /* Dandelion_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1542589AB7D0041B601 /* Dandelion_swiftUITests.swift */; };
 		4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */; };
 		4B83E1D42595D9B70041B601 /* git.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B83E1D32595D9B70041B601 /* git.txt */; };
-		4B83E8CE26252F3000537DA0 /* LLJFALiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8CD26252F3000537DA0 /* LLJFALiMainViewController.swift */; };
 		4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8D72629264E00537DA0 /* LLJBezierPath.swift */; };
 		4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8E22629344300537DA0 /* LLJAnimation.swift */; };
 		4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8EB2629399F00537DA0 /* LLJBezierPathController.swift */; };
@@ -82,6 +93,18 @@
 		4B68D1F925DFA808001532E7 /* LLJMoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMoyaConfig.swift; sourceTree = "<group>"; };
 		4B72586025E0FE7C00B4F9AC /* LLJMainReq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMainReq.swift; sourceTree = "<group>"; };
 		4B72586525E100A500B4F9AC /* LLJMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMainModel.swift; sourceTree = "<group>"; };
+		4B7BBFE0264E732200CA9F17 /* LLJWChatMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLJWChatMainViewController.swift; sourceTree = "<group>"; };
+		4B7BBFE9264E956000CA9F17 /* LLJWChatSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWChatSubView.swift; sourceTree = "<group>"; };
+		4B7BBFEE264EA26500CA9F17 /* LLJWChatFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWChatFirstCell.swift; sourceTree = "<group>"; };
+		4B7BBFF32651FEB300CA9F17 /* LLJWChatSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWChatSecondCell.swift; sourceTree = "<group>"; };
+		4B7BBFF826520C8400CA9F17 /* LLJWChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWChatModel.swift; sourceTree = "<group>"; };
+		4B7BC005265609D700CA9F17 /* ZBFWYMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBFWYMainViewController.swift; sourceTree = "<group>"; };
+		4B7BC00B265669C700CA9F17 /* LLJNestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNestTableView.swift; sourceTree = "<group>"; };
+		4B7BC0142657639100CA9F17 /* LLJAboutSwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAboutSwiftController.swift; sourceTree = "<group>"; };
+		4B7BC01C265C932700CA9F17 /* LLJSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSegmentView.swift; sourceTree = "<group>"; };
+		4B7BC021265C9C4F00CA9F17 /* LLJSegmentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSegmentViewCell.swift; sourceTree = "<group>"; };
+		4B7BC026265C9F8E00CA9F17 /* LLJSegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSegmentModel.swift; sourceTree = "<group>"; };
+		4B7BC02B265DF0F500CA9F17 /* LLJContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJContentView.swift; sourceTree = "<group>"; };
 		4B80821D25B57D5900F89B9C /* LLJFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFViewController.swift; sourceTree = "<group>"; };
 		4B80822225B57D7600F89B9C /* LLJNaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNaviController.swift; sourceTree = "<group>"; };
 		4B80822725B57DA100F89B9C /* LLJTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJTabBarController.swift; sourceTree = "<group>"; };
@@ -102,7 +125,6 @@
 		4B83E1562589AB7D0041B601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B83E1A9258CB2FC0041B601 /* LLJSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainViewController.swift; sourceTree = "<group>"; };
 		4B83E1D32595D9B70041B601 /* git.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = git.txt; sourceTree = "<group>"; };
-		4B83E8CD26252F3000537DA0 /* LLJFALiMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFALiMainViewController.swift; sourceTree = "<group>"; };
 		4B83E8D72629264E00537DA0 /* LLJBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBezierPath.swift; sourceTree = "<group>"; };
 		4B83E8E22629344300537DA0 /* LLJAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAnimation.swift; sourceTree = "<group>"; };
 		4B83E8EB2629399F00537DA0 /* LLJBezierPathController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBezierPathController.swift; sourceTree = "<group>"; };
@@ -258,6 +280,74 @@
 			path = LLJNetHelper;
 			sourceTree = "<group>";
 		};
+		4B7BBFDD264E72CF00CA9F17 /* 仿微信读书组切圆角 */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BBFDF264E732200CA9F17 /* Controller */,
+				4B7BBFDE264E732200CA9F17 /* Model */,
+				4B7BBFE1264E732300CA9F17 /* View */,
+			);
+			path = "仿微信读书组切圆角";
+			sourceTree = "<group>";
+		};
+		4B7BBFDE264E732200CA9F17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BBFF826520C8400CA9F17 /* LLJWChatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B7BBFDF264E732200CA9F17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BBFE0264E732200CA9F17 /* LLJWChatMainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B7BBFE1264E732300CA9F17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BBFE9264E956000CA9F17 /* LLJWChatSubView.swift */,
+				4B7BBFEE264EA26500CA9F17 /* LLJWChatFirstCell.swift */,
+				4B7BBFF32651FEB300CA9F17 /* LLJWChatSecondCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B7BC0102657632100CA9F17 /* Swift语法相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BC0122657635800CA9F17 /* Controller */,
+				4B7BC0112657635800CA9F17 /* Model */,
+				4B7BC0132657635800CA9F17 /* View */,
+			);
+			path = "Swift语法相关";
+			sourceTree = "<group>";
+		};
+		4B7BC0112657635800CA9F17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B7BC0122657635800CA9F17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B7BC0142657639100CA9F17 /* LLJAboutSwiftController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B7BC0132657635800CA9F17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4B808747263A9364009CEDFF /* LLJLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,8 +414,10 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B7BC0102657632100CA9F17 /* Swift语法相关 */,
+				4B7BBFDD264E72CF00CA9F17 /* 仿微信读书组切圆角 */,
 				4B83E8E72629391400537DA0 /* 贝塞尔曲线画图篇 */,
-				4B83E8C62625279700537DA0 /* 仿支付宝首页 */,
+				4B83E8C62625279700537DA0 /* 仿网易新闻首页 */,
 				4BDE20F025C944050079960D /* TableView相关 */,
 				4BDE20EC25C943670079960D /* CoreData相关 */,
 			);
@@ -360,19 +452,23 @@
 			path = TabItems;
 			sourceTree = "<group>";
 		};
-		4B83E8C62625279700537DA0 /* 仿支付宝首页 */ = {
+		4B83E8C62625279700537DA0 /* 仿网易新闻首页 */ = {
 			isa = PBXGroup;
 			children = (
 				4B83E8CB26252EE800537DA0 /* Controller */,
 				4B83E8CC26252EE800537DA0 /* Model */,
 				4B83E8CA26252EE800537DA0 /* View */,
 			);
-			path = "仿支付宝首页";
+			path = "仿网易新闻首页";
 			sourceTree = "<group>";
 		};
 		4B83E8CA26252EE800537DA0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B7BC00B265669C700CA9F17 /* LLJNestTableView.swift */,
+				4B7BC01C265C932700CA9F17 /* LLJSegmentView.swift */,
+				4B7BC02B265DF0F500CA9F17 /* LLJContentView.swift */,
+				4B7BC021265C9C4F00CA9F17 /* LLJSegmentViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,7 +476,7 @@
 		4B83E8CB26252EE800537DA0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4B83E8CD26252F3000537DA0 /* LLJFALiMainViewController.swift */,
+				4B7BC005265609D700CA9F17 /* ZBFWYMainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -388,6 +484,7 @@
 		4B83E8CC26252EE800537DA0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B7BC026265C9F8E00CA9F17 /* LLJSegmentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -827,13 +924,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
+				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
+				4B7BC006265609D700CA9F17 /* ZBFWYMainViewController.swift in Sources */,
 				4B8087372638EFBF009CEDFF /* LLJAnimationCell.swift in Sources */,
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
+				4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
 				4B808749263A9386009CEDFF /* LLJLayer.swift in Sources */,
 				4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */,
@@ -842,11 +943,14 @@
 				4B48B260262D57280048A913 /* LLJBezierPathModel.swift in Sources */,
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
-				4B83E8CE26252F3000537DA0 /* LLJFALiMainViewController.swift in Sources */,
+				4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */,
 				4BF8A2C9260C76A5007FD071 /* UIControl + SwizzlMethod.swift in Sources */,
 				4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */,
 				4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */,
 				4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */,
+				4B7BC027265C9F8E00CA9F17 /* LLJSegmentModel.swift in Sources */,
+				4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */,
+				4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */,
 				4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */,
 				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
@@ -854,10 +958,14 @@
 				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
+				4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
 				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,
+				4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */,
 				4B8087322638EE6B009CEDFF /* LLJAnimationController.swift in Sources */,
 				4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */,
+				4B7BC02C265DF0F500CA9F17 /* LLJContentView.swift in Sources */,
+				4B7BBFEA264E956000CA9F17 /* LLJWChatSubView.swift in Sources */,
 				4B48B266262E5EAB0048A913 /* LLJsonModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
