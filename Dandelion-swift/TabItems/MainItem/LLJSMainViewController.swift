@@ -60,6 +60,9 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
         if viewController != nil {
             viewController?.titleName = sub.first!
             viewController?.hidesBottomBarWhenPushed = true
+            if sub.last! == "LLJWChatMainViewController" {
+                viewController?.hiddenNavgationBarWhenPushIn = true
+            }
             self.navigationController?.pushViewController(viewController!, animated: true)
         }
     }

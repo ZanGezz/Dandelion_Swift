@@ -96,6 +96,17 @@ class LLJAnimation {
         groupAnimation.animations = animations
         return groupAnimation
     }
+    
+    /*
+     * 转场动画 CATransition
+     * keyPath: 创建动画使用key CALayer或其子类CAShapeLayer等属性中标记为Animatable的，都可以作为key创建动画 详细见注一
+     * animations: 动画组
+     */
+//    class func transitionAnimation(keyPath: String, animations:[CAAnimation]?) -> CATransition {
+//        let groupAnimation = CATransition()
+//        groupAnimation.animations = animations
+//        return groupAnimation
+//    }
 }
 
 

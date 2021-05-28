@@ -132,4 +132,19 @@ public class LLJSHelper {
             }
             timer.resume()
     }
+    
+    /**
+     * 根据字体获取string的size
+     */
+    class func getStringSize(subString: String, font: UIFont, width: CGFloat) -> CGSize {
+        
+        let string: NSString = subString as NSString
+        var W = width
+        if  W <= 0.0 {
+            W = CGFloat(MAXFLOAT)
+        }
+        let size = string.boundingRect(with: CGSize(width: W, height: 0.0), options: [NSStringDrawingOptions.usesFontLeading, NSStringDrawingOptions.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: font], context: nil).size
+        return size
+    }
+    
 }

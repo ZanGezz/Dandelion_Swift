@@ -69,6 +69,14 @@ let IS_IPONEX: Bool = LLJTabBarHeight == 83 ? true : false
 func LLJColor(_ a: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat) -> UIColor {
     return UIColor(red: a/255.0, green: b/255.0, blue: c/255.0, alpha: d)
 }
+//随机颜色
+func LLJRandomColor() -> UIColor {
+    let a: CGFloat = CGFloat(Int(Darwin.arc4random()) % 255)
+    let b: CGFloat = CGFloat(Int(Darwin.arc4random()) % 255)
+    let c: CGFloat = CGFloat(Int(Darwin.arc4random()) % 255)
+    return UIColor(red: a/255.0, green: b/255.0, blue: c/255.0, alpha: 1)
+}
+
 //白色
 func LLJWhiteColor() -> UIColor {
     return UIColor.white
@@ -89,7 +97,7 @@ func LLJPurpleColor() -> UIColor {
 
 
 /**
- * 字体设置
+ * 字体设置 Medium Semibold
  */
 func LLJFont(_ size: CGFloat, _ fontName: String) -> UIFont {
     var fontString : String = fontName
@@ -101,6 +109,10 @@ func LLJFont(_ size: CGFloat, _ fontName: String) -> UIFont {
 
 func LLJFont(_ size: CGFloat) -> UIFont {
     return UIFont.systemFont(ofSize: size)
+}
+
+func LLJMediumFont(_ size: CGFloat) -> UIFont {
+    return UIFont.init(name: "PingFangSC-Medium", size: size)!
 }
 
 func LLJBoldFont(_ size: CGFloat) -> UIFont {
