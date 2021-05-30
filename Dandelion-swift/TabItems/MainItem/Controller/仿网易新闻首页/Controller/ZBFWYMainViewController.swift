@@ -39,12 +39,12 @@ extension ZBFWYMainViewController {
         segmentView.firstItemLeftOffSet = LLJDX(10)
         segmentView.currentSelectItem = 5
         segmentView.delegate = self
-        segmentView.lineStyle = .cycle
+        segmentView.lineStyle = .moveAnimationCycle
         nest.segmentView = segmentView
         
         
-        let sepView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 5))
-        sepView.backgroundColor = UIColor.yellow
+        let sepView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 10))
+        sepView.backgroundColor = LLJRandomColor()
         nest.separatorView = sepView
         
         let contentView = LLJContentView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 500))
@@ -60,11 +60,11 @@ extension ZBFWYMainViewController {
         nest.contentView = contentView
         
         let head = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 60))
-        head.backgroundColor = UIColor.blue
+        head.backgroundColor = LLJRandomColor()
         nest.headView = head
         
         let foot = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 60))
-        foot.backgroundColor = UIColor.blue
+        foot.backgroundColor = LLJRandomColor()
         nest.footerView = foot
         
         self.view.addSubview(nest)
@@ -81,13 +81,13 @@ extension ZBFWYMainViewController: LLJSegmentViewDelegate {
 
 extension ZBFWYMainViewController: LLJContentViewDelegate {
     
-    func didScrollToItem(index: Int) {
+    func didScrollToItem(index: Int, percentage: CGFloat, isDraging: Bool) {
         let segmentView = nestView?.segmentView as! LLJSegmentView
-        segmentView.bottomLineScrollToItem(index: index, percentage: 1.0)
+        segmentView.bottomLineScrollToItem(index: index, percentage: percentage, isDraging: isDraging, itemSelected: false)
     }
 
-    func scrollingToItem(index: Int, percentage: CGFloat) {
+    func scrollingToItem(index: Int, percentage: CGFloat, isDraging: Bool) {
         let segmentView = nestView?.segmentView as! LLJSegmentView
-        segmentView.bottomLineScrollToItem(index: index, percentage: percentage)
+        segmentView.bottomLineScrollToItem(index: index, percentage: percentage, isDraging: isDraging, itemSelected: false)
     }
 }

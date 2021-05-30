@@ -10,7 +10,7 @@ import UIKit
 class LLJSegmentViewCell: UICollectionViewCell {
     
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textAlignment = NSTextAlignment.center
         return titleLabel
@@ -20,6 +20,8 @@ class LLJSegmentViewCell: UICollectionViewCell {
         let cycleView = UIView()
         return cycleView
     }()
+    
+    private var cycleLayer: CAShapeLayer?
     
     private var _firstItemLeftOffSet: CGFloat = 0.0
 
@@ -78,13 +80,15 @@ extension LLJSegmentViewCell {
     //设置圆圈frame
     func setCycleViewFrame(model: LLJSegmentModel, color: UIColor) {
         
-        self.cycleView.backgroundColor = color
-        self.cycleView.snp_remakeConstraints { (make) in
-            make.left.equalTo(self.titleLabel.snp_right).offset(2.0)
-            make.centerY.equalTo(self.titleLabel.snp_top)
-            make.width.equalTo(model.bottomLineDragFrame.width)
-            make.height.equalTo(model.bottomLineDragFrame.height)
-        }
+        //画圆
+        self.cycleLayer?.removeFromSuperlayer()
+        self.cycleLayer = CAShapeLayer()
+        self.cycleView.frame = model.cycleFrame
+        self.cycleLayer?.frame = self.cycleView.bounds
+        self.cycleView.layer.addSublayer(self.cycleLayer!)
+        let path = LLJBezierPath.drawCyle(rect: self.cycleView.bounds)
+        let subLayer = LLJLayer.shapeLayer(path: path, strokeStart: nil, strokeEnd: nil, lineWidth: model.lineWidth, strokeColor: color, fillColor: nil, lineDashPattern: nil)
+        self.cycleLayer!.addSublayer(subLayer)
     }
 }
 

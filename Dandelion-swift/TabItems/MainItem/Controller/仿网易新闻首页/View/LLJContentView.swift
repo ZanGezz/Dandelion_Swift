@@ -9,9 +9,9 @@ import UIKit
 
 protocol LLJContentViewDelegate: NSObjectProtocol {
     //滚动到item
-    func didScrollToItem(index: Int)
+    func didScrollToItem(index: Int, percentage: CGFloat, isDraging: Bool)
     //向item滚动中 percentage: 滚动相对于当前view的百分比
-    func scrollingToItem(index: Int, percentage: CGFloat)
+    func scrollingToItem(index: Int, percentage: CGFloat, isDraging: Bool)
 }
 
 class LLJContentView: UIView {
@@ -126,7 +126,7 @@ extension LLJContentView: UICollectionViewDelegate, UIScrollViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         //round函数 四舍五入
         nextItemIndex = Int(round(scrollView.contentOffset.x/self.bounds.width))
-        //self.delegate?.didScrollToItem(index: nextItemIndex)
+        self.delegate?.didScrollToItem(index: nextItemIndex, percentage: 1.0, isDraging: false)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -134,9 +134,9 @@ extension LLJContentView: UICollectionViewDelegate, UIScrollViewDelegate{
         if isViewDragBegin {
             let _x = scrollView.contentOffset.x - CGFloat(_currentItemIndex)*self.itemSize.width
             if _x > 0 {
-                self.delegate?.scrollingToItem(index: _currentItemIndex + 1, percentage: _x/self.itemSize.width)
+                self.delegate?.scrollingToItem(index: _currentItemIndex + 1, percentage: _x/self.itemSize.width, isDraging: true)
             } else {
-                self.delegate?.scrollingToItem(index: _currentItemIndex - 1, percentage: -_x/self.itemSize.width)
+                self.delegate?.scrollingToItem(index: (_currentItemIndex - 1) <= 0 ? 0 : (_currentItemIndex - 1), percentage: -_x/self.itemSize.width, isDraging: true)
             }
             
             if _x == 0 || _x == self.itemSize.width || _x == -self.itemSize.width {

@@ -9,7 +9,7 @@ import UIKit
 
 
 enum LLJSegmentViewBottomLineScorllStyle {
-    case cycle                      //仿网易新闻圆圈
+    case moveAnimationCycle         //仿网易新闻圆圈
     case moveAnimationNone          //无动画直接移动    针对底线
     case moveAnimationLiner         //动画匀速移动      针对底线
     case moveAnimationCaseInOut     //变速移动         针对底线
@@ -81,18 +81,15 @@ class LLJSegmentView: UIView {
     //底线距离底部距离
     private var _bottomLineBottomOffSet: CGFloat = 2.0
     //底线样式及动画 默认圆圈
-    private var _lineStyle: LLJSegmentViewBottomLineScorllStyle = .cycle
+    private var _lineStyle: LLJSegmentViewBottomLineScorllStyle = .moveAnimationCycle
     //动画时间
     var animationDuration: Double = 0.3
     //使用时动画时间
     var userAnimationDuration: Double = 0.0
     //底线高
     private var bottomLine_y: CGFloat = 0.0;
-    //
-    private var cycleConerRadius: CGFloat = 4;
-    
-    private var currentCell: LLJSegmentViewCell?;
-    private var lastCell: LLJSegmentViewCell?;
+    //直径
+    private var diameter: CGFloat = 6.0;
 
     //代理
     weak open var delegate: LLJSegmentViewDelegate?
@@ -130,7 +127,7 @@ extension LLJSegmentView {
             //滚到默认位置
             if itemModels.count > 0 {
                 //底线滚动到选中item
-                bottomLineScrollToItem(index: self.currentSelectItem, percentage: 1.0)
+                bottomLineScrollToItem(index: self.currentSelectItem, percentage: 1.0, isDraging: false, itemSelected: true)
             }
         }
         get {
@@ -258,6 +255,7 @@ extension LLJSegmentView {
     
     //底线样式及动画
     var lineStyle: LLJSegmentViewBottomLineScorllStyle {
+        
         set {
             _lineStyle = newValue
             //设置itemSize
@@ -265,7 +263,7 @@ extension LLJSegmentView {
             //滚到默认位置
             if itemModels.count > 0 {
                 //底线滚动到选中item
-                bottomLineScrollToItem(index: self.currentSelectItem, percentage: 1.0)
+                bottomLineScrollToItem(index: self.currentSelectItem, percentage: 1.0, isDraging: false, itemSelected: true)
             }
         }
         get {
@@ -282,7 +280,7 @@ extension LLJSegmentView {
             //滚到默认位置
             if itemModels.count > 0 {
                 //底线滚动到选中item
-                bottomLineScrollToItem(index: self.currentSelectItem, percentage: 1.0)
+                bottomLineScrollToItem(index: self.currentSelectItem, percentage: 1.0, isDraging: false, itemSelected: true)
             }
             //刷新
             self.collectionView.reloadData()
@@ -333,6 +331,7 @@ extension LLJSegmentView {
                 model.itemSize = CGSize(width: W + self.itemSpace, height: self.bounds.height)
             }
             model.titleWidth = W
+            model.titleHeight = LLJSHelper.getStringSize(subString: model.title, font: self.itemFont, width: 0.0).height
         }
         
         self.collectionView.reloadData()
@@ -364,15 +363,8 @@ extension LLJSegmentView {
         
         switch self.lineStyle {
         
-        case .cycle:
-            
+        case .moveAnimationCycle: break
             //圆形
-            for index in stride(from: 0, to: self.itemModels.count, by: 1) {
-                
-                let model = self.itemModels[index]
-                model.bottomLineStaticFrame = CGRect(x: 0, y: 0, width: 4, height: 4)
-            }
-        
         case .moveAnimationNone,.moveAnimationLiner,.moveAnimationCaseInOut,.moveAnimationDragLiner,.moveAnimationDragCaseInOut:
             
             //线
@@ -429,21 +421,24 @@ extension LLJSegmentView: UICollectionViewDelegate {
         
         let model = self.itemModels[indexPath.row]
         let newCell = cell as! LLJSegmentViewCell
+        
         if model.isCurrentSelected {
             newCell.setDataSource(title: model.title, textColor: self.selectItemTitleColor, textFont: self.selectItemFont)
         } else {
             newCell.setDataSource(title: model.title, textColor: self.itemTitleColor, textFont: self.itemFont)
         }
+        if self.lineStyle != .moveAnimationCycle {
+            newCell.cycleView.isHidden = true
+        } 
+        newCell.setCycleViewFrame(model: model, color: self.bottomLineColor)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         
-        self.lastCell = self.currentCell
-        self.currentCell = collectionView.cellForItem(at: indexPath) as? LLJSegmentViewCell
+ 
         //设置选中项
         setSelectItem(index: indexPath.row)
         //底线滚动到选中item
-        bottomLineScrollToItem(index: indexPath.row, percentage: 1.0)
+        bottomLineScrollToItem(index: indexPath.row, percentage: 1.0, isDraging: false, itemSelected: true)
         //发送代理
         delegate?.didSelectItem(index: indexPath.row)
     }
@@ -485,27 +480,54 @@ extension LLJSegmentView {
         self.collectionView.reloadData()
     }
     
-    //底线滚动到选中item
-    func bottomLineScrollToItem(index: Int, percentage: CGFloat) {
+    //底线滚动中到选中item
+    func bottomLineScrollToItem(index: Int, percentage: CGFloat, isDraging: Bool, itemSelected: Bool) {
                 
+        var percentage = percentage
+        
         switch self.lineStyle {
-        case .cycle:
+        case .moveAnimationCycle:
             
-            if self.currentSelectItem != index {
+            if percentage <= 0.0 {
+                percentage = 1.0
+            }
+            
+            if percentage > 1.0 {
+                percentage = percentage - 1.0
+            }
+            
+            _currentSelectItem = index
+            for i in stride(from: 0, to: self.itemModels.count, by: 1) {
                 
-                self.currentSelectItem = index
-                
-                //toItem
-                self.itemModels[self.currentSelectItem].bottomLineDragFrame = CGRect(x: 0, y: 0, width: 4*percentage, height: 4*percentage)
-                self.currentCell?.setCycleViewFrame(model: self.itemModels[self.currentSelectItem], color: LLJRandomColor())
+                let model = self.itemModels[i]
 
-                //lastItem
-                self.itemModels[self.currentSelectItem].bottomLineDragFrame = CGRect(x: 0, y: 0, width: 4*(1-percentage), height: 4*(1-percentage))
-                self.lastCell?.setCycleViewFrame(model: self.itemModels[self.lastSelectItem], color: LLJRandomColor())
-                
-                if percentage == 1.0 {
-                    self.lastSelectItem = self.currentSelectItem
+                if i == self.currentSelectItem {
+                    model.diameter = self.diameter*percentage
+                    model.lineWidth = 2.0*percentage
+                } else if i == self.lastSelectItem {
+                    model.diameter = self.diameter*(1 - percentage)
+                    model.lineWidth = 2.0*(1 - percentage)
+                } else {
+                    model.diameter = 0.0
+                    model.lineWidth = 0.0
                 }
+                
+                var X: CGFloat = 0.0
+                if i == 0 {
+                    X = (model.itemSize.width - model.titleWidth)/2.0 + model.titleWidth + 4.0 + self.firstItemLeftOffSet/2.0
+                } else {
+                    X = (model.itemSize.width - model.titleWidth)/2.0 + model.titleWidth + 4.0
+                }
+                let Y = (model.itemSize.height - model.titleHeight - model.diameter)/2.0 + 2.0
+                model.cycleFrame = CGRect(x: X, y: Y, width: model.diameter, height: model.diameter)
+            }
+            
+            self.collectionView.reloadData()
+            
+            if percentage >= 0.8 {
+                //滚动到指定item
+                self.scrollToItem(index: self.currentSelectItem, animated: true)
+                self.lastSelectItem = self.currentSelectItem
             }
             
         case .moveAnimationNone:
@@ -523,66 +545,73 @@ extension LLJSegmentView {
             
         case .moveAnimationLiner:
             
-            _currentSelectItem = index
-
-            if percentage >= 0.6 {
-                //滚动到指定item
-                self.scrollToItem(index: self.currentSelectItem, animated: true)
+            
+            if isDraging {
+                return;
             }
             
-            if percentage == 1.0 {
-                                
-                UIView.setAnimationCurve(UIView.AnimationCurve.linear)
-                UIView.animate(withDuration: self.animationDuration) {
-                    self.bottomLine.frame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
-                } completion: { (completion) in
-                    
-                    self.lastSelectItem = self.currentSelectItem
-                    //滚动到指定item
-                    self.scrollToItem(index: self.currentSelectItem, animated: true)
-                }
+            _currentSelectItem = index
+
+            UIView.setAnimationCurve(UIView.AnimationCurve.linear)
+            UIView.animate(withDuration: self.animationDuration) {
+                //滚动到指定item
+                self.bottomLine.frame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
+                self.scrollToItem(index: self.currentSelectItem, animated: true)
+
+            } completion: { (completion) in
+                
+                self.lastSelectItem = self.currentSelectItem
             }
             
         case .moveAnimationCaseInOut:
                    
+            if isDraging {
+                return;
+            }
+            
             _currentSelectItem = index
 
-            if percentage == 1.0 {
-                                
-                var bottom_move_w: CGFloat = 0.0
-                let bottom_y: CGFloat = self.bounds.height - self.bottomLineHeight - self.bottomLineBottomOffSet
-                let bottom_w = self.itemModels[self.lastSelectItem].titleWidth*self.bottomLineWidthRatio
-                let bottom_next_w = self.itemModels[self.currentSelectItem].titleWidth*self.bottomLineWidthRatio
-                
-                var currentStaticFrame: CGRect = CGRect.zero
-                var movingFrame: CGRect = CGRect.zero
+            var bottom_move_w: CGFloat = 0.0
+            let bottom_y: CGFloat = self.bounds.height - self.bottomLineHeight - self.bottomLineBottomOffSet
+            let bottom_w = self.itemModels[self.lastSelectItem].titleWidth*self.bottomLineWidthRatio
+            let bottom_next_w = self.itemModels[self.currentSelectItem].titleWidth*self.bottomLineWidthRatio
+            
+            var currentStaticFrame: CGRect = CGRect.zero
+            var movingFrame: CGRect = CGRect.zero
 
-                if self.currentSelectItem >= self.lastSelectItem {
-                    
-                    bottom_move_w = self.itemModels[self.currentSelectItem].bottomLineStaticFrame.origin.x - self.itemModels[self.lastSelectItem].bottomLineStaticFrame.origin.x + bottom_next_w
-                    currentStaticFrame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
-                    movingFrame = CGRect(x: self.itemModels[self.lastSelectItem].bottomLineStaticFrame.origin.x, y: bottom_y, width: bottom_move_w, height: self.bottomLineHeight)
-                } else {
-                    
-                    bottom_move_w = self.itemModels[self.lastSelectItem].bottomLineStaticFrame.origin.x - self.itemModels[self.currentSelectItem].bottomLineStaticFrame.origin.x + bottom_w
-                    currentStaticFrame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
-                    movingFrame = CGRect(x: self.itemModels[self.currentSelectItem].bottomLineStaticFrame.origin.x, y: bottom_y, width: bottom_move_w, height: self.bottomLineHeight)
-                }
+            if self.currentSelectItem >= self.lastSelectItem {
                 
-                UIView.setAnimationCurve(UIView.AnimationCurve.easeInOut)
-                UIView.animate(withDuration: self.animationDuration) {
-                    self.bottomLine.frame = movingFrame
-                } completion: { (completion) in
-                    
-                    self.bottomLine.frame = currentStaticFrame
-                    self.lastSelectItem = self.currentSelectItem
-                    //滚动到指定item
-                    self.scrollToItem(index: self.currentSelectItem, animated: true)
-                }
+                bottom_move_w = self.itemModels[self.currentSelectItem].bottomLineStaticFrame.origin.x - self.itemModels[self.lastSelectItem].bottomLineStaticFrame.origin.x + bottom_next_w
+                currentStaticFrame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
+                movingFrame = CGRect(x: self.itemModels[self.lastSelectItem].bottomLineStaticFrame.origin.x, y: bottom_y, width: bottom_move_w, height: self.bottomLineHeight)
+            } else {
+                
+                bottom_move_w = self.itemModels[self.lastSelectItem].bottomLineStaticFrame.origin.x - self.itemModels[self.currentSelectItem].bottomLineStaticFrame.origin.x + bottom_w
+                currentStaticFrame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
+                movingFrame = CGRect(x: self.itemModels[self.currentSelectItem].bottomLineStaticFrame.origin.x, y: bottom_y, width: bottom_move_w, height: self.bottomLineHeight)
+            }
+            
+            UIView.setAnimationCurve(UIView.AnimationCurve.easeInOut)
+            UIView.animate(withDuration: self.animationDuration) {
+                self.bottomLine.frame = movingFrame
+            } completion: { (completion) in
+                
+                self.bottomLine.frame = currentStaticFrame
+                self.lastSelectItem = self.currentSelectItem
+                //滚动到指定item
+                self.scrollToItem(index: self.currentSelectItem, animated: true)
             }
             
         case .moveAnimationDragLiner:
-
+            
+            if percentage <= 0.0 {
+                percentage = 1.0
+            }
+            
+            if percentage > 1.0 {
+                percentage = percentage - 1.0
+            }
+            
             _currentSelectItem = index
 
             var bottom_move_x: CGFloat = 0.00
@@ -613,23 +642,32 @@ extension LLJSegmentView {
             
             if percentage >= 0.7 {
                 self.scrollToItem(index: self.currentSelectItem, animated: true)
+                self.lastSelectItem = self.currentSelectItem
             }
             
             if percentage == 1.0 {
                 
                 UIView.setAnimationCurve(UIView.AnimationCurve.linear)
                 UIView.animate(withDuration: self.userAnimationDuration) {
-                    self.bottomLine.frame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
-                } completion: { (completion) in
-                    
-                    self.lastSelectItem = self.currentSelectItem
                     //滚动到指定item
+                    self.bottomLine.frame = self.itemModels[self.currentSelectItem].bottomLineStaticFrame
                     self.scrollToItem(index: self.currentSelectItem, animated: true)
+                } completion: { (completion) in
                     self.userAnimationDuration = self.animationDuration
                 }
             }
             
         case .moveAnimationDragCaseInOut:
+            
+            LLJLog(percentage)
+            
+            if percentage <= 0.0 {
+                percentage = 1.0
+            }
+            
+            if percentage > 1.0 {
+                percentage = percentage - 1.0
+            }
             
             _currentSelectItem = index
 
@@ -659,21 +697,25 @@ extension LLJSegmentView {
             if percentage < 1.0 {
                 self.bottomLine.frame = movingFrame
                 self.userAnimationDuration = (self.animationDuration - self.animationDuration*Double(percentage)) <= 0.0001 ? 0.0001 : (self.animationDuration - self.animationDuration*Double(percentage))
-                LLJLog(self.animationDuration*Double(percentage))
             }
 
+            if percentage >= 0.7 && isDraging {
+                self.scrollToItem(index: self.currentSelectItem, animated: true)
+                self.bottomLine.frame = movingFrame
+                self.lastSelectItem = self.currentSelectItem
+            }
+            
             if percentage == 1.0 {
-                                
                 UIView.setAnimationCurve(UIView.AnimationCurve.easeInOut)
                 UIView.animate(withDuration: self.userAnimationDuration) {
+                    //滚动到指定item
                     self.bottomLine.frame = movingFrame
+                    self.scrollToItem(index: self.currentSelectItem, animated: true)
                 } completion: { (completion) in
                     
                     self.bottomLine.frame = currentStaticFrame
-                    self.lastSelectItem = self.currentSelectItem
-                    //滚动到指定item
-                    self.scrollToItem(index: self.currentSelectItem, animated: true)
                     self.userAnimationDuration = self.animationDuration
+                    self.lastSelectItem = self.currentSelectItem
                 }
             }
             

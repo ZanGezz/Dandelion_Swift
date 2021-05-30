@@ -12,10 +12,13 @@ class LLJSegmentModel: NSObject {
     var itemSize: CGSize = CGSize.zero
     var title: String = ""
     var titleWidth: CGFloat = 0.0
+    var titleHeight: CGFloat = 0.0
     var isCurrentSelected: Bool = false
-    
-    var bottomLineStaticFrame: CGRect = CGRect.zero
-    var bottomLineDragFrame: CGRect = CGRect.zero
 
+    var bottomLineStaticFrame: CGRect = CGRect.zero
+    var cycleFrame: CGRect = CGRect.zero
+
+    var lineWidth: CGFloat = 0.0
+    var diameter: CGFloat = 0.0
 }
 
