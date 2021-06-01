@@ -14,16 +14,10 @@ protocol LLJNestTableViewDelegate {
 class LLJNestTableView: UIView {
     
     //tableView
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.bounces = false
+    private lazy var tableView: LLJTableView = {
+        let tableView = LLJTableView(frame: CGRect.zero, style: UITableView.Style.plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.backgroundColor = LLJColor(248, 248, 248, 1)
         return tableView
     }()
     

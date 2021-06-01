@@ -26,14 +26,18 @@ class LLJFViewController: UIViewController {
      */
     var titleName: String = ""
     
-    lazy var myTableView: UITableView = {
-        let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.bounces = false
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.backgroundColor = LLJColor(248, 248, 248, 1)
+    /*
+     * 状态栏样式
+     */
+    var statusBarStyle: UIStatusBarStyle = .default
+    
+    /*
+     * 状态栏动画
+     */
+    var statusBarAnimation: UIStatusBarAnimation = .none
+    
+    lazy var myTableView: LLJTableView = {
+        let tableView = LLJTableView(frame: CGRect.zero, style: UITableView.Style.plain)
         return tableView
     }()
     
@@ -48,6 +52,20 @@ class LLJFViewController: UIViewController {
         super.viewWillAppear(animated)
         //设置代理
         self.navigationController?.delegate = self;
+    }
+    
+    /*
+     * 状态栏样式
+     */
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
+    
+    /*
+     * 状态栏动画
+     */
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation{
+        return statusBarAnimation
     }
     
     //返回按钮触发事件(在子类重写该方法触发事件)
@@ -70,6 +88,14 @@ extension LLJFViewController {
         self.title = self.titleName;
         //隐藏tabbar
         self.hidesBottomBarWhenPushed = true
+        //自适应安全区
+        if #available(iOS 11.0, *) {
+            self.myTableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = false;
+        };
+        //present 全屏
+        self.modalPresentationStyle = UIModalPresentationStyle.fullScreen
     }
     //按钮事件
     @objc private func backButtonClick(sender: UIButton) {

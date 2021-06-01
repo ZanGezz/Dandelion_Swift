@@ -9,8 +9,16 @@ import UIKit
 
 class ZBFWYMainViewController: LLJFViewController {
 
-    var name: String?
-    var nestView: LLJNestTableView?
+    //MARK:懒加载属性
+    private lazy var tableView: LLJTableView = {
+        let tableView = LLJTableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTopHeight), style: UITableView.Style.plain)
+        tableView.register(LLJSMainCell.self, forCellReuseIdentifier: "MainCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
+    //数据数组
+    var sourceArray : [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,75 +27,80 @@ class ZBFWYMainViewController: LLJFViewController {
     }
 }
 
-//swift 闭包 传值方式
+//MARK: - UI -
 extension ZBFWYMainViewController {
     
-    func setUpUI() {
+    private func setUpUI() {
         
-        self.view.backgroundColor = LLJWhiteColor()
+        sourceArray = ["moveAnimationCycle","moveAnimationNone","moveAnimationLiner","moveAnimationCaseInOut","moveAnimationDragLiner","moveAnimationDragCaseInOut"]
         
-        let nest = LLJNestTableView(frame: self.view.bounds)
-        nestView = nest
+        self.view.addSubview(self.tableView)
+    }
+}
+
+//MARK: - UITableViewDelegate -
+extension ZBFWYMainViewController: UITableViewDelegate, UITableViewDataSource {
         
-        let segmentView = LLJSegmentView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 40))
-        segmentView.itemTitles = ["关注","头条","抗疫","视频","周边","娱乐","体育","新时代","财经","科技","北京","公开课","汽车","直播","图片","NBA"]
-        segmentView.selectItemTitleColor = LLJRandomColor()
-        segmentView.itemTitleColor = LLJRandomColor()
-        segmentView.itemFont = LLJFont(16)
-        segmentView.selectItemFont = LLJBoldFont(18)
-        segmentView.itemSpace = LLJDX(20)
-        segmentView.firstItemLeftOffSet = LLJDX(10)
-        segmentView.currentSelectItem = 5
-        segmentView.delegate = self
-        segmentView.lineStyle = .moveAnimationCycle
-        nest.segmentView = segmentView
+    //UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.sourceArray!.count;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return LLJDX(80);
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell") as! LLJSMainCell
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        cell.setDataSource(self.sourceArray![indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let sepView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 10))
-        sepView.backgroundColor = LLJRandomColor()
-        nest.separatorView = sepView
-        
-        let contentView = LLJContentView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 500))
-        var viewList: [UIView] = []
-        for _ in stride(from: 0, to: segmentView.itemTitles.count, by: 1) {
-            let view = UIView()
-            view.backgroundColor = LLJRandomColor()
-            viewList.append(view)
+        let style = self.sourceArray![indexPath.row]
+        let controller = LLJFContentController()
+        controller.name = style
+        switch style {
+        case "moveAnimationCycle":
+            controller.style = .moveAnimationCycle
+            controller.statusBarStyle = .lightContent
+            controller.statusBarAnimation = .fade
+        case "moveAnimationNone":
+            controller.style = .moveAnimationNone
+            controller.statusBarStyle = .default
+            controller.statusBarAnimation = .none
+        case "moveAnimationLiner":
+            controller.style = .moveAnimationLiner
+            controller.statusBarStyle = .lightContent
+            controller.statusBarAnimation = .slide
+        case "moveAnimationCaseInOut":
+            controller.style = .moveAnimationCaseInOut
+            if #available(iOS 13.0, *) {
+                controller.statusBarStyle = .darkContent
+            } else {
+                // Fallback on earlier versions
+            }
+            controller.statusBarAnimation = .slide
+        case "moveAnimationDragLiner":
+            controller.style = .moveAnimationDragLiner
+            if #available(iOS 13.0, *) {
+                controller.statusBarStyle = .darkContent
+            } else {
+                // Fallback on earlier versions
+            }
+            controller.statusBarAnimation = .fade
+        case "moveAnimationDragCaseInOut":
+            controller.style = .moveAnimationDragCaseInOut
+            controller.statusBarStyle = .lightContent
+            controller.statusBarAnimation = .slide
+        default: break
         }
-        contentView.delegate = self
-        contentView.viewList = viewList
-        contentView.currentItemIndex = 5
-        nest.contentView = contentView
-        
-        let head = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 60))
-        head.backgroundColor = LLJRandomColor()
-        nest.headView = head
-        
-        let foot = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 60))
-        foot.backgroundColor = LLJRandomColor()
-        nest.footerView = foot
-        
-        self.view.addSubview(nest)
+        controller.hiddenNavgationBarWhenPushIn = true
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
-extension ZBFWYMainViewController: LLJSegmentViewDelegate {
-    
-    func didSelectItem(index: Int) {
-        let contenteView = nestView?.contentView as! LLJContentView
-        contenteView.scrollToItem(index: index, animated: true)
-    }
-}
 
-extension ZBFWYMainViewController: LLJContentViewDelegate {
-    
-    func didScrollToItem(index: Int, percentage: CGFloat, isDraging: Bool) {
-        let segmentView = nestView?.segmentView as! LLJSegmentView
-        segmentView.bottomLineScrollToItem(index: index, percentage: percentage, isDraging: isDraging, itemSelected: false)
-    }
-
-    func scrollingToItem(index: Int, percentage: CGFloat, isDraging: Bool) {
-        let segmentView = nestView?.segmentView as! LLJSegmentView
-        segmentView.bottomLineScrollToItem(index: index, percentage: percentage, isDraging: isDraging, itemSelected: false)
-    }
-}

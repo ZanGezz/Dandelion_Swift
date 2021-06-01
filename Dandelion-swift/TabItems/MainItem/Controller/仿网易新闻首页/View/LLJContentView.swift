@@ -120,13 +120,17 @@ extension LLJContentView: UICollectionViewDelegate, UIScrollViewDelegate{
 
         isViewDragBegin = true
         _currentItemIndex = Int(scrollView.contentOffset.x/self.itemSize.width)
-        LLJLog("scrollViewWillBeginDragging")
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
         //round函数 四舍五入
         nextItemIndex = Int(round(scrollView.contentOffset.x/self.bounds.width))
-        self.delegate?.didScrollToItem(index: nextItemIndex, percentage: 1.0, isDraging: false)
+        if nextItemIndex != _currentItemIndex {
+            self.delegate?.didScrollToItem(index: nextItemIndex, percentage: 1.0, isDraging: false)
+        } else {
+            self.delegate?.didScrollToItem(index: nextItemIndex, percentage: 0.0, isDraging: false)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
