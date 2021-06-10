@@ -17,5 +17,6 @@
 "动画篇:LLJAnimationController",
 "仿微信读书首页:LLJWChatMainViewController",
 "仿网易新闻首页:ZBFWYMainViewController",
-"swift语法相关:LLJAboutSwiftController"
+"swift语法相关:LLJAboutSwiftController",
+"轮播图相关:LLJLunBoViewController"
 ]

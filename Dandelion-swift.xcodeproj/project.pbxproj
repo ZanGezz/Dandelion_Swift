@@ -52,6 +52,8 @@
 		4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8F726293CA200537DA0 /* LLJDrawRect.swift */; };
 		4B8463072664C34D002A8B2B /* LLJFContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463062664C34D002A8B2B /* LLJFContentController.swift */; };
 		4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463262665CF02002A8B2B /* LLJTableView.swift */; };
+		4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */; };
+		4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
 		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
@@ -61,6 +63,7 @@
 		4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF187A525BAC45800B75EA6 /* LLJSUIKitHelper.swift */; };
 		4BF8A2C9260C76A5007FD071 /* UIControl + SwizzlMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8A2C8260C76A5007FD071 /* UIControl + SwizzlMethod.swift */; };
 		6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */; };
+		84F8D30FC7074DDAF240B619 /* Pods_Dandelion_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +136,11 @@
 		4B83E8F726293CA200537DA0 /* LLJDrawRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJDrawRect.swift; sourceTree = "<group>"; };
 		4B8463062664C34D002A8B2B /* LLJFContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFContentController.swift; sourceTree = "<group>"; };
 		4B8463262665CF02002A8B2B /* LLJTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJTableView.swift; sourceTree = "<group>"; };
+		4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLunBoViewController.swift; sourceTree = "<group>"; };
+		4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCarouselMapView.swift; sourceTree = "<group>"; };
+		4B88DE86266F11E800A3F07E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B88DE8C266F11EF00A3F07E /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B88DE91266F11F400A3F07E /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
 		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F8D30FC7074DDAF240B619 /* Pods_Dandelion_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +428,7 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B84632B2665D58D002A8B2B /* 轮播图相关 */,
 				4B7BC0102657632100CA9F17 /* Swift语法相关 */,
 				4B7BBFDD264E72CF00CA9F17 /* 仿微信读书组切圆角 */,
 				4B83E8E72629391400537DA0 /* 贝塞尔曲线画图篇 */,
@@ -556,6 +566,39 @@
 			path = LLJDrawRect;
 			sourceTree = "<group>";
 		};
+		4B84632B2665D58D002A8B2B /* 轮播图相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4B84632C2665D6B7002A8B2B /* Controller */,
+				4B84632D2665D6B7002A8B2B /* Model */,
+				4B84632E2665D6B7002A8B2B /* View */,
+			);
+			path = "轮播图相关";
+			sourceTree = "<group>";
+		};
+		4B84632C2665D6B7002A8B2B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B84632D2665D6B7002A8B2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B84632E2665D6B7002A8B2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +713,9 @@
 		80B40C6B93A042C3CC840C52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B88DE91266F11F400A3F07E /* SnapKit.framework */,
+				4B88DE8C266F11EF00A3F07E /* Moya.framework */,
+				4B88DE86266F11E800A3F07E /* Kingfisher.framework */,
 				ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */,
 				8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */,
 				87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */,
@@ -932,10 +978,12 @@
 			files = (
 				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
+				4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */,
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
 				4B8463072664C34D002A8B2B /* LLJFContentController.swift in Sources */,
+				4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */,
 				4B7BC006265609D700CA9F17 /* ZBFWYMainViewController.swift in Sources */,
 				4B8087372638EFBF009CEDFF /* LLJAnimationCell.swift in Sources */,
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
@@ -1146,7 +1194,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1167,7 +1215,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
