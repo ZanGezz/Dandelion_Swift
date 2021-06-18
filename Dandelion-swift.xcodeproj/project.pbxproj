@@ -56,6 +56,7 @@
 		4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
+		4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */; };
 		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
 		4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */; };
 		4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */; };
@@ -143,6 +144,7 @@
 		4B88DE91266F11F400A3F07E /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
+		4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLunBoListViewController.swift; sourceTree = "<group>"; };
 		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
 		4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMineViewController.swift; sourceTree = "<group>"; };
 		4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMyKnowledge.txt; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 		4B84632C2665D6B7002A8B2B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */,
 				4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */,
 			);
 			path = Controller;
@@ -1008,6 +1011,7 @@
 				4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */,
 				4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */,
 				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
+				4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
 				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,

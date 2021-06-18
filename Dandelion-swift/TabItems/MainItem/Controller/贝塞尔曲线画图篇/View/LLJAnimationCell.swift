@@ -267,7 +267,7 @@ extension LLJAnimationCell {
             }
             
             if !sender.isSelected {
-                LLJSHelper.countDown(timeInterval: 1, totalTime: 4) { (timer, time) in
+                LLJSUIKitHelper.countDown(timeInterval: 1, totalTime: 4) { (timer, time) in
                     LLJLog(time)
                     if time < 3 {
                         self.subLayer?.lifetime = 1.0
@@ -288,7 +288,7 @@ extension LLJAnimationCell {
             }
             
             if !sender.isSelected {
-                LLJSHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
+                LLJSUIKitHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
                     LLJLog(time)
                     if time < 2.5 {
                         self.subLayer?.lifetime = 1.0
@@ -318,7 +318,7 @@ extension LLJAnimationCell {
             
             //通过修改粒子生命周期来控制发射与否
             if !sender.isSelected {
-                LLJSHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
+                LLJSUIKitHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
                     LLJLog(time)
                     if time < 2.5 {
                         self.subLayer?.lifetime = 1.0

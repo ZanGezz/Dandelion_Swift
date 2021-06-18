@@ -173,7 +173,6 @@ extension LLJContentView {
     
     func scrollToItem(index: Int, animated: Bool) {
         //滚动到选中行
-        LLJLog(index)
         let indexPath = IndexPath(row: index, section: 0)
         self.collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.left, animated: animated)
     }

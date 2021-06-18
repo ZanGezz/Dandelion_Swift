@@ -165,3 +165,10 @@ func LLJ_DownLoad_Path() -> String {
  * 非空判断
  */
 
+/**
+ * 若引用
+ */
+func weakSelf(object: AnyObject) -> AnyObject {
+    weak var weakSelf = object
+    return weakSelf!
+}

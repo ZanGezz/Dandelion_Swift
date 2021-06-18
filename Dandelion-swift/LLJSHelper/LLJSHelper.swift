@@ -108,30 +108,6 @@ public class LLJSHelper {
         return angle * Double.pi / 180.0
     }
     
-    /**
-     * 倒计时
-     */
-    class func countDown(timeInterval: Double, totalTime: Double, duration: @escaping(DispatchSourceTimer?, Double) -> Void, completeHandler: @escaping() -> Void) {
-            
-            if totalTime <= 0 {
-                completeHandler()
-                return
-            }
-            let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
-            var count = totalTime
-            timer.schedule(deadline: .now(), repeating: timeInterval)
-            timer.setEventHandler {
-                count -= timeInterval
-                DispatchQueue.main.async {
-                    duration(timer, count)
-                }
-                if count == 0 {
-                    completeHandler()
-                    timer.cancel()
-                }
-            }
-            timer.resume()
-    }
     
     /**
      * 根据字体获取string的size
