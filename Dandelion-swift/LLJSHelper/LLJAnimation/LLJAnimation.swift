@@ -7,7 +7,12 @@
 
 import UIKit
 
-class LLJAnimation {
+class LLJAnimation: NSObject {
+    
+    //创建别名闭包
+    typealias supBlock = ((CAAnimation,Bool) -> Void)
+    
+    var animationDidStop: supBlock?
     
     /*
      * 基础动画 CABasicAnimation (旋转，缩放，淡出，平移)
@@ -108,8 +113,6 @@ class LLJAnimation {
 //        return groupAnimation
 //    }
 }
-
-
 
 //MARK: - 注释 -
 extension LLJAnimation {

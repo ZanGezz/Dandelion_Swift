@@ -33,7 +33,7 @@ extension LLJLunBoListViewController {
     
     private func setUpUI() {
         
-        sourceArray = ["正常轮播","缩放轮播","向上轮播","向下轮播","向左轮播","向右轮播","图片","自定义View"]
+        sourceArray = ["正常轮播","缩放轮播","折叠样式","向上轮播","向下轮播","向左轮播","向右轮播","图片","自定义View"]
         
         self.view.addSubview(self.tableView)
     }
@@ -72,6 +72,10 @@ extension LLJLunBoListViewController: UITableViewDelegate, UITableViewDataSource
         case "缩放轮播":
             controller.mapViewStyle = .zoom
             controller.contentViewStyle = .custom
+            controller.rollDirection = .right
+        case "折叠样式":
+            controller.mapViewStyle = .fold
+            controller.contentViewStyle = .image
             controller.rollDirection = .right
         case "向上轮播":
             controller.mapViewStyle = .zoom

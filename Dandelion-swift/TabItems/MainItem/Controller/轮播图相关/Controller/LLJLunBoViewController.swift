@@ -28,9 +28,33 @@ extension LLJLunBoViewController {
     
     private func setUpUI() {
         
+        
+        var largeSize: CGSize?
+        var smallSize: CGSize?
+        var viewWidth: CGFloat?
+        var itemSpace: CGFloat?
+        var contentViewCornerRadius: CGFloat?
+        var viewX: CGFloat?
+        
+        if self.mapViewStyle == .fold {
+            largeSize = CGSize(width: 240, height: 240*0.618)
+            smallSize = CGSize(width: 120, height: 120*0.618)
+            itemSpace = 10.0
+            viewWidth = SCREEN_WIDTH
+            contentViewCornerRadius = 6.0
+            viewX = 0.0
+        } else {
+            largeSize = CGSize(width: 280, height: 280*0.618)
+            smallSize = CGSize(width: 260, height: 260*0.618)
+            itemSpace = 5.0
+            viewWidth = SCREEN_WIDTH - 60
+            contentViewCornerRadius = 12.0
+            viewX = 30.0
+        }
+        
         var array: [UIImage] = []
         for _ in stride(from: 0, to: 10, by: 1) {
-            let image = LLJSHelper.getImageByColorAndSize(LLJRandomColor(), CGSize(width: SCREEN_WIDTH - 60, height: 200))
+            let image = LLJSHelper.getImageByColorAndSize(LLJRandomColor(), CGSize(width: largeSize!.width, height: largeSize!.height))
             array.append(image)
         }
         
@@ -44,17 +68,17 @@ extension LLJLunBoViewController {
          *  sourceCount: 自定义view时 资源个数
          *  autoScorllSpaceTime: 自动轮播时间间隔
          */
-        let carouselMapViewZoom = LLJCarouselMapView.init(frame: CGRect(x: 30, y: 150, width: SCREEN_WIDTH - 60, height: (SCREEN_WIDTH - 60)*0.618), mapViewStyle: self.mapViewStyle, contentViewStyle: self.contentViewStyle, rollDirection: self.rollDirection)
+        let carouselMapViewZoom = LLJCarouselMapView.init(frame: CGRect(x: viewX!, y: 150, width: viewWidth!, height: viewWidth!*0.618), mapViewStyle: self.mapViewStyle, contentViewStyle: self.contentViewStyle, rollDirection: self.rollDirection)
         carouselMapViewZoom.delegate = self
         carouselMapViewZoom.imageArray = array
-        carouselMapViewZoom.largeSize = CGSize(width: 280, height: 280*0.618)
-        carouselMapViewZoom.smallSize = CGSize(width: 240, height: 240*0.618)
-        carouselMapViewZoom.itemSpace = 10
+        carouselMapViewZoom.largeSize = largeSize!
+        carouselMapViewZoom.smallSize = smallSize!
+        carouselMapViewZoom.itemSpace = itemSpace!
         carouselMapViewZoom.contentSubViewClass = UILabel.self
         carouselMapViewZoom.sourceCount = 10;
         carouselMapViewZoom.autoScorllSpaceTime = 3.0
         carouselMapViewZoom.viewTag = 1111;
-        carouselMapViewZoom.contentViewCornerRadius = 12.0
+        carouselMapViewZoom.contentViewCornerRadius = contentViewCornerRadius!
         self.view.addSubview(carouselMapViewZoom)
         
         /*

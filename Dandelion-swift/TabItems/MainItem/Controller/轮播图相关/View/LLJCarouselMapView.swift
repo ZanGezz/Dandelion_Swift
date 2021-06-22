@@ -107,7 +107,8 @@ class LLJCarouselMapView: UIView {
     private var stepWidth: CGFloat = 0.0
     //offset_y
     private var offset_y: CGFloat = 0.0
-    
+    //手势开始
+    private var animationStart: Bool = false
     
     
     
@@ -342,13 +343,6 @@ extension LLJCarouselMapView {
                 self.rightRightCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: stepWidth*9/2.0)
             }
             
-            self.addSubview(self.contentView)
-            self.contentView.addSubview(self.leftLeftView)
-            self.contentView.addSubview(self.leftView)
-            self.contentView.addSubview(self.centerView)
-            self.contentView.addSubview(self.rightView)
-            self.contentView.addSubview(self.rightRightView)
-
         case .zoom:
             
             if self.largeSize.width == 0 || self.smallSize.width == 0 {
@@ -405,24 +399,46 @@ extension LLJCarouselMapView {
                 self.rightRightCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: stepWidth*9/2.0)
             }
             
-            self.addSubview(self.contentView)
-            self.contentView.addSubview(self.leftLeftView)
-            self.contentView.addSubview(self.leftView)
-            self.contentView.addSubview(self.centerView)
-            self.contentView.addSubview(self.rightView)
-            self.contentView.addSubview(self.rightRightView)
-            
         case .fold:
             
-            self.leftCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: stepWidth*3/2.0)
-            self.centerCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: stepWidth*5/2.0)
-            self.rightCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: stepWidth*7/2.0)
+            if self.largeSize.width == 0 || self.smallSize.width == 0 {
+                return
+            }
+            self.contentView.layer.masksToBounds = false
+            self.layer.masksToBounds = true
             
-            self.addSubview(self.leftView)
-            self.addSubview(self.centerView)
-            self.addSubview(self.rightView)
+            //滚动步距
+            stepWidth = itemSpace
+            //contentSize
+            let contentSize_width = self.largeSize.height + stepWidth*4
+            //scrollview frame
+            contentView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width, height: self.largeSize.height)
+            contentView.center = CGPoint(x: self.bounds.width/2.0, y: self.bounds.height/2.0)
+            contentView.contentSize = CGSize(width: self.largeSize.width, height: contentSize_width)
+            contentView.isScrollEnabled = false
+            //offset_y
+            offset_y = self.contentView.contentOffset.x
+            //滚动到居中位置
+            contentView.setContentOffset(CGPoint(x: offset_y, y: 0.0), animated: false)
+            //zoomRate
+            zoomRate = self.largeSize.height/self.smallSize.height
+            
+            self.rightRightCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: self.largeSize.height/2.0)
+            self.rightCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: self.largeSize.height/2.0 + stepWidth/2.0)
+            self.centerCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: self.largeSize.height/2.0 + stepWidth)
+            self.leftCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: self.largeSize.height/2.0 + stepWidth*3/2.0)
+            self.leftLeftCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: self.largeSize.height/2.0 + stepWidth*2.0)
+
+            
+            addGesRecognizier(subView: self.rightRightView)
         }
         
+        self.addSubview(self.contentView)
+        self.contentView.addSubview(self.leftLeftView)
+        self.contentView.addSubview(self.leftView)
+        self.contentView.addSubview(self.centerView)
+        self.contentView.addSubview(self.rightView)
+        self.contentView.addSubview(self.rightRightView)
         
         //布局
         layoutSubview(zoomRate: 0.0)
@@ -432,21 +448,6 @@ extension LLJCarouselMapView {
         self.autoScrollEnable = true
     }
     
-    //圆角
-    private func setContentViewCornerRadius() {
-
-        setCornerRadius(subView: self.leftLeftView)
-        setCornerRadius(subView: self.leftView)
-        setCornerRadius(subView: self.centerView)
-        setCornerRadius(subView: self.rightView)
-        setCornerRadius(subView: self.rightRightView)
-    }
-    private func setCornerRadius(subView: UIView) {
-        
-        subView.layer.masksToBounds = true
-        subView.layer.cornerRadius = self.contentViewCornerRadius
-    }
-    
     //布局子视图
     private func layoutSubview(zoomRate: CGFloat) {
         
@@ -454,22 +455,24 @@ extension LLJCarouselMapView {
          
         case .commen: //普通样式
             
-            switch self.rollDirection {
-            case .left,.right:
-                
-                self.leftLeftView.frame = CGRect(x: 0, y: 0, width: self.smallSize.width, height: self.smallSize.height)
-                self.leftView.frame = CGRect(x: stepWidth, y: 0, width: self.smallSize.width, height: self.smallSize.height)
-                self.centerView.frame = CGRect(x: stepWidth*2, y: 0, width: self.largeSize.width, height: self.largeSize.height)
-                self.rightView.frame = CGRect(x: stepWidth*3, y: 0, width: self.smallSize.width, height: self.smallSize.height)
-                self.rightRightView.frame = CGRect(x: stepWidth*4, y: 0, width: self.smallSize.width, height: self.smallSize.height)
-                
-            case .top,.bottom:
-                
-                self.leftLeftView.frame = CGRect(x: 0, y: 0, width: self.smallSize.width, height: self.smallSize.height)
-                self.leftView.frame = CGRect(x: 0, y: stepWidth, width: self.smallSize.width, height: self.smallSize.height)
-                self.centerView.frame = CGRect(x: 0, y: stepWidth*2, width: self.largeSize.width, height: self.largeSize.height)
-                self.rightView.frame = CGRect(x: 0, y: stepWidth*3, width: self.smallSize.width, height: self.smallSize.height)
-                self.rightRightView.frame = CGRect(x: 0, y: stepWidth*4, width: self.smallSize.width, height: self.smallSize.height)
+            if self.centerView.frame.size.width == 0 {
+                switch self.rollDirection {
+                case .left,.right:
+                    
+                    self.leftLeftView.frame = CGRect(x: 0, y: 0, width: self.smallSize.width, height: self.smallSize.height)
+                    self.leftView.frame = CGRect(x: stepWidth, y: 0, width: self.smallSize.width, height: self.smallSize.height)
+                    self.centerView.frame = CGRect(x: stepWidth*2, y: 0, width: self.largeSize.width, height: self.largeSize.height)
+                    self.rightView.frame = CGRect(x: stepWidth*3, y: 0, width: self.smallSize.width, height: self.smallSize.height)
+                    self.rightRightView.frame = CGRect(x: stepWidth*4, y: 0, width: self.smallSize.width, height: self.smallSize.height)
+                    
+                case .top,.bottom:
+                    
+                    self.leftLeftView.frame = CGRect(x: 0, y: 0, width: self.smallSize.width, height: self.smallSize.height)
+                    self.leftView.frame = CGRect(x: 0, y: stepWidth, width: self.smallSize.width, height: self.smallSize.height)
+                    self.centerView.frame = CGRect(x: 0, y: stepWidth*2, width: self.largeSize.width, height: self.largeSize.height)
+                    self.rightView.frame = CGRect(x: 0, y: stepWidth*3, width: self.smallSize.width, height: self.smallSize.height)
+                    self.rightRightView.frame = CGRect(x: 0, y: stepWidth*4, width: self.smallSize.width, height: self.smallSize.height)
+                }
             }
 
         case .zoom: //缩放样式
@@ -508,15 +511,54 @@ extension LLJCarouselMapView {
                 }
                 
             }
+            
         case .fold:
-            break
+            
+            self.rightRightView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width, height: self.largeSize.height)
+            self.rightView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width - self.itemSpace*(1 - zoomRate), height: self.largeSize.height)
+            self.centerView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width - self.itemSpace - self.itemSpace*(1 - zoomRate), height: self.largeSize.height)
+            self.leftView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width - 2*self.itemSpace, height: self.largeSize.height)
+            self.leftLeftView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width - 2*self.itemSpace, height: self.largeSize.height)
+            self.leftView.alpha = zoomRate
+            LLJLog(self.leftView.alpha)
+            self.leftLeftView.alpha = 0.0
         }
         
         self.leftLeftView.center = self.leftLeftCenterPoint
+        self.rightRightView.center = self.rightRightCenterPoint
         self.leftView.center = self.leftCenterPoint
         self.centerView.center = self.centerCenterPoint
         self.rightView.center = self.rightCenterPoint
-        self.rightRightView.center = self.rightRightCenterPoint
+    }
+    
+    //圆角
+    private func setContentViewCornerRadius() {
+
+        setCornerRadius(subView: self.leftLeftView)
+        setCornerRadius(subView: self.leftView)
+        setCornerRadius(subView: self.centerView)
+        setCornerRadius(subView: self.rightView)
+        setCornerRadius(subView: self.rightRightView)
+    }
+    private func setCornerRadius(subView: UIView?) {
+        
+        subView?.layer.masksToBounds = true
+        subView?.layer.cornerRadius = self.contentViewCornerRadius
+    }
+    
+    //添加手势
+    private func addGesRecognizier(subView: UIView?) {
+        
+        subView?.gestureRecognizers?.removeAll()
+        let leftSwipe = UISwipeGestureRecognizer()
+        leftSwipe.direction = .left
+        leftSwipe.addTarget(self, action: #selector(swipeAction))
+        subView?.addGestureRecognizer(leftSwipe)
+        
+        let rightSwipe = UISwipeGestureRecognizer()
+        rightSwipe.direction = .right
+        rightSwipe.addTarget(self, action: #selector(swipeAction))
+        subView?.addGestureRecognizer(rightSwipe)
     }
 }
 
@@ -529,13 +571,30 @@ extension LLJCarouselMapView {
         if _sourceCount == 0 {
             return
         }
-                
-        let leftLeftIndex: Int = self.reSetIndex(index: currentIndex - 2)
-        let leftIndex: Int = self.reSetIndex(index: currentIndex - 1)
-        let centerIndex: Int = self.reSetIndex(index: currentIndex)
-        let rightIndex: Int = self.reSetIndex(index: currentIndex + 1)
-        let rightRightIndex: Int = self.reSetIndex(index: currentIndex + 2)
+        
+        var leftLeftIndex: Int = 0
+        var leftIndex: Int = 0
+        var centerIndex: Int = 0
+        var rightIndex: Int = 0
+        var rightRightIndex: Int = 0
 
+        if self.mapViewStyle == .fold {
+            
+            leftLeftIndex = self.reSetIndex(index: currentIndex + 4)
+            leftIndex = self.reSetIndex(index: currentIndex + 3)
+            centerIndex = self.reSetIndex(index: currentIndex + 2)
+            rightIndex = self.reSetIndex(index: currentIndex + 1)
+            rightRightIndex = self.reSetIndex(index: currentIndex)
+            
+        } else{
+            
+            leftLeftIndex = self.reSetIndex(index: currentIndex - 2)
+            leftIndex = self.reSetIndex(index: currentIndex - 1)
+            centerIndex = self.reSetIndex(index: currentIndex)
+            rightIndex = self.reSetIndex(index: currentIndex + 1)
+            rightRightIndex = self.reSetIndex(index: currentIndex + 2)
+        }
+        
         setDataSource(subView: self.leftLeftView, index: leftLeftIndex)
         setDataSource(subView: self.leftView, index: leftIndex)
         setDataSource(subView: self.centerView, index: centerIndex)
@@ -604,28 +663,13 @@ extension LLJCarouselMapView {
 //MARK: - ScrollViewDelegate -
 extension LLJCarouselMapView: UIScrollViewDelegate {
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesMoved(touches, with: event)
-
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-
-    }
-    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
+
         reSetTimer(autoScrollEnable: false)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
+
         reSetTimer(autoScrollEnable: _autoScrollEnable)
     }
 
@@ -634,53 +678,80 @@ extension LLJCarouselMapView: UIScrollViewDelegate {
         var _x: CGFloat = 0.0
         var _rx: CGFloat = 0.0
         
-        switch self.rollDirection {
-        case .left,.right:
+        if self.mapViewStyle == .fold {
             
-            _x = scrollView.contentOffset.x - stepWidth*2
-            
-        case .top,.bottom:
-            
-            _x = scrollView.contentOffset.y - stepWidth*2
-        }
-        
-        _rx = _x/self.stepWidth
+            _rx = scrollView.contentOffset.y/(stepWidth/2) > 1.0 ? 1.0 : scrollView.contentOffset.y/(stepWidth/2)
 
-        //重新布局
-        if self.mapViewStyle == .zoom {
-            layoutSubview(zoomRate: _rx*(self.zoomRate - 1))
-        }
-        
-        //刷新数据
-        if abs(_rx) >= 0.99 && _sourceCount > 0 {
-            
-            if _x > 0 {
+            layoutSubview(zoomRate: _rx)
+
+            if _rx == 1 {
+                
                 if self.currentIndex == _sourceCount - 1 {
                     self.currentIndex = 0
                 } else {
                     self.currentIndex += 1
                 }
-            } else {
-                if self.currentIndex == 0 {
-                    self.currentIndex = _sourceCount - 1
-                } else {
-                    self.currentIndex -= 1
-                }
+                
+                //刷新数据
+                reloadData()
+                //重设offset
+                self.rightRightView.layer.removeAllAnimations()
+                self.contentView.setContentOffset(CGPoint(x: offset_y, y: 0.0), animated: false)
+                //重新布局
+                layoutSubview(zoomRate: 0.0)
+                animationStart = false
             }
+        } else {
             
-            //刷新数据
-            reloadData()
-            //重设offset
             switch self.rollDirection {
             case .left,.right:
                 
-                self.contentView.setContentOffset(CGPoint(x: stepWidth*2, y: offset_y), animated: false)
-
+                _x = scrollView.contentOffset.x - stepWidth*2
+                
             case .top,.bottom:
                 
-                self.contentView.setContentOffset(CGPoint(x: offset_y, y: stepWidth*2), animated: false)
+                _x = scrollView.contentOffset.y - stepWidth*2
             }
-            layoutSubview(zoomRate: 0.0)
+            
+            _rx = _x/self.stepWidth
+            
+            //重新布局
+            if self.mapViewStyle == .zoom {
+                layoutSubview(zoomRate: _rx*(self.zoomRate - 1))
+            }
+            
+            //刷新数据
+            if abs(_rx) >= 0.99 && _sourceCount > 0 {
+                
+                if _x > 0 {
+                    if self.currentIndex == _sourceCount - 1 {
+                        self.currentIndex = 0
+                    } else {
+                        self.currentIndex += 1
+                    }
+                } else {
+                    if self.currentIndex == 0 {
+                        self.currentIndex = _sourceCount - 1
+                    } else {
+                        self.currentIndex -= 1
+                    }
+                }
+                
+                //刷新数据
+                reloadData()
+                //重设offset
+                switch self.rollDirection {
+                case .left,.right:
+                    
+                    self.contentView.setContentOffset(CGPoint(x: stepWidth*2, y: offset_y), animated: false)
+
+                case .top,.bottom:
+                    
+                    self.contentView.setContentOffset(CGPoint(x: offset_y, y: stepWidth*2), animated: false)
+                }
+                //重新布局
+                layoutSubview(zoomRate: 0.0)
+            }
         }
     }
 }
@@ -689,6 +760,11 @@ extension LLJCarouselMapView: UIScrollViewDelegate {
 extension LLJCarouselMapView {
     
     private func reSetTimer(autoScrollEnable: Bool) {
+        
+        if self.mapViewStyle == .fold {
+            return
+        }
+        
         //先取消
         timerCancel()
         //取消延时发送的方法
@@ -731,8 +807,9 @@ extension LLJCarouselMapView {
 }
 
 //MARK: - 点击事件 -
-extension LLJCarouselMapView {
+extension LLJCarouselMapView: CAAnimationDelegate {
     
+    //点击事件
     @objc private func buttonClick() {
         
         var selectView: UIView?
@@ -742,5 +819,34 @@ extension LLJCarouselMapView {
             selectView = self.centerView.subviews.first
         }
         self.delegate?.didSelectItem(superView: self, subView: selectView, currentIndex: currentIndex)
+    }
+    
+    //平移事件
+    @objc private func swipeAction(ges: UISwipeGestureRecognizer) {
+        
+        if !animationStart {
+            
+            animationStart = true
+            var path: UIBezierPath?
+            
+            switch ges.direction {
+            case .left:
+                path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: -SCREEN_WIDTH, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: 100, y: 10))
+            case .right:
+                path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: SCREEN_WIDTH + self.rightRightView.bounds.width, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: SCREEN_WIDTH - 100, y: 10))
+            default:break
+            }
+            
+            if path != nil {
+                let animation = LLJAnimation.keyframeAnimation(keyPath: "position", values: nil, path: path!.cgPath, keyTimes: nil, duration: 0.25, timingFunctions: [CAMediaTimingFunction(name: .easeIn)], fillMode: CAMediaTimingFillMode.forwards, removedOnCompletion: false)
+                animation.delegate = self
+                self.rightRightView.layer.add(animation, forKey: "keyAniamtion")
+            }
+        }
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+                
+        self.contentView.setContentOffset(CGPoint(x: offset_y, y: stepWidth/2.0), animated: true)
     }
 }
