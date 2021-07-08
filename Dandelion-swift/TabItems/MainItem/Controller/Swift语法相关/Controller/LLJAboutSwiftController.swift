@@ -37,7 +37,7 @@ class LLJAboutSwiftController: LLJFViewController {
         block("str1","str2")
     }
     
-    
+    typealias boclk = ((String, String) -> Void)
     
     //MARK: - 属性 -
     //存储属性

@@ -14,6 +14,10 @@ class LLJLunBoViewController: LLJFViewController {
     var contentViewStyle: LLJCarouselMapContentViewStyle = .image
     var rollDirection: LLJCarouselMapViewRollDirection = .right
 
+    var timer: DispatchSourceTimer?
+    var timer1: Timer?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

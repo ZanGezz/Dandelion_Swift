@@ -216,6 +216,15 @@ extension LLJAnimationCell {
             //动画名称
             self.titleLabel.text = model.animationName
             self.drawLayer = CAShapeLayer()
+        } else if model.animationName == "移动动画-帧动画" {
+            
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+            self.subAnimationView.center = self.drawView.center
+            self.subAnimationView.backgroundColor = UIColor.blue
+            self.drawView.addSubview(self.subAnimationView)
+            //动画名称
+            self.titleLabel.text = model.animationName
+            self.drawLayer = CAShapeLayer()
         }
     }
 }
@@ -398,6 +407,12 @@ extension LLJAnimationCell {
             let animation = LLJAnimation.basicAnimation(keyPath: "strokeEnd", beginTime: nil, fromValue: 0, toValue: 1, byValue: nil, duration: 10, timingFunctionName: nil, repeatCount: nil, repeatDuration: nil, fillMode: nil, autoreverses: false, removedOnCompletion: false)
             animationlayer.add(animation, forKey: "cycleAnimation")
 
+        } else if self.model!.animationName == "移动动画-帧动画" {
+            
+            //view按path移动动画
+            let colorArray = [UIColor.blue.cgColor,UIColor.red.cgColor,UIColor.yellow.cgColor,UIColor.orange.cgColor]
+            let keyAnimation = LLJAnimation.keyframeAnimation(keyPath: "backgroundColor", values: colorArray, path: nil, keyTimes: nil, duration: 2.0, timingFunctions: nil, fillMode: CAMediaTimingFillMode.forwards, removedOnCompletion: false)
+            self.subAnimationView.layer.add(keyAnimation, forKey: "keyAnimation")
         }
     }
 }

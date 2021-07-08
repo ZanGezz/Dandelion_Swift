@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2E6E2B61F035CF65ED2AFE29 /* Pods_Dandelion_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */; };
 		4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02463925C151A600E2193C /* LLJSwiftUIController.swift */; };
+		4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32202426929E0B0077982B /* LLJWebViewController.swift */; };
+		4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3220292692A4720077982B /* LLJWKWebView.swift */; };
+		4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */; };
+		4B3220342692F0DA0077982B /* WKWebViewText.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B3220332692F0DA0077982B /* WKWebViewText.html */; };
+		4B3220392693E8890077982B /* NSObject+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3220382693E8890077982B /* NSObject+Category.swift */; };
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
@@ -58,6 +63,9 @@
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
 		4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */; };
 		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
+		4BEF2FA32681E4B00025723D /* LLJFWeChatCycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */; };
+		4BEF2FA82681EAED0025723D /* LLJWeChatCycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FA72681EAED0025723D /* LLJWeChatCycleModel.swift */; };
+		4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */; };
 		4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */; };
 		4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */; };
 		4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1879125B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld */; };
@@ -88,6 +96,11 @@
 		121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		4B02463925C151A600E2193C /* LLJSwiftUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSwiftUIController.swift; sourceTree = "<group>"; };
+		4B32202426929E0B0077982B /* LLJWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWebViewController.swift; sourceTree = "<group>"; };
+		4B3220292692A4720077982B /* LLJWKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWKWebView.swift; sourceTree = "<group>"; };
+		4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWeakScriptMessageDelegate.swift; sourceTree = "<group>"; };
+		4B3220332692F0DA0077982B /* WKWebViewText.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewText.html; sourceTree = "<group>"; };
+		4B3220382693E8890077982B /* NSObject+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Category.swift"; sourceTree = "<group>"; };
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
@@ -146,6 +159,9 @@
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
 		4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLunBoListViewController.swift; sourceTree = "<group>"; };
 		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
+		4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFWeChatCycleController.swift; sourceTree = "<group>"; };
+		4BEF2FA72681EAED0025723D /* LLJWeChatCycleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWeChatCycleModel.swift; sourceTree = "<group>"; };
+		4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCommenCell.swift; sourceTree = "<group>"; };
 		4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMineViewController.swift; sourceTree = "<group>"; };
 		4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMyKnowledge.txt; sourceTree = "<group>"; };
 		4BF1879225B9555E00B75EA6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -220,6 +236,41 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		4B32202026929D7E0077982B /* WebView相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4B32202126929DB90077982B /* Controller */,
+				4B32202226929DB90077982B /* Model */,
+				4B32202326929DB90077982B /* View */,
+			);
+			path = "WebView相关";
+			sourceTree = "<group>";
+		};
+		4B32202126929DB90077982B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B32202426929E0B0077982B /* LLJWebViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B32202226929DB90077982B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B3220332692F0DA0077982B /* WKWebViewText.html */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B32202326929DB90077982B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B3220292692A4720077982B /* LLJWKWebView.swift */,
+				4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +311,7 @@
 				4B80822225B57D7600F89B9C /* LLJNaviController.swift */,
 				4B80822725B57DA100F89B9C /* LLJTabBarController.swift */,
 				4B8463262665CF02002A8B2B /* LLJTableView.swift */,
+				4B3220382693E8890077982B /* NSObject+Category.swift */,
 			);
 			path = LLJNevAndTabbarAndBaseItem;
 			sourceTree = "<group>";
@@ -430,6 +482,8 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B32202026929D7E0077982B /* WebView相关 */,
+				4BEF2F9E2681E40F0025723D /* 仿微信朋友圈 */,
 				4B84632B2665D58D002A8B2B /* 轮播图相关 */,
 				4B7BC0102657632100CA9F17 /* Swift语法相关 */,
 				4B7BBFDD264E72CF00CA9F17 /* 仿微信读书组切圆角 */,
@@ -675,6 +729,40 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		4BEF2F9E2681E40F0025723D /* 仿微信朋友圈 */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF2F9F2681E4940025723D /* Controller */,
+				4BEF2FA02681E4940025723D /* Model */,
+				4BEF2FA12681E4940025723D /* View */,
+			);
+			path = "仿微信朋友圈";
+			sourceTree = "<group>";
+		};
+		4BEF2F9F2681E4940025723D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BEF2FA02681E4940025723D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF2FA72681EAED0025723D /* LLJWeChatCycleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BEF2FA12681E4940025723D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4BF1878925B92A7300B75EA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +940,7 @@
 				4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */,
 				4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */,
 				4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */,
+				4B3220342692F0DA0077982B /* WKWebViewText.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,9 +1068,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3220392693E8890077982B /* NSObject+Category.swift in Sources */,
 				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
 				4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */,
+				4BEF2FA82681EAED0025723D /* LLJWeChatCycleModel.swift in Sources */,
+				4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */,
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
@@ -1014,17 +1106,21 @@
 				4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
+				4BEF2FA32681E4B00025723D /* LLJFWeChatCycleController.swift in Sources */,
 				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
 				4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */,
+				4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
 				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,
 				4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */,
 				4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */,
 				4B8087322638EE6B009CEDFF /* LLJAnimationController.swift in Sources */,
 				4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */,
+				4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */,
 				4B7BC02C265DF0F500CA9F17 /* LLJContentView.swift in Sources */,
+				4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */,
 				4B7BBFEA264E956000CA9F17 /* LLJWChatSubView.swift in Sources */,
 				4B48B266262E5EAB0048A913 /* LLJsonModel.swift in Sources */,
 			);

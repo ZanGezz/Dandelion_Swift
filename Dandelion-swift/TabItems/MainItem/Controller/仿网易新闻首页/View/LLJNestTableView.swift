@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol LLJNestTableViewDelegate {
-    func open() -> String
-}
-
 class LLJNestTableView: UIView {
     
     //tableView

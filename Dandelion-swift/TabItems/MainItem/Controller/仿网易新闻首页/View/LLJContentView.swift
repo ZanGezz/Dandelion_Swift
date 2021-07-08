@@ -143,7 +143,8 @@ extension LLJContentView: UICollectionViewDelegate, UIScrollViewDelegate{
                 self.delegate?.scrollingToItem(index: (_currentItemIndex - 1) <= 0 ? 0 : (_currentItemIndex - 1), percentage: -_x/self.itemSize.width, isDraging: true)
             }
             
-            if _x == 0 || _x == self.itemSize.width || _x == -self.itemSize.width {
+            let px = abs(Int(_x))%Int(self.itemSize.width)
+            if px == 0 {
                 isViewDragBegin = false
             }
         }

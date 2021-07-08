@@ -18,7 +18,6 @@ class LLJAnimationController: LLJFViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = LLJColor(240, 240, 240, 1)
-        collectionView.register(LLJAnimationCell.self, forCellWithReuseIdentifier: "AnimationCell")
         return collectionView
     }()
     
@@ -84,6 +83,9 @@ extension LLJAnimationController {
         let model13 = LLJAnimationModel()
         model13.animationName = "移动动画-正弦"
         
+        let model14 = LLJAnimationModel()
+        model14.animationName = "移动动画-帧动画"
+        
         //添加模型
         self.dataSource.append(model1)
         self.dataSource.append(model2)
@@ -98,7 +100,11 @@ extension LLJAnimationController {
         self.dataSource.append(model11)
         self.dataSource.append(model12)
         self.dataSource.append(model13)
+        self.dataSource.append(model14)
 
+        for item in self.dataSource {
+            self.collectionView.register(LLJAnimationCell.self, forCellWithReuseIdentifier: item.animationName!)
+        }
         //collectionView
         self.view.addSubview(self.collectionView)
     }
@@ -137,7 +143,8 @@ extension LLJAnimationController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnimationCell", for: indexPath) as! LLJAnimationCell
+        let model = self.dataSource[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.animationName!, for: indexPath) as! LLJAnimationCell
         cell.setDataSource(model: self.dataSource[indexPath.row])
         return cell
     }

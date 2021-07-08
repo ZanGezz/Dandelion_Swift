@@ -41,6 +41,17 @@ class LLJFViewController: UIViewController {
         return tableView
     }()
     
+    //重写init
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        //隐藏tabbar
+        self.hidesBottomBarWhenPushed = true
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,8 +97,6 @@ extension LLJFViewController {
         self.navigationItem.leftBarButtonItem = leftItem
         //标题
         self.title = self.titleName;
-        //隐藏tabbar
-        self.hidesBottomBarWhenPushed = true
         //自适应安全区
         if #available(iOS 11.0, *) {
             self.myTableView.contentInsetAdjustmentBehavior = UIScrollView.ContentInsetAdjustmentBehavior.never

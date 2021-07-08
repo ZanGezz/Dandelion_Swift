@@ -513,9 +513,7 @@ extension LLJSegmentView {
                     lastModel.diameter = self.diameter
                     lastModel.lineWidth = 2.0
                 }
-                
-                LLJLog("=====" + String(self.currentSelectItem) + "--" + String(self.lastSelectItem) + "--" + String(Float(model.diameter)))
-                
+                                
                 var X: CGFloat = 0.0
                 if i == 0 {
                     X = (model.itemSize.width - model.titleWidth)/2.0 + model.titleWidth + 4.0 + self.firstItemLeftOffSet/2.0
@@ -533,6 +531,9 @@ extension LLJSegmentView {
                 self.scrollToItem(index: self.currentSelectItem, animated: true)
                 self.lastSelectItem = self.currentSelectItem
             }
+            
+            LLJLog("=====" + String(self.currentSelectItem) + "--" + String(self.lastSelectItem))
+
             
         case .moveAnimationNone:
             
