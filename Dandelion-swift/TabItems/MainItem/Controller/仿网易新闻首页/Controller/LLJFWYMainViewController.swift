@@ -1,5 +1,5 @@
 //
-//  ZBFWYMainViewController.swift
+//  LLJFWYMainViewController.swift
 //  Dandelion-swift
 //
 //  Created by 刘帅 on 2021/5/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ZBFWYMainViewController: LLJFViewController {
+class LLJFWYMainViewController: LLJFViewController {
 
     //MARK:懒加载属性
     private lazy var tableView: LLJTableView = {
@@ -28,7 +28,7 @@ class ZBFWYMainViewController: LLJFViewController {
 }
 
 //MARK: - UI -
-extension ZBFWYMainViewController {
+extension LLJFWYMainViewController {
     
     private func setUpUI() {
         
@@ -39,7 +39,7 @@ extension ZBFWYMainViewController {
 }
 
 //MARK: - UITableViewDelegate -
-extension ZBFWYMainViewController: UITableViewDelegate, UITableViewDataSource {
+extension LLJFWYMainViewController: UITableViewDelegate, UITableViewDataSource {
         
     //UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
