@@ -64,7 +64,6 @@
 		4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */; };
 		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
 		4BEF2FA32681E4B00025723D /* LLJFWeChatCycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */; };
-		4BEF2FA82681EAED0025723D /* LLJWeChatCycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FA72681EAED0025723D /* LLJWeChatCycleModel.swift */; };
 		4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */; };
 		4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */; };
 		4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */; };
@@ -160,7 +159,6 @@
 		4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLunBoListViewController.swift; sourceTree = "<group>"; };
 		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
 		4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFWeChatCycleController.swift; sourceTree = "<group>"; };
-		4BEF2FA72681EAED0025723D /* LLJWeChatCycleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWeChatCycleModel.swift; sourceTree = "<group>"; };
 		4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCommenCell.swift; sourceTree = "<group>"; };
 		4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMineViewController.swift; sourceTree = "<group>"; };
 		4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMyKnowledge.txt; sourceTree = "<group>"; };
@@ -750,7 +748,6 @@
 		4BEF2FA02681E4940025723D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4BEF2FA72681EAED0025723D /* LLJWeChatCycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1072,7 +1069,6 @@
 				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
 				4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */,
-				4BEF2FA82681EAED0025723D /* LLJWeChatCycleModel.swift in Sources */,
 				4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */,
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,

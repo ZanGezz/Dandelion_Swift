@@ -29,7 +29,7 @@ class LLJFViewController: UIViewController {
     /*
      * 状态栏样式
      */
-    var statusBarStyle: UIStatusBarStyle = .default
+    var _statusBarStyle: UIStatusBarStyle = .default
     
     /*
      * 状态栏动画
@@ -69,7 +69,7 @@ class LLJFViewController: UIViewController {
      * 状态栏样式
      */
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return statusBarStyle
+        return _statusBarStyle
     }
     
     /*
@@ -120,5 +120,20 @@ extension LLJFViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         let hidden = self.isKind(of: viewController.classForCoder) && self.hiddenNavgationBarWhenPushIn
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
+    }
+}
+
+//技术属性
+extension LLJFViewController {
+    //代理
+    var statusBarStyle: UIStatusBarStyle {
+        set {
+            _statusBarStyle = newValue
+            
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+        get {
+            return _statusBarStyle
+        }
     }
 }

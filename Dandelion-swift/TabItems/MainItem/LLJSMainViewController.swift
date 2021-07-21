@@ -59,7 +59,7 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
         let viewController: LLJFViewController? = LLJSHelper.getClassFromString(sub.last!)
         if viewController != nil {
             viewController?.titleName = sub.first!
-            if sub.last! == "LLJWChatMainViewController" {
+            if sub.last! == "LLJWChatMainViewController" || sub.last! == "LLJFWeChatCycleController" {
                 viewController?.hiddenNavgationBarWhenPushIn = true
             }
             self.navigationController?.pushViewController(viewController!, animated: true)

@@ -68,5 +68,8 @@
 "动态库和静态库-https://www.jianshu.com/p/662832e16625",
 "获取ipa-https://www.jianshu.com/p/6d2de917a660?utm_campaign=hugo",
 "抓包-https://blog.csdn.net/weixin_42428631/article/details/80642436",
-"设备指纹-https://zhuanlan.zhihu.com/p/68852244"]
+"设备指纹-https://zhuanlan.zhihu.com/p/68852244",
+"自动释放池-https://www.jianshu.com/p/2c36ffa809b2",
+"clang 查看OC实现-https://www.jianshu.com/p/5774c837d547",
+"代码注入-https://www.toutiao.com/i6632571119821914628/?group_id=6632571119821914628&wid=1626416715449"]
 

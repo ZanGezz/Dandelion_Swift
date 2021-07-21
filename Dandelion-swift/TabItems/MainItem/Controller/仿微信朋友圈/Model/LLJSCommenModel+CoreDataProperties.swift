@@ -2,7 +2,7 @@
 //  LLJSCommenModel+CoreDataProperties.swift
 //  
 //
-//  Created by 刘帅 on 2021/1/22.
+//  Created by 刘帅 on 2021/7/21.
 //
 //
 
@@ -16,8 +16,8 @@ extension LLJSCommenModel {
         return NSFetchRequest<LLJSCommenModel>(entityName: "LLJSCommenModel")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var age: String?
-    @NSManaged public var sex: NSObject?
+    @NSManaged public var name: String?
+    @NSManaged public var sex: String?
 
 }
