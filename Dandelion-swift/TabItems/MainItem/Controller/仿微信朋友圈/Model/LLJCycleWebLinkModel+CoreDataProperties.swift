@@ -2,7 +2,7 @@
 //  LLJCycleWebLinkModel+CoreDataProperties.swift
 //  
 //
-//  Created by 刘帅 on 2021/7/21.
+//  Created by 刘帅 on 2021/7/23.
 //
 //
 
@@ -16,8 +16,8 @@ extension LLJCycleWebLinkModel {
         return NSFetchRequest<LLJCycleWebLinkModel>(entityName: "LLJCycleWebLinkModel")
     }
 
-    @NSManaged public var webLinkImage: String?
     @NSManaged public var webLinkContent: String?
+    @NSManaged public var webLinkImage: String?
     @NSManaged public var webLinkUrl: String?
 
 }

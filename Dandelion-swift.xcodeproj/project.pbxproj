@@ -61,6 +61,19 @@
 		4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
+		4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */; };
+		4B9FFD2726AA4E5F00E1819E /* LLJAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD2626AA4E5F00E1819E /* LLJAlertView.swift */; };
+		4B9FFD3426AA57D500E1819E /* LLJAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD3326AA57D500E1819E /* LLJAlertCell.swift */; };
+		4B9FFD3926AA60FC00E1819E /* LLJAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD3826AA60FC00E1819E /* LLJAlertModel.swift */; };
+		4B9FFD4126AA995600E1819E /* LLJCycleMessagePushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4026AA995600E1819E /* LLJCycleMessagePushController.swift */; };
+		4B9FFD4726AAA74200E1819E /* LLJTextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */; };
+		4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */; };
+		4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */; };
+		4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */; };
+		4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */; };
+		4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */; };
+		4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */; };
+		4BBBC51F26A949E900D641C2 /* LLJImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */; };
 		4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */; };
 		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
 		4BEF2FA32681E4B00025723D /* LLJFWeChatCycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */; };
@@ -156,6 +169,20 @@
 		4B88DE91266F11F400A3F07E /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
+		4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCycleImageCell.swift; sourceTree = "<group>"; };
+		4B9FFD2626AA4E5F00E1819E /* LLJAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAlertView.swift; sourceTree = "<group>"; };
+		4B9FFD3326AA57D500E1819E /* LLJAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAlertCell.swift; sourceTree = "<group>"; };
+		4B9FFD3826AA60FC00E1819E /* LLJAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAlertModel.swift; sourceTree = "<group>"; };
+		4B9FFD4026AA995600E1819E /* LLJCycleMessagePushController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleMessagePushController.swift; sourceTree = "<group>"; };
+		4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJTextInputCell.swift; sourceTree = "<group>"; };
+		4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLocationCell.swift; sourceTree = "<group>"; };
+		4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleUserModel.swift; sourceTree = "<group>"; };
+		4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJUseDefaultHelper.swift; sourceTree = "<group>"; };
+		4B9FFD5F26AAC20000E1819E /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleFrameModel.swift; sourceTree = "<group>"; };
+		4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCellFrameManage.swift; sourceTree = "<group>"; };
+		4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleImageView.swift; sourceTree = "<group>"; };
+		4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJImageCell.swift; sourceTree = "<group>"; };
 		4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLunBoListViewController.swift; sourceTree = "<group>"; };
 		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
 		4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFWeChatCycleController.swift; sourceTree = "<group>"; };
@@ -272,6 +299,7 @@
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4B9FFD5626AABB2D00E1819E /* LLJUserDefaultHelper */,
 				4B808747263A9364009CEDFF /* LLJLayer */,
 				4B48B264262D5F9F0048A913 /* LLJsonModel */,
 				4B83E8F626293C4900537DA0 /* LLJDrawRect */,
@@ -480,6 +508,7 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B9FFD2526AA4E0800E1819E /* Alert弹框 */,
 				4B32202026929D7E0077982B /* WebView相关 */,
 				4BEF2F9E2681E40F0025723D /* 仿微信朋友圈 */,
 				4B84632B2665D58D002A8B2B /* 轮播图相关 */,
@@ -663,6 +692,24 @@
 			path = LLJSCoreDataHelper;
 			sourceTree = "<group>";
 		};
+		4B9FFD2526AA4E0800E1819E /* Alert弹框 */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD2626AA4E5F00E1819E /* LLJAlertView.swift */,
+				4B9FFD3326AA57D500E1819E /* LLJAlertCell.swift */,
+				4B9FFD3826AA60FC00E1819E /* LLJAlertModel.swift */,
+			);
+			path = "Alert弹框";
+			sourceTree = "<group>";
+		};
+		4B9FFD5626AABB2D00E1819E /* LLJUserDefaultHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */,
+			);
+			path = LLJUserDefaultHelper;
+			sourceTree = "<group>";
+		};
 		4BDE20EC25C943670079960D /* CoreData相关 */ = {
 			isa = PBXGroup;
 			children = (
@@ -741,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */,
+				4B9FFD4026AA995600E1819E /* LLJCycleMessagePushController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -748,6 +796,10 @@
 		4BEF2FA02681E4940025723D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B9FFD5F26AAC20000E1819E /* video.mp4 */,
+				4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */,
+				4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */,
+				4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -755,7 +807,12 @@
 		4BEF2FA12681E4940025723D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */,
 				4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */,
+				4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */,
+				4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */,
+				4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */,
+				4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1066,11 +1123,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3220392693E8890077982B /* NSObject+Category.swift in Sources */,
+				4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */,
+				4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */,
 				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
+				4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
 				4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */,
 				4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */,
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
+				4B9FFD4726AAA74200E1819E /* LLJTextInputCell.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
 				4B8463072664C34D002A8B2B /* LLJFContentController.swift in Sources */,
@@ -1082,11 +1143,15 @@
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
 				4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
+				4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */,
+				4BBBC51F26A949E900D641C2 /* LLJImageCell.swift in Sources */,
+				4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */,
 				4B808749263A9386009CEDFF /* LLJLayer.swift in Sources */,
 				4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */,
 				4B80873C2638F21D009CEDFF /* LLJAnimationModel.swift in Sources */,
 				4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */,
 				4B48B260262D57280048A913 /* LLJBezierPathModel.swift in Sources */,
+				4B9FFD2726AA4E5F00E1819E /* LLJAlertView.swift in Sources */,
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
 				4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */,
@@ -1097,6 +1162,8 @@
 				4B7BC027265C9F8E00CA9F17 /* LLJSegmentModel.swift in Sources */,
 				4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */,
 				4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */,
+				4B9FFD3426AA57D500E1819E /* LLJAlertCell.swift in Sources */,
+				4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */,
 				4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */,
 				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
 				4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */,
@@ -1106,9 +1173,11 @@
 				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
+				4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */,
 				4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */,
 				4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
+				4B9FFD4126AA995600E1819E /* LLJCycleMessagePushController.swift in Sources */,
 				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,
 				4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */,
 				4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */,
@@ -1117,6 +1186,7 @@
 				4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */,
 				4B7BC02C265DF0F500CA9F17 /* LLJContentView.swift in Sources */,
 				4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */,
+				4B9FFD3926AA60FC00E1819E /* LLJAlertModel.swift in Sources */,
 				4B7BBFEA264E956000CA9F17 /* LLJWChatSubView.swift in Sources */,
 				4B48B266262E5EAB0048A913 /* LLJsonModel.swift in Sources */,
 			);

@@ -35,8 +35,8 @@ extension LLJFContentController {
         segmentView.itemTitleColor = LLJRandomColor()
         segmentView.itemFont = LLJFont(16)
         segmentView.selectItemFont = LLJBoldFont(18)
-        segmentView.itemSpace = LLJDX(20)
-        segmentView.firstItemLeftOffSet = LLJDX(10)
+        segmentView.itemSpace = LLJDX(22)
+        segmentView.firstItemLeftOffSet = LLJDX(11)
         segmentView.currentSelectItem = 5
         segmentView.delegate = self
         segmentView.lineStyle = self.style!

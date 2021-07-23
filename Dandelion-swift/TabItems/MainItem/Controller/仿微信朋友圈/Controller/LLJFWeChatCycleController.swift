@@ -9,11 +9,11 @@ import UIKit
 
 class LLJFWeChatCycleController: LLJFViewController {
     
-    //懒加载
     //MARK:懒加载属性
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT), style: UITableView.Style.plain)
         tableView.register(LLJWCommenCell.self, forCellReuseIdentifier: "LLJWCommenCell")
+        tableView.register(LLJWCycleImageCell.self, forCellReuseIdentifier: "LLJWCycleImageCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
@@ -23,12 +23,45 @@ class LLJFWeChatCycleController: LLJFViewController {
         return tableView
     }()
     
+    private lazy var alertView: LLJAlertView = {
+        let alertView = LLJAlertView()
+        weak var weakSelf = self
+        alertView.selectRow = {(row, name) in
+            weakSelf!.alertAction(row: row, name: name)
+        }
+        return alertView
+    }()
+    lazy var alertItemList1: Array<LLJAlertModel> = {
+        var alertItemList: Array<LLJAlertModel> = []
+        var model = LLJAlertModel()
+        model.title = "拍摄"
+        model.subTitle = "照片或视频"
+        alertItemList.append(model)
+        var model1 = LLJAlertModel()
+        model1.title = "从相册中选择"
+        alertItemList.append(model1)
+        return alertItemList
+    }()
+    lazy var alertItemList2: Array<LLJAlertModel> = {
+        var alertItemList: Array<LLJAlertModel> = []
+        var model = LLJAlertModel()
+        model.title = "更换相册封面"
+        alertItemList.append(model)
+        return alertItemList
+    }()
+
+    
     private var navView: UIView?
     private var backButton: UIButton?
     private var camButton: UIButton?
     private var offset_y: CGFloat = 0.0
     private var titleLabel: UILabel?
+    
+    private var cycleSourceListArray: Array<Any> = []
+    private var cycleFrameListArray: Array<Any> = []
 
+    var useModel: LLJCycleUserModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,18 +80,28 @@ class LLJFWeChatCycleController: LLJFViewController {
 extension LLJFWeChatCycleController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        let model = self.cycleFrameListArray[indexPath.row] as! LLJCycleFrameModel
+        return model.rowHeight
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.cycleSourceListArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWCommenCell")!
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        return cell
+        let model = self.cycleSourceListArray[indexPath.row] as! LLJWeChatCycleModel
+        if model.type == 10011 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWCycleImageCell") as! LLJWCycleImageCell
+            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJWeChatCycleModel, frameModel: self.cycleFrameListArray[indexPath.row] as! LLJCycleFrameModel)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWCommenCell") as! LLJWCommenCell
+            cell.setDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJWeChatCycleModel, frameModel: self.cycleFrameListArray[indexPath.row] as! LLJCycleFrameModel)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            return cell
+        }
     }
 }
 
@@ -77,6 +120,8 @@ extension LLJFWeChatCycleController {
         self.view.addSubview(self.tableView)
         //设置head
         setUpHeadView()
+        //获取本地数据
+        getDataSource()
     }
     //头视图
     private func setUpHeadView() {
@@ -86,35 +131,35 @@ extension LLJFWeChatCycleController {
         headView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: LLJDX(260) + LLJTopHeight)
         self.tableView.tableHeaderView = headView
         
-        let cycleHeadImage = UIImageView(image: UIImage(named: "cycle_head"))
+        let cycleHeadImage = UIImageView(image: UIImage(named: self.useModel!.headIamge!))
         cycleHeadImage.contentMode = UIImageView.ContentMode.scaleAspectFit
         cycleHeadImage.backgroundColor = UIColor.red
         headView.addSubview(cycleHeadImage)
         cycleHeadImage.snp_makeConstraints { (make) in
             make.centerX.equalTo(headView.snp_centerX)
             make.top.equalTo(headView.snp_top).offset(-LLJTopHeight)
-            make.bottom.equalTo(headView.snp_bottom).offset(-LLJTopHeight + LLJDX(10))
+            make.bottom.equalTo(headView.snp_bottom).offset(-LLJTopHeight + LLJDX(20))
         }
         
-        let perHeadImage = UIImageView(image: UIImage(named: "head"))
+        let perHeadImage = UIImageView(image: UIImage(named: self.useModel!.userImage!))
         perHeadImage.layer.masksToBounds = true
         perHeadImage.layer.cornerRadius = 8.0
         headView.addSubview(perHeadImage)
         perHeadImage.snp_makeConstraints { (make) in
-            make.width.equalTo(LLJDX(60))
-            make.right.equalTo(headView.snp_right).offset(LLJDX(-12))
-            make.height.equalTo(LLJDX(60))
-            make.bottom.equalTo(headView.snp_bottom).offset(LLJDX(6) - LLJTopHeight)
+            make.width.equalTo(LLJDX(70))
+            make.right.equalTo(headView.snp_right).offset(LLJDX(-13))
+            make.height.equalTo(LLJDX(70))
+            make.bottom.equalTo(headView.snp_bottom).offset(-LLJTopHeight + LLJDX(40))
         }
         
         let nickName = UILabel()
         nickName.font = LLJBoldFont(20)
-        nickName.text = "赞歌"
+        nickName.text = self.useModel!.nickName!
         nickName.textColor = LLJWhiteColor()
         headView.addSubview(nickName)
         nickName.snp_makeConstraints { (make) in
-            make.right.equalTo(perHeadImage.snp_left).offset(-LLJDX(20))
-            make.top.equalTo(perHeadImage.snp_top).offset(LLJDX(14))
+            make.right.equalTo(perHeadImage.snp_left).offset(-LLJDX(22))
+            make.top.equalTo(perHeadImage.snp_top).offset(LLJDX(16))
         }
         
         let navView = UIView()
@@ -126,6 +171,8 @@ extension LLJFWeChatCycleController {
         let backButton = UIButton.init(type: UIButton.ButtonType.custom)
         backButton.setImage(UIImage(named: "fanhui_w"), for: UIControl.State.normal)
         backButton.setImage(UIImage(named: "fanhui_w"), for: UIControl.State.highlighted)
+        backButton.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
+        backButton.tag = 100001
         self.backButton = backButton
         self.navView?.addSubview(backButton)
         backButton.snp_makeConstraints { (make) in
@@ -138,6 +185,14 @@ extension LLJFWeChatCycleController {
         let camButton = UIButton.init(type: UIButton.ButtonType.custom)
         camButton.setImage(UIImage(named: "xiangji_w"), for: UIControl.State.normal)
         camButton.setImage(UIImage(named: "xiangji_w"), for: UIControl.State.highlighted)
+        //单机
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapClick))
+        tap.numberOfTouchesRequired = 1
+        tap.numberOfTapsRequired = 1
+        camButton.addGestureRecognizer(tap)
+        //长按
+        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(longTapClick))
+        camButton.addGestureRecognizer(longTap)
         self.camButton = camButton
         self.navView?.addSubview(camButton)
         camButton.snp_makeConstraints { (make) in
@@ -164,12 +219,60 @@ extension LLJFWeChatCycleController {
 //MARK: - 设置数据 -
 extension LLJFWeChatCycleController {
     
-    private func setDataSource() {
-        let model: LLJWeChatCycleModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJWeChatCycleModel") as! LLJWeChatCycleModel
-        model.imageModel?.imageList = "dkdaf;"
+    //按钮事件
+    @objc private func buttonClick(sender: UIButton) {
         
+        switch sender.tag {
+        case 100001:
+            //返回
+            self.navigationController?.popViewController(animated: true)
+        case 100002:
+            //发布朋友圈
+            self.alertView.alertShow(itemList: self.alertItemList1)
+        default:break
+        }
+    }
+    //单机
+    @objc private func tapClick() {
+        //发布朋友圈
+        self.alertView.alertShow(itemList: self.alertItemList1)
+    }
+    //长按
+    @objc private func longTapClick() {
+        let pushViewController = LLJCycleMessagePushController()
+        pushViewController.type = .text
+        pushViewController.model = self.useModel
+        pushViewController.pushComplete = {
+            self.getDataSource()
+        }
+        self.present(pushViewController, animated: true, completion: nil)
     }
     
+    //alert事件
+    private func alertAction(row: Int, name: String) {
+        let pushViewController = LLJCycleMessagePushController()
+        if row == 1 {
+            pushViewController.type = .image
+        } else {
+            let array: [LLJCycleMessagePushType] = [.video,.link]
+            let armnum = LLJSHelper.arc4random(duration: 2)
+            pushViewController.type = array[armnum]
+        }
+        pushViewController.model = self.useModel
+        pushViewController.pushComplete = {
+            self.getDataSource()
+        }
+        self.present(pushViewController, animated: true, completion: nil)
+    }
+    
+    //获取数据
+    private func getDataSource() {
+       
+        let listArray = LLJSCoreDataHelper.helper.getRosource(entityName: "LLJWeChatCycleModel", predicate: "")
+        self.cycleSourceListArray = listArray
+        self.cycleFrameListArray = LLJCellFrameManage.setSubViewFrame(sourceList: listArray)
+        self.tableView.reloadData()
+    }
 }
 
 
