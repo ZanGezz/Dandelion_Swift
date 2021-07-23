@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 /**
  * Log输出
@@ -34,12 +35,17 @@ let LLJBottomSafeHeight: CGFloat = 34.0
 
 
 /**
+ * 根视图
+ */
+let kRootView: UIView        = UIApplication.shared.keyWindow!.forLastBaselineLayout
+
+/**
  * 适配
  */
 //iphonex系列 尺寸比例系数
 let IPhoneXRatio: CGFloat    = SCREEN_HEIGHT/812.0
 //适配基础机型款，默认ipone6款375
-let IPhoneBaseWidth: CGFloat = 375.0
+let IPhoneBaseWidth: CGFloat = 414.0
 //对长度进行同比缩放
 func LLJDX(_ x: CGFloat) -> CGFloat {
     return x * SCREEN_WIDTH / IPhoneBaseWidth
@@ -163,4 +169,3 @@ func LLJ_DownLoad_Path() -> String {
 /**
  * 非空判断
  */
-

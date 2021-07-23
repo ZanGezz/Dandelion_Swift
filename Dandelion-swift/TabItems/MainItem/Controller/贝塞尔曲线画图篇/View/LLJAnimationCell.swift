@@ -216,6 +216,15 @@ extension LLJAnimationCell {
             //动画名称
             self.titleLabel.text = model.animationName
             self.drawLayer = CAShapeLayer()
+        } else if model.animationName == "移动动画-帧动画" {
+            
+            self.subAnimationView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+            self.subAnimationView.center = self.drawView.center
+            self.subAnimationView.backgroundColor = UIColor.blue
+            self.drawView.addSubview(self.subAnimationView)
+            //动画名称
+            self.titleLabel.text = model.animationName
+            self.drawLayer = CAShapeLayer()
         }
     }
 }
@@ -267,7 +276,7 @@ extension LLJAnimationCell {
             }
             
             if !sender.isSelected {
-                LLJSHelper.countDown(timeInterval: 1, totalTime: 4) { (timer, time) in
+                LLJSUIKitHelper.countDown(timeInterval: 1, totalTime: 4) { (timer, time) in
                     LLJLog(time)
                     if time < 3 {
                         self.subLayer?.lifetime = 1.0
@@ -288,7 +297,7 @@ extension LLJAnimationCell {
             }
             
             if !sender.isSelected {
-                LLJSHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
+                LLJSUIKitHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
                     LLJLog(time)
                     if time < 2.5 {
                         self.subLayer?.lifetime = 1.0
@@ -318,7 +327,7 @@ extension LLJAnimationCell {
             
             //通过修改粒子生命周期来控制发射与否
             if !sender.isSelected {
-                LLJSHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
+                LLJSUIKitHelper.countDown(timeInterval: 0.5, totalTime: 3) { (timer, time) in
                     LLJLog(time)
                     if time < 2.5 {
                         self.subLayer?.lifetime = 1.0
@@ -398,6 +407,12 @@ extension LLJAnimationCell {
             let animation = LLJAnimation.basicAnimation(keyPath: "strokeEnd", beginTime: nil, fromValue: 0, toValue: 1, byValue: nil, duration: 10, timingFunctionName: nil, repeatCount: nil, repeatDuration: nil, fillMode: nil, autoreverses: false, removedOnCompletion: false)
             animationlayer.add(animation, forKey: "cycleAnimation")
 
+        } else if self.model!.animationName == "移动动画-帧动画" {
+            
+            //view按path移动动画
+            let colorArray = [UIColor.blue.cgColor,UIColor.red.cgColor,UIColor.yellow.cgColor,UIColor.orange.cgColor]
+            let keyAnimation = LLJAnimation.keyframeAnimation(keyPath: "backgroundColor", values: colorArray, path: nil, keyTimes: nil, duration: 2.0, timingFunctions: nil, fillMode: CAMediaTimingFillMode.forwards, removedOnCompletion: false)
+            self.subAnimationView.layer.add(keyAnimation, forKey: "keyAnimation")
         }
     }
 }

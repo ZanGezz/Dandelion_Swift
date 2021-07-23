@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2E6E2B61F035CF65ED2AFE29 /* Pods_Dandelion_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */; };
 		4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02463925C151A600E2193C /* LLJSwiftUIController.swift */; };
+		4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32202426929E0B0077982B /* LLJWebViewController.swift */; };
+		4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3220292692A4720077982B /* LLJWKWebView.swift */; };
+		4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */; };
+		4B3220342692F0DA0077982B /* WKWebViewText.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B3220332692F0DA0077982B /* WKWebViewText.html */; };
+		4B3220392693E8890077982B /* NSObject+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3220382693E8890077982B /* NSObject+Category.swift */; };
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
@@ -25,7 +30,7 @@
 		4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFEE264EA26500CA9F17 /* LLJWChatFirstCell.swift */; };
 		4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFF32651FEB300CA9F17 /* LLJWChatSecondCell.swift */; };
 		4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BBFF826520C8400CA9F17 /* LLJWChatModel.swift */; };
-		4B7BC006265609D700CA9F17 /* ZBFWYMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC005265609D700CA9F17 /* ZBFWYMainViewController.swift */; };
+		4B7BC006265609D700CA9F17 /* LLJFWYMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC005265609D700CA9F17 /* LLJFWYMainViewController.swift */; };
 		4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC00B265669C700CA9F17 /* LLJNestTableView.swift */; };
 		4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC0142657639100CA9F17 /* LLJAboutSwiftController.swift */; };
 		4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BC01C265C932700CA9F17 /* LLJSegmentView.swift */; };
@@ -50,15 +55,36 @@
 		4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8E22629344300537DA0 /* LLJAnimation.swift */; };
 		4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8EB2629399F00537DA0 /* LLJBezierPathController.swift */; };
 		4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B83E8F726293CA200537DA0 /* LLJDrawRect.swift */; };
+		4B8463072664C34D002A8B2B /* LLJFContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463062664C34D002A8B2B /* LLJFContentController.swift */; };
+		4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463262665CF02002A8B2B /* LLJTableView.swift */; };
+		4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */; };
+		4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
+		4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */; };
+		4B9FFD2726AA4E5F00E1819E /* LLJAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD2626AA4E5F00E1819E /* LLJAlertView.swift */; };
+		4B9FFD3426AA57D500E1819E /* LLJAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD3326AA57D500E1819E /* LLJAlertCell.swift */; };
+		4B9FFD3926AA60FC00E1819E /* LLJAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD3826AA60FC00E1819E /* LLJAlertModel.swift */; };
+		4B9FFD4126AA995600E1819E /* LLJCycleMessagePushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4026AA995600E1819E /* LLJCycleMessagePushController.swift */; };
+		4B9FFD4726AAA74200E1819E /* LLJTextInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */; };
+		4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */; };
+		4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */; };
+		4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */; };
+		4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */; };
+		4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */; };
+		4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */; };
+		4BBBC51F26A949E900D641C2 /* LLJImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */; };
+		4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */; };
 		4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE20F425C944670079960D /* LLJSTableViewController.swift */; };
+		4BEF2FA32681E4B00025723D /* LLJFWeChatCycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */; };
+		4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */; };
 		4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */; };
 		4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */; };
 		4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1879125B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld */; };
 		4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF187A525BAC45800B75EA6 /* LLJSUIKitHelper.swift */; };
 		4BF8A2C9260C76A5007FD071 /* UIControl + SwizzlMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8A2C8260C76A5007FD071 /* UIControl + SwizzlMethod.swift */; };
 		6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */; };
+		84F8D30FC7074DDAF240B619 /* Pods_Dandelion_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +108,11 @@
 		121323D2D03C3A1E72A1F51D /* Pods-Dandelion-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		122766FC2AE22D55490E6C94 /* Pods-Dandelion-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		4B02463925C151A600E2193C /* LLJSwiftUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSwiftUIController.swift; sourceTree = "<group>"; };
+		4B32202426929E0B0077982B /* LLJWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWebViewController.swift; sourceTree = "<group>"; };
+		4B3220292692A4720077982B /* LLJWKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWKWebView.swift; sourceTree = "<group>"; };
+		4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWeakScriptMessageDelegate.swift; sourceTree = "<group>"; };
+		4B3220332692F0DA0077982B /* WKWebViewText.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewText.html; sourceTree = "<group>"; };
+		4B3220382693E8890077982B /* NSObject+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Category.swift"; sourceTree = "<group>"; };
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
@@ -98,7 +129,7 @@
 		4B7BBFEE264EA26500CA9F17 /* LLJWChatFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWChatFirstCell.swift; sourceTree = "<group>"; };
 		4B7BBFF32651FEB300CA9F17 /* LLJWChatSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWChatSecondCell.swift; sourceTree = "<group>"; };
 		4B7BBFF826520C8400CA9F17 /* LLJWChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWChatModel.swift; sourceTree = "<group>"; };
-		4B7BC005265609D700CA9F17 /* ZBFWYMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBFWYMainViewController.swift; sourceTree = "<group>"; };
+		4B7BC005265609D700CA9F17 /* LLJFWYMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFWYMainViewController.swift; sourceTree = "<group>"; };
 		4B7BC00B265669C700CA9F17 /* LLJNestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNestTableView.swift; sourceTree = "<group>"; };
 		4B7BC0142657639100CA9F17 /* LLJAboutSwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAboutSwiftController.swift; sourceTree = "<group>"; };
 		4B7BC01C265C932700CA9F17 /* LLJSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSegmentView.swift; sourceTree = "<group>"; };
@@ -129,9 +160,33 @@
 		4B83E8E22629344300537DA0 /* LLJAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAnimation.swift; sourceTree = "<group>"; };
 		4B83E8EB2629399F00537DA0 /* LLJBezierPathController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBezierPathController.swift; sourceTree = "<group>"; };
 		4B83E8F726293CA200537DA0 /* LLJDrawRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJDrawRect.swift; sourceTree = "<group>"; };
+		4B8463062664C34D002A8B2B /* LLJFContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFContentController.swift; sourceTree = "<group>"; };
+		4B8463262665CF02002A8B2B /* LLJTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJTableView.swift; sourceTree = "<group>"; };
+		4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLunBoViewController.swift; sourceTree = "<group>"; };
+		4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCarouselMapView.swift; sourceTree = "<group>"; };
+		4B88DE86266F11E800A3F07E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B88DE8C266F11EF00A3F07E /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B88DE91266F11F400A3F07E /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
+		4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCycleImageCell.swift; sourceTree = "<group>"; };
+		4B9FFD2626AA4E5F00E1819E /* LLJAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAlertView.swift; sourceTree = "<group>"; };
+		4B9FFD3326AA57D500E1819E /* LLJAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAlertCell.swift; sourceTree = "<group>"; };
+		4B9FFD3826AA60FC00E1819E /* LLJAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAlertModel.swift; sourceTree = "<group>"; };
+		4B9FFD4026AA995600E1819E /* LLJCycleMessagePushController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleMessagePushController.swift; sourceTree = "<group>"; };
+		4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJTextInputCell.swift; sourceTree = "<group>"; };
+		4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLocationCell.swift; sourceTree = "<group>"; };
+		4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleUserModel.swift; sourceTree = "<group>"; };
+		4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJUseDefaultHelper.swift; sourceTree = "<group>"; };
+		4B9FFD5F26AAC20000E1819E /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleFrameModel.swift; sourceTree = "<group>"; };
+		4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCellFrameManage.swift; sourceTree = "<group>"; };
+		4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleImageView.swift; sourceTree = "<group>"; };
+		4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJImageCell.swift; sourceTree = "<group>"; };
+		4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLunBoListViewController.swift; sourceTree = "<group>"; };
 		4BDE20F425C944670079960D /* LLJSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSTableViewController.swift; sourceTree = "<group>"; };
+		4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJFWeChatCycleController.swift; sourceTree = "<group>"; };
+		4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCommenCell.swift; sourceTree = "<group>"; };
 		4BF1877625B928D200B75EA6 /* LLJMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJMineViewController.swift; sourceTree = "<group>"; };
 		4BF1878C25B92A9C00B75EA6 /* LLJMyKnowledge.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMyKnowledge.txt; sourceTree = "<group>"; };
 		4BF1879225B9555E00B75EA6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -151,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F8D30FC7074DDAF240B619 /* Pods_Dandelion_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,9 +261,45 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		4B32202026929D7E0077982B /* WebView相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4B32202126929DB90077982B /* Controller */,
+				4B32202226929DB90077982B /* Model */,
+				4B32202326929DB90077982B /* View */,
+			);
+			path = "WebView相关";
+			sourceTree = "<group>";
+		};
+		4B32202126929DB90077982B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B32202426929E0B0077982B /* LLJWebViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B32202226929DB90077982B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B3220332692F0DA0077982B /* WKWebViewText.html */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B32202326929DB90077982B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B3220292692A4720077982B /* LLJWKWebView.swift */,
+				4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
 			isa = PBXGroup;
 			children = (
+				4B9FFD5626AABB2D00E1819E /* LLJUserDefaultHelper */,
 				4B808747263A9364009CEDFF /* LLJLayer */,
 				4B48B264262D5F9F0048A913 /* LLJsonModel */,
 				4B83E8F626293C4900537DA0 /* LLJDrawRect */,
@@ -244,6 +336,8 @@
 				4B80821D25B57D5900F89B9C /* LLJFViewController.swift */,
 				4B80822225B57D7600F89B9C /* LLJNaviController.swift */,
 				4B80822725B57DA100F89B9C /* LLJTabBarController.swift */,
+				4B8463262665CF02002A8B2B /* LLJTableView.swift */,
+				4B3220382693E8890077982B /* NSObject+Category.swift */,
 			);
 			path = LLJNevAndTabbarAndBaseItem;
 			sourceTree = "<group>";
@@ -414,6 +508,10 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B9FFD2526AA4E0800E1819E /* Alert弹框 */,
+				4B32202026929D7E0077982B /* WebView相关 */,
+				4BEF2F9E2681E40F0025723D /* 仿微信朋友圈 */,
+				4B84632B2665D58D002A8B2B /* 轮播图相关 */,
 				4B7BC0102657632100CA9F17 /* Swift语法相关 */,
 				4B7BBFDD264E72CF00CA9F17 /* 仿微信读书组切圆角 */,
 				4B83E8E72629391400537DA0 /* 贝塞尔曲线画图篇 */,
@@ -476,7 +574,8 @@
 		4B83E8CB26252EE800537DA0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4B7BC005265609D700CA9F17 /* ZBFWYMainViewController.swift */,
+				4B7BC005265609D700CA9F17 /* LLJFWYMainViewController.swift */,
+				4B8463062664C34D002A8B2B /* LLJFContentController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -550,6 +649,40 @@
 			path = LLJDrawRect;
 			sourceTree = "<group>";
 		};
+		4B84632B2665D58D002A8B2B /* 轮播图相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4B84632C2665D6B7002A8B2B /* Controller */,
+				4B84632D2665D6B7002A8B2B /* Model */,
+				4B84632E2665D6B7002A8B2B /* View */,
+			);
+			path = "轮播图相关";
+			sourceTree = "<group>";
+		};
+		4B84632C2665D6B7002A8B2B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BCC1D5D267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift */,
+				4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4B84632D2665D6B7002A8B2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B84632E2665D6B7002A8B2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +690,24 @@
 				4BF1879125B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld */,
 			);
 			path = LLJSCoreDataHelper;
+			sourceTree = "<group>";
+		};
+		4B9FFD2526AA4E0800E1819E /* Alert弹框 */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD2626AA4E5F00E1819E /* LLJAlertView.swift */,
+				4B9FFD3326AA57D500E1819E /* LLJAlertCell.swift */,
+				4B9FFD3826AA60FC00E1819E /* LLJAlertModel.swift */,
+			);
+			path = "Alert弹框";
+			sourceTree = "<group>";
+		};
+		4B9FFD5626AABB2D00E1819E /* LLJUserDefaultHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */,
+			);
+			path = LLJUserDefaultHelper;
 			sourceTree = "<group>";
 		};
 		4BDE20EC25C943670079960D /* CoreData相关 */ = {
@@ -623,6 +774,49 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		4BEF2F9E2681E40F0025723D /* 仿微信朋友圈 */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF2F9F2681E4940025723D /* Controller */,
+				4BEF2FA02681E4940025723D /* Model */,
+				4BEF2FA12681E4940025723D /* View */,
+			);
+			path = "仿微信朋友圈";
+			sourceTree = "<group>";
+		};
+		4BEF2F9F2681E4940025723D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF2FA22681E4B00025723D /* LLJFWeChatCycleController.swift */,
+				4B9FFD4026AA995600E1819E /* LLJCycleMessagePushController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BEF2FA02681E4940025723D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD5F26AAC20000E1819E /* video.mp4 */,
+				4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */,
+				4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */,
+				4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BEF2FA12681E4940025723D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */,
+				4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */,
+				4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */,
+				4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */,
+				4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */,
+				4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4BF1878925B92A7300B75EA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +858,9 @@
 		80B40C6B93A042C3CC840C52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B88DE91266F11F400A3F07E /* SnapKit.framework */,
+				4B88DE8C266F11EF00A3F07E /* Moya.framework */,
+				4B88DE86266F11E800A3F07E /* Kingfisher.framework */,
 				ECBCDD7F2EAD2C6F8F810EE5 /* Pods_Dandelion_swift.framework */,
 				8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */,
 				87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */,
@@ -797,6 +994,7 @@
 				4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */,
 				4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */,
 				4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */,
+				4B3220342692F0DA0077982B /* WKWebViewText.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,23 +1122,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3220392693E8890077982B /* NSObject+Category.swift in Sources */,
+				4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */,
+				4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */,
 				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
+				4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
+				4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */,
+				4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */,
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
+				4B9FFD4726AAA74200E1819E /* LLJTextInputCell.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
-				4B7BC006265609D700CA9F17 /* ZBFWYMainViewController.swift in Sources */,
+				4B8463072664C34D002A8B2B /* LLJFContentController.swift in Sources */,
+				4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */,
+				4B7BC006265609D700CA9F17 /* LLJFWYMainViewController.swift in Sources */,
 				4B8087372638EFBF009CEDFF /* LLJAnimationCell.swift in Sources */,
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
 				4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
+				4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */,
+				4BBBC51F26A949E900D641C2 /* LLJImageCell.swift in Sources */,
+				4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */,
 				4B808749263A9386009CEDFF /* LLJLayer.swift in Sources */,
 				4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */,
 				4B80873C2638F21D009CEDFF /* LLJAnimationModel.swift in Sources */,
 				4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */,
 				4B48B260262D57280048A913 /* LLJBezierPathModel.swift in Sources */,
+				4B9FFD2726AA4E5F00E1819E /* LLJAlertView.swift in Sources */,
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
 				4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */,
@@ -951,20 +1162,31 @@
 				4B7BC027265C9F8E00CA9F17 /* LLJSegmentModel.swift in Sources */,
 				4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */,
 				4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */,
+				4B9FFD3426AA57D500E1819E /* LLJAlertCell.swift in Sources */,
+				4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */,
 				4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */,
 				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
+				4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
+				4BEF2FA32681E4B00025723D /* LLJFWeChatCycleController.swift in Sources */,
 				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
+				4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */,
 				4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */,
+				4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
+				4B9FFD4126AA995600E1819E /* LLJCycleMessagePushController.swift in Sources */,
 				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,
 				4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */,
+				4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */,
 				4B8087322638EE6B009CEDFF /* LLJAnimationController.swift in Sources */,
 				4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */,
+				4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */,
 				4B7BC02C265DF0F500CA9F17 /* LLJContentView.swift in Sources */,
+				4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */,
+				4B9FFD3926AA60FC00E1819E /* LLJAlertModel.swift in Sources */,
 				4B7BBFEA264E956000CA9F17 /* LLJWChatSubView.swift in Sources */,
 				4B48B266262E5EAB0048A913 /* LLJsonModel.swift in Sources */,
 			);
@@ -1138,7 +1360,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1159,7 +1381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

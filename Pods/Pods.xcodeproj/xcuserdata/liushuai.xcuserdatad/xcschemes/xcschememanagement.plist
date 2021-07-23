@@ -8,18 +8,22 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
-		<key>Alamofire.xcscheme_^#shared#^_</key>
+		<key>Kingfisher.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>5</integer>
+=======
+			<key>isShown</key>
+			<false/>
+>>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
 		</dict>
 		<key>Moya.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -27,32 +31,29 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>7</integer>
+=======
+>>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
 		</dict>
 		<key>Pods-Dandelion-swift-Dandelion-swiftUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-Dandelion-swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>Pods-Dandelion-swiftTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
@@ -60,11 +61,14 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
+=======
+>>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+<<<<<<< HEAD
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
@@ -72,6 +76,8 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+=======
+>>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

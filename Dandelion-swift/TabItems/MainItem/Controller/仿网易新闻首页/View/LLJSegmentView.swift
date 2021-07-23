@@ -488,10 +488,6 @@ extension LLJSegmentView {
         switch self.lineStyle {
         case .moveAnimationCycle:
             
-            if percentage <= 0.0 {
-                percentage = 1.0
-            }
-            
             if percentage > 1.0 {
                 percentage = percentage - 1.0
             }
@@ -512,6 +508,12 @@ extension LLJSegmentView {
                     model.lineWidth = 0.0
                 }
                 
+                if self.lastSelectItem == index {
+                    let lastModel = self.itemModels[index]
+                    lastModel.diameter = self.diameter
+                    lastModel.lineWidth = 2.0
+                }
+                                
                 var X: CGFloat = 0.0
                 if i == 0 {
                     X = (model.itemSize.width - model.titleWidth)/2.0 + model.titleWidth + 4.0 + self.firstItemLeftOffSet/2.0
@@ -529,6 +531,9 @@ extension LLJSegmentView {
                 self.scrollToItem(index: self.currentSelectItem, animated: true)
                 self.lastSelectItem = self.currentSelectItem
             }
+            
+            LLJLog("=====" + String(self.currentSelectItem) + "--" + String(self.lastSelectItem))
+
             
         case .moveAnimationNone:
             
@@ -604,10 +609,6 @@ extension LLJSegmentView {
             
         case .moveAnimationDragLiner:
             
-            if percentage <= 0.0 {
-                percentage = 1.0
-            }
-            
             if percentage > 1.0 {
                 percentage = percentage - 1.0
             }
@@ -659,11 +660,6 @@ extension LLJSegmentView {
             
         case .moveAnimationDragCaseInOut:
             
-            LLJLog(percentage)
-            
-            if percentage <= 0.0 {
-                percentage = 1.0
-            }
             
             if percentage > 1.0 {
                 percentage = percentage - 1.0

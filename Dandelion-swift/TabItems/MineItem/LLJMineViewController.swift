@@ -53,6 +53,12 @@ extension LLJMineViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setDataSource((self.sourceArray!.object(at: indexPath.row) as! Array<Any>).first as! String)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = LLJWebViewController()
+        controller.webUrlString = (self.sourceArray!.object(at: indexPath.row) as! Array<Any>).last as! String
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 //MARK:设置UI + 布局

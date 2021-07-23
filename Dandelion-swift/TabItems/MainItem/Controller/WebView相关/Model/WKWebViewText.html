@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iOS与H5交互练习</title>
+	<style type="text/css">
+	*{
+		font-size: 30px;
+	}
+	</style>
+</head>
+
+<body>
+<h1>一起来学习吧！</h1>
+
+      <div><input type="button" value="Alert 提示框" onclick="callJsAlert()"></div>
+      
+      <br/>
+      <div><input type="button" value="Confirm 提示框" onclick="callJsConfirm()"></div>
+      <br/>
+      <div><input type="button" value="点击跳到下个界面" onclick="callPushNextVC()"></div>
+      <br/>
+      <div><input type="text" value="" id="nameID"></div>
+      <br/>
+      <div><input type="button" value="Set Value to Field" onclick="setValue('value')"></div>
+      <br/>
+
+    <div>
+      <div><input type="button" value="Prompt 提示框" onclick="callJsInput()"></div><br/>
+
+      <div><a href="">点我跳转</a></div>
+      <div><button style="width: 200px;height: 30px;font-size: 20px;" onclick="openApp()">点我跳转</button></div>
+    </div>
+    
+    <br/>
+    
+    <div id="SwiftDiv">
+      <span id="jsParamFuncSpan" style="color: orange; font-size: 50px;"></span>
+    </div>
+    
+    
+    
+    <script type="text/javascript">
+        
+    function openApp() {
+        var list = [1,2,3];
+        var dict = {"name" : "阳君","qq":"3300333221","data":"123","array":list};
+        alert(dict);
+        window.webkit.messageHandlers.backToViewController.postMessage(dict);
+    }
+    
+    function callJsAlert() {
+      alert('Please show alert');
+      setupWebViewJavascriptBridge(function(bridge) {
+      
+       /*
+        JS给OC发送消息
+        'testJavascriptSendMessage'               方法名
+        document.getElementById('nameID').value   传值
+        responseCallback(responseData)            返回值
+        */
+       bridge.callHandler('testJavascriptSendMessage', document.getElementById('nameID').value, function responseCallback(responseData) {
+                          
+                          })
+      })
+      window.webkit.messageHandlers.senderModel.postMessage({body: 'Alert'});
+    }
+  
+  function setValue(value) {
+      document.getElementById('nameID').value=value;
+      window.webkit.messageHandlers.senderModel.postMessage('给文本款赋值成功');
+
+  }
+  function callJsConfirm() {
+    if (confirm('Confirm', 'Please show confirm')) {
+      document.getElementById('jsParamFuncSpan').innerHTML
+      = 'true';
+    } else {
+      document.getElementById('jsParamFuncSpan').innerHTML
+      = 'false';
+    }
+    
+    
+    window.webkit.messageHandlers.senderModel.postMessage({body: 'Confirm'});
+  }
+  
+  function callJsInput() {
+    var response = prompt('Hello', 'Please input a Text:');
+    document.getElementById('jsParamFuncSpan').innerHTML = response;
+    
+    
+    window.webkit.messageHandlers.senderModel.postMessage({body: response});
+    
+  }
+     
+    </script>
+</body>
+</html>

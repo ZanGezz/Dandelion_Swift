@@ -37,7 +37,7 @@ class LLJAboutSwiftController: LLJFViewController {
         block("str1","str2")
     }
     
-    
+    typealias boclk = ((String, String) -> Void)
     
     //MARK: - 属性 -
     //存储属性
@@ -66,15 +66,17 @@ class LLJAboutSwiftController: LLJFViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpUI()
+        //闭包相关
+        block()
+        //NSString 类簇 及 深拷贝浅拷贝
+        stringAndCopy()
     }
 }
 
 //MARK - 闭包相关 -
 extension LLJAboutSwiftController {
     
-    func setUpUI() {
+    func block() {
         
         self.view.backgroundColor = LLJWhiteColor()
         
@@ -97,5 +99,17 @@ extension LLJAboutSwiftController {
         self.subBlock1 { (str1, str2) in
             LLJLog(str1 + "  3  " + str2)
         }
+    }
+}
+
+
+//MARK - NSString 类簇 及 深拷贝浅拷贝 -
+extension LLJAboutSwiftController {
+    
+    func stringAndCopy() {
+        
+        self.view.backgroundColor = LLJWhiteColor()
+        
+        
     }
 }

@@ -3,7 +3,8 @@
 //  Dandelion-swift
 //
 //  Created by 刘帅 on 2020/12/16.
-//
+//  rewriteoc main.m
+//  ~/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Caches/Assets/TemporaryItems/MobileApps 找到.ipa
 
 import UIKit
 

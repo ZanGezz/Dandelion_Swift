@@ -1,6 +1,6 @@
 ["数据库实现:LLJSCoreDataController",
 "TableView实现、排序、左滑:LLJSTableViewController",
-"仿微信朋友圈:LLJSCircleOfFriendController",
+"仿微信朋友圈:LLJFWeChatCycleController",
 "视频录制播放:LLJSVideoController",
 "视频图片下载:LLJSDownLoadController",
 "加速计陀螺仪保持view在顶层总结:LLJSCMMotionController",
@@ -16,6 +16,7 @@
 "贝塞尔曲线:LLJBezierPathController",
 "动画篇:LLJAnimationController",
 "仿微信读书首页:LLJWChatMainViewController",
-"仿网易新闻首页:ZBFWYMainViewController",
-"swift语法相关:LLJAboutSwiftController"
+"仿网易新闻首页:LLJFWYMainViewController",
+"swift语法相关:LLJAboutSwiftController",
+"轮播图相关:LLJLunBoListViewController"
 ]
