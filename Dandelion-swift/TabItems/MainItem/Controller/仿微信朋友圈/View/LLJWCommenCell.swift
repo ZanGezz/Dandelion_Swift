@@ -46,7 +46,6 @@ class LLJWCommenCell: UITableViewCell {
         let timeLabel = UILabel()
         timeLabel.textColor = LLJColor(179, 179, 179, 1.0)
         timeLabel.font = LLJFont(14)
-        timeLabel.text = "2分钟前"
         return timeLabel
     }()
     
@@ -116,5 +115,6 @@ extension LLJWCommenCell {
         self.headImageView.image = UIImage(named: sourceModel.headImageName ?? "")
         self.nickNameLabel.text = sourceModel.nickName
         self.contentLabel.text = sourceModel.content
+        self.timeLabel.text = LLJSHelper.exChangeTimeIntevalToMin(timeInteval: sourceModel.timeInteval)
     }
 }

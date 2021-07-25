@@ -135,10 +135,10 @@ class LLJCellFrameManage: NSObject {
                 let image = UIImage(named: (sourceModel.videoModel?.videoImage)!)
 
                 if image!.size.width > image!.size.height {
-                    W = LLJDX(88)*2
+                    W = LLJDX(88)*2.5
                     H = W/image!.size.width*image!.size.height
                 } else if (image!.size.width < image!.size.height) {
-                    H = LLJDX(88)*2
+                    H = LLJDX(88)*2.5
                     W = H/image!.size.height*image!.size.width
                 } else {
                     W = LLJDX(88)*2

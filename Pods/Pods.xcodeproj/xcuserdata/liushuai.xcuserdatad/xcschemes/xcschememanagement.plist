@@ -4,83 +4,46 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
+		<key>Alamofire.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Kingfisher.xcscheme</key>
-		<dict>
-<<<<<<< HEAD
 			<key>orderHint</key>
-			<integer>5</integer>
-=======
-			<key>isShown</key>
-			<false/>
->>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
+			<integer>6</integer>
 		</dict>
-		<key>Moya.xcscheme</key>
+		<key>Kingfisher.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
-<<<<<<< HEAD
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>7</integer>
 		</dict>
 		<key>Moya.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
-=======
->>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
+			<integer>4</integer>
 		</dict>
 		<key>Pods-Dandelion-swift-Dandelion-swiftUITests.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-Dandelion-swift.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-Dandelion-swiftTests.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Result.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-<<<<<<< HEAD
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Result.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
-=======
->>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
-		</dict>
-		<key>SnapKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-<<<<<<< HEAD
-			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
 		</dict>
 		<key>SnapKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
-=======
->>>>>>> a624bce9de9c8a793fc3ebd1a08735de3a3c9bf3
+			<integer>8</integer>
 		</dict>
 	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict/>
 </dict>
 </plist>

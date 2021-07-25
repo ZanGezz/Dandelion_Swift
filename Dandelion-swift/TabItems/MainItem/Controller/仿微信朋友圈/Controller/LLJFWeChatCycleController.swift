@@ -56,6 +56,8 @@ class LLJFWeChatCycleController: LLJFViewController {
     private var camButton: UIButton?
     private var offset_y: CGFloat = 0.0
     private var titleLabel: UILabel?
+    private var currentPage: Int = 0
+    private var pageCount: Int = 100
     
     private var cycleSourceListArray: Array<Any> = []
     private var cycleFrameListArray: Array<Any> = []
@@ -259,8 +261,11 @@ extension LLJFWeChatCycleController {
             pushViewController.type = array[armnum]
         }
         pushViewController.model = self.useModel
+        weak var weakSelf = self
         pushViewController.pushComplete = {
-            self.getDataSource()
+            weakSelf!.currentPage = 0
+            weakSelf!.cycleSourceListArray.removeAll()
+            weakSelf!.getDataSource()
         }
         self.present(pushViewController, animated: true, completion: nil)
     }
@@ -269,9 +274,28 @@ extension LLJFWeChatCycleController {
     private func getDataSource() {
        
         let listArray = LLJSCoreDataHelper.helper.getRosource(entityName: "LLJWeChatCycleModel", predicate: "")
-        self.cycleSourceListArray = listArray
-        self.cycleFrameListArray = LLJCellFrameManage.setSubViewFrame(sourceList: listArray)
+        for i in stride(from: currentPage*pageCount, to: (currentPage + 1)*pageCount, by: 1) {
+            if i < listArray.count {
+                let model = listArray[i]
+                self.cycleSourceListArray.append(model)
+            } else {
+                break
+            }
+        }
+        //排序
+        self.cycleSourceListArray.sort { (item1, item2) -> Bool in
+            let item1 = item1 as! LLJWeChatCycleModel
+            let item2 = item2 as! LLJWeChatCycleModel
+            return item1.timeInteval > item2.timeInteval
+        }
+        self.cycleFrameListArray = LLJCellFrameManage.setSubViewFrame(sourceList: self.cycleSourceListArray)
         self.tableView.reloadData()
+        currentPage += 1
+    }
+    
+    //冒泡排序
+    private func sortArray() {
+        
     }
 }
 

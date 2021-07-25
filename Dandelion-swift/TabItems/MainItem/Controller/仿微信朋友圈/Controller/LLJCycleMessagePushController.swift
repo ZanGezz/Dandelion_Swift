@@ -100,19 +100,26 @@ extension LLJCycleMessagePushController {
         case 100004:
             self.view.endEditing(true)
             //发布朋友圈
-            addDataSource()
+            self.perform(#selector(addDataSource), with: "", afterDelay: 1.0)
+        
         default:break
         }
     }
     
     //处理数据
-    private func addDataSource() {
+    @objc private func addDataSource() {
         let model: LLJWeChatCycleModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJWeChatCycleModel") as! LLJWeChatCycleModel
         
         model.headImageName = self.model!.userImage!
         model.content = self.content
         model.nickName = self.model!.nickName!
         model.userId = self.model!.userId!
+        model.timeInteval = LLJSHelper.getCurrentTimeInteval()
+        var messageId = LLJUseDefaultHelper.getMessage(key: "messageId")
+        messageId += 1
+        LLJUseDefaultHelper.setMessage(object: messageId, key: "messageId")
+        model.messageId = messageId
+        
         switch self.type {
         case .text:
             model.type = 10010
@@ -147,8 +154,8 @@ extension LLJCycleMessagePushController {
     private func getImageList() -> String {
         
         var imageList: String = ""
-        let armNum = LLJSHelper.arc4random(duration: 9)
-        for i in stride(from: 0, to: armNum, by: 1) {
+        let armNum = LLJSHelper.arc4random(duration: 8)
+        for i in stride(from: 0, to: armNum + 1, by: 1) {
             if i == 0 {
                 imageList = getOneImage()
             } else {

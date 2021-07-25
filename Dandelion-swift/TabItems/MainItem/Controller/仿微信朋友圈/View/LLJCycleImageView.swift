@@ -15,7 +15,7 @@ class LLJCycleImageView: UIView {
     lazy var collectionView: UICollectionView = {
         
         let flawLayout = UICollectionViewFlowLayout()
-        flawLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        flawLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
         flawLayout.minimumInteritemSpacing = LLJDX(5.0)
         flawLayout.minimumLineSpacing = LLJDX(5.0)
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flawLayout)

@@ -123,4 +123,48 @@ public class LLJSHelper {
         return size
     }
     
+    /**
+     * 获取当前时间戳
+     */
+    class func getCurrentTimeInteval() -> Int64 {
+        
+        return Int64(NSDate().timeIntervalSince1970)
+    }
+    
+    /**
+     * 时间戳转化为分钟
+     */
+    class func exChangeTimeIntevalToMin(timeInteval: Int64) -> String {
+        
+        var min = "1秒前"
+        var dt = getCurrentTimeInteval() - timeInteval
+        if dt < 60 {
+            min = String(dt) + "秒前"
+        } else {
+            dt = dt/60
+            if dt < 60 {
+                min = String(dt) + "分钟前"
+            } else {
+                dt = dt/60
+                if dt < 24 {
+                    min = String(dt) + "小时前"
+                } else {
+                    dt = dt/24
+                    if dt < 30 {
+                        min = String(dt) + "天前"
+                    } else {
+                        dt = dt/30
+                        if dt < 12 {
+                            min = String(dt) + "月前"
+                        } else {
+                            dt = dt/12
+                            min = String(dt) + "年前"
+                        }
+                    }
+                }
+            }
+        }
+        
+        return min
+    }
 }

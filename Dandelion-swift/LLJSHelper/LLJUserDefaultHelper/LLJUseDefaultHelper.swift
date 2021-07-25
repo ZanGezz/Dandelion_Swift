@@ -9,11 +9,21 @@ import UIKit
 
 class LLJUseDefaultHelper: NSObject {
     
-    class func setObject(object: String, key: String) {
-        UserDefaults.setValue(object, forKey: key)
+    class func setMessage(object: Int64, key: String) {
+        setObject(object: object, key: key)
     }
     
-    class func getObject(key: String) -> String {
-        UserDefaults.value(forKey: key) as! String
+    class func getMessage(key: String) -> Int64 {
+       
+        return getObject(key: key) as? Int64 ?? 0
+    }
+    
+    class func setObject(object: Any, key: String) {
+        UserDefaults.standard.setValue(object, forKey: key)
+    }
+    
+    class func getObject(key: String) -> Any {
+       
+        return UserDefaults.standard.object(forKey: key) as Any
     }
 }

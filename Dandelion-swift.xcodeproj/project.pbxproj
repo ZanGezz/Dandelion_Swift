@@ -70,6 +70,7 @@
 		4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */; };
 		4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */; };
 		4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */; };
+		4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */; };
 		4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */; };
 		4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */; };
 		4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */; };
@@ -179,6 +180,7 @@
 		4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleUserModel.swift; sourceTree = "<group>"; };
 		4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJUseDefaultHelper.swift; sourceTree = "<group>"; };
 		4B9FFD5F26AAC20000E1819E /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJVideoView.swift; sourceTree = "<group>"; };
 		4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleFrameModel.swift; sourceTree = "<group>"; };
 		4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCellFrameManage.swift; sourceTree = "<group>"; };
 		4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleImageView.swift; sourceTree = "<group>"; };
@@ -813,6 +815,7 @@
 				4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */,
 				4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */,
 				4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */,
+				4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1155,6 +1158,7 @@
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
 				4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */,
+				4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */,
 				4BF8A2C9260C76A5007FD071 /* UIControl + SwizzlMethod.swift in Sources */,
 				4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */,
 				4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */,

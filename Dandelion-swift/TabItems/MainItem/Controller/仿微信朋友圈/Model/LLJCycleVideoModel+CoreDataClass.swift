@@ -2,7 +2,7 @@
 //  LLJCycleVideoModel+CoreDataClass.swift
 //  
 //
-//  Created by 刘帅 on 2021/7/23.
+//  Created by 刘帅 on 2021/7/24.
 //
 //
 
