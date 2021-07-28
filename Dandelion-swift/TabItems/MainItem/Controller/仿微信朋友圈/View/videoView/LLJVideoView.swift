@@ -9,8 +9,13 @@ import UIKit
 
 class LLJVideoView: UIView {
 
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     lazy var videoStart: UIButton = {
         let videoStart = UIButton(type: .custom)
+        videoStart.setImage(UIImage(named: "kaishi"), for: .normal)
         videoStart.addTarget(self, action: #selector(videoStartAction), for: .touchUpInside)
         return videoStart
     }()
@@ -29,6 +34,15 @@ extension LLJVideoView {
     
     private func setUpUI() {
         
+        self.addSubview(self.imageView)
+        self.addSubview(self.videoStart)
+    }
+    
+    func setDataSource(sourceModel: LLJCycleMessageModel) {
+        self.imageView.image = UIImage(named: sourceModel.videoModel!.videoImage!)
+        self.frame = sourceModel.frameModel.contentVideoFrame
+        self.imageView.frame = self.bounds
+        self.videoStart.frame = self.bounds
     }
     
     @objc private func videoStartAction() {

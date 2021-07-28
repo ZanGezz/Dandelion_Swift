@@ -59,14 +59,14 @@ extension LLJCycleImageView: UICollectionViewDelegate,UICollectionViewDataSource
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        //let cell = cell as! LLJImageCell
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if selectItemBlock != nil {
             selectItemBlock!(self.imageList[indexPath.row])
         }
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        let imageView = LLJImageShowView()
+        imageView.imageViewShow(oldImageName: self.imageList[indexPath.row], oldImageView: (cell! as! LLJImageCell).imageView, oldSuperView: cell! as UIView)
     }
 }
 
@@ -87,10 +87,10 @@ extension LLJCycleImageView {
     }
     
     //设置数据
-    func setDataSource(sourceModel: LLJWeChatCycleModel, frameModel: LLJCycleFrameModel) {
+    func setDataSource(sourceModel: LLJCycleMessageModel) {
         
         self.collectionView.frame = self.bounds
-        self.itemSize = frameModel.contentImageSize
+        self.itemSize = sourceModel.frameModel.contentImageSize
         self.imageList = sourceModel.imageModel?.imageList?.components(separatedBy: ",") ?? []
         self.collectionView.reloadData()
     }

@@ -8,6 +8,8 @@
 import UIKit
 
 class LLJWCommenCell: UITableViewCell {
+    
+    typealias moreActionBlock = ((LLJZanView) ->Void)
 
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
@@ -61,6 +63,13 @@ class LLJWCommenCell: UITableViewCell {
         return moreButton
     }()
     
+    lazy var zanView: LLJZanView = {
+        let zanView = LLJZanView()
+        return zanView
+    }()
+    
+    var moreAction: moreActionBlock?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -104,17 +113,49 @@ extension LLJWCommenCell {
     //按钮事件
     @objc private func moreButtonClick(sender: UIButton) {
         
+        if self.zanView.bounds.width < 0.1 || self.zanView.isHidden{
+            viewShow()
+        } else {
+            viewHidden()
+        }
+
+        if moreAction != nil {
+            moreAction!(self.zanView)
+        }
     }
     
     //设置数据
-    func setDataSource(sourceModel: LLJWeChatCycleModel, frameModel: LLJCycleFrameModel) {
+    func setDataSource(sourceModel: LLJCycleMessageModel) {
         
         //布局
-        layoutSubview(frameModel: frameModel)
+        layoutSubview(frameModel: sourceModel.frameModel)
         //设置数据
         self.headImageView.image = UIImage(named: sourceModel.headImageName ?? "")
         self.nickNameLabel.text = sourceModel.nickName
         self.contentLabel.text = sourceModel.content
         self.timeLabel.text = LLJSHelper.exChangeTimeIntevalToMin(timeInteval: sourceModel.timeInteval)
+    }
+    
+    func viewShow() {
+        
+        self.addSubview(self.zanView)
+        let X = self.moreButton.frame.origin.x - LLJDX(8) - LLJDX(180)
+        let Y = self.moreButton.frame.origin.y - LLJDX(10)
+        self.zanView.frame = CGRect(x: X + LLJDX(180), y: Y, width: LLJDX(0.01), height: LLJDX(40))
+        self.zanView.isHidden = false
+        UIView.animate(withDuration: 0.25) {
+            self.zanView.frame = CGRect(x: X, y: Y, width: LLJDX(180), height: LLJDX(40))
+        }
+    }
+    
+    //隐藏
+    func viewHidden() {
+        let X = self.zanView.frame.origin.x
+        let Y = self.zanView.frame.origin.y
+        UIView.animate(withDuration: 0.25) {
+            self.zanView.frame = CGRect(x: X + LLJDX(180), y: Y, width: LLJDX(0.01), height: LLJDX(40))
+        } completion: { (com) in
+            self.zanView.isHidden = true
+        }
     }
 }

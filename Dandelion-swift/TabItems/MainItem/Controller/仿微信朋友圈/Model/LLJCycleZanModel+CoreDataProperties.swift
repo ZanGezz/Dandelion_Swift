@@ -2,7 +2,7 @@
 //  LLJCycleZanModel+CoreDataProperties.swift
 //  
 //
-//  Created by 刘帅 on 2021/7/24.
+//  Created by 刘帅 on 2021/7/27.
 //
 //
 
@@ -21,9 +21,9 @@ extension LLJCycleZanModel {
     @NSManaged public var bUserId: Int64
     @NSManaged public var bUserName: String?
     @NSManaged public var content: String?
-    @NSManaged public var sourceId: Int64
+    @NSManaged public var messageId: Int64
     @NSManaged public var timeInterval: Int64
-    @NSManaged public var type: String?
+    @NSManaged public var type: Int64
     @NSManaged public var userId: Int64
 
 }

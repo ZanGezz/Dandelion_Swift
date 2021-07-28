@@ -130,15 +130,17 @@ extension LLJCycleMessagePushController {
             model.imageModel = imageModel
         case .video:
             model.type = 10012
-            let imageModel: LLJCycleVideoModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleVideoModel") as! LLJCycleVideoModel
-            imageModel.videoUrl = "video.mp4"
-            imageModel.videoImage = getOneImage()
+            let videoModel: LLJCycleVideoModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleVideoModel") as! LLJCycleVideoModel
+            videoModel.videoUrl = "video.mp4"
+            videoModel.videoImage = getOneImage()
+            model.videoModel = videoModel
         case .link:
             model.type = 10013
-            let imageModel: LLJCycleWebLinkModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleWebLinkModel") as! LLJCycleWebLinkModel
-            imageModel.webLinkUrl = "https://www.baidu.com"
-            imageModel.webLinkImage = getOneImage()
-            imageModel.webLinkContent = "驰援郑州！！一方有难八方支援，是我中华民族的传统美德！"
+            let linkModel: LLJCycleWebLinkModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleWebLinkModel") as! LLJCycleWebLinkModel
+            linkModel.webLinkUrl = "https://www.baidu.com"
+            linkModel.webLinkImage = getOneImage()
+            linkModel.webLinkContent = "驰援郑州！！一方有难八方支援，是我中华民族的传统美德！"
+            model.webLinkModel = linkModel
         }
         
         let _ = LLJSCoreDataHelper.helper.insertRosource()

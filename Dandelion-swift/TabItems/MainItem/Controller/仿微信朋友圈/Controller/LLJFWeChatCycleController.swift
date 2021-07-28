@@ -14,6 +14,8 @@ class LLJFWeChatCycleController: LLJFViewController {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT), style: UITableView.Style.plain)
         tableView.register(LLJWCommenCell.self, forCellReuseIdentifier: "LLJWCommenCell")
         tableView.register(LLJWCycleImageCell.self, forCellReuseIdentifier: "LLJWCycleImageCell")
+        tableView.register(LLJWebLinkCell.self, forCellReuseIdentifier: "LLJWebLinkCell")
+        tableView.register(LLJCycleVideoCell.self, forCellReuseIdentifier: "LLJCycleVideoCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
@@ -31,7 +33,13 @@ class LLJFWeChatCycleController: LLJFViewController {
         }
         return alertView
     }()
-    lazy var alertItemList1: Array<LLJAlertModel> = {
+    
+    private lazy var zanView: LLJZanView = {
+        let zanView = LLJZanView()
+        return zanView
+    }()
+    
+    private lazy var alertItemList1: Array<LLJAlertModel> = {
         var alertItemList: Array<LLJAlertModel> = []
         var model = LLJAlertModel()
         model.title = "拍摄"
@@ -42,7 +50,7 @@ class LLJFWeChatCycleController: LLJFViewController {
         alertItemList.append(model1)
         return alertItemList
     }()
-    lazy var alertItemList2: Array<LLJAlertModel> = {
+    private lazy var alertItemList2: Array<LLJAlertModel> = {
         var alertItemList: Array<LLJAlertModel> = []
         var model = LLJAlertModel()
         model.title = "更换相册封面"
@@ -92,18 +100,39 @@ extension LLJFWeChatCycleController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = self.cycleSourceListArray[indexPath.row] as! LLJWeChatCycleModel
+        
+        var commenCell: LLJWCommenCell?
         if model.type == 10011 {
-            
+            //图片cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWCycleImageCell") as! LLJWCycleImageCell
-            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJWeChatCycleModel, frameModel: self.cycleFrameListArray[indexPath.row] as! LLJCycleFrameModel)
+            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
-            return cell
+            commenCell = cell
+        } else if model.type == 10012 {
+            //视频cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LLJCycleVideoCell") as! LLJCycleVideoCell
+            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            commenCell = cell
+        } else if model.type == 10013 {
+            //网址cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWebLinkCell") as! LLJWebLinkCell
+            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            commenCell = cell
         } else {
+            //纯文字cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWCommenCell") as! LLJWCommenCell
-            cell.setDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJWeChatCycleModel, frameModel: self.cycleFrameListArray[indexPath.row] as! LLJCycleFrameModel)
+            cell.setDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
-            return cell
+            commenCell = cell
         }
+        //更多回调
+        weak var weakSelf = self
+        commenCell!.moreAction = { (zanView) in
+            weakSelf!.zanView = zanView
+        }
+        return commenCell!
     }
 }
 
@@ -293,9 +322,16 @@ extension LLJFWeChatCycleController {
         currentPage += 1
     }
     
-    //冒泡排序
-    private func sortArray() {
-        
+    
+    //处理zanView
+    private func zanViewShowOrHidden(dFrame: CGRect) {
+        //let zanView = LLJZanView()
+//        if self.zanView.bounds.width > 0.1 {
+//            self.zanView.viewHidden()
+//        } else {
+//            self.zanView.viewShow(dframe: dFrame)
+//        }
+        //self.zanView = zanView
     }
 }
 
@@ -349,6 +385,11 @@ extension LLJFWeChatCycleController: UIScrollViewDelegate {
             self.navView?.backgroundColor = LLJColor(238.0, 238.0, 238.0, 0.0)
             self.backButton?.isHidden = false
             self.camButton?.isHidden = false
+        }
+        
+        //处理zanView
+        if !self.zanView.isHidden {
+            self.zanView.isHidden = true
         }
     }
 }

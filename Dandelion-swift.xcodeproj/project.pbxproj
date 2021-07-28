@@ -70,6 +70,38 @@
 		4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */; };
 		4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */; };
 		4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */; };
+		4B9FFD6B26AE41B700E1819E /* LLJImageShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD6A26AE41B700E1819E /* LLJImageShowView.swift */; };
+		4B9FFD7326AE5BF900E1819E /* LLJCycleVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD7226AE5BF900E1819E /* LLJCycleVideoCell.swift */; };
+		4B9FFD7926AE5F1600E1819E /* LLJWebLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD7826AE5F1600E1819E /* LLJWebLinkCell.swift */; };
+		4B9FFD8126AE5F8500E1819E /* LLJWebLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD8026AE5F8500E1819E /* LLJWebLinkView.swift */; };
+		4B9FFD8626AE7D1C00E1819E /* LLJZanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD8526AE7D1C00E1819E /* LLJZanView.swift */; };
+		4B9FFD8B26AEB7A900E1819E /* LLJZanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD8A26AEB7A900E1819E /* LLJZanListView.swift */; };
+		4B9FFDF826AFF3AB00E1819E /* Checking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDD926AFF3AB00E1819E /* Checking.swift */; };
+		4B9FFDF926AFF3AB00E1819E /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDDA26AFF3AB00E1819E /* Attachment.swift */; };
+		4B9FFDFA26AFF3AB00E1819E /* ShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDDC26AFF3AB00E1819E /* ShadowExtension.swift */; };
+		4B9FFDFB26AFF3AB00E1819E /* CGSizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDDE26AFF3AB00E1819E /* CGSizeExtension.swift */; };
+		4B9FFDFC26AFF3AB00E1819E /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDDF26AFF3AB00E1819E /* CGPointExtension.swift */; };
+		4B9FFDFD26AFF3AB00E1819E /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE026AFF3AB00E1819E /* CGRectExtension.swift */; };
+		4B9FFDFE26AFF3AB00E1819E /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE226AFF3AB00E1819E /* UIButtonExtension.swift */; };
+		4B9FFDFF26AFF3AB00E1819E /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE426AFF3AB00E1819E /* UILabelExtension.swift */; };
+		4B9FFE0026AFF3AB00E1819E /* UILabelLayoutManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE526AFF3AB00E1819E /* UILabelLayoutManagerDelegate.swift */; };
+		4B9FFE0126AFF3AB00E1819E /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE626AFF3AB00E1819E /* UITextViewExtension.swift */; };
+		4B9FFE0226AFF3AB00E1819E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE726AFF3AB00E1819E /* UITextFieldExtension.swift */; };
+		4B9FFE0326AFF3AB00E1819E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE826AFF3AB00E1819E /* ArrayExtension.swift */; };
+		4B9FFE0426AFF3AB00E1819E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDE926AFF3AB00E1819E /* Extension.swift */; };
+		4B9FFE0526AFF3AB00E1819E /* NSTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDEB26AFF3AB00E1819E /* NSTextFieldExtension.swift */; };
+		4B9FFE0626AFF3AB00E1819E /* WKInterfaceTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDED26AFF3AB00E1819E /* WKInterfaceTextFieldExtension.swift */; };
+		4B9FFE0726AFF3AB00E1819E /* WKInterfaceLabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDEE26AFF3AB00E1819E /* WKInterfaceLabelExtension.swift */; };
+		4B9FFE0826AFF3AB00E1819E /* WKInterfaceButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDEF26AFF3AB00E1819E /* WKInterfaceButtonExtension.swift */; };
+		4B9FFE0926AFF3AB00E1819E /* ObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF026AFF3AB00E1819E /* ObjectExtension.swift */; };
+		4B9FFE0A26AFF3AB00E1819E /* ParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF126AFF3AB00E1819E /* ParagraphStyle.swift */; };
+		4B9FFE0B26AFF3AB00E1819E /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF226AFF3AB00E1819E /* AttributedString.swift */; };
+		4B9FFE0C26AFF3AB00E1819E /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF326AFF3AB00E1819E /* Interpolation.swift */; };
+		4B9FFE0D26AFF3AB00E1819E /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF526AFF3AB00E1819E /* Action.swift */; };
+		4B9FFE0F26AFF3AB00E1819E /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF726AFF3AB00E1819E /* Attribute.swift */; };
+		4B9FFE2226B0028200E1819E /* LLJCycleMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */; };
+		4B9FFE2A26B003F700E1819E /* LLJZanListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2926B003F700E1819E /* LLJZanListCell.swift */; };
+		4B9FFE2F26B009B100E1819E /* LLJNewZanListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2E26B009B100E1819E /* LLJNewZanListModel.swift */; };
 		4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */; };
 		4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */; };
 		4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */; };
@@ -180,6 +212,40 @@
 		4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleUserModel.swift; sourceTree = "<group>"; };
 		4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJUseDefaultHelper.swift; sourceTree = "<group>"; };
 		4B9FFD5F26AAC20000E1819E /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		4B9FFD6A26AE41B700E1819E /* LLJImageShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJImageShowView.swift; sourceTree = "<group>"; };
+		4B9FFD7226AE5BF900E1819E /* LLJCycleVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleVideoCell.swift; sourceTree = "<group>"; };
+		4B9FFD7826AE5F1600E1819E /* LLJWebLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWebLinkCell.swift; sourceTree = "<group>"; };
+		4B9FFD8026AE5F8500E1819E /* LLJWebLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWebLinkView.swift; sourceTree = "<group>"; };
+		4B9FFD8526AE7D1C00E1819E /* LLJZanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJZanView.swift; sourceTree = "<group>"; };
+		4B9FFD8A26AEB7A900E1819E /* LLJZanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJZanListView.swift; sourceTree = "<group>"; };
+		4B9FFDD926AFF3AB00E1819E /* Checking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checking.swift; sourceTree = "<group>"; };
+		4B9FFDDA26AFF3AB00E1819E /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		4B9FFDDC26AFF3AB00E1819E /* ShadowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowExtension.swift; sourceTree = "<group>"; };
+		4B9FFDDE26AFF3AB00E1819E /* CGSizeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeExtension.swift; sourceTree = "<group>"; };
+		4B9FFDDF26AFF3AB00E1819E /* CGPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
+		4B9FFDE026AFF3AB00E1819E /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
+		4B9FFDE226AFF3AB00E1819E /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4B9FFDE426AFF3AB00E1819E /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		4B9FFDE526AFF3AB00E1819E /* UILabelLayoutManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelLayoutManagerDelegate.swift; sourceTree = "<group>"; };
+		4B9FFDE626AFF3AB00E1819E /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
+		4B9FFDE726AFF3AB00E1819E /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		4B9FFDE826AFF3AB00E1819E /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		4B9FFDE926AFF3AB00E1819E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		4B9FFDEB26AFF3AB00E1819E /* NSTextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextFieldExtension.swift; sourceTree = "<group>"; };
+		4B9FFDED26AFF3AB00E1819E /* WKInterfaceTextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKInterfaceTextFieldExtension.swift; sourceTree = "<group>"; };
+		4B9FFDEE26AFF3AB00E1819E /* WKInterfaceLabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKInterfaceLabelExtension.swift; sourceTree = "<group>"; };
+		4B9FFDEF26AFF3AB00E1819E /* WKInterfaceButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKInterfaceButtonExtension.swift; sourceTree = "<group>"; };
+		4B9FFDF026AFF3AB00E1819E /* ObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectExtension.swift; sourceTree = "<group>"; };
+		4B9FFDF126AFF3AB00E1819E /* ParagraphStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphStyle.swift; sourceTree = "<group>"; };
+		4B9FFDF226AFF3AB00E1819E /* AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		4B9FFDF326AFF3AB00E1819E /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
+		4B9FFDF426AFF3AB00E1819E /* AttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributedString.h; sourceTree = "<group>"; };
+		4B9FFDF526AFF3AB00E1819E /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		4B9FFDF726AFF3AB00E1819E /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		4B9FFE1626AFFCB100E1819E /* AttributedString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AttributedString.framework; path = ../../AttributedString.framework; sourceTree = "<group>"; };
+		4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleMessageModel.swift; sourceTree = "<group>"; };
+		4B9FFE2926B003F700E1819E /* LLJZanListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJZanListCell.swift; sourceTree = "<group>"; };
+		4B9FFE2E26B009B100E1819E /* LLJNewZanListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNewZanListModel.swift; sourceTree = "<group>"; };
 		4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJVideoView.swift; sourceTree = "<group>"; };
 		4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleFrameModel.swift; sourceTree = "<group>"; };
 		4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCellFrameManage.swift; sourceTree = "<group>"; };
@@ -527,6 +593,7 @@
 		4B83E1A3258CB2780041B601 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B9FFDD826AFF3AB00E1819E /* Sources */,
 				4B83E1D32595D9B70041B601 /* git.txt */,
 				4B72586025E0FE7C00B4F9AC /* LLJMainReq.swift */,
 				4B72586525E100A500B4F9AC /* LLJMainModel.swift */,
@@ -712,6 +779,134 @@
 			path = LLJUserDefaultHelper;
 			sourceTree = "<group>";
 		};
+		4B9FFD6726AE410800E1819E /* imageView */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD6A26AE41B700E1819E /* LLJImageShowView.swift */,
+				4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */,
+				4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */,
+				4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */,
+			);
+			path = imageView;
+			sourceTree = "<group>";
+		};
+		4B9FFD6826AE412A00E1819E /* videoView */ = {
+			isa = PBXGroup;
+			children = (
+				4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */,
+				4B9FFD7226AE5BF900E1819E /* LLJCycleVideoCell.swift */,
+			);
+			path = videoView;
+			sourceTree = "<group>";
+		};
+		4B9FFD6926AE414500E1819E /* commenView */ = {
+			isa = PBXGroup;
+			children = (
+				4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */,
+				4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */,
+				4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */,
+			);
+			path = commenView;
+			sourceTree = "<group>";
+		};
+		4B9FFD7726AE5EF200E1819E /* webLinkView */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD7826AE5F1600E1819E /* LLJWebLinkCell.swift */,
+				4B9FFD8026AE5F8500E1819E /* LLJWebLinkView.swift */,
+			);
+			path = webLinkView;
+			sourceTree = "<group>";
+		};
+		4B9FFD8F26AEBF4300E1819E /* zanView */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFD8526AE7D1C00E1819E /* LLJZanView.swift */,
+				4B9FFD8A26AEB7A900E1819E /* LLJZanListView.swift */,
+				4B9FFE2926B003F700E1819E /* LLJZanListCell.swift */,
+			);
+			path = zanView;
+			sourceTree = "<group>";
+		};
+		4B9FFDD826AFF3AB00E1819E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFDF526AFF3AB00E1819E /* Action.swift */,
+				4B9FFDDA26AFF3AB00E1819E /* Attachment.swift */,
+				4B9FFDF726AFF3AB00E1819E /* Attribute.swift */,
+				4B9FFDF426AFF3AB00E1819E /* AttributedString.h */,
+				4B9FFDF226AFF3AB00E1819E /* AttributedString.swift */,
+				4B9FFDD926AFF3AB00E1819E /* Checking.swift */,
+				4B9FFDDB26AFF3AB00E1819E /* Extension */,
+				4B9FFDF326AFF3AB00E1819E /* Interpolation.swift */,
+				4B9FFDF126AFF3AB00E1819E /* ParagraphStyle.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		4B9FFDDB26AFF3AB00E1819E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFDEA26AFF3AB00E1819E /* AppKit */,
+				4B9FFDE826AFF3AB00E1819E /* ArrayExtension.swift */,
+				4B9FFDDD26AFF3AB00E1819E /* CoreGraphics */,
+				4B9FFDE926AFF3AB00E1819E /* Extension.swift */,
+				4B9FFDF026AFF3AB00E1819E /* ObjectExtension.swift */,
+				4B9FFDDC26AFF3AB00E1819E /* ShadowExtension.swift */,
+				4B9FFDE126AFF3AB00E1819E /* UIKit */,
+				4B9FFDEC26AFF3AB00E1819E /* WatchKit */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4B9FFDDD26AFF3AB00E1819E /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFDDE26AFF3AB00E1819E /* CGSizeExtension.swift */,
+				4B9FFDDF26AFF3AB00E1819E /* CGPointExtension.swift */,
+				4B9FFDE026AFF3AB00E1819E /* CGRectExtension.swift */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		4B9FFDE126AFF3AB00E1819E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFDE226AFF3AB00E1819E /* UIButtonExtension.swift */,
+				4B9FFDE326AFF3AB00E1819E /* UILabel */,
+				4B9FFDE626AFF3AB00E1819E /* UITextViewExtension.swift */,
+				4B9FFDE726AFF3AB00E1819E /* UITextFieldExtension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		4B9FFDE326AFF3AB00E1819E /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFDE426AFF3AB00E1819E /* UILabelExtension.swift */,
+				4B9FFDE526AFF3AB00E1819E /* UILabelLayoutManagerDelegate.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		4B9FFDEA26AFF3AB00E1819E /* AppKit */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFDEB26AFF3AB00E1819E /* NSTextFieldExtension.swift */,
+			);
+			path = AppKit;
+			sourceTree = "<group>";
+		};
+		4B9FFDEC26AFF3AB00E1819E /* WatchKit */ = {
+			isa = PBXGroup;
+			children = (
+				4B9FFDED26AFF3AB00E1819E /* WKInterfaceTextFieldExtension.swift */,
+				4B9FFDEE26AFF3AB00E1819E /* WKInterfaceLabelExtension.swift */,
+				4B9FFDEF26AFF3AB00E1819E /* WKInterfaceButtonExtension.swift */,
+			);
+			path = WatchKit;
+			sourceTree = "<group>";
+		};
 		4BDE20EC25C943670079960D /* CoreData相关 */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,6 +997,8 @@
 				4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */,
 				4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */,
 				4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */,
+				4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */,
+				4B9FFE2E26B009B100E1819E /* LLJNewZanListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -809,13 +1006,11 @@
 		4BEF2FA12681E4940025723D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */,
-				4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */,
-				4BBBC51E26A949E900D641C2 /* LLJImageCell.swift */,
-				4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */,
-				4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */,
-				4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */,
-				4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */,
+				4B9FFD8F26AEBF4300E1819E /* zanView */,
+				4B9FFD7726AE5EF200E1819E /* webLinkView */,
+				4B9FFD6926AE414500E1819E /* commenView */,
+				4B9FFD6826AE412A00E1819E /* videoView */,
+				4B9FFD6726AE410800E1819E /* imageView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -861,6 +1056,7 @@
 		80B40C6B93A042C3CC840C52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B9FFE1626AFFCB100E1819E /* AttributedString.framework */,
 				4B88DE91266F11F400A3F07E /* SnapKit.framework */,
 				4B88DE8C266F11EF00A3F07E /* Moya.framework */,
 				4B88DE86266F11E800A3F07E /* Kingfisher.framework */,
@@ -1126,17 +1322,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3220392693E8890077982B /* NSObject+Category.swift in Sources */,
+				4B9FFDF826AFF3AB00E1819E /* Checking.swift in Sources */,
+				4B9FFDFC26AFF3AB00E1819E /* CGPointExtension.swift in Sources */,
 				4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */,
 				4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */,
 				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
 				4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
+				4B9FFE0D26AFF3AB00E1819E /* Action.swift in Sources */,
 				4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */,
 				4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */,
+				4B9FFD8126AE5F8500E1819E /* LLJWebLinkView.swift in Sources */,
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
+				4B9FFE0726AFF3AB00E1819E /* WKInterfaceLabelExtension.swift in Sources */,
 				4B9FFD4726AAA74200E1819E /* LLJTextInputCell.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
+				4B9FFE0426AFF3AB00E1819E /* Extension.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
+				4B9FFDF926AFF3AB00E1819E /* Attachment.swift in Sources */,
 				4B8463072664C34D002A8B2B /* LLJFContentController.swift in Sources */,
 				4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */,
 				4B7BC006265609D700CA9F17 /* LLJFWYMainViewController.swift in Sources */,
@@ -1144,32 +1347,47 @@
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
+				4B9FFE0926AFF3AB00E1819E /* ObjectExtension.swift in Sources */,
 				4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
+				4B9FFE2F26B009B100E1819E /* LLJNewZanListModel.swift in Sources */,
 				4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */,
+				4B9FFE0226AFF3AB00E1819E /* UITextFieldExtension.swift in Sources */,
+				4B9FFE0F26AFF3AB00E1819E /* Attribute.swift in Sources */,
 				4BBBC51F26A949E900D641C2 /* LLJImageCell.swift in Sources */,
 				4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */,
 				4B808749263A9386009CEDFF /* LLJLayer.swift in Sources */,
 				4B83E8F826293CA200537DA0 /* LLJDrawRect.swift in Sources */,
 				4B80873C2638F21D009CEDFF /* LLJAnimationModel.swift in Sources */,
 				4BF1877725B928D200B75EA6 /* LLJMineViewController.swift in Sources */,
+				4B9FFDFD26AFF3AB00E1819E /* CGRectExtension.swift in Sources */,
+				4B9FFDFF26AFF3AB00E1819E /* UILabelExtension.swift in Sources */,
 				4B48B260262D57280048A913 /* LLJBezierPathModel.swift in Sources */,
+				4B9FFD7326AE5BF900E1819E /* LLJCycleVideoCell.swift in Sources */,
+				4B9FFD6B26AE41B700E1819E /* LLJImageShowView.swift in Sources */,
+				4B9FFE0B26AFF3AB00E1819E /* AttributedString.swift in Sources */,
 				4B9FFD2726AA4E5F00E1819E /* LLJAlertView.swift in Sources */,
+				4B9FFE0826AFF3AB00E1819E /* WKInterfaceButtonExtension.swift in Sources */,
+				4B9FFE0526AFF3AB00E1819E /* NSTextFieldExtension.swift in Sources */,
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
 				4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */,
+				4B9FFE0A26AFF3AB00E1819E /* ParagraphStyle.swift in Sources */,
 				4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */,
 				4BF8A2C9260C76A5007FD071 /* UIControl + SwizzlMethod.swift in Sources */,
 				4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */,
 				4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */,
 				4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */,
 				4B7BC027265C9F8E00CA9F17 /* LLJSegmentModel.swift in Sources */,
+				4B9FFE2226B0028200E1819E /* LLJCycleMessageModel.swift in Sources */,
 				4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */,
 				4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */,
 				4B9FFD3426AA57D500E1819E /* LLJAlertCell.swift in Sources */,
 				4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */,
 				4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */,
+				4B9FFE0326AFF3AB00E1819E /* ArrayExtension.swift in Sources */,
 				4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */,
+				4B9FFE0126AFF3AB00E1819E /* UITextViewExtension.swift in Sources */,
 				4BCC1D5E267B4CFA00BBAEE1 /* LLJLunBoListViewController.swift in Sources */,
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
@@ -1178,17 +1396,27 @@
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
 				4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */,
+				4B9FFE2A26B003F700E1819E /* LLJZanListCell.swift in Sources */,
 				4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */,
+				4B9FFD7926AE5F1600E1819E /* LLJWebLinkCell.swift in Sources */,
 				4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */,
 				4B83E1332589AB7A0041B601 /* AppDelegate.swift in Sources */,
+				4B9FFD8626AE7D1C00E1819E /* LLJZanView.swift in Sources */,
+				4B9FFDFB26AFF3AB00E1819E /* CGSizeExtension.swift in Sources */,
+				4B9FFDFE26AFF3AB00E1819E /* UIButtonExtension.swift in Sources */,
 				4B9FFD4126AA995600E1819E /* LLJCycleMessagePushController.swift in Sources */,
 				4BF1879325B9555E00B75EA6 /* LLJSCoreData.xcdatamodeld in Sources */,
+				4B9FFD8B26AEB7A900E1819E /* LLJZanListView.swift in Sources */,
+				4B9FFE0626AFF3AB00E1819E /* WKInterfaceTextFieldExtension.swift in Sources */,
 				4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */,
 				4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */,
 				4B8087322638EE6B009CEDFF /* LLJAnimationController.swift in Sources */,
+				4B9FFE0C26AFF3AB00E1819E /* Interpolation.swift in Sources */,
+				4B9FFE0026AFF3AB00E1819E /* UILabelLayoutManagerDelegate.swift in Sources */,
 				4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */,
 				4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */,
 				4B7BC02C265DF0F500CA9F17 /* LLJContentView.swift in Sources */,
+				4B9FFDFA26AFF3AB00E1819E /* ShadowExtension.swift in Sources */,
 				4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */,
 				4B9FFD3926AA60FC00E1819E /* LLJAlertModel.swift in Sources */,
 				4B7BBFEA264E956000CA9F17 /* LLJWChatSubView.swift in Sources */,

@@ -24,4 +24,6 @@ class LLJCycleFrameModel: NSObject {
     var contentVideoFrame: CGRect = CGRect.zero
     //网址
     var contentLinkFrame: CGRect = CGRect.zero
+    //赞bgviewframe
+    var zanBgViewFrame: CGRect = CGRect.zero
 }
