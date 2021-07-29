@@ -10,6 +10,7 @@ import UIKit
 class LLJWCommenCell: UITableViewCell {
     
     typealias moreActionBlock = ((LLJZanView) ->Void)
+    typealias zanViewActionBlock = ((Int64) -> Void)
 
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
@@ -68,8 +69,14 @@ class LLJWCommenCell: UITableViewCell {
         return zanView
     }()
     
-    var moreAction: moreActionBlock?
+    lazy var zanListView: LLJZanListView = {
+        let zanListView = LLJZanListView()
+        return zanListView
+    }()
     
+    var moreAction: moreActionBlock?
+    var zanViewAction: zanViewActionBlock?
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -94,6 +101,19 @@ extension LLJWCommenCell {
         self.contentView.addSubview(self.timeLabel)
         self.contentView.addSubview(self.lineView)
         self.contentView.addSubview(self.moreButton)
+        self.contentView.addSubview(self.zanListView)
+        
+        self.zanView.zanAction = { (type) in
+            
+            self.viewHidden()
+
+            if type == 10001010 {
+                if self.zanViewAction != nil {
+                    self.zanViewAction!(type)
+                }
+            } else {
+            }
+        }
     }
     
     private func layoutSubview(frameModel: LLJCycleFrameModel) {
@@ -103,6 +123,7 @@ extension LLJWCommenCell {
         self.contentLabel.frame  = frameModel.contentFrame
         self.timeLabel.frame     = frameModel.timeIntevalFrame
         self.moreButton.frame    = frameModel.moreButtonFrame
+        self.zanListView.frame   = frameModel.zanBgViewFrame
         self.lineView.frame      = frameModel.lineViewFrame
     }
 }
@@ -133,7 +154,9 @@ extension LLJWCommenCell {
         self.headImageView.image = UIImage(named: sourceModel.headImageName ?? "")
         self.nickNameLabel.text = sourceModel.nickName
         self.contentLabel.text = sourceModel.content
-        self.timeLabel.text = LLJSHelper.exChangeTimeIntevalToMin(timeInteval: sourceModel.timeInteval)
+        self.timeLabel.text = LLJSHelper.exChangeTimeIntevalToMin(timeInteval: sourceModel.timeInteval!)
+        //赞
+        self.zanListView.setDataSource(sourceModel: sourceModel)
     }
     
     func viewShow() {

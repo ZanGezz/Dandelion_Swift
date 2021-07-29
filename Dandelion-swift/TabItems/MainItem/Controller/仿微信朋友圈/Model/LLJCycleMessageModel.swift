@@ -7,9 +7,20 @@
 
 import UIKit
 
-class LLJCycleMessageModel: LLJWeChatCycleModel {
+class LLJCycleMessageModel: NSObject {
     
-    var zanContent: ASAttributedString = ""
-    var pingList: [LLJCycleZanModel] = []
+    var content: String?
+    var headImageName: String?
+    var messageId: Int64?
+    var nickName: String?
+    var timeInteval: Int64?
+    var type: Int64?
+    var userId: Int64?
+    var imageModel: LLJCycleImageModel?
+    var videoModel: LLJCycleVideoModel?
+    var webLinkModel: LLJCycleWebLinkModel?
+    var zanContent: String = ""
+    var zanHeight: CGFloat = 0.0
+    var pingList: [LLJPingListModel] = []
     var frameModel: LLJCycleFrameModel = LLJCycleFrameModel()
 }

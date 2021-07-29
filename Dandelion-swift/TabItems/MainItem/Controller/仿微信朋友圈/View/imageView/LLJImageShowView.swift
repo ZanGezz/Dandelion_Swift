@@ -21,7 +21,6 @@ class LLJImageShowView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = LLJColor(0, 0, 0, 1.0)
         //UI
         setUpUI()
     }
@@ -52,7 +51,10 @@ extension LLJImageShowView {
         
         setIamgeSize(oldImageName: oldImageName)
         
+        self.backgroundColor = LLJColor(0, 0, 0, 0.0)
+
         UIView.animate(withDuration: 0.25) {
+            self.backgroundColor = LLJColor(0, 0, 0, 1.0)
             self.imageView.frame = self.newImageFrame
         }
     }
@@ -89,9 +91,9 @@ extension LLJImageShowView {
     }
     
     @objc func tapAction() {
-        self.backgroundColor = LLJColor(0, 0, 0, 0.0)
         self.imageView.layer.masksToBounds = true
         UIView.animate(withDuration: 0.30) {
+            self.backgroundColor = LLJColor(0, 0, 0, 0.0)
             self.imageView.frame = self.convertImageFrame
         } completion: { (com) in
             self.imageView.frame = self.oldImageFrame

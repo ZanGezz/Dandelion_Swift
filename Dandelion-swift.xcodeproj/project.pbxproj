@@ -14,6 +14,8 @@
 		4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */; };
 		4B3220342692F0DA0077982B /* WKWebViewText.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B3220332692F0DA0077982B /* WKWebViewText.html */; };
 		4B3220392693E8890077982B /* NSObject+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3220382693E8890077982B /* NSObject+Category.swift */; };
+		4B369B9D26B2AF16009E4884 /* LLJPingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B369B9C26B2AF16009E4884 /* LLJPingListCell.swift */; };
+		4B369BA526B2B155009E4884 /* LLJZanListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B369BA426B2B155009E4884 /* LLJZanListCell.swift */; };
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
@@ -100,8 +102,7 @@
 		4B9FFE0D26AFF3AB00E1819E /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF526AFF3AB00E1819E /* Action.swift */; };
 		4B9FFE0F26AFF3AB00E1819E /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFDF726AFF3AB00E1819E /* Attribute.swift */; };
 		4B9FFE2226B0028200E1819E /* LLJCycleMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */; };
-		4B9FFE2A26B003F700E1819E /* LLJZanListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2926B003F700E1819E /* LLJZanListCell.swift */; };
-		4B9FFE2F26B009B100E1819E /* LLJNewZanListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2E26B009B100E1819E /* LLJNewZanListModel.swift */; };
+		4B9FFE2F26B009B100E1819E /* LLJPingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2E26B009B100E1819E /* LLJPingListModel.swift */; };
 		4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */; };
 		4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */; };
 		4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */; };
@@ -146,6 +147,8 @@
 		4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWeakScriptMessageDelegate.swift; sourceTree = "<group>"; };
 		4B3220332692F0DA0077982B /* WKWebViewText.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WKWebViewText.html; sourceTree = "<group>"; };
 		4B3220382693E8890077982B /* NSObject+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Category.swift"; sourceTree = "<group>"; };
+		4B369B9C26B2AF16009E4884 /* LLJPingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJPingListCell.swift; sourceTree = "<group>"; };
+		4B369BA426B2B155009E4884 /* LLJZanListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJZanListCell.swift; sourceTree = "<group>"; };
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
@@ -244,8 +247,7 @@
 		4B9FFDF726AFF3AB00E1819E /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		4B9FFE1626AFFCB100E1819E /* AttributedString.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AttributedString.framework; path = ../../AttributedString.framework; sourceTree = "<group>"; };
 		4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleMessageModel.swift; sourceTree = "<group>"; };
-		4B9FFE2926B003F700E1819E /* LLJZanListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJZanListCell.swift; sourceTree = "<group>"; };
-		4B9FFE2E26B009B100E1819E /* LLJNewZanListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNewZanListModel.swift; sourceTree = "<group>"; };
+		4B9FFE2E26B009B100E1819E /* LLJPingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJPingListModel.swift; sourceTree = "<group>"; };
 		4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJVideoView.swift; sourceTree = "<group>"; };
 		4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleFrameModel.swift; sourceTree = "<group>"; };
 		4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCellFrameManage.swift; sourceTree = "<group>"; };
@@ -823,7 +825,8 @@
 			children = (
 				4B9FFD8526AE7D1C00E1819E /* LLJZanView.swift */,
 				4B9FFD8A26AEB7A900E1819E /* LLJZanListView.swift */,
-				4B9FFE2926B003F700E1819E /* LLJZanListCell.swift */,
+				4B369B9C26B2AF16009E4884 /* LLJPingListCell.swift */,
+				4B369BA426B2B155009E4884 /* LLJZanListCell.swift */,
 			);
 			path = zanView;
 			sourceTree = "<group>";
@@ -998,7 +1001,7 @@
 				4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */,
 				4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */,
 				4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */,
-				4B9FFE2E26B009B100E1819E /* LLJNewZanListModel.swift */,
+				4B9FFE2E26B009B100E1819E /* LLJPingListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1339,6 +1342,7 @@
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B9FFE0426AFF3AB00E1819E /* Extension.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
+				4B369B9D26B2AF16009E4884 /* LLJPingListCell.swift in Sources */,
 				4B9FFDF926AFF3AB00E1819E /* Attachment.swift in Sources */,
 				4B8463072664C34D002A8B2B /* LLJFContentController.swift in Sources */,
 				4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */,
@@ -1350,10 +1354,11 @@
 				4B9FFE0926AFF3AB00E1819E /* ObjectExtension.swift in Sources */,
 				4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
-				4B9FFE2F26B009B100E1819E /* LLJNewZanListModel.swift in Sources */,
+				4B9FFE2F26B009B100E1819E /* LLJPingListModel.swift in Sources */,
 				4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */,
 				4B9FFE0226AFF3AB00E1819E /* UITextFieldExtension.swift in Sources */,
 				4B9FFE0F26AFF3AB00E1819E /* Attribute.swift in Sources */,
+				4B369BA526B2B155009E4884 /* LLJZanListCell.swift in Sources */,
 				4BBBC51F26A949E900D641C2 /* LLJImageCell.swift in Sources */,
 				4B9FFD4D26AAA9E400E1819E /* LLJLocationCell.swift in Sources */,
 				4B808749263A9386009CEDFF /* LLJLayer.swift in Sources */,
@@ -1396,7 +1401,6 @@
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
 				4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */,
-				4B9FFE2A26B003F700E1819E /* LLJZanListCell.swift in Sources */,
 				4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */,
 				4B9FFD7926AE5F1600E1819E /* LLJWebLinkCell.swift in Sources */,
 				4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */,

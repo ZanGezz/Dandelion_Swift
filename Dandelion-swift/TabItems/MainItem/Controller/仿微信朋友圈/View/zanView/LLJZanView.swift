@@ -9,6 +9,8 @@ import UIKit
 
 class LLJZanView: UIView {
 
+    typealias zanActionBlock = ((Int64) -> Void)
+    
     lazy var zanButton: UIButton = {
         let zanButton = UIButton(type: .custom)
         zanButton.tag = 2000020
@@ -17,7 +19,7 @@ class LLJZanView: UIView {
         zanButton.titleLabel?.font = LLJFont(14, "")
         zanButton.setTitleColor(LLJWhiteColor(), for: .normal)
         zanButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(13), left: LLJDX(31), bottom: LLJDX(11), right: LLJDX(42))
-        zanButton.addTarget(self, action: #selector(zanAction), for: .touchUpInside)
+        zanButton.addTarget(self, action: #selector(zanAction(sender:)), for: .touchUpInside)
         return zanButton
     }()
     
@@ -30,7 +32,7 @@ class LLJZanView: UIView {
         pingButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(14), left: LLJDX(22), bottom: LLJDX(12), right: LLJDX(54))
         pingButton.titleEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(-40), bottom: LLJDX(12), right: LLJDX(0))
         pingButton.setTitleColor(LLJWhiteColor(), for: .normal)
-        pingButton.addTarget(self, action: #selector(zanAction), for: .touchUpInside)
+        pingButton.addTarget(self, action: #selector(zanAction(sender:)), for: .touchUpInside)
         return pingButton
     }()
     
@@ -39,6 +41,8 @@ class LLJZanView: UIView {
         lineView.backgroundColor = LLJColor(70, 70, 70, 1.0)
         return lineView
     }()
+    
+    var zanAction: zanActionBlock?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,7 +73,17 @@ extension LLJZanView {
         self.lineView.frame = CGRect(x: LLJDX(90), y: LLJDX(8), width: LLJDX(1.0), height: LLJDX(24))
     }
     
-    @objc private func zanAction() {
+    @objc private func zanAction(sender: UIButton) {
+        var type: Int64 = 0
+        switch sender.tag {
+        case 2000020:
+            type = 10001010
+        default:
+            type = 10001011
+        }
         
+        if self.zanAction != nil {
+            self.zanAction!(type)
+        }
     }
 }

@@ -1,0 +1,53 @@
+//
+//  LLJPingListCell.swift
+//  Dandelion-swift
+//
+//  Created by 刘帅 on 2021/7/29.
+//
+
+import UIKit
+
+class LLJPingListCell: UITableViewCell {
+
+    lazy var contentLabel: UILabel = {
+        let contentLabel = UILabel()
+        contentLabel.textColor = LLJColor(68, 86, 130, 1.0)
+        contentLabel.font = LLJBoldFont(14)
+        contentLabel.numberOfLines = 0;
+        return contentLabel
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        //UI
+        setUpUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: - UI -
+extension LLJPingListCell {
+    
+    //UI
+    private func setUpUI() {
+        
+        self.backgroundColor = LLJColor(230, 230, 230, 1.0)
+
+        self.contentView.addSubview(self.contentLabel)
+        self.contentLabel.snp_makeConstraints { (make) in
+            make.left.equalTo(self.contentView.snp_left).offset(LLJDX(10))
+            make.right.equalTo(self.contentView.snp_right).offset(LLJDX(-10))
+            make.top.equalTo(self.contentView.snp_top)
+            make.bottom.equalTo(self.contentView.snp_bottom)
+        }
+    }
+    //设置数据
+    func setDataSource(content: String) {
+        
+        self.contentLabel.text = content
+    }
+}

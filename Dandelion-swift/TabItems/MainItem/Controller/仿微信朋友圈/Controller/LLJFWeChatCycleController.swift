@@ -22,6 +22,9 @@ class LLJFWeChatCycleController: LLJFViewController {
         tableView.showsHorizontalScrollIndicator = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.estimatedRowHeight = 0;
+        tableView.estimatedSectionFooterHeight = 0;
+        tableView.estimatedSectionHeaderHeight = 0;
         return tableView
     }()
     
@@ -68,7 +71,6 @@ class LLJFWeChatCycleController: LLJFViewController {
     private var pageCount: Int = 100
     
     private var cycleSourceListArray: Array<Any> = []
-    private var cycleFrameListArray: Array<Any> = []
 
     var useModel: LLJCycleUserModel?
     
@@ -90,8 +92,8 @@ class LLJFWeChatCycleController: LLJFViewController {
 extension LLJFWeChatCycleController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let model = self.cycleFrameListArray[indexPath.row] as! LLJCycleFrameModel
-        return model.rowHeight
+        let model = self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel
+        return model.frameModel.rowHeight
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,31 +101,32 @@ extension LLJFWeChatCycleController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = self.cycleSourceListArray[indexPath.row] as! LLJWeChatCycleModel
+        
+        let model = self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel
         
         var commenCell: LLJWCommenCell?
         if model.type == 10011 {
             //图片cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWCycleImageCell") as! LLJWCycleImageCell
-            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
+            cell.setSubDataSource(sourceModel: model)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             commenCell = cell
         } else if model.type == 10012 {
             //视频cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJCycleVideoCell") as! LLJCycleVideoCell
-            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
+            cell.setSubDataSource(sourceModel: model)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             commenCell = cell
         } else if model.type == 10013 {
             //网址cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWebLinkCell") as! LLJWebLinkCell
-            cell.setSubDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
+            cell.setSubDataSource(sourceModel: model)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             commenCell = cell
         } else {
             //纯文字cell
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJWCommenCell") as! LLJWCommenCell
-            cell.setDataSource(sourceModel: self.cycleSourceListArray[indexPath.row] as! LLJCycleMessageModel)
+            cell.setDataSource(sourceModel: model)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             commenCell = cell
         }
@@ -132,7 +135,110 @@ extension LLJFWeChatCycleController: UITableViewDelegate,UITableViewDataSource {
         commenCell!.moreAction = { (zanView) in
             weakSelf!.zanView = zanView
         }
+        //点赞和评论
+        commenCell!.zanViewAction = { (type) in
+            weakSelf?.zanAction(type: type, index: indexPath.row)
+        }
+        
         return commenCell!
+    }
+}
+
+//MARK: - 设置数据 -
+extension LLJFWeChatCycleController {
+    
+    //按钮事件
+    @objc private func buttonClick(sender: UIButton) {
+        
+        switch sender.tag {
+        case 100001:
+            //返回
+            self.navigationController?.popViewController(animated: true)
+        case 100002:
+            //发布朋友圈
+            self.alertView.alertShow(itemList: self.alertItemList1)
+        default:break
+        }
+    }
+    //单机
+    @objc private func tapClick() {
+        //发布朋友圈
+        self.alertView.alertShow(itemList: self.alertItemList1)
+    }
+    //长按
+    @objc private func longTapClick() {
+        let pushViewController = LLJCycleMessagePushController()
+        pushViewController.type = .text
+        pushViewController.model = self.useModel
+        pushViewController.pushComplete = {
+            self.getDataSource()
+        }
+        self.present(pushViewController, animated: true, completion: nil)
+    }
+    
+    //alert事件
+    private func alertAction(row: Int, name: String) {
+        let pushViewController = LLJCycleMessagePushController()
+        if row == 1 {
+            pushViewController.type = .image
+        } else {
+            let array: [LLJCycleMessagePushType] = [.video,.link]
+            let armnum = LLJSHelper.arc4random(duration: 2)
+            pushViewController.type = array[armnum]
+        }
+        pushViewController.model = self.useModel
+        weak var weakSelf = self
+        pushViewController.pushComplete = {
+            weakSelf!.currentPage = 0
+            weakSelf!.cycleSourceListArray.removeAll()
+            weakSelf!.getDataSource()
+        }
+        self.present(pushViewController, animated: true, completion: nil)
+    }
+    
+    //获取数据
+    private func getDataSource() {
+       
+        let listArray = LLJSCoreDataHelper.helper.getRosource(entityName: "LLJWeChatCycleModel", predicate: "")
+        var sourceArray: [Any] = []
+        for i in stride(from: 0, to: listArray.count, by: 1) {
+            if i < listArray.count {
+                let model = listArray[i]
+                sourceArray.append(model)
+            } else {
+                break
+            }
+        }
+        //排序
+        sourceArray.sort { (item1, item2) -> Bool in
+            let item1 = item1 as! LLJWeChatCycleModel
+            let item2 = item2 as! LLJWeChatCycleModel
+            return item1.timeInteval > item2.timeInteval
+        }
+        self.cycleSourceListArray = LLJCellFrameManage.setSubViewFrame(sourceList: sourceArray)
+        self.tableView.reloadData()
+        currentPage += 1
+    }
+    
+    
+    //处理zanView
+    private func zanAction(type: Int64, index: Int) {
+        
+        if type == 10001010 {
+            let model = self.cycleSourceListArray[index] as! LLJCycleMessageModel
+            let zanModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleZanModel") as! LLJCycleZanModel
+            zanModel.aUserId = self.useModel!.userId!
+            zanModel.aUserName = self.useModel!.nickName!
+            zanModel.timeInterval = LLJSHelper.getCurrentTimeInteval()
+            zanModel.type = type
+            zanModel.userId = self.useModel!.userId!
+            zanModel.messageId = model.messageId!
+            LLJSCoreDataHelper.helper.insertRosource()
+            
+            getDataSource()
+        } else {
+            
+        }
     }
 }
 
@@ -246,95 +352,6 @@ extension LLJFWeChatCycleController {
         }
     }
 }
-
-//MARK: - 设置数据 -
-extension LLJFWeChatCycleController {
-    
-    //按钮事件
-    @objc private func buttonClick(sender: UIButton) {
-        
-        switch sender.tag {
-        case 100001:
-            //返回
-            self.navigationController?.popViewController(animated: true)
-        case 100002:
-            //发布朋友圈
-            self.alertView.alertShow(itemList: self.alertItemList1)
-        default:break
-        }
-    }
-    //单机
-    @objc private func tapClick() {
-        //发布朋友圈
-        self.alertView.alertShow(itemList: self.alertItemList1)
-    }
-    //长按
-    @objc private func longTapClick() {
-        let pushViewController = LLJCycleMessagePushController()
-        pushViewController.type = .text
-        pushViewController.model = self.useModel
-        pushViewController.pushComplete = {
-            self.getDataSource()
-        }
-        self.present(pushViewController, animated: true, completion: nil)
-    }
-    
-    //alert事件
-    private func alertAction(row: Int, name: String) {
-        let pushViewController = LLJCycleMessagePushController()
-        if row == 1 {
-            pushViewController.type = .image
-        } else {
-            let array: [LLJCycleMessagePushType] = [.video,.link]
-            let armnum = LLJSHelper.arc4random(duration: 2)
-            pushViewController.type = array[armnum]
-        }
-        pushViewController.model = self.useModel
-        weak var weakSelf = self
-        pushViewController.pushComplete = {
-            weakSelf!.currentPage = 0
-            weakSelf!.cycleSourceListArray.removeAll()
-            weakSelf!.getDataSource()
-        }
-        self.present(pushViewController, animated: true, completion: nil)
-    }
-    
-    //获取数据
-    private func getDataSource() {
-       
-        let listArray = LLJSCoreDataHelper.helper.getRosource(entityName: "LLJWeChatCycleModel", predicate: "")
-        for i in stride(from: currentPage*pageCount, to: (currentPage + 1)*pageCount, by: 1) {
-            if i < listArray.count {
-                let model = listArray[i]
-                self.cycleSourceListArray.append(model)
-            } else {
-                break
-            }
-        }
-        //排序
-        self.cycleSourceListArray.sort { (item1, item2) -> Bool in
-            let item1 = item1 as! LLJWeChatCycleModel
-            let item2 = item2 as! LLJWeChatCycleModel
-            return item1.timeInteval > item2.timeInteval
-        }
-        self.cycleFrameListArray = LLJCellFrameManage.setSubViewFrame(sourceList: self.cycleSourceListArray)
-        self.tableView.reloadData()
-        currentPage += 1
-    }
-    
-    
-    //处理zanView
-    private func zanViewShowOrHidden(dFrame: CGRect) {
-        //let zanView = LLJZanView()
-//        if self.zanView.bounds.width > 0.1 {
-//            self.zanView.viewHidden()
-//        } else {
-//            self.zanView.viewShow(dframe: dFrame)
-//        }
-        //self.zanView = zanView
-    }
-}
-
 
 //MARK: - UIScrollViewDelegate 代理 -
 extension LLJFWeChatCycleController: UIScrollViewDelegate {
