@@ -12,7 +12,7 @@ class LLJPingListCell: UITableViewCell {
     lazy var contentLabel: UILabel = {
         let contentLabel = UILabel()
         contentLabel.textColor = LLJColor(68, 86, 130, 1.0)
-        contentLabel.font = LLJBoldFont(14)
+        contentLabel.font = LLJBoldFont(15)
         contentLabel.numberOfLines = 0;
         return contentLabel
     }()
@@ -35,7 +35,7 @@ extension LLJPingListCell {
     //UI
     private func setUpUI() {
         
-        self.backgroundColor = LLJColor(230, 230, 230, 1.0)
+        self.backgroundColor = LLJColor(247, 247, 247, 1.0)
 
         self.contentView.addSubview(self.contentLabel)
         self.contentLabel.snp_makeConstraints { (make) in
@@ -46,8 +46,8 @@ extension LLJPingListCell {
         }
     }
     //设置数据
-    func setDataSource(content: String) {
+    func setDataSource(content: ASAttributedString) {
         
-        self.contentLabel.text = content
+        self.contentLabel.attributed.text = content
     }
 }

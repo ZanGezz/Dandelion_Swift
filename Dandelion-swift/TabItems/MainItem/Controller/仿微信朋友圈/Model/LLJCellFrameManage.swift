@@ -10,7 +10,7 @@ import UIKit
 class LLJCellFrameManage: NSObject {
     
     //设置cell 子视图 frame
-    class func setSubViewFrame(sourceList: Array<Any>) -> Array<Any> {
+    class func setSubViewFrame(sourceList: Array<Any>, value: ASAttributedString.Action) -> Array<Any> {
         
         var messageArray: Array<Any> = []
         for item in sourceList {
@@ -28,14 +28,14 @@ class LLJCellFrameManage: NSObject {
             model.videoModel = item.videoModel
             model.imageModel = item.imageModel
             //计算frame
-            setCompnentsFrame(item: model)
+            setCompnentsFrame(item: model, value: value)
             
             messageArray.append(model)
         }
         return messageArray
     }
     
-    private class func setCompnentsFrame(item: LLJCycleMessageModel) {
+    private class func setCompnentsFrame(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
         
         let frameModel = LLJCycleFrameModel()
         
@@ -201,7 +201,7 @@ class LLJCellFrameManage: NSObject {
         
         
         //计算评论高度
-        let pingViewHeight = setZanList(item: item)
+        let pingViewHeight = setZanList(item: item, value: value)
         
         if pingViewHeight > 0.0 {
             dy = LLJDX(15)
@@ -230,19 +230,22 @@ class LLJCellFrameManage: NSObject {
     }
     
     //计算评论数据
-    private class func setZanList(item: LLJCycleMessageModel) -> CGFloat {
+    private class func setZanList(item: LLJCycleMessageModel, value: ASAttributedString.Action) -> CGFloat {
         
         //赞和评论 type = 10001010 赞 10001011 是评论 10001012 是回复
         let pre = String(format: "messageId = %ld", item.messageId!)
-        let zanList: [LLJCycleZanModel] = LLJSCoreDataHelper().getRosource(entityName: "LLJCycleZanModel", predicate: pre) as! [LLJCycleZanModel]
+        let totalList: [LLJCycleZanModel] = LLJSCoreDataHelper().getRosource(entityName: "LLJCycleZanModel", predicate: pre) as! [LLJCycleZanModel]
+        
+        var zanList: [LLJPingListModel] = []
         var pingList: [LLJPingListModel] = []
-        var zanContent = ASAttributedString(string: "")
+        
+        //处理 赞和评论
         var pingViewHeight: CGFloat = 0.0
-        var pingContentString: String = ""
-        var zanContentString: String = "      "
-
-        for zanItem in zanList {
+        var zanHeight: CGFloat = 0.0
+        var zanContentString: String = "     "
+        for i in stride(from: 0, to: totalList.count, by: 1) {
             
+            let zanItem = totalList[i]
             let ping = LLJPingListModel()
             ping.aUserId = zanItem.aUserId
             ping.aUserName = zanItem.aUserName
@@ -256,48 +259,70 @@ class LLJCellFrameManage: NSObject {
             
             if ping.type == 10001010 {
                 
-                //zanContent = ASAttributedString(string: ping.aUserName!)
-                zanContent.add(attributes: [.background(LLJColor(68, 86, 130, 1.0))])
-                //zanContent = zanContent + "，"
+                let location = zanContentString.count
+                let lenth = ping.aUserName?.count
+                ping.aUserNameRange = NSRange(location: location, length: lenth ?? 0)
                 zanContentString += ping.aUserName! + "，"
+                zanList.append(ping)
                 
-            } else if ping.type == 10001011 {
+            } else {
                 
-                //ping.pingContent = ASAttributedString(string: ping.aUserName!,.background(LLJColor(68, 86, 130, 1.0))) + "：" + ping.content!
-                pingContentString = ping.aUserName! + "：" + ping.content!
-                ping.rowHeight = LLJSHelper.getStringSize(subString: pingContentString, font: LLJFont(16, ""), width: LLJDX(300)).height + LLJDX(8)
+                ping.rowHeight = LLJSHelper.getStringSize(subString: ping.content!, font: LLJBoldFont(14), width: LLJDX(300), lineSpace: LLJDX(6)).height + LLJDX(4)
                 pingViewHeight += ping.rowHeight
-                ping.pingContent = pingContentString
-                pingList.append(ping)
                 
-            } else if (ping.type == 10001012) {
-                //ping.pingContent = ASAttributedString(string: ping.aUserName!,.background(LLJColor(68, 86, 130, 1.0))) + "回复" + ASAttributedString(string: ping.bUserName!,.background(LLJColor(68, 86, 130, 1.0))) + "：" + ping.content!
-                
-                pingContentString = ping.aUserName! + "回复" + ping.bUserName! + "：" + ping.content!
-                ping.rowHeight = LLJSHelper.getStringSize(subString: pingContentString, font: LLJFont(16, ""), width: LLJDX(300)).height + LLJDX(8)
-                pingViewHeight += ping.rowHeight
-                ping.pingContent = pingContentString
+                var lenth = ping.aUserName?.count
+                ping.aUserNameRange = NSRange(location: 0, length: lenth ?? 0)
+                lenth = ping.bUserName?.count
+                ping.bUserNameRange = NSRange(location: (lenth ?? 0) + 2, length: lenth ?? 0)
                 pingList.append(ping)
             }
         }
-
-        item.zanContent = zanContentString
-
+        
         //赞高度
-        var zanHeight: CGFloat = 0.0
-        if zanContentString.count > 6 {
+        if zanContentString.count > 5 {
             
-            zanHeight = LLJSHelper.getStringSize(subString: zanContentString, font: LLJFont(16, ""), width: LLJDX(300)).height + LLJDX(8)
+            zanContentString = String(zanContentString.prefix(zanContentString.count - 1))
+            var labelHeight: CGFloat = 0.0
+            labelHeight = LLJSHelper.getStringSize(subString: zanContentString, font: LLJBoldFont(15), width: LLJDX(310), lineSpace:0).height
+            labelHeight += labelHeight/17.9
+            zanHeight = labelHeight + LLJDX(8)
+
             item.zanHeight = zanHeight;
         }
         
-        let pingf = LLJPingListModel()
-        pingf.pingContent = zanContentString;
-        pingf.rowHeight = zanHeight
-        pingList.insert(pingf, at: 0)
-        
+        //设置赞富文本
+        item.zanList = zanList
+        item.attrContent = setZanAttrText(item: item, content: zanContentString, value: value)
+        //设置评论富文本
         item.pingList = pingList
+        setPingAttrText(item: item, value: value)
         
         return zanHeight + pingViewHeight
+    }
+    
+    //创建Zan富文本
+    private class func setZanAttrText(item: LLJCycleMessageModel, content: String, value: ASAttributedString.Action) -> ASAttributedString {
+        var attr = ASAttributedString(string: content)
+        attr.add(attributes: [.paragraph(.lineSpacing(4))])
+        attr.add(attributes: [.font(LLJFont(13, "")),.foreground(LLJColor(10, 10, 10, 1.0))], range: NSRange(location: 0, length: content.count))
+        for zanModel in item.zanList {
+            attr.add(attributes: [.font(LLJBoldFont(15)),.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: zanModel.aUserNameRange)
+        }
+        return attr
+    }
+    //创建Ping富文本
+    private class func setPingAttrText(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
+        
+        for ping in item.pingList {
+            var attr = ASAttributedString(string: item.content ?? "")
+            
+            if ping.type == 10001011 {
+                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: ping.aUserNameRange)
+            } else if ping.type == 10001012 {
+                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: ping.aUserNameRange)
+                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: ping.bUserNameRange)
+            }
+            ping.attrContent = attr
+        }
     }
 }

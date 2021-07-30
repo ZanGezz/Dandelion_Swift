@@ -12,6 +12,7 @@ class LLJZanListView: UIView {
     //MARK:懒加载属性
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: UITableView.Style.plain)
+        tableView.register(LLJPingListCell.self, forCellReuseIdentifier: "LLJPingListCell")
         tableView.register(LLJZanListCell.self, forCellReuseIdentifier: "LLJZanListCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -22,35 +23,9 @@ class LLJZanListView: UIView {
         return tableView
     }()
     
-    //collectionView
-    lazy var collectionView: UICollectionView = {
-        
-        let flawLayout = UICollectionViewFlowLayout()
-        flawLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        flawLayout.minimumInteritemSpacing = LLJDX(5.0)
-        flawLayout.minimumLineSpacing = LLJDX(5.0)
-        let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flawLayout)
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.bounces = false
-        collectionView.backgroundColor = LLJWhiteColor()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isPagingEnabled = true
-        collectionView.register(LLJZanListCell.self, forCellWithReuseIdentifier: "LLJZanListCell")
-        return collectionView
-    }()
-    
-    lazy var lineView: UIView = {
-        let lineView = UIView()
-        lineView.backgroundColor = LLJColor(70, 70, 70, 1.0)
-        return lineView
-    }()
-    
-    private var zanContent: String?
+    private var attrContent: ASAttributedString = ASAttributedString(string: "")
     private var zanHeight: CGFloat = 0.0
-    private var pingList: [LLJPingListModel] = []
-    private var zanList: [LLJPingListModel] = []
+    private var model: LLJCycleMessageModel = LLJCycleMessageModel()
     private var zanItemSize: CGSize = CGSize.zero
 
     override init(frame: CGRect) {
@@ -69,54 +44,38 @@ extension LLJZanListView: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let model = self.pingList[indexPath.row]
-        return model.rowHeight
+        if self.model.attrContent.length > 0 && indexPath.row == 0 {
+            return self.model.zanHeight
+        } else {
+            let model = self.model.pingList[indexPath.row]
+            return model.rowHeight
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.pingList.count
+        if self.model.attrContent.length > 0 {
+            return self.model.pingList.count + 1
+        }
+        return self.model.pingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LLJPingListCell") as! LLJPingListCell
-        cell.selectionStyle = .none
         
-        let ping = self.pingList[indexPath.row]
-        if self.pingList.count == 1 {
-            //cell.setDataSource(content: self.zanContent!, imageHidden: false, lineHidden: true)
-        } else if (self.pingList.count > 1) {
-            if indexPath.row == 0 {
-                //cell.setDataSource(content: ping.pingContent, imageHidden: false, lineHidden: false)
+        if self.model.attrContent.length > 0 && indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LLJZanListCell") as! LLJZanListCell
+            cell.selectionStyle = .none
+            if self.model.pingList.count == 0 {
+                cell.setDataSource(content: self.model.attrContent, bottomLineHidden: true)
             } else {
-                //cell.setDataSource(content: ping.pingContent, imageHidden: true, lineHidden: true)
+                cell.setDataSource(content: self.model.attrContent, bottomLineHidden: false)
             }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LLJPingListCell") as! LLJPingListCell
+            cell.selectionStyle = .none
+            cell.setDataSource(content: self.model.attrContent)
+            return cell
         }
-        return cell
-    }
-}
-
-//MARK - UICollectionViewDelegate -
-extension LLJZanListView: UICollectionViewDelegate,UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.zanList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LLJZanListCell", for: indexPath) as! LLJZanListCell
-        //cell.setDataSource(imageName: self.zanList[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-}
-
-extension LLJZanListView: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return zanItemSize
     }
 }
 
@@ -125,17 +84,15 @@ extension LLJZanListView {
     
     private func setUpUI() {
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = LLJDX(6.0)
+        self.layer.cornerRadius = LLJDX(5.0)
         self.addSubview(self.tableView)
     }
     
     func setDataSource(sourceModel: LLJCycleMessageModel) {
         
+        self.model = sourceModel
+
         self.tableView.frame = self.bounds
-        
-        self.pingList = sourceModel.pingList
-        self.zanContent = sourceModel.zanContent
-        self.zanHeight = sourceModel.zanHeight
         self.tableView.reloadData()
     }
 }

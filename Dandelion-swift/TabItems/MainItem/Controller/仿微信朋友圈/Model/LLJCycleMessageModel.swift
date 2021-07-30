@@ -19,8 +19,9 @@ class LLJCycleMessageModel: NSObject {
     var imageModel: LLJCycleImageModel?
     var videoModel: LLJCycleVideoModel?
     var webLinkModel: LLJCycleWebLinkModel?
-    var zanContent: String = ""
+    var attrContent: ASAttributedString = ASAttributedString(string: "")
     var zanHeight: CGFloat = 0.0
     var pingList: [LLJPingListModel] = []
+    var zanList: [LLJPingListModel] = []
     var frameModel: LLJCycleFrameModel = LLJCycleFrameModel()
 }

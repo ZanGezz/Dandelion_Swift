@@ -53,6 +53,7 @@ class LLJFWeChatCycleController: LLJFViewController {
         alertItemList.append(model1)
         return alertItemList
     }()
+    
     private lazy var alertItemList2: Array<LLJAlertModel> = {
         var alertItemList: Array<LLJAlertModel> = []
         var model = LLJAlertModel()
@@ -61,6 +62,13 @@ class LLJFWeChatCycleController: LLJFViewController {
         return alertItemList
     }()
 
+    lazy var attrAction: ASAttributedString.Action = {
+        weak var weakSelf = self
+        let custom = ASAttributedString.Action(.click, highlights: [.background(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))]) { (result) in
+            weakSelf!.attrAction(result: result)
+        }
+        return custom
+    }()
     
     private var navView: UIView?
     private var backButton: UIButton?
@@ -215,7 +223,7 @@ extension LLJFWeChatCycleController {
             let item2 = item2 as! LLJWeChatCycleModel
             return item1.timeInteval > item2.timeInteval
         }
-        self.cycleSourceListArray = LLJCellFrameManage.setSubViewFrame(sourceList: sourceArray)
+        self.cycleSourceListArray = LLJCellFrameManage.setSubViewFrame(sourceList: sourceArray, value: self.attrAction)
         self.tableView.reloadData()
         currentPage += 1
     }
@@ -238,6 +246,17 @@ extension LLJFWeChatCycleController {
             getDataSource()
         } else {
             
+        }
+    }
+    
+    //富文本点击事件
+    private func attrAction(result: ASAttributedString.Attribute.Result) {
+        switch result.content {
+        case .string(let value):
+            print("按住了文本: \n\(value) \nrange: \(result.range)")
+            
+        case .attachment(let value):
+            print("按住了附件: \n\(value) \nrange: \(result.range)")
         }
     }
 }
