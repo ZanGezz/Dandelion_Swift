@@ -120,19 +120,6 @@ public class LLJSHelper {
     /**
      * 根据字体获取string的size 设置行间距
      */
-//    class func getStringSize(subString: String, font: UIFont, width: CGFloat, lineSpace: CGFloat) -> CGSize {
-//
-//        let paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineSpacing = lineSpace
-//        let string: NSString = subString as NSString
-//        var W = width
-//        if  W <= 0.0 {
-//            W = CGFloat(MAXFLOAT)
-//        }
-//        let size = string.boundingRect(with: CGSize(width: W, height: 0.0), options: [NSStringDrawingOptions.usesFontLeading, NSStringDrawingOptions.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: font,NSAttributedString.Key.paragraphStyle: paragraphStyle], context: nil).size
-//        return size
-//    }
-    
     class func getStringSize(subString: String, font: UIFont, width: CGFloat, lineSpace: CGFloat) -> CGSize {
         let attritube = NSMutableAttributedString(string: subString)
         let range = NSRange(location: 0, length: attritube.length)
@@ -142,16 +129,15 @@ public class LLJSHelper {
             paragraphStyle.lineSpacing = lineSpace
             attritube.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: range)
         }
-        
+
         let rect = attritube.boundingRect(with: CGSize(width: width, height: 0.0), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
         var size = rect.size
-        
+
         // 文本的高度减去字体高度小于等于行间距，判断为当前只有1行
         let spacing = size.height - font.lineHeight
         if spacing <= lineSpace && spacing > 0 {
             size = CGSize(width: size.width, height: font.lineHeight)
         }
-        
         return size
     }
     

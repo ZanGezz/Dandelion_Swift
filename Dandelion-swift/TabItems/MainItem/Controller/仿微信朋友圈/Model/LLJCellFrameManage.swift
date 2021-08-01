@@ -35,7 +35,7 @@ class LLJCellFrameManage: NSObject {
         return messageArray
     }
     
-    private class func setCompnentsFrame(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
+    class func setCompnentsFrame(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
         
         let frameModel = LLJCycleFrameModel()
         
@@ -68,9 +68,9 @@ class LLJCellFrameManage: NSObject {
         var contentSize: CGSize = CGSize.zero
         if item.content != nil {
             
-            contentSize = LLJSHelper.getStringSize(subString: item.content ?? "", font: LLJFont(18, ""), width: SCREEN_WIDTH - LLJDX(76) - LLJDX(20))
+            contentSize = LLJSHelper.getStringSize(subString: item.content ?? "", font: LLJFont(18, ""), width: SCREEN_WIDTH - LLJDX(76) - LLJDX(10))
             
-            dy = LLJDX(6)
+            dy = LLJDX(5)
             X = LLJDX(76)
             Y = temFrame.origin.y + temFrame.height + dy
             W = SCREEN_WIDTH - LLJDX(76) - LLJDX(20)
@@ -248,32 +248,36 @@ class LLJCellFrameManage: NSObject {
             let zanItem = totalList[i]
             let ping = LLJPingListModel()
             ping.aUserId = zanItem.aUserId
-            ping.aUserName = zanItem.aUserName
+            ping.aUserName = zanItem.aUserName ?? ""
             ping.bUserId = zanItem.bUserId
-            ping.bUserName = zanItem.bUserName
-            ping.content = zanItem.content
+            ping.bUserName = zanItem.bUserName ?? ""
+            ping.content = zanItem.content ?? ""
             ping.messageId = zanItem.messageId
             ping.timeInterval = zanItem.timeInterval
             ping.type = zanItem.type
             ping.userId = zanItem.userId
+            if zanItem.aUserId == item.userId && zanItem.type == 10001010{
+                item.hasZaned = true
+            }
             
             if ping.type == 10001010 {
                 
                 let location = zanContentString.count
-                let lenth = ping.aUserName?.count
-                ping.aUserNameRange = NSRange(location: location, length: lenth ?? 0)
-                zanContentString += ping.aUserName! + "，"
+                let lenth = ping.aUserName.count
+                ping.aUserNameRange = NSRange(location: location, length: lenth)
+                zanContentString += ping.aUserName + "，"
                 zanList.append(ping)
                 
             } else {
                 
-                ping.rowHeight = LLJSHelper.getStringSize(subString: ping.content!, font: LLJBoldFont(14), width: LLJDX(300), lineSpace: LLJDX(6)).height + LLJDX(4)
+                ping.rowHeight = LLJSHelper.getStringSize(subString: ping.content, font: LLJBoldFont(14), width: LLJDX(310), lineSpace: 0).height + LLJDX(6)
+                ping.rowHeight += ping.rowHeight/17.9
                 pingViewHeight += ping.rowHeight
                 
-                var lenth = ping.aUserName?.count
-                ping.aUserNameRange = NSRange(location: 0, length: lenth ?? 0)
-                lenth = ping.bUserName?.count
-                ping.bUserNameRange = NSRange(location: (lenth ?? 0) + 2, length: lenth ?? 0)
+                var lenth = ping.aUserName.count
+                ping.aUserNameRange = NSRange(location: 0, length: lenth )
+                lenth = ping.bUserName.count
+                ping.bUserNameRange = NSRange(location: lenth + 2, length: lenth)
                 pingList.append(ping)
             }
         }
@@ -314,13 +318,13 @@ class LLJCellFrameManage: NSObject {
     private class func setPingAttrText(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
         
         for ping in item.pingList {
-            var attr = ASAttributedString(string: item.content ?? "")
+            var attr = ASAttributedString(string: ping.content)
             
             if ping.type == 10001011 {
-                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: ping.aUserNameRange)
+                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.font(LLJFont(15, "PingFangSC-Medium")),.action(value)], range: ping.aUserNameRange)
             } else if ping.type == 10001012 {
-                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: ping.aUserNameRange)
-                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: ping.bUserNameRange)
+                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.font(LLJFont(15, "PingFangSC-Medium")),.action(value)], range: ping.aUserNameRange)
+                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.font(LLJFont(15, "PingFangSC-Medium")),.action(value)], range: ping.bUserNameRange)
             }
             ping.attrContent = attr
         }

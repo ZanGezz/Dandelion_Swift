@@ -28,15 +28,6 @@ class LLJFWeChatCycleController: LLJFViewController {
         return tableView
     }()
     
-    private lazy var alertView: LLJAlertView = {
-        let alertView = LLJAlertView()
-        weak var weakSelf = self
-        alertView.selectRow = {(row, name) in
-            weakSelf!.alertAction(row: row, name: name)
-        }
-        return alertView
-    }()
-    
     private lazy var zanView: LLJZanView = {
         let zanView = LLJZanView()
         return zanView
@@ -61,6 +52,14 @@ class LLJFWeChatCycleController: LLJFViewController {
         alertItemList.append(model)
         return alertItemList
     }()
+    
+    private lazy var deletePing: Array<LLJAlertModel> = {
+        var deletePing: Array<LLJAlertModel> = []
+        var model = LLJAlertModel()
+        model.title = "删除"
+        deletePing.append(model)
+        return deletePing
+    }()
 
     lazy var attrAction: ASAttributedString.Action = {
         weak var weakSelf = self
@@ -69,7 +68,7 @@ class LLJFWeChatCycleController: LLJFViewController {
         }
         return custom
     }()
-    
+        
     private var navView: UIView?
     private var backButton: UIButton?
     private var camButton: UIButton?
@@ -145,7 +144,11 @@ extension LLJFWeChatCycleController: UITableViewDelegate,UITableViewDataSource {
         }
         //点赞和评论
         commenCell!.zanViewAction = { (type) in
-            weakSelf?.zanAction(type: type, index: indexPath.row)
+            weakSelf!.zanAction(type: type, sourceindex: indexPath.row, pingIndex: 0)
+        }
+        //回复
+        commenCell!.pingViewAction = { (index) in
+            weakSelf!.zanAction(type: 10001012, sourceindex: indexPath.row, pingIndex: index)
         }
         
         return commenCell!
@@ -158,23 +161,18 @@ extension LLJFWeChatCycleController {
     //按钮事件
     @objc private func buttonClick(sender: UIButton) {
         
-        switch sender.tag {
-        case 100001:
-            //返回
-            self.navigationController?.popViewController(animated: true)
-        case 100002:
-            //发布朋友圈
-            self.alertView.alertShow(itemList: self.alertItemList1)
-        default:break
-        }
+        //返回
+        self.navigationController?.popViewController(animated: true)
     }
     //单机
     @objc private func tapClick() {
+
         //发布朋友圈
-        self.alertView.alertShow(itemList: self.alertItemList1)
+        self.alertShow(type: 10010, source:  self.alertItemList1)
     }
     //长按
     @objc private func longTapClick() {
+
         let pushViewController = LLJCycleMessagePushController()
         pushViewController.type = .text
         pushViewController.model = self.useModel
@@ -186,6 +184,7 @@ extension LLJFWeChatCycleController {
     
     //alert事件
     private func alertAction(row: Int, name: String) {
+
         let pushViewController = LLJCycleMessagePushController()
         if row == 1 {
             pushViewController.type = .image
@@ -229,28 +228,76 @@ extension LLJFWeChatCycleController {
     }
     
     
-    //处理zanView
-    private func zanAction(type: Int64, index: Int) {
-        
-        if type == 10001010 {
-            let model = self.cycleSourceListArray[index] as! LLJCycleMessageModel
+    //处理zanView type = 10001010赞 10001011评论 10001012回复
+    private func zanAction(type: Int64, sourceindex: Int, pingIndex: Int) {
+     
+        let model = self.cycleSourceListArray[sourceindex] as! LLJCycleMessageModel
+        if model.hasZaned && type == 10001010 {
+            let array = model.zanList
+            for i in stride(from: 0, to: array.count, by: 1) {
+                let zanModel = array[i]
+                if zanModel.aUserId == model.userId {
+                    model.zanList.remove(at: i)
+                    let pre = String(format: "messageId = %ld && aUserId = %ld && type = %ld", model.messageId!,model.userId!,type)
+                    let r = LLJSCoreDataHelper().deleteRosource(entityName: "LLJCycleZanModel", predicate: pre)
+                    if r {
+                        model.hasZaned = false
+                    }
+                    //刷新
+                    self.updateSource(model: model)
+                    break
+                }
+            }
+        } else {
             let zanModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleZanModel") as! LLJCycleZanModel
+
             zanModel.aUserId = self.useModel!.userId!
             zanModel.aUserName = self.useModel!.nickName!
             zanModel.timeInterval = LLJSHelper.getCurrentTimeInteval()
             zanModel.type = type
             zanModel.userId = self.useModel!.userId!
             zanModel.messageId = model.messageId!
-            LLJSCoreDataHelper.helper.insertRosource()
-            
-            getDataSource()
-        } else {
-            
+            if type == 10001010 {
+                //刷新
+                self.updateSource(model: model)
+                
+            } else if type == 10001011 {
+                let inputView = LLJInputView()
+                inputView.inputComplete = { (content) in
+                    zanModel.content = String(format: "%@: %@", zanModel.aUserName!,content)
+                    //刷新
+                    self.updateSource(model: model)
+                }
+                self.view.addSubview(inputView)
+            } else if type == 10001012 {
+                
+                let pingModel = model.pingList[pingIndex]
+                if pingModel.aUserId == model.userId {
+                    //发布朋友圈
+                    self.alertShow(type: 10010, source:  self.deletePing)
+                } else {
+                    let inputView = LLJInputView()
+                    inputView.inputComplete = { (content) in
+                        zanModel.content = String(format: "%@回复%@: %@",zanModel.aUserName!,pingModel.bUserName,content)
+                        //刷新
+                        self.updateSource(model: model)
+                    }
+                    self.view.addSubview(inputView)
+                }
+            }
         }
+    }
+    
+    //刷新数据和页面
+    private func updateSource(model: LLJCycleMessageModel) {
+        let _ = LLJSCoreDataHelper.helper.insertRosource()
+        LLJCellFrameManage.setCompnentsFrame(item: model, value: self.attrAction)
+        self.tableView.reloadData()
     }
     
     //富文本点击事件
     private func attrAction(result: ASAttributedString.Attribute.Result) {
+
         switch result.content {
         case .string(let value):
             print("按住了文本: \n\(value) \nrange: \(result.range)")
@@ -279,6 +326,16 @@ extension LLJFWeChatCycleController {
         //获取本地数据
         getDataSource()
     }
+    //alertView
+    private func alertShow(type: Int, source: Array<LLJAlertModel>) {
+        let alertView = LLJAlertView()
+        weak var weakSelf = self
+        alertView.selectRow = {(row, name) in
+            weakSelf!.alertAction(row: row, name: name)
+        }
+        alertView.alertShow(itemList: source)
+    }
+    
     //头视图
     private func setUpHeadView() {
         

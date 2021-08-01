@@ -25,7 +25,7 @@ class LLJZanListCell: UITableViewCell {
     
     lazy var lineView: UIView = {
         let lineView = UIView()
-        lineView.backgroundColor = LLJBlackColor()
+        lineView.backgroundColor = LLJColor(230, 230, 230, 1.0)
         return lineView
     }()
 

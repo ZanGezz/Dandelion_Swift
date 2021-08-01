@@ -24,4 +24,5 @@ class LLJCycleMessageModel: NSObject {
     var pingList: [LLJPingListModel] = []
     var zanList: [LLJPingListModel] = []
     var frameModel: LLJCycleFrameModel = LLJCycleFrameModel()
+    var hasZaned: Bool = false
 }

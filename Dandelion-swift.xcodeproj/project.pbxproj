@@ -104,6 +104,7 @@
 		4B9FFE2226B0028200E1819E /* LLJCycleMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */; };
 		4B9FFE2F26B009B100E1819E /* LLJPingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFE2E26B009B100E1819E /* LLJPingListModel.swift */; };
 		4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */; };
+		4BA2A80D26B5161000DCE7AB /* LLJInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2A80C26B5161000DCE7AB /* LLJInputView.swift */; };
 		4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */; };
 		4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */; };
 		4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */; };
@@ -249,6 +250,7 @@
 		4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleMessageModel.swift; sourceTree = "<group>"; };
 		4B9FFE2E26B009B100E1819E /* LLJPingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJPingListModel.swift; sourceTree = "<group>"; };
 		4BA2A80326ABCAC700DCE7AB /* LLJVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJVideoView.swift; sourceTree = "<group>"; };
+		4BA2A80C26B5161000DCE7AB /* LLJInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJInputView.swift; sourceTree = "<group>"; };
 		4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleFrameModel.swift; sourceTree = "<group>"; };
 		4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCellFrameManage.swift; sourceTree = "<group>"; };
 		4BBBC51926A93CEA00D641C2 /* LLJCycleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleImageView.swift; sourceTree = "<group>"; };
@@ -807,6 +809,7 @@
 				4BEF2FAC2681EC260025723D /* LLJWCommenCell.swift */,
 				4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */,
 				4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */,
+				4BA2A80C26B5161000DCE7AB /* LLJInputView.swift */,
 			);
 			path = commenView;
 			sourceTree = "<group>";
@@ -1350,6 +1353,7 @@
 				4B8087372638EFBF009CEDFF /* LLJAnimationCell.swift in Sources */,
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
+				4BA2A80D26B5161000DCE7AB /* LLJInputView.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
 				4B9FFE0926AFF3AB00E1819E /* ObjectExtension.swift in Sources */,
 				4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */,

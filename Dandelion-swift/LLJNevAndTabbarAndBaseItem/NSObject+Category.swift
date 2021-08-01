@@ -55,3 +55,27 @@ extension UIViewController {
         return nameArray
     }
 }
+
+extension UIView {
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let keyBoardStatus = UserDefaults.standard.bool(forKey: "keyBoardStatus")
+        if keyBoardStatus {
+            UIApplication.shared.keyWindow?.endEditing(true)
+        } else {
+            super.touchesBegan(touches, with: event)
+        }
+    }
+}
+
+extension UIButton {
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let keyBoardStatus = UserDefaults.standard.bool(forKey: "keyBoardStatus")
+        if keyBoardStatus {
+            UIApplication.shared.keyWindow?.endEditing(true)
+        } else {
+            super.touchesBegan(touches, with: event)
+        }
+    }
+}

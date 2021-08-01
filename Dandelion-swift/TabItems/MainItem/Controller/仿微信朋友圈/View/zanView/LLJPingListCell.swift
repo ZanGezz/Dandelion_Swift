@@ -11,8 +11,8 @@ class LLJPingListCell: UITableViewCell {
 
     lazy var contentLabel: UILabel = {
         let contentLabel = UILabel()
-        contentLabel.textColor = LLJColor(68, 86, 130, 1.0)
-        contentLabel.font = LLJBoldFont(15)
+        contentLabel.textColor = LLJColor(30, 30, 30, 1.0)
+        contentLabel.font = LLJFont(15)
         contentLabel.numberOfLines = 0;
         return contentLabel
     }()

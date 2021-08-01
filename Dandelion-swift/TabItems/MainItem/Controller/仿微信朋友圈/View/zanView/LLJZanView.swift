@@ -18,7 +18,6 @@ class LLJZanView: UIView {
         zanButton.setImage(UIImage(named: "zan"), for: .normal)
         zanButton.titleLabel?.font = LLJFont(14, "")
         zanButton.setTitleColor(LLJWhiteColor(), for: .normal)
-        zanButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(13), left: LLJDX(31), bottom: LLJDX(11), right: LLJDX(42))
         zanButton.addTarget(self, action: #selector(zanAction(sender:)), for: .touchUpInside)
         return zanButton
     }()
@@ -29,7 +28,7 @@ class LLJZanView: UIView {
         pingButton.setTitle("评论", for: .normal)
         pingButton.setImage(UIImage(named: "pinglun"), for: .normal)
         pingButton.titleLabel?.font = LLJFont(14, "")
-        pingButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(14), left: LLJDX(22), bottom: LLJDX(12), right: LLJDX(54))
+        pingButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(13), left: LLJDX(22), bottom: LLJDX(12), right: LLJDX(53))
         pingButton.titleEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(-40), bottom: LLJDX(12), right: LLJDX(0))
         pingButton.setTitleColor(LLJWhiteColor(), for: .normal)
         pingButton.addTarget(self, action: #selector(zanAction(sender:)), for: .touchUpInside)

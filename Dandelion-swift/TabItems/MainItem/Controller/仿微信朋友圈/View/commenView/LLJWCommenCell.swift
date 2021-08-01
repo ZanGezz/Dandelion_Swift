@@ -11,6 +11,7 @@ class LLJWCommenCell: UITableViewCell {
     
     typealias moreActionBlock = ((LLJZanView) ->Void)
     typealias zanViewActionBlock = ((Int64) -> Void)
+    typealias pingViewActionBlock = ((Int) -> Void)
 
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
@@ -76,6 +77,9 @@ class LLJWCommenCell: UITableViewCell {
     
     var moreAction: moreActionBlock?
     var zanViewAction: zanViewActionBlock?
+    var pingViewAction: pingViewActionBlock?
+
+    private var model: LLJCycleMessageModel?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -107,13 +111,18 @@ extension LLJWCommenCell {
             
             self.viewHidden()
 
-            if type == 10001010 {
-                if self.zanViewAction != nil {
-                    self.zanViewAction!(type)
-                }
-            } else {
+            if self.zanViewAction != nil {
+                self.zanViewAction!(type)
             }
         }
+        
+        weak var weakSelf = self
+        self.zanListView.selectPingItem = { (index) in
+            if weakSelf!.pingViewAction != nil {
+                weakSelf!.pingViewAction!(index)
+            }
+        }
+            
     }
     
     private func layoutSubview(frameModel: LLJCycleFrameModel) {
@@ -148,6 +157,7 @@ extension LLJWCommenCell {
     //设置数据
     func setDataSource(sourceModel: LLJCycleMessageModel) {
         
+        self.model = sourceModel
         //布局
         layoutSubview(frameModel: sourceModel.frameModel)
         //设置数据
@@ -162,6 +172,16 @@ extension LLJWCommenCell {
     func viewShow() {
         
         self.addSubview(self.zanView)
+        if self.model!.hasZaned {
+            self.zanView.zanButton.setTitle("取消", for: .normal)
+            self.zanView.zanButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(21), bottom: LLJDX(12), right: LLJDX(53))
+            self.zanView.zanButton.titleEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(-10), bottom: LLJDX(12), right: LLJDX(0))
+        } else {
+            self.zanView.zanButton.setTitle("赞", for: .normal)
+            self.zanView.zanButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(26), bottom: LLJDX(12), right: LLJDX(48))
+            self.zanView.zanButton.titleEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(-10), bottom: LLJDX(12), right: LLJDX(0))
+        }
+        
         let X = self.moreButton.frame.origin.x - LLJDX(8) - LLJDX(180)
         let Y = self.moreButton.frame.origin.y - LLJDX(10)
         self.zanView.frame = CGRect(x: X + LLJDX(180), y: Y, width: LLJDX(0.01), height: LLJDX(40))

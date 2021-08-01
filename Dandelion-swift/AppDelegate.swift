@@ -40,6 +40,9 @@ extension AppDelegate {
         LLJSHelper.createLocalDirectoryPath(path: LLJ_Video_Path())
         //CoreData存储路径
         LLJSHelper.createLocalDirectoryPath(path: LLJ_CoreData_Path())
+        //键盘状态
+        UserDefaults.standard.set(false, forKey: "keyBoardStatus")
+        UserDefaults.standard.synchronize()
     }
 }
 
