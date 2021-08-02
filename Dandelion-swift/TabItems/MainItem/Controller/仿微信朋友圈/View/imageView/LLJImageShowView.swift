@@ -9,14 +9,32 @@ import UIKit
 
 class LLJImageShowView: UIView {
 
+    //collectionView
+    lazy var collectionView: UICollectionView = {
+        
+        let flawLayout = UICollectionViewFlowLayout()
+        flawLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        flawLayout.minimumInteritemSpacing = LLJDX(5.0)
+        flawLayout.minimumLineSpacing = LLJDX(5.0)
+        let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: flawLayout)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.bounces = false
+        collectionView.backgroundColor = LLJWhiteColor()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.isPagingEnabled = true
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        return collectionView
+    }()
+    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
+    
+    private var itemList: [LLJImageShowModel] = []
     private var convertImageFrame: CGRect = CGRect.zero
-    private var oldImageFrame: CGRect = CGRect.zero
-    private var newImageFrame: CGRect = CGRect.zero
-    private var oldSuperView: UIView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +49,31 @@ class LLJImageShowView: UIView {
     
     deinit {
         LLJLog("LLJImageShowView")
+    }
+}
+
+//MARK - UICollectionViewDelegate -
+extension LLJImageShowView: UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.itemList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCell", for: indexPath)
+        cell.addSubview(self.itemList[indexPath.row] as! UIView)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension LLJImageShowView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
     }
 }
 

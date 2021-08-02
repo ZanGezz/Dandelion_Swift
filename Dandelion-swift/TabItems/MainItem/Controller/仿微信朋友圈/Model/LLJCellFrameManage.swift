@@ -318,6 +318,7 @@ class LLJCellFrameManage: NSObject {
     private class func setPingAttrText(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
         
         for ping in item.pingList {
+
             var attr = ASAttributedString(string: ping.content)
             
             if ping.type == 10001011 {

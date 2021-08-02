@@ -168,7 +168,7 @@ extension LLJFWeChatCycleController {
     @objc private func tapClick() {
 
         //发布朋友圈
-        self.alertShow(type: 10010, source:  self.alertItemList1)
+        self.alertShow(index: 0, source:  self.alertItemList1)
     }
     //长按
     @objc private func longTapClick() {
@@ -183,15 +183,23 @@ extension LLJFWeChatCycleController {
     }
     
     //alert事件
-    private func alertAction(row: Int, name: String) {
+    private func alertAction(index: Int, model: LLJAlertModel) {
 
         let pushViewController = LLJCycleMessagePushController()
-        if row == 1 {
+        switch model.title {
+        case "从相册中选择":
             pushViewController.type = .image
-        } else {
+        case "拍摄":
             let array: [LLJCycleMessagePushType] = [.video,.link]
             let armnum = LLJSHelper.arc4random(duration: 2)
             pushViewController.type = array[armnum]
+        case "删除":
+            let r: Bool = LLJSCoreDataHelper().deleteRosource(entityName: "LLJCycleZanModel", predicate: model.predicate)
+            if r {
+                self.updateSource(model: self.cycleSourceListArray[index] as! LLJCycleMessageModel)
+            }
+            return
+        default:break
         }
         pushViewController.model = self.useModel
         weak var weakSelf = self
@@ -238,7 +246,7 @@ extension LLJFWeChatCycleController {
                 let zanModel = array[i]
                 if zanModel.aUserId == model.userId {
                     model.zanList.remove(at: i)
-                    let pre = String(format: "messageId = %ld && aUserId = %ld && type = %ld", model.messageId!,model.userId!,type)
+                    let pre = String(format: "timeInterval = %ld", zanModel.timeInterval)
                     let r = LLJSCoreDataHelper().deleteRosource(entityName: "LLJCycleZanModel", predicate: pre)
                     if r {
                         model.hasZaned = false
@@ -249,24 +257,19 @@ extension LLJFWeChatCycleController {
                 }
             }
         } else {
-            let zanModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleZanModel") as! LLJCycleZanModel
-
-            zanModel.aUserId = self.useModel!.userId!
-            zanModel.aUserName = self.useModel!.nickName!
-            zanModel.timeInterval = LLJSHelper.getCurrentTimeInteval()
-            zanModel.type = type
-            zanModel.userId = self.useModel!.userId!
-            zanModel.messageId = model.messageId!
+            
             if type == 10001010 {
-                //刷新
-                self.updateSource(model: model)
+                
+                self.createNewZanModel(type: type, content: "", model: model)
                 
             } else if type == 10001011 {
                 let inputView = LLJInputView()
+                inputView.tableView = self.tableView
+                inputView.index = sourceindex
+                inputView.sourceList = self.cycleSourceListArray
                 inputView.inputComplete = { (content) in
-                    zanModel.content = String(format: "%@: %@", zanModel.aUserName!,content)
-                    //刷新
-                    self.updateSource(model: model)
+                    
+                    self.createNewZanModel(type: type, content: String(format: "%@: %@", self.useModel!.nickName!,content), model: model)
                 }
                 self.view.addSubview(inputView)
             } else if type == 10001012 {
@@ -274,18 +277,36 @@ extension LLJFWeChatCycleController {
                 let pingModel = model.pingList[pingIndex]
                 if pingModel.aUserId == model.userId {
                     //发布朋友圈
-                    self.alertShow(type: 10010, source:  self.deletePing)
+                    let model = self.deletePing.first
+                    model!.predicate = "timeInterval = " + String(pingModel.timeInterval)
+                    self.alertShow(index: sourceindex, source: self.deletePing)
                 } else {
                     let inputView = LLJInputView()
+                    inputView.tableView = self.tableView
+                    inputView.index = sourceindex
+                    inputView.sourceList = self.cycleSourceListArray
                     inputView.inputComplete = { (content) in
-                        zanModel.content = String(format: "%@回复%@: %@",zanModel.aUserName!,pingModel.bUserName,content)
-                        //刷新
-                        self.updateSource(model: model)
+                        //创建赞
+                        self.createNewZanModel(type: type, content: String(format: "%@回复%@: %@",self.useModel!.nickName!,pingModel.bUserName,content), model: model)
                     }
                     self.view.addSubview(inputView)
                 }
             }
         }
+    }
+    
+    private func createNewZanModel(type: Int64, content: String, model: LLJCycleMessageModel) {
+        
+        let zanModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleZanModel") as! LLJCycleZanModel
+        zanModel.aUserId = self.useModel!.userId!
+        zanModel.aUserName = self.useModel!.nickName!
+        zanModel.timeInterval = LLJSHelper.getCurrentTimeInteval()
+        zanModel.type = type
+        zanModel.userId = self.useModel!.userId!
+        zanModel.messageId = model.messageId!
+        zanModel.content = content
+        //刷新
+        self.updateSource(model: model)
     }
     
     //刷新数据和页面
@@ -326,12 +347,13 @@ extension LLJFWeChatCycleController {
         //获取本地数据
         getDataSource()
     }
+    
     //alertView
-    private func alertShow(type: Int, source: Array<LLJAlertModel>) {
+    private func alertShow(index: Int, source: Array<LLJAlertModel>) {
         let alertView = LLJAlertView()
         weak var weakSelf = self
         alertView.selectRow = {(row, name) in
-            weakSelf!.alertAction(row: row, name: name)
+            weakSelf!.alertAction(index: index, model: source[row])
         }
         alertView.alertShow(itemList: source)
     }
