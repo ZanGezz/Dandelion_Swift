@@ -363,7 +363,6 @@ extension LLJFWeChatCycleController: UIScrollViewDelegate {
             } completion: { (bool) in
                 self.isLoading = false
                 self.setCoreDataList()
-                self.setDataSource()
                 self.coverView.isHidden = true
             }
         }
