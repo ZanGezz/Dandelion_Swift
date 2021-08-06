@@ -10,32 +10,34 @@ import UIKit
 class LLJCellFrameManage: NSObject {
     
     //设置cell 子视图 frame
-    class func setSubViewFrame(sourceList: Array<Any>, value: ASAttributedString.Action) -> Array<Any> {
+    class func setSubViewFrame(userModel: LLJCycleUserModel, sourceList: Array<Any>, value: [ASAttributedString.Action]) -> Array<Any> {
         
         var messageArray: Array<Any> = []
         for item in sourceList {
             
             let item = item as! LLJWeChatCycleModel
             let model = LLJCycleMessageModel()
-            model.content = item.content
-            model.headImageName = item.headImageName
+            model.content = item.content ?? ""
+            model.headImageName = item.headImageName ?? ""
             model.messageId = item.messageId
             model.userId = item.userId
-            model.nickName = item.nickName
+            model.nickName = setNickNameAttrText(content: item.nickName ?? "", value: value.last!)
             model.type = item.type
             model.timeInteval = item.timeInteval
             model.webLinkModel = item.webLinkModel
             model.videoModel = item.videoModel
             model.imageModel = item.imageModel
+            model.locationModel = item.locationModel
+            model.userOwnMessage = item.userId == userModel.userId ? true : false
             //计算frame
-            setCompnentsFrame(item: model, value: value)
+            setCompnentsFrame(userModel: userModel, item: model, value: value)
             
             messageArray.append(model)
         }
         return messageArray
     }
     
-    class func setCompnentsFrame(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
+    class func setCompnentsFrame(userModel: LLJCycleUserModel, item: LLJCycleMessageModel, value: [ASAttributedString.Action]) {
         
         let frameModel = LLJCycleFrameModel()
         
@@ -66,9 +68,9 @@ class LLJCellFrameManage: NSObject {
         
         //文案内容frame
         var contentSize: CGSize = CGSize.zero
-        if item.content != nil {
+        if item.content.count > 0 {
             
-            contentSize = LLJSHelper.getStringSize(subString: item.content ?? "", font: LLJFont(18, ""), width: SCREEN_WIDTH - LLJDX(76) - LLJDX(10))
+            contentSize = LLJSHelper.getStringSize(subString: item.content, font: LLJFont(18, ""), width: SCREEN_WIDTH - LLJDX(76) - LLJDX(10))
             
             dy = LLJDX(5)
             X = LLJDX(76)
@@ -81,7 +83,7 @@ class LLJCellFrameManage: NSObject {
         
         //type: 10010 = 纯文本  10011 = 图片  10012 = 视频  10013 = 网址
         if item.type == 10011 {
-            //时间frame
+            //图片frame
             let imageList = item.imageModel?.imageList?.components(separatedBy: ",")
             if imageList!.count > 1 && imageList!.count < 4 {
                 
@@ -148,7 +150,7 @@ class LLJCellFrameManage: NSObject {
             temFrame = frameModel.contentImageFrame
             
         } else if (item.type == 10012) {
-            
+            //视频frame
             dy = LLJDX(10)
             X = LLJDX(76)
             Y = temFrame.origin.y + temFrame.height + dy
@@ -171,7 +173,7 @@ class LLJCellFrameManage: NSObject {
 
         } else if (item.type == 10013) {
             
-            //网址frame
+            //分享frame
             dy = LLJDX(10)
             X = LLJDX(76)
             Y = temFrame.origin.y + temFrame.height + dy
@@ -179,6 +181,17 @@ class LLJCellFrameManage: NSObject {
             H = LLJDX(50)
             frameModel.contentLinkFrame = CGRect(x: X, y: Y, width: W, height: H)
             temFrame = frameModel.contentLinkFrame
+        }
+        
+        //地理位置frame
+        if item.locationModel?.name != nil {
+            dy = LLJDX(10)
+            X = LLJDX(76)
+            Y = temFrame.origin.y + temFrame.height + dy
+            W = LLJDX(300)
+            H = LLJDX(15)
+            frameModel.locationButtonFrame = CGRect(x: X, y: Y, width: W, height: H)
+            temFrame = frameModel.locationButtonFrame
         }
             
         //时间frame
@@ -188,20 +201,24 @@ class LLJCellFrameManage: NSObject {
         W = LLJDX(150)
         H = LLJDX(15)
         frameModel.timeIntevalFrame = CGRect(x: X, y: Y, width: W, height: H)
-
+        temFrame = frameModel.timeIntevalFrame
+        
+        if item.webLinkModel?.webFromName != nil {
+            //分享来自
+            frameModel.linkLabel_dx = LLJDX(10)
+        }
+        
+        //删除按钮
+        frameModel.deleteButton_dx = LLJDX(10)
         
         //更多按钮frame
-        dy = LLJDX(12)
         X = SCREEN_WIDTH - LLJDX(20) - LLJDX(34)
-        Y = temFrame.origin.y + temFrame.height + dy
         W = LLJDX(34)
         H = LLJDX(21)
         frameModel.moreButtonFrame = CGRect(x: X, y: Y, width: W, height: H)
-        temFrame = frameModel.timeIntevalFrame
-        
         
         //计算评论高度
-        let pingViewHeight = setZanList(item: item, value: value)
+        let pingViewHeight = setZanList(userModel: userModel, item: item, value: value)
         
         if pingViewHeight > 0.0 {
             dy = LLJDX(15)
@@ -230,10 +247,10 @@ class LLJCellFrameManage: NSObject {
     }
     
     //计算评论数据
-    private class func setZanList(item: LLJCycleMessageModel, value: ASAttributedString.Action) -> CGFloat {
+    private class func setZanList(userModel: LLJCycleUserModel, item: LLJCycleMessageModel, value: [ASAttributedString.Action]) -> CGFloat {
         
         //赞和评论 type = 10001010 赞 10001011 是评论 10001012 是回复
-        let pre = String(format: "messageId = %ld", item.messageId!)
+        let pre = String(format: "messageId = %ld", item.messageId)
         let totalList: [LLJCycleZanModel] = LLJSCoreDataHelper().getRosource(entityName: "LLJCycleZanModel", predicate: pre) as! [LLJCycleZanModel]
         
         var zanList: [LLJPingListModel] = []
@@ -256,7 +273,7 @@ class LLJCellFrameManage: NSObject {
             ping.timeInterval = zanItem.timeInterval
             ping.type = zanItem.type
             ping.userId = zanItem.userId
-            if zanItem.aUserId == item.userId && zanItem.type == 10001010{
+            if zanItem.aUserId == userModel.userId && zanItem.type == 10001010{
                 item.hasZaned = true
             }
             
@@ -270,14 +287,13 @@ class LLJCellFrameManage: NSObject {
                 
             } else {
                 
-                ping.rowHeight = LLJSHelper.getStringSize(subString: ping.content, font: LLJBoldFont(14), width: LLJDX(310), lineSpace: 0).height + LLJDX(6)
+                ping.rowHeight = LLJSHelper.getStringSize(subString: ping.content, font: LLJBoldFont(15), width: LLJDX(300), lineSpace: 0).height + LLJDX(6)
                 ping.rowHeight += ping.rowHeight/17.9
                 pingViewHeight += ping.rowHeight
-                
-                var lenth = ping.aUserName.count
+                let lenth = ping.aUserName.count
                 ping.aUserNameRange = NSRange(location: 0, length: lenth )
-                lenth = ping.bUserName.count
-                ping.bUserNameRange = NSRange(location: lenth + 2, length: lenth)
+                let lenth1 = ping.bUserName.count
+                ping.bUserNameRange = NSRange(location: lenth + 2, length: lenth1)
                 pingList.append(ping)
             }
         }
@@ -287,7 +303,7 @@ class LLJCellFrameManage: NSObject {
             
             zanContentString = String(zanContentString.prefix(zanContentString.count - 1))
             var labelHeight: CGFloat = 0.0
-            labelHeight = LLJSHelper.getStringSize(subString: zanContentString, font: LLJBoldFont(15), width: LLJDX(310), lineSpace:0).height
+            labelHeight = LLJSHelper.getStringSize(subString: zanContentString, font: LLJBoldFont(15), width: LLJDX(300), lineSpace:0).height
             labelHeight += labelHeight/17.9
             zanHeight = labelHeight + LLJDX(8)
 
@@ -296,10 +312,10 @@ class LLJCellFrameManage: NSObject {
         
         //设置赞富文本
         item.zanList = zanList
-        item.attrContent = setZanAttrText(item: item, content: zanContentString, value: value)
+        item.attrContent = setZanAttrText(item: item, content: zanContentString, value: value.first!)
         //设置评论富文本
         item.pingList = pingList
-        setPingAttrText(item: item, value: value)
+        setPingAttrText(item: item, value: value[1])
         
         return zanHeight + pingViewHeight
     }
@@ -329,5 +345,12 @@ class LLJCellFrameManage: NSObject {
             }
             ping.attrContent = attr
         }
+    }
+    //创建昵称富文本
+    private class func setNickNameAttrText(content: String, value: ASAttributedString.Action) -> ASAttributedString {
+        
+        var attr = ASAttributedString(string: content)
+        attr.add(attributes: [.action(value)], range: NSRange(location: 0, length: content.count))
+        return attr
     }
 }

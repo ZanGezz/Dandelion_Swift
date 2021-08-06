@@ -32,7 +32,6 @@ class LLJCycleImageView: UIView {
     
     private var imageList: Array<String> = []
     private var itemSize: CGSize = CGSize.zero
-    var selectItemBlock: selectItem?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,13 +59,15 @@ extension LLJCycleImageView: UICollectionViewDelegate,UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if selectItemBlock != nil {
-            selectItemBlock!(self.imageList[indexPath.row])
-        }
         
-        let cell = collectionView.cellForItem(at: indexPath)
         let imageView = LLJImageShowView()
-        imageView.imageViewShow(oldImageName: self.imageList[indexPath.row], oldImageView: (cell! as! LLJImageCell).imageView, oldSuperView: cell! as UIView)
+        var viewList: [LLJImageCell] = []
+        for i in stride(from: 0, to: self.imageList.count, by: 1) {
+            let newIndexPath = IndexPath(row: i, section: 0)
+            let cell: LLJImageCell = collectionView.cellForItem(at: newIndexPath) as! LLJImageCell
+            viewList.append(cell)
+        }
+        imageView.imageViewShow(selectIndex: indexPath.row, allImageName: self.imageList, allSuperView: viewList)
     }
 }
 

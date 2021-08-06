@@ -62,6 +62,9 @@
 		4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463262665CF02002A8B2B /* LLJTableView.swift */; };
 		4B8463302665D6E4002A8B2B /* LLJLunBoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84632F2665D6E4002A8B2B /* LLJLunBoViewController.swift */; };
 		4B8463382665D934002A8B2B /* LLJCarouselMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8463372665D934002A8B2B /* LLJCarouselMapView.swift */; };
+		4B8C119526BBBA9D0062E707 /* LLJCycleLoadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C119426BBBA9D0062E707 /* LLJCycleLoadCell.swift */; };
+		4B8C119E26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */; };
+		4B8C11A326BCCE0C0062E707 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4B8C11A226BCCE0C0062E707 /* video.mp4 */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
 		4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */; };
@@ -206,6 +209,9 @@
 		4B88DE86266F11E800A3F07E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B88DE8C266F11EF00A3F07E /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B88DE91266F11F400A3F07E /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B8C119426BBBA9D0062E707 /* LLJCycleLoadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleLoadCell.swift; sourceTree = "<group>"; };
+		4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBaseVideoPlayer.swift; sourceTree = "<group>"; };
+		4B8C11A226BCCE0C0062E707 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
 		4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCycleImageCell.swift; sourceTree = "<group>"; };
@@ -217,7 +223,6 @@
 		4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJLocationCell.swift; sourceTree = "<group>"; };
 		4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleUserModel.swift; sourceTree = "<group>"; };
 		4B9FFD5726AABB4D00E1819E /* LLJUseDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJUseDefaultHelper.swift; sourceTree = "<group>"; };
-		4B9FFD5F26AAC20000E1819E /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		4B9FFD6A26AE41B700E1819E /* LLJImageShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJImageShowView.swift; sourceTree = "<group>"; };
 		4B9FFD7226AE5BF900E1819E /* LLJCycleVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleVideoCell.swift; sourceTree = "<group>"; };
 		4B9FFD7826AE5F1600E1819E /* LLJWebLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWebLinkCell.swift; sourceTree = "<group>"; };
@@ -368,6 +373,13 @@
 				4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4B369BB526B8EB62009E4884 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
@@ -582,6 +594,7 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B8C119926BBE5970062E707 /* 视频录制播放 */,
 				4B9FFD2526AA4E0800E1819E /* Alert弹框 */,
 				4B32202026929D7E0077982B /* WebView相关 */,
 				4BEF2F9E2681E40F0025723D /* 仿微信朋友圈 */,
@@ -758,6 +771,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4B8C119926BBE5970062E707 /* 视频录制播放 */ = {
+			isa = PBXGroup;
+			children = (
+				4B8C119A26BBE5DD0062E707 /* controller */,
+				4B8C119B26BBE5DD0062E707 /* model */,
+				4B8C119C26BBE5DD0062E707 /* view */,
+			);
+			path = "视频录制播放";
+			sourceTree = "<group>";
+		};
+		4B8C119A26BBE5DD0062E707 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4B8C119B26BBE5DD0062E707 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4B8C119C26BBE5DD0062E707 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		4B9034A425B7C47F007E777D /* LLJSCoreDataHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +857,7 @@
 				4B9FFD4626AAA74200E1819E /* LLJTextInputCell.swift */,
 				4B9FFD4C26AAA9E400E1819E /* LLJLocationCell.swift */,
 				4BA2A80C26B5161000DCE7AB /* LLJInputView.swift */,
+				4B8C119426BBBA9D0062E707 /* LLJCycleLoadCell.swift */,
 			);
 			path = commenView;
 			sourceTree = "<group>";
@@ -1001,13 +1047,14 @@
 		4BEF2FA02681E4940025723D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4B9FFD5F26AAC20000E1819E /* video.mp4 */,
-				4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */,
+				4B369BB526B8EB62009E4884 /* CoreDataModel */,
 				4BBBC51426A9049A00D641C2 /* LLJCellFrameManage.swift */,
-				4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */,
+				4BBBC50F26A903DD00D641C2 /* LLJCycleFrameModel.swift */,
 				4B9FFE2126B0028200E1819E /* LLJCycleMessageModel.swift */,
-				4B9FFE2E26B009B100E1819E /* LLJPingListModel.swift */,
+				4B9FFD5126AAB3EA00E1819E /* LLJCycleUserModel.swift */,
 				4B369BB026B7F476009E4884 /* LLJImageShowModel.swift */,
+				4B9FFE2E26B009B100E1819E /* LLJPingListModel.swift */,
+				4B8C11A226BCCE0C0062E707 /* video.mp4 */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1201,6 +1248,7 @@
 				4B83E13F2589AB7D0041B601 /* LaunchScreen.storyboard in Resources */,
 				4B83E13C2589AB7D0041B601 /* Assets.xcassets in Resources */,
 				4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */,
+				4B8C11A326BCCE0C0062E707 /* video.mp4 in Resources */,
 				4BF1878D25B92A9C00B75EA6 /* LLJMyKnowledge.txt in Resources */,
 				4B3220342692F0DA0077982B /* WKWebViewText.html in Resources */,
 			);
@@ -1365,6 +1413,7 @@
 				4B9FFE2F26B009B100E1819E /* LLJPingListModel.swift in Sources */,
 				4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */,
 				4B9FFE0226AFF3AB00E1819E /* UITextFieldExtension.swift in Sources */,
+				4B8C119E26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift in Sources */,
 				4B9FFE0F26AFF3AB00E1819E /* Attribute.swift in Sources */,
 				4B369BA526B2B155009E4884 /* LLJZanListCell.swift in Sources */,
 				4BBBC51F26A949E900D641C2 /* LLJImageCell.swift in Sources */,
@@ -1405,6 +1454,7 @@
 				4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */,
 				4B83E1AA258CB2FC0041B601 /* LLJSMainViewController.swift in Sources */,
 				4BEF2FA32681E4B00025723D /* LLJFWeChatCycleController.swift in Sources */,
+				4B8C119526BBBA9D0062E707 /* LLJCycleLoadCell.swift in Sources */,
 				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,

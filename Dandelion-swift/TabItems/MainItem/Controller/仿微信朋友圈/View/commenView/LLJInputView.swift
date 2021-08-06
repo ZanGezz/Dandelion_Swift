@@ -158,15 +158,15 @@ extension LLJInputView: UITextViewDelegate {
     }
     //键盘隐藏
     @objc func keyBoardHidden(noti: NSNotification) {
-        
-        if self.tableView!.contentSize.height < SCREEN_HEIGHT {
-            self.tableView!.setContentOffset(CGPoint(x: 0, y: 0.0), animated: true)
-        }
 
         UIView.animate(withDuration: 0.35) {
             self.frame = CGRect(x: 0, y: SCREEN_HEIGHT - LLJDX(55), width: SCREEN_WIDTH, height: LLJDX(55))
         } completion: { (bool) in
             self.removeFromSuperview()
+            
+            if self.tableView!.contentSize.height < SCREEN_HEIGHT {
+                self.tableView!.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
+            }
         }
         UserDefaults.standard.set(false, forKey: "keyBoardStatus")
         UserDefaults.standard.synchronize()

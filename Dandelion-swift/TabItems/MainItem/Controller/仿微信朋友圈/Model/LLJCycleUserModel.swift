@@ -9,8 +9,8 @@ import UIKit
 
 class LLJCycleUserModel: NSObject {
     
-    var headIamge: String?
-    var userImage: String?
-    var nickName: String?
-    var userId: Int64?
+    var headIamge: String = ""
+    var userImage: String = ""
+    var nickName: String = ""
+    var userId: Int64 = 0
 }

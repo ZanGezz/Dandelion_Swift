@@ -9,7 +9,9 @@ import UIKit
 
 class LLJImageShowModel: NSObject {
 
-    private var oldImageFrame: CGRect = CGRect.zero
-    private var newImageFrame: CGRect = CGRect.zero
-    private var oldSuperView: UIView?
+    var imageView: UIImageView?
+    var oldImageFrame: CGRect = CGRect.zero
+    var newImageFrame: CGRect = CGRect.zero
+    var oldSuperView: LLJImageCell?
+    var convertImageFrame: CGRect = CGRect.zero
 }
