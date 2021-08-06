@@ -362,7 +362,7 @@ extension LLJFWeChatCycleController: UIScrollViewDelegate {
                 self.loadingView.frame = CGRect(x: LLJDX(22), y: -LLJDX(30), width: LLJDX(27), height: LLJDX(27))
             } completion: { (bool) in
                 self.isLoading = false
-                self.cycleSourceListArray.removeAll()
+                self.setCoreDataList()
                 self.setDataSource()
                 self.coverView.isHidden = true
             }
@@ -640,6 +640,10 @@ extension LLJFWeChatCycleController {
     //alert事件
     private func alertAction(index: Int, model: LLJAlertModel) {
 
+        if model.title == "更换相册封面" {
+            return
+        }
+        
         let pushViewController = LLJCycleMessagePushController()
         switch model.title {
         case "从相册中选择":
