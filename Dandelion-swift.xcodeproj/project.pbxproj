@@ -17,6 +17,14 @@
 		4B369B9D26B2AF16009E4884 /* LLJPingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B369B9C26B2AF16009E4884 /* LLJPingListCell.swift */; };
 		4B369BA526B2B155009E4884 /* LLJZanListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B369BA426B2B155009E4884 /* LLJZanListCell.swift */; };
 		4B369BB126B7F476009E4884 /* LLJImageShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B369BB026B7F476009E4884 /* LLJImageShowModel.swift */; };
+		4B3C8DB626C39B5000FEF026 /* AttributeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DB526C39B5000FEF026 /* AttributeKey.swift */; };
+		4B3C8DC726C3ABD100FEF026 /* LLJAttributeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DC626C3ABD100FEF026 /* LLJAttributeExtension.swift */; };
+		4B3C8DCC26C3B48500FEF026 /* LLJAttributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DCB26C3B48500FEF026 /* LLJAttributeController.swift */; };
+		4B3C8DD426C3C46700FEF026 /* AttributeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DD326C3C46700FEF026 /* AttributeAction.swift */; };
+		4B3C8DE026C6105100FEF026 /* LJLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DDF26C6105100FEF026 /* LJLabel.swift */; };
+		4B3C8DE526C61EE900FEF026 /* AttributeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DE426C61EE900FEF026 /* AttributeRange.swift */; };
+		4B3C8DF126C646D200FEF026 /* AttributeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DF026C646D200FEF026 /* AttributeResult.swift */; };
+		4B3C8DF626C665C300FEF026 /* LLJAttributeLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DF526C665C300FEF026 /* LLJAttributeLayoutDelegate.swift */; };
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
 		4B46033025AEC2DB008BCF69 /* LLJSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */; };
 		4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */; };
@@ -65,6 +73,8 @@
 		4B8C119526BBBA9D0062E707 /* LLJCycleLoadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C119426BBBA9D0062E707 /* LLJCycleLoadCell.swift */; };
 		4B8C119E26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */; };
 		4B8C11A326BCCE0C0062E707 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4B8C11A226BCCE0C0062E707 /* video.mp4 */; };
+		4B8C11B726C0DA110062E707 /* LLJAttributeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C11B626C0DA110062E707 /* LLJAttributeString.swift */; };
+		4B8C11CA26C3720D0062E707 /* AttributeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C11C926C3720D0062E707 /* AttributeModel.swift */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
 		4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */; };
@@ -155,6 +165,14 @@
 		4B369B9C26B2AF16009E4884 /* LLJPingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJPingListCell.swift; sourceTree = "<group>"; };
 		4B369BA426B2B155009E4884 /* LLJZanListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJZanListCell.swift; sourceTree = "<group>"; };
 		4B369BB026B7F476009E4884 /* LLJImageShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJImageShowModel.swift; sourceTree = "<group>"; };
+		4B3C8DB526C39B5000FEF026 /* AttributeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeKey.swift; sourceTree = "<group>"; };
+		4B3C8DC626C3ABD100FEF026 /* LLJAttributeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAttributeExtension.swift; sourceTree = "<group>"; };
+		4B3C8DCB26C3B48500FEF026 /* LLJAttributeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAttributeController.swift; sourceTree = "<group>"; };
+		4B3C8DD326C3C46700FEF026 /* AttributeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeAction.swift; sourceTree = "<group>"; };
+		4B3C8DDF26C6105100FEF026 /* LJLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJLabel.swift; sourceTree = "<group>"; };
+		4B3C8DE426C61EE900FEF026 /* AttributeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeRange.swift; sourceTree = "<group>"; };
+		4B3C8DF026C646D200FEF026 /* AttributeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeResult.swift; sourceTree = "<group>"; };
+		4B3C8DF526C665C300FEF026 /* LLJAttributeLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAttributeLayoutDelegate.swift; sourceTree = "<group>"; };
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
 		4B46032F25AEC2DB008BCF69 /* LLJSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSHelper.swift; sourceTree = "<group>"; };
 		4B46034725AEE66E008BCF69 /* LLJSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSMainCell.swift; sourceTree = "<group>"; };
@@ -212,6 +230,8 @@
 		4B8C119426BBBA9D0062E707 /* LLJCycleLoadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJCycleLoadCell.swift; sourceTree = "<group>"; };
 		4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBaseVideoPlayer.swift; sourceTree = "<group>"; };
 		4B8C11A226BCCE0C0062E707 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		4B8C11B626C0DA110062E707 /* LLJAttributeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAttributeString.swift; sourceTree = "<group>"; };
+		4B8C11C926C3720D0062E707 /* AttributeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeModel.swift; sourceTree = "<group>"; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
 		4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCycleImageCell.swift; sourceTree = "<group>"; };
@@ -380,6 +400,15 @@
 			children = (
 			);
 			path = CoreDataModel;
+			sourceTree = "<group>";
+		};
+		4B3C8DBA26C3AB7E00FEF026 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				4B3C8DC626C3ABD100FEF026 /* LLJAttributeExtension.swift */,
+				4B3C8DF526C665C300FEF026 /* LLJAttributeLayoutDelegate.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		4B46032E25AEC2BF008BCF69 /* LLJSHelper */ = {
@@ -594,6 +623,7 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4B8C11AA26C0CFEA0062E707 /* 富文本相关 */,
 				4B8C119926BBE5970062E707 /* 视频录制播放 */,
 				4B9FFD2526AA4E0800E1819E /* Alert弹框 */,
 				4B32202026929D7E0077982B /* WebView相关 */,
@@ -799,6 +829,46 @@
 			isa = PBXGroup;
 			children = (
 				4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4B8C11AA26C0CFEA0062E707 /* 富文本相关 */ = {
+			isa = PBXGroup;
+			children = (
+				4B8C11AB26C0D00D0062E707 /* controller */,
+				4B3C8DBA26C3AB7E00FEF026 /* extension */,
+				4B8C11AC26C0D00D0062E707 /* model */,
+				4B8C11AD26C0D00D0062E707 /* view */,
+			);
+			path = "富文本相关";
+			sourceTree = "<group>";
+		};
+		4B8C11AB26C0D00D0062E707 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4B3C8DCB26C3B48500FEF026 /* LLJAttributeController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4B8C11AC26C0D00D0062E707 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4B8C11B626C0DA110062E707 /* LLJAttributeString.swift */,
+				4B8C11C926C3720D0062E707 /* AttributeModel.swift */,
+				4B3C8DB526C39B5000FEF026 /* AttributeKey.swift */,
+				4B3C8DD326C3C46700FEF026 /* AttributeAction.swift */,
+				4B3C8DE426C61EE900FEF026 /* AttributeRange.swift */,
+				4B3C8DF026C646D200FEF026 /* AttributeResult.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		4B8C11AD26C0D00D0062E707 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4B3C8DDF26C6105100FEF026 /* LJLabel.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1394,7 +1464,9 @@
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
 				4B9FFE0726AFF3AB00E1819E /* WKInterfaceLabelExtension.swift in Sources */,
 				4B9FFD4726AAA74200E1819E /* LLJTextInputCell.swift in Sources */,
+				4B8C11CA26C3720D0062E707 /* AttributeModel.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
+				4B3C8DC726C3ABD100FEF026 /* LLJAttributeExtension.swift in Sources */,
 				4B9FFE0426AFF3AB00E1819E /* Extension.swift in Sources */,
 				4B49C60A259C66550004936B /* LLJConfig.swift in Sources */,
 				4B369B9D26B2AF16009E4884 /* LLJPingListCell.swift in Sources */,
@@ -1406,12 +1478,14 @@
 				4B46034825AEE66E008BCF69 /* LLJSMainCell.swift in Sources */,
 				4B80822325B57D7600F89B9C /* LLJNaviController.swift in Sources */,
 				4BA2A80D26B5161000DCE7AB /* LLJInputView.swift in Sources */,
+				4B3C8DE026C6105100FEF026 /* LJLabel.swift in Sources */,
 				4B80821E25B57D5900F89B9C /* LLJFViewController.swift in Sources */,
 				4B9FFE0926AFF3AB00E1819E /* ObjectExtension.swift in Sources */,
 				4B7BBFEF264EA26500CA9F17 /* LLJWChatFirstCell.swift in Sources */,
 				4BDE20F525C944670079960D /* LLJSTableViewController.swift in Sources */,
 				4B9FFE2F26B009B100E1819E /* LLJPingListModel.swift in Sources */,
 				4BBBC51026A903DD00D641C2 /* LLJCycleFrameModel.swift in Sources */,
+				4B3C8DB626C39B5000FEF026 /* AttributeKey.swift in Sources */,
 				4B9FFE0226AFF3AB00E1819E /* UITextFieldExtension.swift in Sources */,
 				4B8C119E26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift in Sources */,
 				4B9FFE0F26AFF3AB00E1819E /* Attribute.swift in Sources */,
@@ -1441,10 +1515,12 @@
 				4B72586625E100A500B4F9AC /* LLJMainModel.swift in Sources */,
 				4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */,
 				4B7BC027265C9F8E00CA9F17 /* LLJSegmentModel.swift in Sources */,
+				4B3C8DF126C646D200FEF026 /* AttributeResult.swift in Sources */,
 				4B9FFE2226B0028200E1819E /* LLJCycleMessageModel.swift in Sources */,
 				4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */,
 				4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */,
 				4B9FFD3426AA57D500E1819E /* LLJAlertCell.swift in Sources */,
+				4B3C8DCC26C3B48500FEF026 /* LLJAttributeController.swift in Sources */,
 				4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */,
 				4B83E8D82629264E00537DA0 /* LLJBezierPath.swift in Sources */,
 				4B9FFE0326AFF3AB00E1819E /* ArrayExtension.swift in Sources */,
@@ -1458,6 +1534,7 @@
 				4B48B25B262D31040048A913 /* LLJBezierPathCell.swift in Sources */,
 				4B68D1FA25DFA808001532E7 /* LLJMoyaConfig.swift in Sources */,
 				4B80822825B57DA100F89B9C /* LLJTabBarController.swift in Sources */,
+				4B3C8DD426C3C46700FEF026 /* AttributeAction.swift in Sources */,
 				4B9FFD5226AAB3EA00E1819E /* LLJCycleUserModel.swift in Sources */,
 				4B7BBFF926520C8400CA9F17 /* LLJWChatModel.swift in Sources */,
 				4B9FFD7926AE5F1600E1819E /* LLJWebLinkCell.swift in Sources */,
@@ -1472,12 +1549,15 @@
 				4B9FFE0626AFF3AB00E1819E /* WKInterfaceTextFieldExtension.swift in Sources */,
 				4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */,
 				4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */,
+				4B3C8DE526C61EE900FEF026 /* AttributeRange.swift in Sources */,
 				4B8087322638EE6B009CEDFF /* LLJAnimationController.swift in Sources */,
 				4B9FFE0C26AFF3AB00E1819E /* Interpolation.swift in Sources */,
 				4B9FFE0026AFF3AB00E1819E /* UILabelLayoutManagerDelegate.swift in Sources */,
 				4B83E8E32629344300537DA0 /* LLJAnimation.swift in Sources */,
 				4BEF2FAD2681EC260025723D /* LLJWCommenCell.swift in Sources */,
+				4B3C8DF626C665C300FEF026 /* LLJAttributeLayoutDelegate.swift in Sources */,
 				4B7BC02C265DF0F500CA9F17 /* LLJContentView.swift in Sources */,
+				4B8C11B726C0DA110062E707 /* LLJAttributeString.swift in Sources */,
 				4B9FFDFA26AFF3AB00E1819E /* ShadowExtension.swift in Sources */,
 				4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */,
 				4B9FFD3926AA60FC00E1819E /* LLJAlertModel.swift in Sources */,
