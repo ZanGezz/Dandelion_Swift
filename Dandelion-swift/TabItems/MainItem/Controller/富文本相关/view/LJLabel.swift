@@ -10,6 +10,7 @@ import UIKit
 class LJLabel: UILabel {
     
     struct ScaledMetrics {
+        
         let actualScaleFactor: Double
         let baselineOffset: Double
         let measuredNumberOfLines: Int64
@@ -20,7 +21,6 @@ class LJLabel: UILabel {
         let targetSize: CGSize
 
         /// Keys
-
         static let actualScaleFactorName = "y9GdjFmRlxWYjNFbhVHdjF2X".reversedBase64Decode()
         static let baselineOffsetName = "0V2cmZ2Tl5WasV2chJ2X".reversedBase64Decode()
         static let measuredNumberOfLinesName = "==wcl5WaMZ2TyVmYtVnTkVmc1NXYl12X".reversedBase64Decode()
@@ -84,8 +84,12 @@ class LJLabel: UILabel {
         }
         return synthesizedAttributedText as? NSAttributedString
     }
+    
+    private var scaledAttributedText: NSAttributedString? {
+        return scaledMetrics?.scaledAttributedText
+    }
 
-    private var touchedRange: AttributeRange = AttributeRange()
+    private var resultRange: AttributeResult?
     private var _attribute: LLJAttributeString?
     
     override init(frame: CGRect) {
@@ -121,42 +125,43 @@ extension LJLabel {
             let touch = touches.first,
             let range = matching(touch.location(in: self)) else {
                 super.touchesBegan(touches, with: event)
+                resultRange = nil
                 return
         }
-        let result = AttributeResult()
-        result.content = range.content
-        result.range = range.range
-        result.tag = self.attribute!.model.tag
         
         // 设置高亮样式
         let attri = NSMutableAttributedString(attributedString: text)
-        attri.addAttribute(.backgroundColor, value: UIColor.lightGray, range: range.range)
+        attri.addAttribute(.backgroundColor, value: #colorLiteral(red: 0.8823529412, green: 0.8823529412, blue: 0.8823529412, alpha: 1), range: range.range)
         self.attributedText = attri
         
-        touchedRange = range
-        
-        self.attribute?.model.action?.callBack(result)
+        resultRange = range
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        guard let resultRange = self.resultRange else {
+            return
+        }
         // 设置高亮样式
         let attri = NSMutableAttributedString(attributedString: self.attribute!.text)
-        attri.addAttribute(.backgroundColor, value: UIColor.clear, range: touchedRange.range)
+        attri.addAttribute(.backgroundColor, value: UIColor.clear, range: resultRange.range)
         self.attributedText = attri
-    }
-    
-    
-    func matching(_ point: CGPoint) -> AttributeRange? {
         
-        let text = adaptation(synthesizedAttributedText, with: numberOfLines)
-        //guard let attributedString = ASAttributedString(text) else { return nil }
+        resultRange.action?.callBack(resultRange)
+    }
+}
+
+extension LJLabel {
+    
+    func matching(_ point: CGPoint) -> AttributeResult? {
+        
+        let text = adaptation(self.scaledAttributedText ?? self.synthesizedAttributedText ?? attributedText, with: numberOfLines)
         // 构建同步Label的TextKit
-        //let delegate = LLJAttributeLayoutDelegate(scaledMetrics, with: baselineAdjustment)
+        let delegate = LLJAttributeLayoutDelegate(scaledMetrics, with: baselineAdjustment)
         let textStorage = NSTextStorage()
         let textContainer = NSTextContainer(size: bounds.size)
         let layoutManager = NSLayoutManager()
-        //layoutManager.delegate = delegate // 重新计算行高确保TextKit与UILabel显示同步
+        layoutManager.delegate = delegate // 重新计算行高确保TextKit与UILabel显示同步
         textContainer.lineBreakMode = lineBreakMode
         textContainer.lineFragmentPadding = 0.0
         textContainer.maximumNumberOfLines = numberOfLines
@@ -167,12 +172,10 @@ extension LJLabel {
 
         // 确保布局
         layoutManager.ensureLayout(for: textContainer)
-
         // 获取文本所占高度
         let height = layoutManager.usedRect(for: textContainer).height
 
         LLJLog(height)
-        LLJLog(layoutManager.usedRect(for: textContainer).width)
 
         // 获取点击坐标 并排除各种偏移
         var point = point
@@ -191,9 +194,9 @@ extension LJLabel {
         }
 
         // 获取点击的字符串范围和回调事件
-        var attributeRange: AttributeRange?
-        for item in self.attribute!.model.AttributeRanges {
-            if item.range.contains(index) {
+        var attributeRange: AttributeResult?
+        for item in self.attribute!.attributeResults {
+            if item.range.contains(index) && item.action != nil {
                 attributeRange = item
                 break
             }

@@ -13,3 +13,9 @@ enum AttributeKey {
     case foregroundColor(UIColor)
     case backgroundColor(UIColor)
 }
+
+enum ActionType {
+    
+    case click
+    case press
+}

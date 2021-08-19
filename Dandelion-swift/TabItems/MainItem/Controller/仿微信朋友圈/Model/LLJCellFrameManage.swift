@@ -10,7 +10,7 @@ import UIKit
 class LLJCellFrameManage: NSObject {
     
     //设置cell 子视图 frame
-    class func setSubViewFrame(userModel: LLJCycleUserModel, sourceList: Array<Any>, value: [ASAttributedString.Action]) -> Array<Any> {
+    class func setSubViewFrame(userModel: LLJCycleUserModel, sourceList: Array<Any>, value: [Action]) -> Array<Any> {
         
         var messageArray: Array<Any> = []
         for item in sourceList {
@@ -21,7 +21,7 @@ class LLJCellFrameManage: NSObject {
             model.headImageName = item.headImageName ?? ""
             model.messageId = item.messageId
             model.userId = item.userId
-            model.nickName = setNickNameAttrText(content: item.nickName ?? "", value: value.last!)
+            model.nickName = setNickNameAttrText(bindObject: item.userId, content: item.nickName ?? "", value: value.first!)
             model.type = item.type
             model.timeInteval = item.timeInteval
             model.webLinkModel = item.webLinkModel
@@ -37,7 +37,7 @@ class LLJCellFrameManage: NSObject {
         return messageArray
     }
     
-    class func setCompnentsFrame(userModel: LLJCycleUserModel, item: LLJCycleMessageModel, value: [ASAttributedString.Action]) {
+    class func setCompnentsFrame(userModel: LLJCycleUserModel, item: LLJCycleMessageModel, value: [Action]) {
         
         let frameModel = LLJCycleFrameModel()
         
@@ -247,7 +247,7 @@ class LLJCellFrameManage: NSObject {
     }
     
     //计算评论数据
-    private class func setZanList(userModel: LLJCycleUserModel, item: LLJCycleMessageModel, value: [ASAttributedString.Action]) -> CGFloat {
+    private class func setZanList(userModel: LLJCycleUserModel, item: LLJCycleMessageModel, value: [Action]) -> CGFloat {
         
         //赞和评论 type = 10001010 赞 10001011 是评论 10001012 是回复
         let pre = String(format: "messageId = %ld", item.messageId)
@@ -315,42 +315,74 @@ class LLJCellFrameManage: NSObject {
         item.attrContent = setZanAttrText(item: item, content: zanContentString, value: value.first!)
         //设置评论富文本
         item.pingList = pingList
-        setPingAttrText(item: item, value: value[1])
+        setPingAttrText(item: item, value: value.first!)
         
         return zanHeight + pingViewHeight
     }
     
     //创建Zan富文本
-    private class func setZanAttrText(item: LLJCycleMessageModel, content: String, value: ASAttributedString.Action) -> ASAttributedString {
-        var attr = ASAttributedString(string: content)
-        attr.add(attributes: [.paragraph(.lineSpacing(4))])
-        attr.add(attributes: [.font(LLJFont(13, "")),.foreground(LLJColor(10, 10, 10, 1.0))], range: NSRange(location: 0, length: content.count))
+    private class func setZanAttrText(item: LLJCycleMessageModel, content: String, value: Action) -> LLJAttributeString {
+        var attr = LLJAttributeString(content: content)
+        let model = AttributeModel()
+        model.ranges = [NSRange(location: 0, length: content.count)]
+        model.attributeKeys = [.font(LLJFont(13, "")),.foregroundColor(LLJColor(10, 10, 10, 1.0))]
+        attr.addAttribute(model: model)
+
         for zanModel in item.zanList {
-            attr.add(attributes: [.font(LLJBoldFont(15)),.foreground(LLJColor(68, 86, 130, 1.0)),.action(value)], range: zanModel.aUserNameRange)
+            let subModel = AttributeModel()
+            subModel.ranges = [zanModel.aUserNameRange]
+            subModel.action = value
+            subModel.bindObject = zanModel.aUserId
+            subModel.attributeKeys = [.font(LLJBoldFont(15)),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+            attr.addAttribute(model: subModel)
         }
         return attr
     }
     //创建Ping富文本
-    private class func setPingAttrText(item: LLJCycleMessageModel, value: ASAttributedString.Action) {
+    private class func setPingAttrText(item: LLJCycleMessageModel, value: Action) {
         
         for ping in item.pingList {
 
-            var attr = ASAttributedString(string: ping.content)
+            var attr = LLJAttributeString(content: ping.content)
             
             if ping.type == 10001011 {
-                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.font(LLJFont(15, "PingFangSC-Medium")),.action(value)], range: ping.aUserNameRange)
+                
+                let model = AttributeModel()
+                model.ranges = [ping.aUserNameRange]
+                model.action = value
+                model.bindObject = ping.aUserId
+                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+                attr.addAttribute(model: model)
+                
             } else if ping.type == 10001012 {
-                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.font(LLJFont(15, "PingFangSC-Medium")),.action(value)], range: ping.aUserNameRange)
-                attr.add(attributes: [.foreground(LLJColor(68, 86, 130, 1.0)),.font(LLJFont(15, "PingFangSC-Medium")),.action(value)], range: ping.bUserNameRange)
+                
+                let model = AttributeModel()
+                model.ranges = [ping.aUserNameRange]
+                model.action = value
+                model.bindObject = ping.aUserId
+                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+                attr.addAttribute(model: model)
+
+                let model1 = AttributeModel()
+                model1.ranges = [ping.bUserNameRange]
+                model1.action = value
+                model1.bindObject = ping.bUserId
+                model1.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+                attr.addAttribute(model: model1)
             }
             ping.attrContent = attr
         }
     }
     //创建昵称富文本
-    private class func setNickNameAttrText(content: String, value: ASAttributedString.Action) -> ASAttributedString {
+    private class func setNickNameAttrText(bindObject: Any, content: String, value: Action) -> LLJAttributeString {
         
-        var attr = ASAttributedString(string: content)
-        attr.add(attributes: [.action(value)], range: NSRange(location: 0, length: content.count))
+        var attr = LLJAttributeString(content: content)
+        let model = AttributeModel()
+        model.ranges = [NSRange(location: 0, length: content.count)]
+        //model.attributeKeys = [.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+        model.action = value
+        model.bindObject = bindObject
+        attr.addAttribute(model: model)
         return attr
     }
 }

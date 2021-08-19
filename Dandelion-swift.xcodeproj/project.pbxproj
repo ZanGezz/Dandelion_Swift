@@ -22,7 +22,6 @@
 		4B3C8DCC26C3B48500FEF026 /* LLJAttributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DCB26C3B48500FEF026 /* LLJAttributeController.swift */; };
 		4B3C8DD426C3C46700FEF026 /* AttributeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DD326C3C46700FEF026 /* AttributeAction.swift */; };
 		4B3C8DE026C6105100FEF026 /* LJLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DDF26C6105100FEF026 /* LJLabel.swift */; };
-		4B3C8DE526C61EE900FEF026 /* AttributeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DE426C61EE900FEF026 /* AttributeRange.swift */; };
 		4B3C8DF126C646D200FEF026 /* AttributeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DF026C646D200FEF026 /* AttributeResult.swift */; };
 		4B3C8DF626C665C300FEF026 /* LLJAttributeLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C8DF526C665C300FEF026 /* LLJAttributeLayoutDelegate.swift */; };
 		4B46032725AEBED5008BCF69 /* LLJMainSource.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B46032625AEBED5008BCF69 /* LLJMainSource.txt */; };
@@ -170,7 +169,6 @@
 		4B3C8DCB26C3B48500FEF026 /* LLJAttributeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAttributeController.swift; sourceTree = "<group>"; };
 		4B3C8DD326C3C46700FEF026 /* AttributeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeAction.swift; sourceTree = "<group>"; };
 		4B3C8DDF26C6105100FEF026 /* LJLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJLabel.swift; sourceTree = "<group>"; };
-		4B3C8DE426C61EE900FEF026 /* AttributeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeRange.swift; sourceTree = "<group>"; };
 		4B3C8DF026C646D200FEF026 /* AttributeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeResult.swift; sourceTree = "<group>"; };
 		4B3C8DF526C665C300FEF026 /* LLJAttributeLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJAttributeLayoutDelegate.swift; sourceTree = "<group>"; };
 		4B46032625AEBED5008BCF69 /* LLJMainSource.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LLJMainSource.txt; sourceTree = "<group>"; };
@@ -859,7 +857,6 @@
 				4B8C11C926C3720D0062E707 /* AttributeModel.swift */,
 				4B3C8DB526C39B5000FEF026 /* AttributeKey.swift */,
 				4B3C8DD326C3C46700FEF026 /* AttributeAction.swift */,
-				4B3C8DE426C61EE900FEF026 /* AttributeRange.swift */,
 				4B3C8DF026C646D200FEF026 /* AttributeResult.swift */,
 			);
 			path = model;
@@ -1549,7 +1546,6 @@
 				4B9FFE0626AFF3AB00E1819E /* WKInterfaceTextFieldExtension.swift in Sources */,
 				4B7BBFE2264E732300CA9F17 /* LLJWChatMainViewController.swift in Sources */,
 				4B8463272665CF02002A8B2B /* LLJTableView.swift in Sources */,
-				4B3C8DE526C61EE900FEF026 /* AttributeRange.swift in Sources */,
 				4B8087322638EE6B009CEDFF /* LLJAnimationController.swift in Sources */,
 				4B9FFE0C26AFF3AB00E1819E /* Interpolation.swift in Sources */,
 				4B9FFE0026AFF3AB00E1819E /* UILabelLayoutManagerDelegate.swift in Sources */,

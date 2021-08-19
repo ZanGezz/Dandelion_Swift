@@ -11,5 +11,7 @@ class AttributeResult: NSObject {
 
     var range: NSRange = NSRange()
     var content: String = ""
-    var tag: Any?
+    var bindObject: Any?
+    
+    var action: Action?
 }

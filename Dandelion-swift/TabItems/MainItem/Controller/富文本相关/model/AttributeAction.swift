@@ -9,5 +9,7 @@ import UIKit
 
 struct Action {
     
+    var highLight: AttributeKey
+    var tigger: ActionType
     var callBack: (AttributeResult) -> Void
 }

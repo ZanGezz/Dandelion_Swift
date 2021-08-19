@@ -161,11 +161,17 @@ extension LLJInputView: UITextViewDelegate {
 
         UIView.animate(withDuration: 0.35) {
             self.frame = CGRect(x: 0, y: SCREEN_HEIGHT - LLJDX(55), width: SCREEN_WIDTH, height: LLJDX(55))
-        } completion: { (bool) in
+        } completion: { [self] (bool) in
             self.removeFromSuperview()
             
             if self.tableView!.contentSize.height < SCREEN_HEIGHT {
                 self.tableView!.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
+            }
+            
+            let offset_y = Int(self.tableView!.contentOffset.y + SCREEN_HEIGHT - self.keyBoardHeight - LLJDX(56))
+            let content_h = Int(self.tableView!.contentSize.height)
+            if offset_y == content_h {
+                self.tableView!.setContentOffset(CGPoint(x: 0.0, y: self.tableView!.contentOffset.y - self.keyBoardHeight - LLJDX(56)), animated: true)
             }
         }
         UserDefaults.standard.set(false, forKey: "keyBoardStatus")

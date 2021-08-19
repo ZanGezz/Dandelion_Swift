@@ -24,7 +24,7 @@ class LLJZanListView: UIView {
         return tableView
     }()
     
-    private var attrContent: ASAttributedString = ASAttributedString(string: "")
+    private var attrContent: LLJAttributeString = LLJAttributeString(content: "")
     private var zanHeight: CGFloat = 0.0
     private var model: LLJCycleMessageModel = LLJCycleMessageModel()
     private var zanItemSize: CGSize = CGSize.zero
@@ -98,7 +98,7 @@ extension LLJZanListView: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.selectPingItem != nil {
+        if self.selectPingItem != nil && indexPath.section == 1 {
             self.selectPingItem!(indexPath.row)
         }
     }

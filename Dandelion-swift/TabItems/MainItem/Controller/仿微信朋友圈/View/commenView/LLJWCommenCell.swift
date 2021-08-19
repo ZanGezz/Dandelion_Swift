@@ -28,8 +28,8 @@ class LLJWCommenCell: UITableViewCell {
         return headImageView
     }()
     
-    lazy var nickNameLabel: UILabel = {
-        let nickNameLabel = UILabel()
+    lazy var nickNameLabel: LJLabel = {
+        let nickNameLabel = LJLabel()
         nickNameLabel.textColor = LLJColor(68, 86, 130, 1.0)
         nickNameLabel.font = LLJBoldFont(18)
         return nickNameLabel
@@ -241,7 +241,7 @@ extension LLJWCommenCell {
         layoutSubview(model: sourceModel)
         //设置数据
         self.headImageView.image = UIImage(named: sourceModel.headImageName)
-        self.nickNameLabel.attributed.text = sourceModel.nickName
+        self.nickNameLabel.attribute = sourceModel.nickName
         self.contentLabel.text = sourceModel.content
         self.locationButton.text = sourceModel.locationModel?.name
         self.timeLabel.text = LLJSHelper.exChangeTimeIntevalToMin(timeInteval: sourceModel.timeInteval)

@@ -39,11 +39,12 @@ extension LLJAttributeController {
         let model = AttributeModel()
         model.content = text
         model.attributeContent = ["孩子","我们"]
-        model.tag = "12354657"
+        model.bindObject = UIColor.red
         model.attributeKeys = [.font(LLJFont(18)),.foregroundColor(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))]
         model.ranges = [NSRange(location: 5, length: 2)]
         model.action = self.action
-        let attr = LLJAttributeString(model: model)
+        var attr = LLJAttributeString(content: text)
+        attr.addAttribute(model: model)
         
         self.textLabel.attribute = attr
     }
@@ -53,7 +54,7 @@ extension LLJAttributeController {
         let action = Action { (result) in
             LLJLog(result.content)
             LLJLog(result.range)
-            LLJLog(result.tag as! String)
+            LLJLog(result.bindObject as Any)
         }
         self.action = action
     }

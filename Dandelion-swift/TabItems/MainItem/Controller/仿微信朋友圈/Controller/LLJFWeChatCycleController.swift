@@ -91,7 +91,7 @@ class LLJFWeChatCycleController: LLJFViewController {
         return deletePing
     }()
 
-    private var actionList: [ASAttributedString.Action] = []
+    private var actionList: [Action] = []
         
     private var navView: UIView?
     private var backButton: UIButton?
@@ -552,56 +552,23 @@ extension LLJFWeChatCycleController {
 
     //富文本点击事件
     private func attrAction() {
-        let zanAction = ASAttributedString.Action(.click, highlights: [.background(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))]) { (result) in
-            switch result.content {
-            case .string(let value):
-                
-                for item in self.allUser {
-                    
-                    if item.nickName == value.string {
-                        self.pushNewUser(userModel: item)
-                        break
-                    }
-                }
-                
-            default: break
-            }
-        }
         
-        let pingAction = ASAttributedString.Action(.click, highlights: [.background(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))]) { (result) in
-            switch result.content {
-            case .string(let value):
-                
-                for item in self.allUser {
-                    
-                    if item.nickName == value.string {
-                        self.pushNewUser(userModel: item)
-                        break
-                    }
-                }
-                
-            default: break
+        //富文本点击事件
+        let zanAction = Action { (result) in
+            
+            guard let userId = result.bindObject as? Int64 else {
+                return
             }
-        }
-        
-        let nickNameAction = ASAttributedString.Action(.click, highlights: [.background(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))]) { (result) in
-            switch result.content {
-            case .string(let value):
+            
+            for item in self.allUser {
                 
-                for item in self.allUser {
-                    
-                    if item.nickName == value.string {
-                        self.pushNewUser(userModel: item)
-                        break
-                    }
+                if item.userId == userId {
+                    self.pushNewUser(userModel: item)
+                    break
                 }
-                
-            default: break
             }
         }
         self.actionList.append(zanAction)
-        self.actionList.append(pingAction)
-        self.actionList.append(nickNameAction)
     }
     
     

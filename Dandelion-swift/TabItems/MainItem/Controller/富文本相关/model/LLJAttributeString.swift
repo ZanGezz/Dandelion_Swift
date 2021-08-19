@@ -9,11 +9,16 @@ import UIKit
 
 struct LLJAttributeString {
     
-    var model: AttributeModel
+    var attributeResults: [AttributeResult] = []
     var text: NSAttributedString
     
-    init(model: AttributeModel) {
-        self.model = model
+    init(content: String) {
+        
+        self.text = NSMutableAttributedString(string: content)
+    }
+    
+    init?(model: AttributeModel) {
+ 
         self.text = NSMutableAttributedString(string: model.content)
         addAttribute(model: model)
     }
@@ -21,25 +26,53 @@ struct LLJAttributeString {
 
 extension LLJAttributeString {
     
-    private mutating func addAttribute(model: AttributeModel) {
+    mutating func addAttribute(model: AttributeModel) {
         
-        let content = NSMutableAttributedString(string: model.content)
-        model.AttributeRanges.forEach { (range) in
+        let content = NSMutableAttributedString(attributedString: self.text)
+ 
+        setResults(model: model, content: content)
+    }
+    
+    private mutating func setResults(model: AttributeModel, content: NSMutableAttributedString) {
+                
+        model.attributeContent.forEach { (subString) in
+            let array = self.text.string.ranges(of: subString)
+            array.forEach { (result) in
+                result.action = model.action
+                result.bindObject = model.bindObject
+                
+                model.attributeKeys.forEach { (key) in
+                    self.text = setAttributeString(content: content, attribute: key, range: result.range)
+                }
+                
+                self.attributeResults.append(result)
+            }
+        }
+        
+        model.ranges.forEach { (range) in
+            guard let attributeRange = self.text.string.ranges(of: range) else {
+                return
+            }
+            attributeRange.action = model.action
+            attributeRange.bindObject = model.bindObject
+            
             model.attributeKeys.forEach { (key) in
                 self.text = setAttributeString(content: content, attribute: key, range: range)
             }
+            
+            self.attributeResults.append(attributeRange)
         }
     }
     
-    func setAttributeString(content: NSMutableAttributedString, attribute: AttributeKey, range: AttributeRange) -> NSAttributedString {
+    func setAttributeString(content: NSMutableAttributedString, attribute: AttributeKey, range: NSRange) -> NSAttributedString {
         
         switch attribute {
         case .font(let font):
-            content.addAttribute(.font, value: font, range: range.range)
+            content.addAttribute(.font, value: font, range: range)
         case .backgroundColor(let color):
-            content.addAttribute(.backgroundColor, value: color, range: range.range)
+            content.addAttribute(.backgroundColor, value: color, range: range)
         case .foregroundColor(let color):
-            content.addAttribute(.foregroundColor, value: color, range: range.range)
+            content.addAttribute(.foregroundColor, value: color, range: range)
         }
         return content
     }

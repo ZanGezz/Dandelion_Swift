@@ -15,8 +15,8 @@ class LLJZanListCell: UITableViewCell {
         return xinImageView
     }()
     
-    lazy var contentLabel: UILabel = {
-        let contentLabel = UILabel()
+    lazy var contentLabel: LJLabel = {
+        let contentLabel = LJLabel()
         contentLabel.textColor = LLJColor(10, 10, 10, 1.0)
         contentLabel.font = LLJBoldFont(15)
         contentLabel.numberOfLines = 0;
@@ -59,7 +59,7 @@ extension LLJZanListCell {
             make.bottom.equalTo(self.contentView.snp_bottom).offset(LLJDX(-4))
         }
         
-        self.xinImageView.frame = CGRect(x: LLJDX(10), y: LLJDX(5), width: LLJDX(15), height: LLJDX(15))
+        self.xinImageView.frame = CGRect(x: LLJDX(10), y: LLJDX(6), width: LLJDX(14), height: LLJDX(14))
         
         self.lineView.snp_makeConstraints { (make) in
             make.left.equalTo(self.contentView.snp_left)
@@ -70,9 +70,9 @@ extension LLJZanListCell {
     }
     
     //赋值
-    func setDataSource(content: ASAttributedString, bottomLineHidden: Bool) {
+    func setDataSource(content: LLJAttributeString, bottomLineHidden: Bool) {
         
         self.lineView.isHidden = bottomLineHidden
-        self.contentLabel.attributed.text = content
+        self.contentLabel.attribute = content
     }
 }

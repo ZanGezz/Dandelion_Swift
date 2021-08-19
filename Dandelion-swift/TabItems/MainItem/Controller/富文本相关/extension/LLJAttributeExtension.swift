@@ -18,13 +18,13 @@ extension String {
 extension NSString {
     
     //获取字符串中所有的指定子字符串range
-    func ranges(of searchString: String) -> [AttributeRange] {
-        var ranges: [AttributeRange] = []
+    func ranges(of searchString: String) -> [AttributeResult] {
+        var ranges: [AttributeResult] = []
         var content: NSString = self
         var location: Int = 0
         for _ in stride(from: 0, to: self.length, by: 1) {
             
-            let model: AttributeRange = AttributeRange()
+            let model: AttributeResult = AttributeResult()
             let range: NSRange = content.range(of: searchString)
             guard range.length > 0 else {
                 break
@@ -44,14 +44,14 @@ extension NSString {
     }
     
     //获取字符串中所有的指定子字符串range
-    func ranges(of searchRange: NSRange) -> AttributeRange? {
+    func ranges(of searchRange: NSRange) -> AttributeResult? {
         
         guard
-            searchRange.location > 0,
+            searchRange.location >= 0,
             searchRange.location + searchRange.length <= self.length else {
             return nil
         }
-        let ranges: AttributeRange = AttributeRange()
+        let ranges: AttributeResult = AttributeResult()
         let content = self.substring(with: searchRange)
         ranges.content = content
         ranges.range = searchRange
