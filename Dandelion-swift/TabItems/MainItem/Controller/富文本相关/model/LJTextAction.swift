@@ -8,8 +8,8 @@
 import UIKit
 
 struct Action {
-    
-    var highLight: AttributeKey
-    var tigger: ActionType
-    var callBack: (AttributeResult) -> Void
+        
+    var highLight: [LJTextKey]
+    var tigger: LJActionType
+    var callBack: (LJTextResult) -> Void
 }

@@ -7,14 +7,14 @@
 
 import UIKit
 
-enum AttributeKey {
+enum LJTextKey {
     
     case font(UIFont)
-    case foregroundColor(UIColor)
-    case backgroundColor(UIColor)
+    case foreground(UIColor)
+    case background(UIColor)
 }
 
-enum ActionType {
+enum LJActionType {
     
     case click
     case press

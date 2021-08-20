@@ -24,7 +24,7 @@ class LLJZanListView: UIView {
         return tableView
     }()
     
-    private var attrContent: LLJAttributeString = LLJAttributeString(content: "")
+    private var attrContent: LJTextString = LJTextString(content: "")
     private var zanHeight: CGFloat = 0.0
     private var model: LLJCycleMessageModel = LLJCycleMessageModel()
     private var zanItemSize: CGSize = CGSize.zero

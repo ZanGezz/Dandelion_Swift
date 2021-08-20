@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LLJAttributeLayoutDelegate: NSObject, NSLayoutManagerDelegate {
+class LJTextLayoutDelegate: NSObject, NSLayoutManagerDelegate {
     
     // 当Label发生Scaled时
     let scaledMetrics: LJLabel.ScaledMetrics?
@@ -119,7 +119,7 @@ class LLJAttributeLayoutDelegate: NSObject, NSLayoutManagerDelegate {
     }
 }
 
-extension LLJAttributeLayoutDelegate {
+extension LJTextLayoutDelegate {
     
     private struct Maximum {
         let font: UIFont

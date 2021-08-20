@@ -89,13 +89,14 @@ class LJLabel: UILabel {
         return scaledMetrics?.scaledAttributedText
     }
 
-    private var resultRange: AttributeResult?
-    private var _attribute: LLJAttributeString?
+    private var textRange: LJTextRange?
+    private var _attribute: LJTextString?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.isUserInteractionEnabled = true
+        self.lineBreakMode = .byCharWrapping
     }
     
     required init?(coder: NSCoder) {
@@ -105,7 +106,7 @@ class LJLabel: UILabel {
 
 extension LJLabel {
     
-    var attribute: LLJAttributeString? {
+    var attribute: LJTextString? {
         set {
             self.attributedText = newValue?.text
             _attribute = newValue
@@ -125,39 +126,40 @@ extension LJLabel {
             let touch = touches.first,
             let range = matching(touch.location(in: self)) else {
                 super.touchesBegan(touches, with: event)
-                resultRange = nil
+            textRange = nil
                 return
         }
         
         // 设置高亮样式
         let attri = NSMutableAttributedString(attributedString: text)
-        attri.addAttribute(.backgroundColor, value: #colorLiteral(red: 0.8823529412, green: 0.8823529412, blue: 0.8823529412, alpha: 1), range: range.range)
+        attri.addAttribute(.backgroundColor, value: #colorLiteral(red: 0.8823529412, green: 0.8823529412, blue: 0.8823529412, alpha: 1), range: range.result.range)
         self.attributedText = attri
         
-        resultRange = range
+        textRange = range
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard let resultRange = self.resultRange else {
+        guard let textRange = self.textRange else {
             return
         }
         // 设置高亮样式
         let attri = NSMutableAttributedString(attributedString: self.attribute!.text)
-        attri.addAttribute(.backgroundColor, value: UIColor.clear, range: resultRange.range)
+        attri.addAttribute(.backgroundColor, value: UIColor.clear, range: textRange.result.range)
         self.attributedText = attri
         
-        resultRange.action?.callBack(resultRange)
+        //回调
+        textRange.callBack()
     }
 }
 
 extension LJLabel {
     
-    func matching(_ point: CGPoint) -> AttributeResult? {
+    func matching(_ point: CGPoint) -> LJTextRange? {
         
         let text = adaptation(self.scaledAttributedText ?? self.synthesizedAttributedText ?? attributedText, with: numberOfLines)
         // 构建同步Label的TextKit
-        let delegate = LLJAttributeLayoutDelegate(scaledMetrics, with: baselineAdjustment)
+        let delegate = LJTextLayoutDelegate(scaledMetrics, with: baselineAdjustment)
         let textStorage = NSTextStorage()
         let textContainer = NSTextContainer(size: bounds.size)
         let layoutManager = NSLayoutManager()
@@ -194,14 +196,14 @@ extension LJLabel {
         }
 
         // 获取点击的字符串范围和回调事件
-        var attributeRange: AttributeResult?
-        for item in self.attribute!.attributeResults {
-            if item.range.contains(index) && item.action != nil {
-                attributeRange = item
+        var textRange: LJTextRange?
+        for item in self.attribute!.textRanges {
+            if item.result.range.contains(index) && item.action != nil {
+                textRange = item
                 break
             }
         }
-        return attributeRange
+        return textRange
     }
     
     private func adaptation(_ string: NSAttributedString?, with numberOfLines: Int) -> NSAttributedString? {

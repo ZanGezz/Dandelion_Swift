@@ -36,14 +36,14 @@ extension LLJAttributeController {
         setCallBack()
         
         let text: String = "我们都是好孩子，异想天开的孩子！我们都是好孩子，异想天开的孩子！"
-        let model = AttributeModel()
+        let model = LJTextModel()
         model.content = text
-        model.attributeContent = ["孩子","我们"]
+        model.searchContent = ["孩子","我们"]
         model.bindObject = UIColor.red
-        model.attributeKeys = [.font(LLJFont(18)),.foregroundColor(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))]
+        model.attributeKeys = [.font(LLJFont(18)),.foreground(#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1))]
         model.ranges = [NSRange(location: 5, length: 2)]
         model.action = self.action
-        var attr = LLJAttributeString(content: text)
+        var attr = LJTextString(content: text)
         attr.addAttribute(model: model)
         
         self.textLabel.attribute = attr
@@ -51,11 +51,9 @@ extension LLJAttributeController {
     
     //点击事件
     func setCallBack() {
-        let action = Action { (result) in
-            LLJLog(result.content)
-            LLJLog(result.range)
-            LLJLog(result.bindObject as Any)
-        }
+        let action = Action(highLight: [.foreground(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], tigger: .click, callBack: { result in
+            
+        })
         self.action = action
     }
 }

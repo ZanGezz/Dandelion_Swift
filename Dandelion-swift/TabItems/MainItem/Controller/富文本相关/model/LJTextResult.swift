@@ -7,11 +7,9 @@
 
 import UIKit
 
-class AttributeResult: NSObject {
+class LJTextResult: NSObject {
 
-    var range: NSRange = NSRange()
+    var range: NSRange = NSRange(location: 0, length: 0)
     var content: String = ""
     var bindObject: Any?
-    
-    var action: Action?
 }

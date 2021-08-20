@@ -70,7 +70,7 @@ extension LLJZanListCell {
     }
     
     //赋值
-    func setDataSource(content: LLJAttributeString, bottomLineHidden: Bool) {
+    func setDataSource(content: LJTextString, bottomLineHidden: Bool) {
         
         self.lineView.isHidden = bottomLineHidden
         self.contentLabel.attribute = content

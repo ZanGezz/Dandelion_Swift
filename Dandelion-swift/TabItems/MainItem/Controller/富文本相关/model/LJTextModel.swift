@@ -7,14 +7,12 @@
 
 import UIKit
 
-class AttributeModel: NSObject {
+class LJTextModel: NSObject {
     
     var content: String = ""
-    
-    var attributeContent: [String] = []
+    var searchContent: [String] = []
     var ranges: [NSRange] = []
-    var attributeKeys: [AttributeKey] = []
-    
+    var attributeKeys: [LJTextKey] = []
     var action: Action?
     var bindObject: Any?
 }

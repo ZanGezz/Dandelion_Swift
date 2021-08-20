@@ -321,19 +321,19 @@ class LLJCellFrameManage: NSObject {
     }
     
     //创建Zan富文本
-    private class func setZanAttrText(item: LLJCycleMessageModel, content: String, value: Action) -> LLJAttributeString {
-        var attr = LLJAttributeString(content: content)
-        let model = AttributeModel()
+    private class func setZanAttrText(item: LLJCycleMessageModel, content: String, value: Action) -> LJTextString {
+        var attr = LJTextString(content: content)
+        let model = LJTextModel()
         model.ranges = [NSRange(location: 0, length: content.count)]
-        model.attributeKeys = [.font(LLJFont(13, "")),.foregroundColor(LLJColor(10, 10, 10, 1.0))]
+        model.attributeKeys = [.font(LLJFont(13, "")),.foreground(LLJColor(10, 10, 10, 1.0))]
         attr.addAttribute(model: model)
 
         for zanModel in item.zanList {
-            let subModel = AttributeModel()
+            let subModel = LJTextModel()
             subModel.ranges = [zanModel.aUserNameRange]
             subModel.action = value
             subModel.bindObject = zanModel.aUserId
-            subModel.attributeKeys = [.font(LLJBoldFont(15)),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+            subModel.attributeKeys = [.font(LLJBoldFont(15)),.foreground(LLJColor(68, 86, 130, 1.0))]
             attr.addAttribute(model: subModel)
         }
         return attr
@@ -343,41 +343,41 @@ class LLJCellFrameManage: NSObject {
         
         for ping in item.pingList {
 
-            var attr = LLJAttributeString(content: ping.content)
+            var attr = LJTextString(content: ping.content)
             
             if ping.type == 10001011 {
                 
-                let model = AttributeModel()
+                let model = LJTextModel()
                 model.ranges = [ping.aUserNameRange]
                 model.action = value
                 model.bindObject = ping.aUserId
-                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))]
                 attr.addAttribute(model: model)
                 
             } else if ping.type == 10001012 {
                 
-                let model = AttributeModel()
+                let model = LJTextModel()
                 model.ranges = [ping.aUserNameRange]
                 model.action = value
                 model.bindObject = ping.aUserId
-                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))]
                 attr.addAttribute(model: model)
 
-                let model1 = AttributeModel()
+                let model1 = LJTextModel()
                 model1.ranges = [ping.bUserNameRange]
                 model1.action = value
                 model1.bindObject = ping.bUserId
-                model1.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foregroundColor(LLJColor(68, 86, 130, 1.0))]
+                model1.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))]
                 attr.addAttribute(model: model1)
             }
             ping.attrContent = attr
         }
     }
     //创建昵称富文本
-    private class func setNickNameAttrText(bindObject: Any, content: String, value: Action) -> LLJAttributeString {
+    private class func setNickNameAttrText(bindObject: Any, content: String, value: Action) -> LJTextString {
         
-        var attr = LLJAttributeString(content: content)
-        let model = AttributeModel()
+        var attr = LJTextString(content: content)
+        let model = LJTextModel()
         model.ranges = [NSRange(location: 0, length: content.count)]
         //model.attributeKeys = [.foregroundColor(LLJColor(68, 86, 130, 1.0))]
         model.action = value

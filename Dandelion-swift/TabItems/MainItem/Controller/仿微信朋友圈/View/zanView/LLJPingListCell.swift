@@ -46,7 +46,7 @@ extension LLJPingListCell {
         }
     }
     //设置数据
-    func setDataSource(content: LLJAttributeString) {
+    func setDataSource(content: LJTextString) {
         
         self.contentLabel.attribute = content
     }
