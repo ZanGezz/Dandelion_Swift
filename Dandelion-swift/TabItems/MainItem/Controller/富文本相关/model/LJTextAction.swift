@@ -9,7 +9,6 @@ import UIKit
 
 struct Action {
         
-    var highLight: [LJTextKey]
     var tigger: LJActionType
     var callBack: (LJTextResult) -> Void
 }

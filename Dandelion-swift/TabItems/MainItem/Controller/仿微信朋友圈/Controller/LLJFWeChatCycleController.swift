@@ -554,7 +554,7 @@ extension LLJFWeChatCycleController {
     private func attrAction() {
         
         //富文本点击事件
-        let zanAction = Action(highLight: [.foreground(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], tigger: .click) { (textResult) in
+        let zanAction = Action(tigger: .click) { (textResult) in
             
             guard let userId = textResult.bindObject as? Int64 else {
                 return

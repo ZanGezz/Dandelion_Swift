@@ -322,19 +322,13 @@ class LLJCellFrameManage: NSObject {
     
     //创建Zan富文本
     private class func setZanAttrText(item: LLJCycleMessageModel, content: String, value: Action) -> LJTextString {
+        
         var attr = LJTextString(content: content)
-        let model = LJTextModel()
-        model.ranges = [NSRange(location: 0, length: content.count)]
-        model.attributeKeys = [.font(LLJFont(13, "")),.foreground(LLJColor(10, 10, 10, 1.0))]
-        attr.addAttribute(model: model)
-
+        attr.add(searchRange: NSRange(location: 0, length: content.count), attributeKeys: [.font(LLJFont(13, "")),.foreground(LLJColor(10, 10, 10, 1.0))], highLightKeys: [.background(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], action: nil, bindObject: nil)
+        
         for zanModel in item.zanList {
-            let subModel = LJTextModel()
-            subModel.ranges = [zanModel.aUserNameRange]
-            subModel.action = value
-            subModel.bindObject = zanModel.aUserId
-            subModel.attributeKeys = [.font(LLJBoldFont(15)),.foreground(LLJColor(68, 86, 130, 1.0))]
-            attr.addAttribute(model: subModel)
+            attr.add(searchRange: zanModel.aUserNameRange, attributeKeys: [.font(LLJBoldFont(15)),.foreground(LLJColor(68, 86, 130, 1.0))], highLightKeys: [.background(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], action: value, bindObject: zanModel.aUserId)
+
         }
         return attr
     }
@@ -346,29 +340,14 @@ class LLJCellFrameManage: NSObject {
             var attr = LJTextString(content: ping.content)
             
             if ping.type == 10001011 {
-                
-                let model = LJTextModel()
-                model.ranges = [ping.aUserNameRange]
-                model.action = value
-                model.bindObject = ping.aUserId
-                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))]
-                attr.addAttribute(model: model)
+
+                attr.add(searchRange: ping.aUserNameRange, attributeKeys: [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))], highLightKeys: [.background(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], action: value, bindObject: ping.aUserId)
                 
             } else if ping.type == 10001012 {
-                
-                let model = LJTextModel()
-                model.ranges = [ping.aUserNameRange]
-                model.action = value
-                model.bindObject = ping.aUserId
-                model.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))]
-                attr.addAttribute(model: model)
 
-                let model1 = LJTextModel()
-                model1.ranges = [ping.bUserNameRange]
-                model1.action = value
-                model1.bindObject = ping.bUserId
-                model1.attributeKeys = [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))]
-                attr.addAttribute(model: model1)
+                attr.add(searchRange: ping.aUserNameRange, attributeKeys: [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))], highLightKeys: [.background(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], action: value, bindObject: ping.aUserId)
+
+                attr.add(searchRange: ping.bUserNameRange, attributeKeys: [.font(LLJFont(15, "PingFangSC-Medium")),.foreground(LLJColor(68, 86, 130, 1.0))], highLightKeys: [.background(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], action: value, bindObject: ping.bUserId)
             }
             ping.attrContent = attr
         }
@@ -377,12 +356,8 @@ class LLJCellFrameManage: NSObject {
     private class func setNickNameAttrText(bindObject: Any, content: String, value: Action) -> LJTextString {
         
         var attr = LJTextString(content: content)
-        let model = LJTextModel()
-        model.ranges = [NSRange(location: 0, length: content.count)]
-        //model.attributeKeys = [.foregroundColor(LLJColor(68, 86, 130, 1.0))]
-        model.action = value
-        model.bindObject = bindObject
-        attr.addAttribute(model: model)
+        attr.add(searchRange: NSRange(location: 0, length: content.count), attributeKeys: nil, highLightKeys: [.background(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))], action: value, bindObject: bindObject)
+
         return attr
     }
 }

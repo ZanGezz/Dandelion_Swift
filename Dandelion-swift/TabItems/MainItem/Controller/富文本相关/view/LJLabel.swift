@@ -97,6 +97,8 @@ class LJLabel: UILabel {
         
         self.isUserInteractionEnabled = true
         self.lineBreakMode = .byCharWrapping
+        //添加手势
+        //addGes()
     }
     
     required init?(coder: NSCoder) {
@@ -115,9 +117,22 @@ extension LJLabel {
             return _attribute
         }
     }
+    
+//    private func addGes() {
+//        let click = UITapGestureRecognizer(target: self, action: #selector(tapGes(ges:)))
+//        self.addGestureRecognizer(click)
+//
+//        let press = UILongPressGestureRecognizer(target: self, action: #selector(tapGes(ges:)))
+//        self.addGestureRecognizer(press)
+//    }
 }
 
 extension LJLabel {
+    
+    
+    @objc private func tapGes(ges: UIGestureRecognizer) {
+        
+    }
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -126,27 +141,40 @@ extension LJLabel {
             let touch = touches.first,
             let range = matching(touch.location(in: self)) else {
                 super.touchesBegan(touches, with: event)
-            textRange = nil
+                textRange = nil
                 return
+        }
+        //是否有回调事件
+        guard let _ = range.action else {
+            return
         }
         
         // 设置高亮样式
-        let attri = NSMutableAttributedString(attributedString: text)
-        attri.addAttribute(.backgroundColor, value: #colorLiteral(red: 0.8823529412, green: 0.8823529412, blue: 0.8823529412, alpha: 1), range: range.result.range)
-        self.attributedText = attri
+        var attr = LJTextString(content: text)
+        attr.add(searchRange: range.result.range, attributeKeys: range.highLightKeys)
+        self.attributedText = attr.text
         
         textRange = range
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        guard let textRange = self.textRange else {
+        guard
+            let textRange = self.textRange,
+            //let touch = touches.first,
+            let text = self.attribute?.text else {
             return
         }
-        // 设置高亮样式
-        let attri = NSMutableAttributedString(attributedString: self.attribute!.text)
-        attri.addAttribute(.backgroundColor, value: UIColor.clear, range: textRange.result.range)
-        self.attributedText = attri
+        
+        //是否有回调事件
+        guard let _ = textRange.action else {
+            return
+        }
+        
+        // 取消高亮样式
+        var attr = LJTextString(content: text)
+        attr.add(searchRange: textRange.result.range, attributeKeys: textRange.attributeKeys)
+        self.attributedText = attr.text
         
         //回调
         textRange.callBack()
@@ -177,8 +205,6 @@ extension LJLabel {
         // 获取文本所占高度
         let height = layoutManager.usedRect(for: textContainer).height
 
-        LLJLog(height)
-
         // 获取点击坐标 并排除各种偏移
         var point = point
         point.y -= (bounds.height - height) / 2
@@ -188,7 +214,6 @@ extension LJLabel {
         let glyphIndex = layoutManager.glyphIndex(for: point, in: textContainer, fractionOfDistanceThroughGlyph: &fraction)
         // 获取字符下标
         let index = layoutManager.characterIndexForGlyph(at: glyphIndex)
-        LLJLog(index)
 
         // 通过字形距离判断是否在字形范围内
         guard fraction > 0, fraction < 1 else {

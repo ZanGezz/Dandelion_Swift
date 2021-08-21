@@ -74,7 +74,6 @@
 		4B8C119E26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */; };
 		4B8C11A326BCCE0C0062E707 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4B8C11A226BCCE0C0062E707 /* video.mp4 */; };
 		4B8C11B726C0DA110062E707 /* LJTextString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C11B626C0DA110062E707 /* LJTextString.swift */; };
-		4B8C11CA26C3720D0062E707 /* LJTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8C11C926C3720D0062E707 /* LJTextModel.swift */; };
 		4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */; };
 		4B9034A625B7C4AB007E777D /* LLJSCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */; };
 		4B9FFD2126A972C600E1819E /* LLJWCycleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */; };
@@ -231,7 +230,6 @@
 		4B8C119D26BBE6EB0062E707 /* LLJBaseVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBaseVideoPlayer.swift; sourceTree = "<group>"; };
 		4B8C11A226BCCE0C0062E707 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		4B8C11B626C0DA110062E707 /* LJTextString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJTextString.swift; sourceTree = "<group>"; };
-		4B8C11C926C3720D0062E707 /* LJTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJTextModel.swift; sourceTree = "<group>"; };
 		4B90349F25B7BDA6007E777D /* LLJSCoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataController.swift; sourceTree = "<group>"; };
 		4B9034A525B7C4AB007E777D /* LLJSCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSCoreDataHelper.swift; sourceTree = "<group>"; };
 		4B9FFD2026A972C600E1819E /* LLJWCycleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWCycleImageCell.swift; sourceTree = "<group>"; };
@@ -856,7 +854,6 @@
 			isa = PBXGroup;
 			children = (
 				4B8C11B626C0DA110062E707 /* LJTextString.swift */,
-				4B8C11C926C3720D0062E707 /* LJTextModel.swift */,
 				4B3C8DB526C39B5000FEF026 /* LJTextKey.swift */,
 				4B3C8DD326C3C46700FEF026 /* LJTextAction.swift */,
 				4B3963D526CF818A006F5A53 /* LJTextRange.swift */,
@@ -1464,7 +1461,6 @@
 				4B7BC0152657639100CA9F17 /* LLJAboutSwiftController.swift in Sources */,
 				4B9FFE0726AFF3AB00E1819E /* WKInterfaceLabelExtension.swift in Sources */,
 				4B9FFD4726AAA74200E1819E /* LLJTextInputCell.swift in Sources */,
-				4B8C11CA26C3720D0062E707 /* LJTextModel.swift in Sources */,
 				4B83E8EC2629399F00537DA0 /* LLJBezierPathController.swift in Sources */,
 				4B3C8DC726C3ABD100FEF026 /* LJText+Extension.swift in Sources */,
 				4B9FFE0426AFF3AB00E1819E /* Extension.swift in Sources */,

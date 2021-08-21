@@ -9,6 +9,8 @@ import UIKit
 
 class LJTextRange: NSObject {
 
+    var attributeKeys: [LJTextKey]?
+    var highLightKeys: [LJTextKey]?
     var result: LJTextResult = LJTextResult()
     var action: Action?
 }
