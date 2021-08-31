@@ -9,6 +9,11 @@ import UIKit
 
 class LLJNaviController: UINavigationController {
 
+    //状态栏样式
+    var _statusBarStyle: UIStatusBarStyle = .default
+    //状态栏动画
+    var statusBarAnimation: UIStatusBarAnimation = .none
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //设置UI
@@ -39,7 +44,7 @@ extension LLJNaviController: UIGestureRecognizerDelegate {
      * 设置背景颜色
      */
     func setUpBackGroundColor(_ color: UIColor) {
-        let image = LLJSHelper .getImageByColorAndSize(LLJBlackColor(), CGSize(width: SCREEN_WIDTH, height: LLJTopHeight))
+        let image = LLJSHelper .getImageByColorAndSize(color, CGSize(width: SCREEN_WIDTH, height: LLJTopHeight))
         setUpBackGroundImage(image)
     }
     /*
@@ -67,5 +72,34 @@ extension LLJNaviController: UIGestureRecognizerDelegate {
             }
         }
         return false
+    }
+}
+
+extension LLJNaviController {
+    
+    /*
+     * 状态栏样式
+     */
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    /*
+     * 状态栏动画
+     */
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation{
+        return .none
+    }
+    
+    //代理
+    var statusBarStyle: UIStatusBarStyle {
+        set {
+            _statusBarStyle = newValue
+            
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+        get {
+            return _statusBarStyle
+        }
     }
 }

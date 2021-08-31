@@ -11,9 +11,7 @@ class LLJSMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let pre = String(format: "timeInteval = %ld", 1628214393)
-//        let _ = LLJSCoreDataHelper().deleteRosource(entityName: "LLJWeChatCycleModel", predicate: pre)
+
         //获取本地数据
         getLocalTxtSource()
         //设置UI
@@ -65,12 +63,6 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
                 viewController?.hiddenNavgationBarWhenPushIn = true
             }
             if sub.last! == "LLJFWeChatCycleController" {
-//                let model = LLJCycleUserModel()
-//                model.nickName = "赞歌"
-//                model.headIamge = "IMG_28"
-//                model.userImage = "head"
-//                model.userId = 100010001
-//                (viewController as! LLJFWeChatCycleController).useModel = model
                 viewController?.hiddenNavgationBarWhenPushIn = true
             }
             self.navigationController?.pushViewController(viewController!, animated: true)
@@ -93,6 +85,9 @@ extension LLJSMainViewController {
         self.view.backgroundColor = LLJWhiteColor()
         //添加TableView
         self.view.addSubview(self.myTableView)
+        //设置导航条
+        let naviController = self.navigationController as! LLJNaviController
+        naviController.statusBarStyle = .lightContent
         //网络请求
         loadData()
     }

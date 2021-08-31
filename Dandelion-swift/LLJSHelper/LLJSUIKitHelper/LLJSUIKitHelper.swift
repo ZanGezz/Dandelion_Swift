@@ -51,6 +51,7 @@ public class LLJSUIKitHelper {
         path = LLJBezierPath.drawRoundedRect(rect: subView.bounds, byRoundingCorners: cornerArray, cornerRadius: cornerRadius)
         let subLayer = CAShapeLayer()
         subLayer.path = path!.cgPath
+        subLayer.frame = subView.bounds
         subView.layer.mask = subLayer;
     }
     

@@ -27,17 +27,40 @@ extension LLJSCoreDataController {
         
         self.view.backgroundColor = LLJWhiteColor()
         
-        //hello
-        let label = LLJSUIKitHelper.LLJLabel(title: "Hello", titleColor: UIColor.white, backGroundColor: UIColor.black, titleFont: LLJFont(16), frame: CGRect(x: 100, y: 50, width: 100, height: 20), numberOfLines: 1)
-        LLJSUIKitHelper.LLJCView(subView: label, cornerRadius: [4,4,4,4])
-        self.view.addSubview(label)
+        //UIImageView
+        let iamge = UIView()
+        self.view.addSubview(iamge)
+        iamge.layer.cornerRadius = 12.0
+        iamge.layer.masksToBounds = true
+        iamge.backgroundColor = UIColor.red
+        //iamge.layer.shadowOpacity = 1.0
+        //iamge.layer.contents = UIImage(named: "head")?.cgImage
+        iamge.frame = CGRect(x: 100, y: 400, width: 60, height: 60)
         
+        //hello
+        let label = LLJSUIKitHelper.LLJLabel(title: "Hello", titleColor: UIColor.white, backGroundColor: UIColor.black, titleFont: LLJFont(16), frame: iamge.bounds, numberOfLines: 1)
+        label.layer.masksToBounds = true
+        label.alpha = 0.5
+        label.layer.cornerRadius = 8.0
+        
+        
+        //LLJSUIKitHelper.LLJCView(subView: label, cornerRadius: [4,4,4,4])
+        //iamge.addSubview(label)
+        LLJLog(label.layer.shouldRasterize)
         //增加
         let button = LLJSUIKitHelper.LLJButton(title: "增加", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 100, y: 200, width: 80, height: 40))
-        LLJSUIKitHelper.LLJCView(subView: button, cornerRadius: [8,12,4,4])
+        //LLJSUIKitHelper.LLJCView(subView: button, cornerRadius: [8,12,4,4])
         button.tag = 10001
-        button.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 8.0
         self.view.addSubview(button)
+        LLJLog(button.layer.shouldRasterize)
+
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 8.0
+        button.setBackgroundImage(LLJSHelper.getImageByColorAndSize(UIColor.red, button.bounds.size), for: .normal)
+        //button.setImage(UIImage(named: "msg"), for: .normal)
+        button.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
         
         //删除
         let button1 = LLJSUIKitHelper.LLJButton(title: "删除", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 100, y: 300, width: 80, height: 40))

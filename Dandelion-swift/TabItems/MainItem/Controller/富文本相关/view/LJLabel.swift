@@ -179,6 +179,25 @@ extension LJLabel {
         //回调
         textRange.callBack()
     }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard
+            let textRange = self.textRange,
+            //let touch = touches.first,
+            let text = self.attribute?.text else {
+            return
+        }
+        
+        //是否有回调事件
+        guard let _ = textRange.action else {
+            return
+        }
+        
+        // 取消高亮样式
+        var attr = LJTextString(content: text)
+        attr.add(searchRange: textRange.result.range, attributeKeys: textRange.attributeKeys)
+        self.attributedText = attr.text
+    }
 }
 
 extension LJLabel {

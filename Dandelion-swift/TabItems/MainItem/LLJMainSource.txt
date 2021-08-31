@@ -11,12 +11,12 @@
 "算法总结:LLJSAlgorithmController",
 "闭包(Block)总结:LLJSBlockController",
 "WebView总结:LLJSBridgeViewController",
-"轮播图:LLJSLunBoTuController",
 "自定义密码输入框:LLJSTextFieldController",
 "手势指纹密码:LLJSGesAndAuthIDController",
 "贝塞尔曲线:LLJBezierPathController",
 "动画篇:LLJAnimationController",
 "仿微信读书首页:LLJWChatMainViewController",
+"滚动导航翻页:LLJNestListViewController",
 "仿网易新闻首页:LLJFWYMainViewController",
 "swift语法相关:LLJAboutSwiftController",
 "轮播图相关:LLJLunBoListViewController"
