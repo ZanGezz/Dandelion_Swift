@@ -13,7 +13,7 @@ class LLJAttributeController: LLJFViewController {
         let textLabel = LJLabel()
         textLabel.font = LLJFont(14)
         textLabel.numberOfLines = 0
-        textLabel.frame = CGRect(x: 20, y: 300, width: 300, height: 60)
+        textLabel.frame = CGRect(x: 20, y: 300, width: 300, height: 160)
         return textLabel
     }()
     

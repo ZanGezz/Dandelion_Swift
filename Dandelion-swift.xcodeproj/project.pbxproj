@@ -11,6 +11,9 @@
 		4B02463A25C151A600E2193C /* LLJSwiftUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02463925C151A600E2193C /* LLJSwiftUIController.swift */; };
 		4B0BE1AD26D5E41900B2DCE0 /* LLJNestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BE1AC26D5E41900B2DCE0 /* LLJNestListViewController.swift */; };
 		4B0BE1CC26DE047A00B2DCE0 /* LJFPSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BE1CB26DE047900B2DCE0 /* LJFPSLabel.swift */; };
+		4B0BE1DA26E0713700B2DCE0 /* LLJReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BE1D926E0713700B2DCE0 /* LLJReadViewController.swift */; };
+		4B0BE1DF26E0719000B2DCE0 /* LLJBooKListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BE1DE26E0719000B2DCE0 /* LLJBooKListController.swift */; };
+		4B0BE1F626E1CC9900B2DCE0 /* LLJTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0BE1F526E1CC9900B2DCE0 /* LLJTransition.swift */; };
 		4B32202526929E0B0077982B /* LLJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32202426929E0B0077982B /* LLJWebViewController.swift */; };
 		4B32202A2692A4720077982B /* LLJWKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3220292692A4720077982B /* LLJWKWebView.swift */; };
 		4B32202F2692DF7B0077982B /* LLJWeakScriptMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */; };
@@ -160,6 +163,9 @@
 		4B02463925C151A600E2193C /* LLJSwiftUIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSwiftUIController.swift; sourceTree = "<group>"; };
 		4B0BE1AC26D5E41900B2DCE0 /* LLJNestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJNestListViewController.swift; sourceTree = "<group>"; };
 		4B0BE1CB26DE047900B2DCE0 /* LJFPSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LJFPSLabel.swift; sourceTree = "<group>"; };
+		4B0BE1D926E0713700B2DCE0 /* LLJReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJReadViewController.swift; sourceTree = "<group>"; };
+		4B0BE1DE26E0719000B2DCE0 /* LLJBooKListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJBooKListController.swift; sourceTree = "<group>"; };
+		4B0BE1F526E1CC9900B2DCE0 /* LLJTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLJTransition.swift; sourceTree = "<group>"; };
 		4B32202426929E0B0077982B /* LLJWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWebViewController.swift; sourceTree = "<group>"; };
 		4B3220292692A4720077982B /* LLJWKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWKWebView.swift; sourceTree = "<group>"; };
 		4B32202E2692DF7A0077982B /* LLJWeakScriptMessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJWeakScriptMessageDelegate.swift; sourceTree = "<group>"; };
@@ -513,6 +519,8 @@
 			isa = PBXGroup;
 			children = (
 				4B7BBFE0264E732200CA9F17 /* LLJWChatMainViewController.swift */,
+				4B0BE1DE26E0719000B2DCE0 /* LLJBooKListController.swift */,
+				4B0BE1D926E0713700B2DCE0 /* LLJReadViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -721,6 +729,7 @@
 			isa = PBXGroup;
 			children = (
 				4B83E8E22629344300537DA0 /* LLJAnimation.swift */,
+				4B0BE1F526E1CC9900B2DCE0 /* LLJTransition.swift */,
 			);
 			path = LLJAnimation;
 			sourceTree = "<group>";
@@ -1457,6 +1466,7 @@
 				4B369BB126B7F476009E4884 /* LLJImageShowModel.swift in Sources */,
 				4BBBC51A26A93CEA00D641C2 /* LLJCycleImageView.swift in Sources */,
 				4BBBC51526A9049A00D641C2 /* LLJCellFrameManage.swift in Sources */,
+				4B0BE1F626E1CC9900B2DCE0 /* LLJTransition.swift in Sources */,
 				4B7BBFF42651FEB300CA9F17 /* LLJWChatSecondCell.swift in Sources */,
 				4B9FFD5826AABB4D00E1819E /* LLJUseDefaultHelper.swift in Sources */,
 				4B72586125E0FE7C00B4F9AC /* LLJMainReq.swift in Sources */,
@@ -1510,6 +1520,7 @@
 				4B9FFE0526AFF3AB00E1819E /* NSTextFieldExtension.swift in Sources */,
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
+				4B0BE1DF26E0719000B2DCE0 /* LLJBooKListController.swift in Sources */,
 				4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */,
 				4B9FFE0A26AFF3AB00E1819E /* ParagraphStyle.swift in Sources */,
 				4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */,
@@ -1521,6 +1532,7 @@
 				4B3C8DF126C646D200FEF026 /* LJTextResult.swift in Sources */,
 				4B9FFE2226B0028200E1819E /* LLJCycleMessageModel.swift in Sources */,
 				4B7BC01D265C932800CA9F17 /* LLJSegmentView.swift in Sources */,
+				4B0BE1DA26E0713700B2DCE0 /* LLJReadViewController.swift in Sources */,
 				4B7BC00C265669C700CA9F17 /* LLJNestTableView.swift in Sources */,
 				4B3963D626CF818A006F5A53 /* LJTextRange.swift in Sources */,
 				4B9FFD3426AA57D500E1819E /* LLJAlertCell.swift in Sources */,

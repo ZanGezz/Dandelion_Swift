@@ -102,6 +102,31 @@ public class LLJSHelper {
     }
     
     /**
+     * 获取当前控制器
+     */
+    class func currentController() -> UIViewController? {
+        var controller = UIApplication.shared.keyWindow?.rootViewController
+        while (1 != 0) {
+            if ((controller?.isKind(of: UITabBarController.self)) != nil) {
+                let vc = controller as! UITabBarController
+                controller = vc.selectedViewController
+            }
+            
+            if ((controller?.isKind(of: UINavigationController.self)) != nil) {
+                let vc = controller as! UINavigationController
+                controller = vc.visibleViewController
+            }
+            
+            if ((controller?.presentedViewController) != nil) {
+                controller = controller?.presentedViewController
+            } else {
+                break
+            }
+        }
+        return controller
+    }
+    
+    /**
      * 根据角度获取圆周率
      */
     class func getPrintsByAngle(angle: Double) -> Double {

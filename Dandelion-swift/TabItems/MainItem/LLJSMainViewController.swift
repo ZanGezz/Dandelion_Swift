@@ -65,7 +65,10 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
             if sub.last! == "LLJFWeChatCycleController" {
                 viewController?.hiddenNavgationBarWhenPushIn = true
             }
-            self.navigationController?.pushViewController(viewController!, animated: true)
+            viewController?.addTransitionAinamition(animationType: .CurlDown, pushType: .push, duration: 0.35)
+            //self.navigationController?.pushViewController(viewController!, animated: true)
+            //let _ = LLJTransition.init(add: .CurlDown, pushType: .dismiss, duration: 0.35, destinationContrller: viewController!)
+            self.present(viewController!, animated: true, completion: nil)
         }
     }
 }

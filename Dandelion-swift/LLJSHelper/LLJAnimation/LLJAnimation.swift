@@ -99,19 +99,10 @@ class LLJAnimation: NSObject {
     class func groupAnimation(keyPath: String, animations:[CAAnimation]?) -> CAAnimationGroup {
         let groupAnimation = CAAnimationGroup()
         groupAnimation.animations = animations
+        groupAnimation.fillMode = .forwards
+        groupAnimation.isRemovedOnCompletion = false
         return groupAnimation
     }
-    
-    /*
-     * 转场动画 CATransition
-     * keyPath: 创建动画使用key CALayer或其子类CAShapeLayer等属性中标记为Animatable的，都可以作为key创建动画 详细见注一
-     * animations: 动画组
-     */
-//    class func transitionAnimation(keyPath: String, animations:[CAAnimation]?) -> CATransition {
-//        let groupAnimation = CATransition()
-//        groupAnimation.animations = animations
-//        return groupAnimation
-//    }
 }
 
 //MARK: - 注释 -
@@ -146,6 +137,7 @@ extension LLJAnimation {
          transform.translation.x
          transform.translation.y
          transform.translation.z
+     
          position
          position.x
          position.y
