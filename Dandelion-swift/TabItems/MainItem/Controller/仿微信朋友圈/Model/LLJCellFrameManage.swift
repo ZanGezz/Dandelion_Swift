@@ -90,7 +90,7 @@ class LLJCellFrameManage: NSObject {
                 dy = LLJDX(10)
                 X = LLJDX(76)
                 Y = temFrame.origin.y + temFrame.height + dy
-                W = CGFloat(imageList!.count)*LLJDX(88) + CGFloat((imageList!.count - 1))*LLJDX(5)
+                W = CGFloat(imageList!.count)*LLJDX(88) + CGFloat((imageList!.count - 1))*LLJDX(6)
                 H = LLJDX(88)
                 
                 frameModel.contentImageFrame = CGRect(x: X, y: Y, width: W, height: H)
@@ -101,8 +101,8 @@ class LLJCellFrameManage: NSObject {
                 dy = LLJDX(10)
                 X = LLJDX(76)
                 Y = temFrame.origin.y + temFrame.height + dy
-                W = LLJDX(88)*2 + LLJDX(5)
-                H = LLJDX(88)*2 + LLJDX(5)
+                W = LLJDX(88)*2 + LLJDX(6)
+                H = LLJDX(88)*2 + LLJDX(6)
                 
                 frameModel.contentImageFrame = CGRect(x: X, y: Y, width: W, height: H)
                 frameModel.contentImageSize = CGSize(width: LLJDX(88), height: LLJDX(88))
@@ -112,12 +112,12 @@ class LLJCellFrameManage: NSObject {
                 dy = LLJDX(10)
                 X = LLJDX(76)
                 Y = temFrame.origin.y + temFrame.height + dy
-                W = LLJDX(88)*3 + LLJDX(5)*2
+                W = LLJDX(88)*3 + LLJDX(6)*2
                 
                 if imageList!.count > 6 {
-                    H = LLJDX(88)*3 + LLJDX(5)*2
+                    H = LLJDX(88)*3 + LLJDX(6)*2
                 } else {
-                    H = LLJDX(88)*2 + LLJDX(5)
+                    H = LLJDX(88)*2 + LLJDX(6)
                 }
                 
                 frameModel.contentImageFrame = CGRect(x: X, y: Y, width: W, height: H)

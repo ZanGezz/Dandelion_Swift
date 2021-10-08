@@ -255,13 +255,9 @@ extension LLJWCommenCell {
         
         self.addSubview(self.zanView)
         if self.model!.hasZaned {
-            self.zanView.zanButton.setTitle("取消", for: .normal)
-            self.zanView.zanButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(21), bottom: LLJDX(12), right: LLJDX(53))
-            self.zanView.zanButton.titleEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(-10), bottom: LLJDX(12), right: LLJDX(0))
+            self.zanView.zanTitle.text = "取消"
         } else {
-            self.zanView.zanButton.setTitle("赞", for: .normal)
-            self.zanView.zanButton.imageEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(26), bottom: LLJDX(12), right: LLJDX(48))
-            self.zanView.zanButton.titleEdgeInsets = UIEdgeInsets.init(top: LLJDX(12), left: LLJDX(-10), bottom: LLJDX(12), right: LLJDX(0))
+            self.zanView.zanTitle.text = "赞"
         }
         
         let X = self.moreButton.frame.origin.x - LLJDX(8) - LLJDX(180)
