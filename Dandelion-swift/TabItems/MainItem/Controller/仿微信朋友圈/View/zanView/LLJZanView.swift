@@ -119,7 +119,7 @@ extension LLJZanView {
             make.centerY.equalTo(self.pingView.snp_centerY);
             make.right.equalTo(self.pingView.snp_centerX).offset(-3)
             make.width.equalTo(15)
-            make.height.equalTo(15)
+            make.height.equalTo(14)
         }
         
         self.pingTitle .snp_makeConstraints { (make) in

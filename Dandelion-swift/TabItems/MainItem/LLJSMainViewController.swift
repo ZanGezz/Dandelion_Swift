@@ -19,8 +19,8 @@ class LLJSMainViewController: UIViewController {
     }
     
     //MARK:懒加载属性
-    private lazy var myTableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTabBarHeight - LLJTopHeight), style: UITableView.Style.plain)
+    private lazy var mTableView: UITableView = {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTabBarHeight), style: UITableView.Style.plain)
         tableView.register(LLJSMainCell.self, forCellReuseIdentifier: "MainCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -84,10 +84,11 @@ extension LLJSMainViewController {
     }
     //设置UI
     private func setUpUI() {
+        
         //背景色
         self.view.backgroundColor = LLJWhiteColor()
         //添加TableView
-        self.view.addSubview(self.myTableView)
+        self.view.addSubview(self.mTableView)
         //设置导航条
         let naviController = self.navigationController as! LLJNaviController
         naviController.statusBarStyle = .lightContent

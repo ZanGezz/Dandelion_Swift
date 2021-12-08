@@ -304,7 +304,7 @@ class LLJCellFrameManage: NSObject {
             zanContentString = String(zanContentString.prefix(zanContentString.count - 1))
             var labelHeight: CGFloat = 0.0
             labelHeight = LLJSHelper.getStringSize(subString: zanContentString, font: LLJBoldFont(15), width: LLJDX(300), lineSpace:0).height
-            labelHeight += labelHeight/17.9
+            labelHeight += labelHeight/18.9
             zanHeight = labelHeight + LLJDX(8)
 
             item.zanHeight = zanHeight;

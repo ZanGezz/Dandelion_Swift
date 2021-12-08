@@ -25,6 +25,9 @@ class LLJAlertView: UIView {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.bounces = false
         tableView.isScrollEnabled = false
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
         return tableView
     }()
     

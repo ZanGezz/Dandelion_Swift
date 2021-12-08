@@ -94,17 +94,19 @@ extension LLJLunBoViewController {
          *  contentSubViewClass: 自定义view类型
          *  sourceCount: 自定义view时 资源个数
          */
-        let carouselMapViewZoom1 = LLJCarouselMapView.init(frame: CGRect(x: 30, y: 500, width: SCREEN_WIDTH - 60, height: 30), mapViewStyle: .commen, contentViewStyle: .custom, rollDirection: .top)
-        carouselMapViewZoom1.delegate = self
-        carouselMapViewZoom1.imageArray = array
-        carouselMapViewZoom1.largeSize = CGSize(width: 280, height: 280*0.618)
-        carouselMapViewZoom1.smallSize = CGSize(width: 240, height: 240*0.618)
-        carouselMapViewZoom1.itemSpace = 10
-        carouselMapViewZoom1.contentSubViewClass = UILabel.self
-        carouselMapViewZoom1.sourceCount = 10;
-        carouselMapViewZoom1.autoScorllSpaceTime = 3.0
-        carouselMapViewZoom1.viewTag = 1112;
-        self.view.addSubview(carouselMapViewZoom1)
+        if self.mapViewStyle != .fold {
+            let carouselMapViewZoom1 = LLJCarouselMapView.init(frame: CGRect(x: 30, y: 500, width: SCREEN_WIDTH - 60, height: 30), mapViewStyle: .commen, contentViewStyle: .custom, rollDirection: .top)
+            carouselMapViewZoom1.delegate = self
+            carouselMapViewZoom1.imageArray = array
+            carouselMapViewZoom1.largeSize = CGSize(width: 280, height: 280*0.618)
+            carouselMapViewZoom1.smallSize = CGSize(width: 240, height: 240*0.618)
+            carouselMapViewZoom1.itemSpace = 10
+            carouselMapViewZoom1.contentSubViewClass = UILabel.self
+            carouselMapViewZoom1.sourceCount = 10;
+            carouselMapViewZoom1.autoScorllSpaceTime = 3.0
+            carouselMapViewZoom1.viewTag = 1112;
+            self.view.addSubview(carouselMapViewZoom1)
+        }
     }
 }
 

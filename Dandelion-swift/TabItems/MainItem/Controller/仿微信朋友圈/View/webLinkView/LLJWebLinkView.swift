@@ -52,7 +52,7 @@ extension LLJWebLinkView {
         self.addSubview(self.webButton)
         
         self.headImageView.frame = CGRect(x: LLJDX(5), y: LLJDX(5), width: LLJDX(40), height: LLJDX(40))
-        self.contentLabel.frame = CGRect(x: LLJDX(50), y: LLJDX(5), width: LLJDX(256), height: LLJDX(40))
+        self.contentLabel.frame = CGRect(x: LLJDX(50), y: LLJDX(5), width: LLJDX(256), height: LLJDX(42))
     }
     
     func setDataSource(sourceModel: LLJCycleMessageModel) {

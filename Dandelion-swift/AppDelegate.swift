@@ -48,7 +48,7 @@ extension AppDelegate {
     }
     
     private func addFPSLabel() {
-        let label = LJFPSLabel(frame: CGRect(x: SCREEN_WIDTH/2.0 + 20, y: 0, width: 60, height: 20))
+        let label = LJFPSLabel(frame: CGRect(x: (SCREEN_WIDTH-60)/2.0, y: LLJStatusBarHeight - 10, width: 60, height: 20))
         label.textAlignment = .center
         label.font = LLJFont(12)
         UIApplication.shared.keyWindow?.addSubview(label)

@@ -31,10 +31,19 @@ extension LLJTabBarController {
     private func setUpTabbarBaseItem() {
         //去除黑线
         if #available(iOS 13.0, *) {
+            let tabBarItemAppearance = UITabBarItemAppearance()
+            //tabBarItemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor:LLJColor(105, 97, 127, 0.5),NSAttributedString.Key.font: 10]
+            //tabBarItemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor:LLJPurpleColor(),NSAttributedString.Key.font: 10]
+            
             let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
             tabBarAppearance.backgroundImage = LLJSHelper.getImageByColorAndSize(LLJWhiteColor(), CGSize(width: SCREEN_WIDTH, height: LLJTabBarHeight))
             tabBarAppearance.shadowColor = LLJWhiteColor()
+            tabBarAppearance.shadowImage = UIImage()
             self.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBar.scrollEdgeAppearance = tabBarAppearance
+            }
         } else {
             self.tabBar.shadowImage = LLJSHelper.getImageByColorAndSize(LLJWhiteColor(), CGSize(width: SCREEN_WIDTH, height: 1))
             self.tabBar.backgroundImage = LLJSHelper.getImageByColorAndSize(LLJWhiteColor(), CGSize(width: SCREEN_WIDTH, height: LLJTabBarHeight))

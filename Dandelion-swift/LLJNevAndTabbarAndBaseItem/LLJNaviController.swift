@@ -27,8 +27,16 @@ extension LLJNaviController: UIGestureRecognizerDelegate {
         //设置左滑返回代理
         self.interactivePopGestureRecognizer?.delegate = self
         //隐藏黑线
-        UINavigationBar.appearance().shadowImage = UIImage()
-        //设置背景默认白色
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.shadowImage = UIImage()
+            appearance.shadowColor = UIColor.clear
+            self.navigationBar.standardAppearance = appearance
+            self.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            UINavigationBar.appearance().shadowImage = UIImage()
+        }
+        //设置背景默认黑色
         setUpBackGroundColor(LLJBlackColor())
         //设置默认字体18颜色白色
         setUpTitleColorAndFont(LLJWhiteColor(), LLJFont(18, "PingFangSC-Medium"))
@@ -38,20 +46,34 @@ extension LLJNaviController: UIGestureRecognizerDelegate {
      */
     func setUpTitleColorAndFont(_ color: UIColor?, _ font: UIFont?) {
         let dic = [NSAttributedString.Key.foregroundColor:color,NSAttributedString.Key.font:font]
-        self.navigationBar.titleTextAttributes = dic as [NSAttributedString.Key : Any]
+        if #available(iOS 13.0, *) {
+            let appearance = self.navigationBar.standardAppearance
+            appearance.titleTextAttributes = dic as [NSAttributedString.Key : Any]
+            self.navigationBar.standardAppearance = appearance
+            self.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            self.navigationBar.titleTextAttributes = dic as [NSAttributedString.Key : Any]
+        }
     }
     /*
      * 设置背景颜色
      */
     func setUpBackGroundColor(_ color: UIColor) {
-        let image = LLJSHelper .getImageByColorAndSize(color, CGSize(width: SCREEN_WIDTH, height: LLJTopHeight))
+        let image = LLJSHelper.getImageByColorAndSize(color, CGSize(width: SCREEN_WIDTH, height: LLJTopHeight))
         setUpBackGroundImage(image)
     }
     /*
      * 设置背景图片
      */
     func setUpBackGroundImage(_ image: UIImage) {
-        self.navigationBar.setBackgroundImage(image, for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        if #available(iOS 13.0, *) {
+            let appearance = self.navigationBar.standardAppearance
+            appearance.backgroundImage = image
+            self.navigationBar.standardAppearance = appearance
+            self.navigationBar.scrollEdgeAppearance = appearance
+        } else {
+            self.navigationBar.setBackgroundImage(image, for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        }
     }
     
     /*
