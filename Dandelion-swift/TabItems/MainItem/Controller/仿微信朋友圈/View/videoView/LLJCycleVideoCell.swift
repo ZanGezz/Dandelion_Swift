@@ -13,7 +13,7 @@ class LLJCycleVideoCell: LLJWCommenCell {
         let cycleVideoView = LLJVideoView()
         return cycleVideoView
     }()
-    
+        
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

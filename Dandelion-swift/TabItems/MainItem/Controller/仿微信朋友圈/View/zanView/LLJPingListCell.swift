@@ -9,8 +9,8 @@ import UIKit
 
 class LLJPingListCell: UITableViewCell {
 
-    lazy var contentLabel: UILabel = {
-        let contentLabel = UILabel()
+    lazy var contentLabel: LJLabel = {
+        let contentLabel = LJLabel()
         contentLabel.textColor = LLJColor(30, 30, 30, 1.0)
         contentLabel.font = LLJFont(15)
         contentLabel.numberOfLines = 0;
@@ -46,8 +46,8 @@ extension LLJPingListCell {
         }
     }
     //设置数据
-    func setDataSource(content: ASAttributedString) {
+    func setDataSource(content: LJTextString) {
         
-        self.contentLabel.attributed.text = content
+        self.contentLabel.attribute = content
     }
 }

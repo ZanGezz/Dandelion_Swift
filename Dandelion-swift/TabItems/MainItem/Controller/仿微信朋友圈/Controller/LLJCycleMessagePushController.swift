@@ -76,6 +76,8 @@ class LLJCycleMessagePushController: LLJFViewController {
     private var itemList: [String] = ["所在位置","提醒谁看","谁可以看"]
     private var logoList: [String] = ["weizhi","tixingshuikan","yonghu"]
     private var imageList: [String] = ["IMG_1","IMG_2","IMG_3","IMG_4","IMG_5","IMG_6","IMG_7","IMG_8","IMG_9","IMG_10","IMG_11","IMG_12","IMG_13","IMG_14","IMG_15","IMG_16","IMG_17","IMG_18","IMG_19","IMG_20","IMG_21","IMG_22","IMG_23","IMG_24","IMG_25","IMG_26","IMG_27","IMG_28","IMG_29","IMG_30","IMG_31","IMG_32","IMG_33","IMG_34","IMG_35","IMG_36","IMG_37","IMG_38","IMG_39"]
+    private var webList: [String] = ["驰援郑州！！一方有难八方支援，是我中华民族的传统美德！","喜讯！马龙战胜队友樊振东，成功卫冕男子单打奥运冠军，中国队包揽金银！！","喜讯！马龙战胜队友樊振东，成功卫冕男子单打奥运冠军，中国队包揽金银！！","封神！中国选手苏炳添以9秒83的成绩刷新亚洲纪录。","江苏新增本土确诊45例，全民抗疫，任重道远！"]
+    private var locationList: [String] = ["北京市 · 中国国家博物馆","门头沟 · 欢乐大都会","昌平区 · 奥林匹克公园","丰台区 · 北京南站","西城区 · 天安门广场","西城区 · 故宫博物院"]
     var type: LLJCycleMessagePushType = .text
     var pushComplete: pushCompleteBlock?
     
@@ -108,17 +110,26 @@ extension LLJCycleMessagePushController {
     
     //处理数据
     @objc private func addDataSource() {
+        
         let model: LLJWeChatCycleModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJWeChatCycleModel") as! LLJWeChatCycleModel
         
-        model.headImageName = self.model!.userImage!
+        model.headImageName = self.model!.userImage
         model.content = self.content
-        model.nickName = self.model!.nickName!
-        model.userId = self.model!.userId!
+        model.nickName = self.model!.nickName
+        model.userId = self.model!.userId
         model.timeInteval = LLJSHelper.getCurrentTimeInteval()
+        //messageId
         var messageId = LLJUseDefaultHelper.getMessage(key: "messageId")
         messageId += 1
         LLJUseDefaultHelper.setMessage(object: messageId, key: "messageId")
         model.messageId = messageId
+        //定位
+        if self.locationSelect {
+            let armNum1 = LLJSHelper.arc4random(duration: 6)
+            let locationModel: LLJCycleLocationModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleLocationModel") as! LLJCycleLocationModel
+            locationModel.name = self.locationList[armNum1]
+            model.locationModel = locationModel
+        }
         
         switch self.type {
         case .text:
@@ -136,10 +147,15 @@ extension LLJCycleMessagePushController {
             model.videoModel = videoModel
         case .link:
             model.type = 10013
+            
+            let armNum1 = LLJSHelper.arc4random(duration: 5)
             let linkModel: LLJCycleWebLinkModel = LLJSCoreDataHelper.helper.createCoreDataModel(entityName: "LLJCycleWebLinkModel") as! LLJCycleWebLinkModel
             linkModel.webLinkUrl = "https://www.baidu.com"
             linkModel.webLinkImage = getOneImage()
-            linkModel.webLinkContent = "驰援郑州！！一方有难八方支援，是我中华民族的传统美德！"
+            linkModel.webLinkContent = self.webList[armNum1]
+            
+            let armNum2 = LLJSHelper.arc4random(duration: 4)
+            linkModel.webFromName = ["网易新闻","今日头条","哔哩哔哩","小红书"][armNum2]
             model.webLinkModel = linkModel
         }
         

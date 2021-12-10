@@ -51,6 +51,7 @@ public class LLJSUIKitHelper {
         path = LLJBezierPath.drawRoundedRect(rect: subView.bounds, byRoundingCorners: cornerArray, cornerRadius: cornerRadius)
         let subLayer = CAShapeLayer()
         subLayer.path = path!.cgPath
+        subLayer.frame = subView.bounds
         subView.layer.mask = subLayer;
     }
     
@@ -97,52 +98,5 @@ public class LLJSUIKitHelper {
         }
         label.numberOfLines = numberOfLines
         return label;
-    }
-    
-    /**
-     * 倒计时
-     */
-    class func countDown(timeInterval: Double, totalTime: Double, duration: @escaping(DispatchSourceTimer?, Double) -> Void, completeHandler: @escaping() -> Void) {
-            
-            if totalTime <= 0 {
-                completeHandler()
-                return
-            }
-            let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
-            var count = totalTime
-            timer.schedule(deadline: .now(), repeating: timeInterval)
-            timer.setEventHandler {
-                count -= timeInterval
-                DispatchQueue.main.async {
-                    duration(timer, count)
-                }
-                if count == 0 {
-                    completeHandler()
-                    timer.cancel()
-                }
-            }
-            timer.resume()
-    }
-    
-    /* GCD实现定时器
-     * timeInterval: 间隔时间
-     * handler: 事件
-     * needRepeat: 是否重复
-     */
-    class func dispatchTimer(timeInterval: Double, handler: @escaping (DispatchSourceTimer?) -> Void, needRepeat: Bool) -> DispatchSourceTimer {
-        
-        let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
-        timer.schedule(deadline: .now(), repeating: timeInterval)
-        timer.setEventHandler {
-            DispatchQueue.main.async {
-                if needRepeat {
-                    handler(timer)
-                } else {
-                    timer.cancel()
-                    handler(nil)
-                }
-            }
-        }
-        return timer
     }
 }

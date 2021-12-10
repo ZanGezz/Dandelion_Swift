@@ -9,20 +9,31 @@ import UIKit
 
 class LLJImageShowView: UIView {
 
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
+    //collectionView
+    lazy var collectionView: UICollectionView = {
+        
+        let flawLayout = UICollectionViewFlowLayout()
+        flawLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        flawLayout.minimumLineSpacing = LLJDX(0)
+        flawLayout.minimumInteritemSpacing = LLJDX(0)
+        let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH+LLJDX(15), height: SCREEN_HEIGHT), collectionViewLayout: flawLayout)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.bounces = false
+        collectionView.backgroundColor = LLJWhiteColor()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        return collectionView
     }()
-    private var convertImageFrame: CGRect = CGRect.zero
-    private var oldImageFrame: CGRect = CGRect.zero
-    private var newImageFrame: CGRect = CGRect.zero
-    private var oldSuperView: UIView?
+    
+    private var imageView: UIImageView?
+    private var itemList: [LLJImageShowModel] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        //UI
-        setUpUI()
     }
     
     required init?(coder: NSCoder) {
@@ -34,32 +45,75 @@ class LLJImageShowView: UIView {
     }
 }
 
+//MARK - UICollectionViewDelegate -
+extension LLJImageShowView: UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.itemList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCell", for: indexPath)
+        cell.backgroundColor = UIColor.clear
+        let model = self.itemList[indexPath.row]
+        for subView in cell.contentView.subviews {
+            subView.removeFromSuperview()
+        }
+        model.imageView!.frame = model.newImageFrame
+        cell.contentView.layer.masksToBounds = true
+        cell.contentView.addSubview(model.imageView!)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.tapAction(index: indexPath.row)
+    }
+}
+
+extension LLJImageShowView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: SCREEN_WIDTH+LLJDX(15), height: SCREEN_HEIGHT)
+    }
+}
+
 extension LLJImageShowView {
     
-    func imageViewShow(oldImageName: String, oldImageView: UIImageView, oldSuperView: UIView) {
-        
+    func imageViewShow(selectIndex: Int, allImageName: [String], allSuperView: [LLJImageCell]) {
+        //首先显示点击图片
         kRootView.addSubview(self)
         self.frame = kRootView.bounds
-        self.addSubview(oldImageView)
-        
-        self.imageView = oldImageView
-        self.oldSuperView = oldSuperView
-        
-        self.oldImageFrame = oldImageView.frame
-        self.convertImageFrame = oldSuperView.convert(oldImageView.frame, to: kRootView)
-        self.imageView.frame = self.convertImageFrame
-        
-        setIamgeSize(oldImageName: oldImageName)
-        
         self.backgroundColor = LLJColor(0, 0, 0, 0.0)
+        
+        //处理所有图片显示
+        self.itemList.removeAll()
+        for i in stride(from: 0, to: allImageName.count, by: 1) {
+            let cell = allSuperView[i]
+            let imageName = allImageName[i]
+            
+            let model = LLJImageShowModel()
+            model.oldSuperView = cell
+            model.imageView = cell.imageView
+            model.oldImageFrame = cell.imageView.frame
+            model.newImageFrame = setIamgeSize(oldImageName: imageName)
+            model.convertImageFrame = cell.convert(cell.imageView.frame, to: kRootView)
+            self.itemList.append(model)
+        }
+        
+        let model = self.itemList[selectIndex]
+        model.imageView!.frame = model.convertImageFrame
+        self.addSubview(model.imageView!)
 
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.35) {
             self.backgroundColor = LLJColor(0, 0, 0, 1.0)
-            self.imageView.frame = self.newImageFrame
+            model.imageView!.frame = model.newImageFrame
+        } completion: { (bool) in
+            self.addSubview(self.collectionView)
+            self.collectionView.setContentOffset(CGPoint(x: (SCREEN_WIDTH+LLJDX(15))*CGFloat(selectIndex), y: 0), animated: false)
         }
     }
     
-    private func setIamgeSize(oldImageName: String) {
+    private func setIamgeSize(oldImageName: String) -> CGRect {
         let image = UIImage(named: oldImageName)
         
         var X: CGFloat = 0.0
@@ -73,35 +127,43 @@ extension LLJImageShowView {
             Y = (SCREEN_HEIGHT - H)/2.0
 
         } else {
-            Y = 0.0
-            H = SCREEN_HEIGHT
-            W = (H/image!.size.height)*image!.size.width
-            X = (SCREEN_WIDTH - W)/2.0
+            if image!.size.height < SCREEN_HEIGHT {
+                H = image!.size.height
+                Y = (SCREEN_HEIGHT - H)/2.0
+                W = (H/image!.size.height)*image!.size.width > SCREEN_WIDTH ? SCREEN_WIDTH : (H/image!.size.height)*image!.size.width
+                X = (SCREEN_WIDTH - W)/2.0
+            } else {
+                Y = 0.0
+                H = SCREEN_HEIGHT
+                W = (H/image!.size.height)*image!.size.width
+                X = (SCREEN_WIDTH - W)/2.0
+            }
         }
-        self.newImageFrame = CGRect(x: X, y: Y, width: W, height: H)
+        return CGRect(x: X, y: Y, width: W, height: H)
     }
 }
 
 extension LLJImageShowView {
     
-    private func setUpUI() {
+    private func tapAction(index: Int) {
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        self.addGestureRecognizer(tap)
-    }
-    
-    @objc func tapAction() {
-        self.imageView.layer.masksToBounds = true
+        for i in stride(from: 0, to: self.itemList.count, by: 1) {
+            
+            if i != index {
+                let model = self.itemList[i]
+                model.imageView!.frame = model.oldImageFrame
+                model.oldSuperView!.addSubview(model.imageView!)
+            }
+        }
+        
+        let model = self.itemList[index]
         UIView.animate(withDuration: 0.30) {
             self.backgroundColor = LLJColor(0, 0, 0, 0.0)
-            self.imageView.frame = self.convertImageFrame
+            model.imageView!.frame = model.convertImageFrame
         } completion: { (com) in
-            self.imageView.frame = self.oldImageFrame
-            self.oldSuperView?.addSubview(self.imageView)
+            model.imageView!.frame = model.oldImageFrame
+            model.oldSuperView!.addSubview(model.imageView!)
             self.removeFromSuperview()
         }
-    }
-    
-    @objc private func updateContentModel() {
     }
 }

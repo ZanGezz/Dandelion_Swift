@@ -36,6 +36,11 @@ class LLJFViewController: UIViewController {
      */
     var statusBarAnimation: UIStatusBarAnimation = .none
     
+    /*
+     * 转场动画
+     */
+    var transition: LLJTransition?
+    
     lazy var myTableView: LLJTableView = {
         let tableView = LLJTableView(frame: CGRect.zero, style: UITableView.Style.plain)
         return tableView
@@ -123,9 +128,9 @@ extension LLJFViewController: UINavigationControllerDelegate {
     }
 }
 
-//技术属性
+//计算属性
 extension LLJFViewController {
-    //代理
+    //设置导航条样式
     var statusBarStyle: UIStatusBarStyle {
         set {
             _statusBarStyle = newValue
@@ -135,5 +140,28 @@ extension LLJFViewController {
         get {
             return _statusBarStyle
         }
+    }
+}
+
+//转场动画
+extension LLJFViewController: UIViewControllerTransitioningDelegate {
+    //代理
+    func addTransitionAinamition(animationType: TransitionType, pushType: PushType, duration: TimeInterval) {
+        
+        //self.transitioningDelegate = self
+
+        let transition = LLJTransition.init(add: animationType, pushType: pushType, duration: duration, destinationContrller: self)
+        self.transition = transition
+        
+        //self.transitioningDelegate = transition
+    }
+    
+    //推出
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self.transition
+    }
+    //返回
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self.transition
     }
 }

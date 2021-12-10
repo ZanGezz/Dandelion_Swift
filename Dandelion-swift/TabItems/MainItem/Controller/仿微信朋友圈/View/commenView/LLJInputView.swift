@@ -47,6 +47,9 @@ class LLJInputView: UIView {
     
     private var keyBoardHeight: CGFloat = 0.0
     var inputComplete: inputViewCompleteBlock?
+    var tableView: UITableView?
+    var index: Int = 0
+    var sourceList: [Any] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -102,10 +105,12 @@ extension LLJInputView: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         if text == "\n" {
+            
+            textView.resignFirstResponder()
+
             if self.inputComplete != nil {
                 self.inputComplete!(textView.text)
             }
-            textView.resignFirstResponder()
         }
         return true
     }
@@ -136,6 +141,14 @@ extension LLJInputView: UITextViewDelegate {
         let keyBoardFrame: CGRect = userInfo?.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! CGRect
         keyBoardHeight = keyBoardFrame.size.height
         
+        var contentOffset_y: CGFloat = 0.0
+        for i in stride(from: 0, to: self.index + 1, by: 1) {
+            let item = self.sourceList[i] as! LLJCycleMessageModel
+            contentOffset_y += item.frameModel.rowHeight
+        }
+        
+        contentOffset_y = contentOffset_y + LLJDX(260) + LLJTopHeight - SCREEN_HEIGHT + keyBoardHeight + LLJDX(56)
+        self.tableView?.setContentOffset(CGPoint(x: 0, y: contentOffset_y), animated: true)
         UIView.animate(withDuration: 0.35) {
             self.frame = CGRect(x: 0, y: SCREEN_HEIGHT - self.keyBoardHeight  - LLJDX(56), width: SCREEN_WIDTH, height: LLJDX(56))
         }
@@ -145,11 +158,21 @@ extension LLJInputView: UITextViewDelegate {
     }
     //键盘隐藏
     @objc func keyBoardHidden(noti: NSNotification) {
-        
+
         UIView.animate(withDuration: 0.35) {
             self.frame = CGRect(x: 0, y: SCREEN_HEIGHT - LLJDX(55), width: SCREEN_WIDTH, height: LLJDX(55))
-        } completion: { (bool) in
+        } completion: { [self] (bool) in
             self.removeFromSuperview()
+            
+            if self.tableView!.contentSize.height < SCREEN_HEIGHT {
+                self.tableView!.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
+            }
+            
+            let offset_y = Int(self.tableView!.contentOffset.y + SCREEN_HEIGHT - self.keyBoardHeight - LLJDX(56))
+            let content_h = Int(self.tableView!.contentSize.height)
+            if offset_y == content_h {
+                self.tableView!.setContentOffset(CGPoint(x: 0.0, y: self.tableView!.contentOffset.y - self.keyBoardHeight - LLJDX(56)), animated: true)
+            }
         }
         UserDefaults.standard.set(false, forKey: "keyBoardStatus")
         UserDefaults.standard.synchronize()

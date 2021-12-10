@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="LLJCycleImageModel" representedClassName="LLJCycleImageModel" syncable="YES" codeGenerationType="class">
         <attribute name="imageList" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="LLJCycleLocationModel" representedClassName="LLJCycleLocationModel" syncable="YES" codeGenerationType="class">
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
     <entity name="LLJCycleVideoModel" representedClassName="LLJCycleVideoModel" syncable="YES" codeGenerationType="class">
         <attribute name="videoImage" optional="YES" attributeType="String"/>
         <attribute name="videoUrl" optional="YES" attributeType="String"/>
     </entity>
     <entity name="LLJCycleWebLinkModel" representedClassName="LLJCycleWebLinkModel" syncable="YES" codeGenerationType="class">
+        <attribute name="webFromName" optional="YES" attributeType="String"/>
         <attribute name="webLinkContent" optional="YES" attributeType="String"/>
         <attribute name="webLinkImage" optional="YES" attributeType="String"/>
         <attribute name="webLinkUrl" optional="YES" attributeType="String"/>
@@ -37,14 +42,15 @@
         <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="imageModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LLJCycleImageModel"/>
+        <relationship name="locationModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LLJCycleLocationModel"/>
         <relationship name="videoModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LLJCycleVideoModel"/>
         <relationship name="webLinkModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LLJCycleWebLinkModel"/>
-        <relationship name="zanModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LLJCycleZanModel"/>
     </entity>
     <elements>
         <element name="LLJCycleImageModel" positionX="101.5155639648438" positionY="163.0855102539062" width="128" height="44"/>
+        <element name="LLJCycleLocationModel" positionX="-108" positionY="90" width="128" height="59"/>
         <element name="LLJCycleVideoModel" positionX="104.8416137695312" positionY="-62.62063598632812" width="128" height="59"/>
-        <element name="LLJCycleWebLinkModel" positionX="102.3948364257812" positionY="77.48883056640625" width="128" height="43"/>
+        <element name="LLJCycleWebLinkModel" positionX="102.3948364257812" positionY="77.48883056640625" width="128" height="89"/>
         <element name="LLJCycleZanModel" positionX="-63" positionY="90" width="128" height="164"/>
         <element name="LLJSCommenModel" positionX="-310.5288696289062" positionY="-23.37550354003906" width="128" height="43"/>
         <element name="LLJWeChatCycleModel" positionX="-311.6664428710938" positionY="65.208740234375" width="128" height="194"/>

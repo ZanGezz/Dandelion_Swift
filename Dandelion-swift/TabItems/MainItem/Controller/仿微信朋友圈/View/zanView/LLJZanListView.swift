@@ -24,7 +24,7 @@ class LLJZanListView: UIView {
         return tableView
     }()
     
-    private var attrContent: ASAttributedString = ASAttributedString(string: "")
+    private var attrContent: LJTextString = LJTextString(content: "")
     private var zanHeight: CGFloat = 0.0
     private var model: LLJCycleMessageModel = LLJCycleMessageModel()
     private var zanItemSize: CGSize = CGSize.zero
@@ -43,15 +43,22 @@ class LLJZanListView: UIView {
 //MARK: - UITableViewDelegate 代理 -
 extension LLJZanListView: UITableViewDelegate,UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if self.model.attrContent.length > 5 {
-            if indexPath.row == 0 {
-                return self.model.zanHeight
-            } else {
-                let model = self.model.pingList[indexPath.row - 1]
-                return model.rowHeight
-            }
+        if indexPath.section == 0 {
+            return self.model.zanHeight
         } else {
             let model = self.model.pingList[indexPath.row]
             return model.rowHeight
@@ -59,15 +66,20 @@ extension LLJZanListView: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.model.attrContent.length > 5 {
-            return self.model.pingList.count + 1
+        if section == 0 {
+            if self.model.zanHeight == 0 {
+                return 0
+            } else {
+                return 1
+            }
+        } else {
+            return self.model.pingList.count
         }
-        return self.model.pingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if self.model.attrContent.length > 5 && indexPath.row == 0 {
+        if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJZanListCell") as! LLJZanListCell
             cell.selectionStyle = .none
             if self.model.pingList.count == 0 {
@@ -79,24 +91,15 @@ extension LLJZanListView: UITableViewDelegate,UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LLJPingListCell") as! LLJPingListCell
             cell.selectionStyle = .none
-            var ping: LLJPingListModel?
-            if self.model.attrContent.length > 5 {
-                ping = self.model.pingList[indexPath.row - 1]
-            } else {
-                ping = self.model.pingList[indexPath.row]
-            }
-            cell.setDataSource(content: ping!.attrContent)
+            let ping = self.model.pingList[indexPath.row]
+            cell.setDataSource(content: ping.attrContent)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.selectPingItem != nil {
-            if self.model.attrContent.length > 5 {
-                self.selectPingItem!(indexPath.row - 1)
-            } else {
-                self.selectPingItem!(indexPath.row)
-            }
+        if self.selectPingItem != nil && indexPath.section == 1 {
+            self.selectPingItem!(indexPath.row)
         }
     }
 }

@@ -16,6 +16,9 @@ class LLJCycleFrameModel: NSObject {
     var contentFrame: CGRect = CGRect.zero
     var timeIntevalFrame: CGRect = CGRect.zero
     var moreButtonFrame: CGRect = CGRect.zero
+    var locationButtonFrame: CGRect = CGRect.zero
+    var linkLabel_dx: CGFloat = 0.0
+    var deleteButton_dx: CGFloat = 0.0
     var lineViewFrame: CGRect = CGRect.zero
     //图片
     var contentImageSize: CGSize = CGSize.zero

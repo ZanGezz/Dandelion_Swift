@@ -19,7 +19,7 @@ class LLJPingListModel: NSObject {
     var type: Int64 = 0
     var userId: Int64 = 0
     var rowHeight: CGFloat = 0.0
-    var attrContent: ASAttributedString = ASAttributedString(string: "")
+    var attrContent: LJTextString = LJTextString(content: "")
     var aUserNameRange: NSRange = NSRange(location: 0,length: 0)
     var bUserNameRange: NSRange = NSRange(location: 0,length: 0)
 }

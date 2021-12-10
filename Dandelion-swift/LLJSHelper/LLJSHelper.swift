@@ -102,6 +102,31 @@ public class LLJSHelper {
     }
     
     /**
+     * 获取当前控制器
+     */
+    class func currentController() -> UIViewController? {
+        var controller = UIApplication.shared.keyWindow?.rootViewController
+        while (1 != 0) {
+            if ((controller?.isKind(of: UITabBarController.self)) != nil) {
+                let vc = controller as! UITabBarController
+                controller = vc.selectedViewController
+            }
+            
+            if ((controller?.isKind(of: UINavigationController.self)) != nil) {
+                let vc = controller as! UINavigationController
+                controller = vc.visibleViewController
+            }
+            
+            if ((controller?.presentedViewController) != nil) {
+                controller = controller?.presentedViewController
+            } else {
+                break
+            }
+        }
+        return controller
+    }
+    
+    /**
      * 根据角度获取圆周率
      */
     class func getPrintsByAngle(angle: Double) -> Double {
@@ -147,6 +172,53 @@ public class LLJSHelper {
     class func getCurrentTimeInteval() -> Int64 {
         
         return Int64(NSDate().timeIntervalSince1970)
+    }
+    
+    /**
+     * 倒计时
+     */
+    class func countDown(timeInterval: Double, totalTime: Double, duration: @escaping(DispatchSourceTimer?, Double) -> Void, completeHandler: @escaping() -> Void) {
+            
+            if totalTime <= 0 {
+                completeHandler()
+                return
+            }
+            let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
+            var count = totalTime
+            timer.schedule(deadline: .now(), repeating: timeInterval)
+            timer.setEventHandler {
+                count -= timeInterval
+                DispatchQueue.main.async {
+                    duration(timer, count)
+                }
+                if count <= 0 {
+                    completeHandler()
+                    timer.cancel()
+                }
+            }
+            timer.resume()
+    }
+    
+    /* GCD实现定时器
+     * timeInterval: 间隔时间
+     * handler: 事件
+     * needRepeat: 是否重复
+     */
+    class func dispatchTimer(timeInterval: Double, handler: @escaping (DispatchSourceTimer?) -> Void, needRepeat: Bool) -> DispatchSourceTimer {
+        
+        let timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
+        timer.schedule(deadline: .now(), repeating: timeInterval)
+        timer.setEventHandler {
+            DispatchQueue.main.async {
+                if needRepeat {
+                    handler(timer)
+                } else {
+                    timer.cancel()
+                    handler(nil)
+                }
+            }
+        }
+        return timer
     }
     
     /**

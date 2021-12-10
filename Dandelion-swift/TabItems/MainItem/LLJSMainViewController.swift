@@ -11,7 +11,7 @@ class LLJSMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //获取本地数据
         getLocalTxtSource()
         //设置UI
@@ -19,8 +19,8 @@ class LLJSMainViewController: UIViewController {
     }
     
     //MARK:懒加载属性
-    private lazy var myTableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTabBarHeight - LLJTopHeight), style: UITableView.Style.plain)
+    private lazy var mTableView: UITableView = {
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTabBarHeight), style: UITableView.Style.plain)
         tableView.register(LLJSMainCell.self, forCellReuseIdentifier: "MainCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -63,15 +63,12 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
                 viewController?.hiddenNavgationBarWhenPushIn = true
             }
             if sub.last! == "LLJFWeChatCycleController" {
-                let model = LLJCycleUserModel()
-                model.nickName = "赞歌"
-                model.headIamge = "cycle_head"
-                model.userImage = "head"
-                model.userId = 100010001
-                (viewController as! LLJFWeChatCycleController).useModel = model
                 viewController?.hiddenNavgationBarWhenPushIn = true
             }
+            //viewController?.addTransitionAinamition(animationType: .CurlDown, pushType: .push, duration: 0.35)
             self.navigationController?.pushViewController(viewController!, animated: true)
+            //let _ = LLJTransition.init(add: .CurlDown, pushType: .dismiss, duration: 0.35, destinationContrller: viewController!)
+            //self.present(viewController!, animated: true, completion: nil)
         }
     }
 }
@@ -87,10 +84,14 @@ extension LLJSMainViewController {
     }
     //设置UI
     private func setUpUI() {
+        
         //背景色
         self.view.backgroundColor = LLJWhiteColor()
         //添加TableView
-        self.view.addSubview(self.myTableView)
+        self.view.addSubview(self.mTableView)
+        //设置导航条
+        let naviController = self.navigationController as! LLJNaviController
+        naviController.statusBarStyle = .lightContent
         //网络请求
         //loadData()
     }

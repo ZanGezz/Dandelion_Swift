@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               
         //开启
         UIControl.swizzlAddTargetMethod()
+        //FPS Label
+        self.addFPSLabel()
         
         return true
     }
@@ -43,6 +45,13 @@ extension AppDelegate {
         //键盘状态
         UserDefaults.standard.set(false, forKey: "keyBoardStatus")
         UserDefaults.standard.synchronize()
+    }
+    
+    private func addFPSLabel() {
+        let label = LJFPSLabel(frame: CGRect(x: (SCREEN_WIDTH-60)/2.0, y: LLJStatusBarHeight - 10, width: 60, height: 20))
+        label.textAlignment = .center
+        label.font = LLJFont(12)
+        UIApplication.shared.keyWindow?.addSubview(label)
     }
 }
 

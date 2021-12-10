@@ -117,9 +117,6 @@ class LLJCarouselMapView: UIView {
     private var leftAnimation: CAKeyframeAnimation?
     //右动画
     private var rightAnimation: CAKeyframeAnimation?
-
-    
-    
     
     //轮播数据个数 自定义轮播视图时使用
     private var _sourceCount: Int = 0
@@ -143,6 +140,10 @@ class LLJCarouselMapView: UIView {
     private var _viewTag: Int = 0
     //圆角
     private var _contentViewCornerRadius: CGFloat = 0.0
+    //左Path
+    private var leftPath: UIBezierPath?
+    //右Path
+    private var rightPath: UIBezierPath?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -438,7 +439,8 @@ extension LLJCarouselMapView {
             self.leftCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: self.largeSize.height/2.0 + stepWidth*3/2.0)
             self.leftLeftCenterPoint = CGPoint(x: self.largeSize.width/2.0, y: self.largeSize.height/2.0 + stepWidth*2.0)
 
-            
+            LLJLog(44444)
+
             addGesRecognizier(subView: self.rightRightView)
         }
         
@@ -529,8 +531,9 @@ extension LLJCarouselMapView {
             self.leftView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width - 2*self.itemSpace, height: self.largeSize.height)
             self.leftLeftView.frame = CGRect(x: 0, y: 0, width: self.largeSize.width - 2*self.itemSpace, height: self.largeSize.height)
             self.leftView.alpha = zoomRate
-            LLJLog(self.leftView.alpha)
             self.leftLeftView.alpha = 0.0
+            
+            LLJLog(1111111)
         }
         
         self.leftLeftView.center = self.leftLeftCenterPoint
@@ -594,6 +597,9 @@ extension LLJCarouselMapView {
             centerIndex = self.reSetIndex(index: currentIndex + 2)
             rightIndex = self.reSetIndex(index: currentIndex + 1)
             rightRightIndex = self.reSetIndex(index: currentIndex)
+            
+            LLJLog(222222)
+
             
         } else{
             
@@ -676,21 +682,28 @@ extension LLJCarouselMapView: UIScrollViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 
+        LLJLog("scrollViewWillBeginDragging")
         reSetTimer(autoScrollEnable: false)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        LLJLog("scrollViewDidEndDragging")
 
         reSetTimer(autoScrollEnable: _autoScrollEnable)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        LLJLog("scrollViewDidScroll")
+
         var _x: CGFloat = 0.0
         var _rx: CGFloat = 0.0
         
         if self.mapViewStyle == .fold {
             
+            LLJLog(33333)
+
             _rx = scrollView.contentOffset.y/(stepWidth/2) > 1.0 ? 1.0 : scrollView.contentOffset.y/(stepWidth/2)
 
             layoutSubview(zoomRate: _rx)
@@ -710,7 +723,7 @@ extension LLJCarouselMapView: UIScrollViewDelegate {
                 self.contentView.setContentOffset(CGPoint(x: offset_y, y: 0.0), animated: false)
                 //重新布局
                 layoutSubview(zoomRate: 0.0)
-                animationStart = false
+                layoutStart = false
             }
         } else {
             
@@ -835,14 +848,17 @@ extension LLJCarouselMapView: CAAnimationDelegate {
     //平移事件
     @objc private func swipeAction(ges: UISwipeGestureRecognizer) {
         
-        if !animationStart {
+        if !animationStart && !layoutStart {
             
             animationStart = true
+            layoutStart = true
+            
             var path: UIBezierPath?
             var animation: CAKeyframeAnimation?
             
             switch ges.direction {
             case .left:
+<<<<<<< HEAD
                 if (self.leftAnimation == nil) {
                     path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: -SCREEN_WIDTH, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: 100, y: 10))
                     
@@ -863,13 +879,25 @@ extension LLJCarouselMapView: CAAnimationDelegate {
                 self.rightRightView.layer.removeAllAnimations()
                 self.rightRightView.layer.add(self.rightAnimation!, forKey: "keyAniamtion")
                 
+=======
+                if self.leftPath == nil {
+                    self.leftPath = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: -SCREEN_WIDTH, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: 100, y: 10))
+                }
+                path = self.leftPath;
+            case .right:
+                if self.rightPath == nil {
+                    self.rightPath = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: SCREEN_WIDTH + self.rightRightView.bounds.width, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: SCREEN_WIDTH - 100, y: 10))
+                }
+                path = self.rightPath;
+>>>>>>> 1b9667483e1df86f595fa879748727466fe35a70
             default:break
             }
         }
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-                
+         LLJLog("animationDidStop")
         self.contentView.setContentOffset(CGPoint(x: offset_y, y: stepWidth/2.0), animated: true)
+        animationStart = false
     }
 }

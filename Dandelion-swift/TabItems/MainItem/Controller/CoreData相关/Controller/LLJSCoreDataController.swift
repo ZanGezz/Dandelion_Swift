@@ -27,10 +27,21 @@ extension LLJSCoreDataController {
         
         self.view.backgroundColor = LLJWhiteColor()
         
+        //增加
+        let button5 = LLJSUIKitHelper.LLJButton(title: "点就", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 100, y: 100, width: 80, height: 40))
+        LLJSUIKitHelper.LLJCView(subView: button5, cornerRadius: [8,12,4,4])
+        button5.tag = 10005
+        button5.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
+        self.view.addSubview(button5)
+        
+        
         //hello
-        let label = LLJSUIKitHelper.LLJLabel(title: "Hello", titleColor: UIColor.white, backGroundColor: UIColor.black, titleFont: LLJFont(16), frame: CGRect(x: 100, y: 50, width: 100, height: 20), numberOfLines: 1)
+        let label = LLJSUIKitHelper.LLJLabel(title: "Hello", titleColor: UIColor.white, backGroundColor: UIColor.black, titleFont: LLJFont(16), frame: CGRect(x: 100, y: 150, width: 60, height: 20), numberOfLines: 1)
+        label.layer.masksToBounds = true
+        label.alpha = 0.5
+        label.layer.cornerRadius = 8.0
         LLJSUIKitHelper.LLJCView(subView: label, cornerRadius: [4,4,4,4])
-        self.view.addSubview(label)
+        
         
         //增加
         let button = LLJSUIKitHelper.LLJButton(title: "增加", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 100, y: 200, width: 80, height: 40))
@@ -38,6 +49,7 @@ extension LLJSCoreDataController {
         button.tag = 10001
         button.addTarget(self, action: #selector(buttonClick(sender:)), for: UIControl.Event.touchUpInside)
         self.view.addSubview(button)
+
         
         //删除
         let button1 = LLJSUIKitHelper.LLJButton(title: "删除", titleColor: LLJBlackColor(), backGroundColor: LLJPurpleColor(), titleFont: LLJFont(18), frame: CGRect(x: 100, y: 300, width: 80, height: 40))

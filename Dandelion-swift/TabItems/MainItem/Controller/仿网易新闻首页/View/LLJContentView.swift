@@ -42,7 +42,6 @@ class LLJContentView: UIView {
     private var _currentItemIndex: Int = 0
     //下一个item index
     private var nextItemIndex: Int = 0
-    //
     //x方向的offset差
     private var difference_x: CGFloat = 0.0
     //子视图

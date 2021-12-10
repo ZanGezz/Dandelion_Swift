@@ -11,4 +11,5 @@ class LLJAlertModel: NSObject {
 
     var title: String = ""
     var subTitle: String = ""
+    var predicate: String = ""
 }

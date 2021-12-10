@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum LLJAlertType {
+    case sheet
+    case alert
+}
+
 class LLJAlertView: UIView {
 
     //MARK:懒加载属性
@@ -20,16 +25,69 @@ class LLJAlertView: UIView {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.bounces = false
         tableView.isScrollEnabled = false
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
         return tableView
     }()
     
     private lazy var clearButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonClick(sender:)), for: .touchUpInside)
+        button.tag = 100100010
         return button
     }()
     
-    typealias selectBlock = ((Int, String) -> Void)
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 8.0
+        view.backgroundColor = LLJWhiteColor()
+        return view
+    }()
+    
+    lazy var contentLabel: UILabel = {
+        let contentLabel = UILabel()
+        contentLabel.textColor = LLJBlackColor()
+        contentLabel.font = LLJBoldFont(18)
+        contentLabel.textAlignment = .center
+        contentLabel.text = "删除该朋友圈?"
+        return contentLabel
+    }()
+    
+    private lazy var lineView1: UIView = {
+        let view = UIView()
+        view.backgroundColor = LLJColor(243, 243, 243, 1.0)
+        return view
+    }()
+    
+    private lazy var lineView2: UIView = {
+        let view = UIView()
+        view.backgroundColor = LLJColor(243, 243, 243, 1.0)
+        return view
+    }()
+    
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("取消", for: UIControl.State.normal)
+        button.setTitleColor(LLJBlackColor(), for: UIControl.State.normal)
+        button.titleLabel?.font = LLJBoldFont(18)
+        button.tag = 100100011
+        button.addTarget(self, action: #selector(buttonClick(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var sureButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("确定", for: UIControl.State.normal)
+        button.setTitleColor(LLJColor(216, 66, 65, 1.0), for: UIControl.State.normal)
+        button.titleLabel?.font = LLJBoldFont(18)
+        button.tag = 100100012
+        button.addTarget(self, action: #selector(buttonClick(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
+    typealias selectBlock = ((Int, String, LLJAlertType) -> Void)
     
     private var _cancelText: String = "取消"
     private var _cancelFont: UIFont = LLJFont(18, "")
@@ -39,9 +97,12 @@ class LLJAlertView: UIView {
     private var itemList: Array<Any> = []
     private var tableViewH: CGFloat = 0.0
     var selectRow: selectBlock?
+    var type: LLJAlertType = .sheet
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, type: LLJAlertType) {
         super.init(frame: frame)
+        
+        self.type = type
         //UI
         setUpUI()
     }
@@ -123,7 +184,7 @@ extension LLJAlertView: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             if selectRow != nil {
                 let model = self.itemList[indexPath.row] as! LLJAlertModel
-                selectRow!(indexPath.row, model.title)
+                selectRow!(indexPath.row, model.title, .sheet)
             }
         }
         alertHidden()
@@ -179,12 +240,70 @@ extension LLJAlertView {
     
     private func setUpUI() {
         self.layer.masksToBounds = true
-        self.addSubview(self.tableView)
-        self.addSubview(self.clearButton)
+        
+        if self.type == .sheet {
+            self.addSubview(self.tableView)
+            self.addSubview(self.clearButton)
+        } else {
+            self.addSubview(self.contentView)
+            self.contentView.snp_makeConstraints { (make) in
+                make.centerX.equalTo(self.snp_centerX)
+                make.centerY.equalTo(self.snp_centerY)
+                make.width.equalTo(LLJDX(320))
+                make.height.equalTo(LLJDX(160))
+            }
+            self.contentView.addSubview(self.contentLabel)
+            self.contentLabel.snp_makeConstraints { (make) in
+                make.centerX.equalTo(self.snp_centerX)
+                make.top.equalTo(self.contentView.snp_top).offset(LLJDX(43))
+                make.left.equalTo(self.contentView.snp_left)
+                make.right.equalTo(self.contentView.snp_right)
+            }
+            self.contentView.addSubview(self.lineView1)
+            self.lineView1.snp_makeConstraints { (make) in
+                make.height.equalTo(0.5)
+                make.top.equalTo(self.contentView.snp_top).offset(LLJDX(104))
+                make.left.equalTo(self.contentView.snp_left)
+                make.right.equalTo(self.contentView.snp_right)
+            }
+            self.contentView.addSubview(self.cancelButton)
+            self.cancelButton.snp_makeConstraints { (make) in
+                make.bottom.equalTo(self.contentView.snp_bottom)
+                make.top.equalTo(self.lineView1.snp_bottom)
+                make.left.equalTo(self.contentView.snp_left)
+                make.right.equalTo(self.contentView.snp_centerX)
+            }
+            self.contentView.addSubview(self.lineView2)
+            self.lineView2.snp_makeConstraints { (make) in
+                make.bottom.equalTo(self.contentView.snp_bottom)
+                make.top.equalTo(self.lineView1.snp_bottom)
+                make.left.equalTo(self.cancelButton.snp_right)
+                make.width.equalTo(0.5)
+            }
+            self.contentView.addSubview(self.sureButton)
+            self.sureButton.snp_makeConstraints { (make) in
+                make.bottom.equalTo(self.contentView.snp_bottom)
+                make.top.equalTo(self.lineView1.snp_bottom)
+                make.left.equalTo(self.lineView2.snp_right)
+                make.right.equalTo(self.contentView.snp_right)
+            }
+        }
     }
     
     //按钮事件
-    @objc func buttonClick() {
+    @objc func buttonClick(sender: UIButton) {
+        switch sender.tag {
+        case 100100010:break
+        case 100100011:break
+        case 100100012:
+            //确定
+            if self.selectRow != nil {
+                self.selectRow!(0,"确定",.alert)
+            }
+        default:break
+            
+        }
+        //收回
         alertHidden()
     }
     
@@ -194,19 +313,24 @@ extension LLJAlertView {
         self.frame = superView.bounds
         superView.addSubview(self)
         
-        self.itemList = itemList
-        self.tableView.reloadData()
-        
-        self.backgroundColor = LLJColor(255, 255, 255, 0.0)
-        tableViewH = CGFloat((itemList.count + 1)) * LLJDX(62) + LLJDX(8)
-        self.clearButton.frame = CGRect(x: 0, y: 0, width: superView.bounds.width, height: superView.bounds.height - self.tableViewH)
-        self.tableView.frame = CGRect(x: 0, y: superView.bounds.height, width: superView.bounds.width, height: self.tableViewH)
-        LLJSUIKitHelper.LLJCView(subView: tableView, cornerRadius: [16,16,0,0])
+        if self.type == .sheet {
+            self.itemList = itemList
+            self.tableView.reloadData()
+            
+            self.backgroundColor = LLJColor(255, 255, 255, 0.0)
+            tableViewH = CGFloat((itemList.count + 1)) * LLJDX(62) + LLJDX(8)
+            self.clearButton.frame = CGRect(x: 0, y: 0, width: superView.bounds.width, height: superView.bounds.height - self.tableViewH)
+            self.tableView.frame = CGRect(x: 0, y: superView.bounds.height, width: superView.bounds.width, height: self.tableViewH)
+            LLJSUIKitHelper.LLJCView(subView: tableView, cornerRadius: [16,16,0,0])
+            
+        }
         
         weak var weakSelf = self
         UIView.animate(withDuration: 0.25) {
             weakSelf!.backgroundColor = LLJColor(0, 0, 0, 0.4)
-            weakSelf!.tableView.frame = CGRect(x: 0, y: superView.bounds.height - weakSelf!.tableViewH, width: superView.bounds.width, height: weakSelf!.tableViewH)
+            if weakSelf!.type == .sheet {
+                weakSelf!.tableView.frame = CGRect(x: 0, y: superView.bounds.height - weakSelf!.tableViewH, width: superView.bounds.width, height: weakSelf!.tableViewH)
+            }
         } completion: { (complete) in
             
         }
@@ -221,7 +345,11 @@ extension LLJAlertView {
         weak var weakSelf = self
         UIView.animate(withDuration: 0.25) {
             weakSelf!.backgroundColor = LLJColor(255, 255, 255, 0.0)
-            weakSelf!.tableView.frame = CGRect(x: 0, y: weakSelf!.bounds.height, width: weakSelf!.bounds.width, height: weakSelf!.tableViewH)
+            if self.type == .sheet {
+                weakSelf!.tableView.frame = CGRect(x: 0, y: weakSelf!.bounds.height, width: weakSelf!.bounds.width, height: weakSelf!.tableViewH)
+            } else {
+                self.contentView.alpha = 0
+            }
         } completion: { (complete) in
             weakSelf!.removeFromSuperview()
         }
