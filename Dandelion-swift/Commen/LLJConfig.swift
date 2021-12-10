@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 /**
  * Log输出

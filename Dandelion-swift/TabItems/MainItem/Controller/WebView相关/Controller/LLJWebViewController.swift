@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import WebKit
 
 class LLJWebViewController: LLJFViewController {
 
-    lazy var webView: LLJWKWebView = {
-        let webView = LLJWKWebView(frame: self.view.bounds, messgaeHandlerArray: self.messgaeHandlerArray)
+    lazy var webView: WKWebView = {
+        let webView = WKWebView(frame: self.view.bounds)
+        webView.backgroundColor = UIColor.red
         return webView
     }()
     
@@ -30,28 +32,30 @@ extension LLJWebViewController {
     
     private func setUpUI() {
         
+        
         self.view.backgroundColor = LLJWhiteColor()
         
-        self.messgaeHandlerArray = ["backToViewController"]
-        self.view.addSubview(self.webView)
+        self.title = self.titleName
+        //self.messgaeHandlerArray = ["backToViewController"]
         
         
         //self.webUrlString = Bundle.main.path(forResource: "WKWebViewText", ofType: "html")!
         
         let req = URLRequest(url: URL(string: self.webUrlString)!)
         self.webView.load(req)
-        
-        dealWithWebEvent()
+        self.view.addSubview(self.webView)
+
+        //dealWithWebEvent()
     }
     
     
     private func dealWithWebEvent() {
         
-        self.webView.webAction = { (status, message) in
-            
-            if status == .receiveMessage {
-                LLJLog(message.name)
-            }
-        }
+//        self.webView.webAction = { (status, message) in
+//
+//            if status == .receiveMessage {
+//                LLJLog(message.name)
+//            }
+//        }
     }
 }

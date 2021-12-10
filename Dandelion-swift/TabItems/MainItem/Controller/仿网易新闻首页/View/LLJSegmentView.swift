@@ -69,7 +69,7 @@ class LLJSegmentView: UIView {
     //第一个item距离左边距离
     private var _firstItemLeftOffSet: CGFloat = 0.0
     //item间距
-    private var _itemSpace: CGFloat = 20.0
+    private var _itemSpace: CGFloat = LLJDX(20.0)
     //底线相对title的宽 默认1:1
     private var _bottomLineWidthRatio: CGFloat = 1.0
     //底线高 默认2.0
@@ -89,7 +89,7 @@ class LLJSegmentView: UIView {
     //底线高
     private var bottomLine_y: CGFloat = 0.0;
     //直径
-    private var diameter: CGFloat = 6.0;
+    private var diameter: CGFloat = LLJDX(6.0);
 
     //代理
     weak open var delegate: LLJSegmentViewDelegate?
@@ -515,12 +515,8 @@ extension LLJSegmentView {
                 }
                                 
                 var X: CGFloat = 0.0
-                if i == 0 {
-                    X = (model.itemSize.width - model.titleWidth)/2.0 + model.titleWidth + 4.0 + self.firstItemLeftOffSet/2.0
-                } else {
-                    X = (model.itemSize.width - model.titleWidth)/2.0 + model.titleWidth + 4.0
-                }
-                let Y = (model.itemSize.height - model.titleHeight - model.diameter)/2.0 + 2.0
+                X = model.itemSize.width - model.diameter - 1.0
+                let Y = (model.itemSize.height - model.titleHeight - model.diameter)/2.0 + LLJDX(2.0)
                 model.cycleFrame = CGRect(x: X, y: Y, width: model.diameter, height: model.diameter)
             }
             
@@ -531,9 +527,6 @@ extension LLJSegmentView {
                 self.scrollToItem(index: self.currentSelectItem, animated: true)
                 self.lastSelectItem = self.currentSelectItem
             }
-            
-            LLJLog("=====" + String(self.currentSelectItem) + "--" + String(self.lastSelectItem))
-
             
         case .moveAnimationNone:
             

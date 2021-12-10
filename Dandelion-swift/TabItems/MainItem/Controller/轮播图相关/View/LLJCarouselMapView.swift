@@ -109,6 +109,15 @@ class LLJCarouselMapView: UIView {
     private var offset_y: CGFloat = 0.0
     //手势开始
     private var animationStart: Bool = false
+    //左路线
+    private var leftPath: UIBezierPath?
+    //右路线
+    private var rightPath: UIBezierPath?
+    //左动画
+    private var leftAnimation: CAKeyframeAnimation?
+    //右动画
+    private var rightAnimation: CAKeyframeAnimation?
+
     
     
     
@@ -615,11 +624,13 @@ extension LLJCarouselMapView {
             if item is String {
                 let item = item as! String
                 if item.hasPrefix("http") {
-                    let url = URL(string: item)
-                    subView.kf.setImage(with: url, placeholder: LLJSHelper.getImageByColorAndSize(LLJRandomColor(), subView.bounds.size), options:nil , progressBlock: nil, completionHandler: nil)
+                    //let url = URL(string: item)
+                    subView.image = LLJSHelper.getImageByColorAndSize(LLJRandomColor(), subView.bounds.size)
+                    //subView.kf.setImage(with: url, placeholder: LLJSHelper.getImageByColorAndSize(LLJRandomColor(), subView.bounds.size), options:nil , progressBlock: nil, completionHandler: nil)
                 } else if item.hasPrefix("file") {
-                    let url = URL(fileURLWithPath: item)
-                    subView.kf.setImage(with: url, placeholder: LLJSHelper.getImageByColorAndSize(LLJRandomColor(), subView.bounds.size), options:nil , progressBlock: nil, completionHandler: nil)
+                    //let url = URL(fileURLWithPath: item)
+                    subView.image = LLJSHelper.getImageByColorAndSize(LLJRandomColor(), subView.bounds.size)
+                    //subView.kf.setImage(with: url, placeholder: LLJSHelper.getImageByColorAndSize(LLJRandomColor(), subView.bounds.size), options:nil , progressBlock: nil, completionHandler: nil)
                 }
             } else if item is UIImage {
                 let item = item as! UIImage
@@ -828,19 +839,31 @@ extension LLJCarouselMapView: CAAnimationDelegate {
             
             animationStart = true
             var path: UIBezierPath?
+            var animation: CAKeyframeAnimation?
             
             switch ges.direction {
             case .left:
-                path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: -SCREEN_WIDTH, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: 100, y: 10))
+                if (self.leftAnimation == nil) {
+                    path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: -SCREEN_WIDTH, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: 100, y: 10))
+                    
+                    animation = LLJAnimation.keyframeAnimation(keyPath: "position", values: nil, path: path!.cgPath, keyTimes: nil, duration: 0.25, timingFunctions: [CAMediaTimingFunction(name: .easeIn)], fillMode: CAMediaTimingFillMode.forwards, removedOnCompletion: false)
+                    animation?.delegate = self
+                    self.leftAnimation = animation
+                }
+                self.rightRightView.layer.add(self.leftAnimation!, forKey: "keyAniamtion")
+                
             case .right:
-                path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: SCREEN_WIDTH + self.rightRightView.bounds.width, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: SCREEN_WIDTH - 100, y: 10))
+                if self.rightAnimation == nil {
+                    path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: SCREEN_WIDTH + self.rightRightView.bounds.width, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: SCREEN_WIDTH - 100, y: 10))
+                    
+                    animation = LLJAnimation.keyframeAnimation(keyPath: "position", values: nil, path: path!.cgPath, keyTimes: nil, duration: 0.25, timingFunctions: [CAMediaTimingFunction(name: .easeIn)], fillMode: CAMediaTimingFillMode.forwards, removedOnCompletion: false)
+                    animation?.delegate = self
+                    self.rightAnimation = animation
+                }
+                self.rightRightView.layer.removeAllAnimations()
+                self.rightRightView.layer.add(self.rightAnimation!, forKey: "keyAniamtion")
+                
             default:break
-            }
-            
-            if path != nil {
-                let animation = LLJAnimation.keyframeAnimation(keyPath: "position", values: nil, path: path!.cgPath, keyTimes: nil, duration: 0.25, timingFunctions: [CAMediaTimingFunction(name: .easeIn)], fillMode: CAMediaTimingFillMode.forwards, removedOnCompletion: false)
-                animation.delegate = self
-                self.rightRightView.layer.add(animation, forKey: "keyAniamtion")
             }
         }
     }

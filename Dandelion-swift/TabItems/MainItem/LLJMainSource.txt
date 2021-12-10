@@ -10,7 +10,6 @@
 "算法总结:LLJSAlgorithmController",
 "闭包(Block)总结:LLJSBlockController",
 "WebView总结:LLJSBridgeViewController",
-"轮播图:LLJSLunBoTuController",
 "自定义密码输入框:LLJSTextFieldController",
 "手势指纹密码:LLJSGesAndAuthIDController",
 "贝塞尔曲线:LLJBezierPathController",

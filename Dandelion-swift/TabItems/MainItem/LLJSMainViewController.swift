@@ -92,7 +92,7 @@ extension LLJSMainViewController {
         //添加TableView
         self.view.addSubview(self.myTableView)
         //网络请求
-        loadData()
+        //loadData()
     }
     //网络请求
     private func loadData() {

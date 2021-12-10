@@ -53,7 +53,7 @@ extension LLJWKWebView {
     
     private func initConfigure() {
         
-        let configuration = WKWebViewConfiguration()
+        let configuration = self.configuration
         configuration.userContentController.add(LLJWeakScriptMessageDelegate.init(self), name: "")
         
         addHanders()

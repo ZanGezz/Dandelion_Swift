@@ -104,7 +104,7 @@ extension LLJLunBoViewController {
         carouselMapViewZoom1.sourceCount = 10;
         carouselMapViewZoom1.autoScorllSpaceTime = 3.0
         carouselMapViewZoom1.viewTag = 1112;
-        self.view.addSubview(carouselMapViewZoom1)
+        //self.view.addSubview(carouselMapViewZoom1)
     }
 }
 

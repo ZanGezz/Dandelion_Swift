@@ -57,6 +57,7 @@ extension LLJMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = LLJWebViewController()
         controller.webUrlString = (self.sourceArray!.object(at: indexPath.row) as! Array<Any>).last as! String
+        controller.titleName = "知识"
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -9,7 +9,7 @@ target 'Dandelion-swift' do
   
   pod "SnapKit"
   pod 'Moya'
-  pod 'Kingfisher'
+  #pod 'Kingfisher'
   
   target 'Dandelion-swiftTests' do
     inherit! :search_paths
