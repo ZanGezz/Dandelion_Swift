@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MJRefresh
 
 class LLJFWeChatCycleController: LLJFViewController {
     
@@ -535,7 +534,7 @@ extension LLJFWeChatCycleController {
         
         //再添加加载更多
         if !self.loadAll {
-            self.tableView.mj_footer?.isHidden = true
+            //self.tableView.mj_footer?.isHidden = true
             let model = LLJCycleMessageModel()
             model.type = 10014
             model.frameModel.rowHeight = LLJDX(50)

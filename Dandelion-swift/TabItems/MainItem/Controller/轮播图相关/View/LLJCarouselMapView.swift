@@ -109,10 +109,6 @@ class LLJCarouselMapView: UIView {
     private var offset_y: CGFloat = 0.0
     //手势开始
     private var animationStart: Bool = false
-    //左路线
-    private var leftPath: UIBezierPath?
-    //右路线
-    private var rightPath: UIBezierPath?
     //左动画
     private var leftAnimation: CAKeyframeAnimation?
     //右动画
@@ -140,10 +136,6 @@ class LLJCarouselMapView: UIView {
     private var _viewTag: Int = 0
     //圆角
     private var _contentViewCornerRadius: CGFloat = 0.0
-    //左Path
-    private var leftPath: UIBezierPath?
-    //右Path
-    private var rightPath: UIBezierPath?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -723,7 +715,6 @@ extension LLJCarouselMapView: UIScrollViewDelegate {
                 self.contentView.setContentOffset(CGPoint(x: offset_y, y: 0.0), animated: false)
                 //重新布局
                 layoutSubview(zoomRate: 0.0)
-                layoutStart = false
             }
         } else {
             
@@ -848,17 +839,15 @@ extension LLJCarouselMapView: CAAnimationDelegate {
     //平移事件
     @objc private func swipeAction(ges: UISwipeGestureRecognizer) {
         
-        if !animationStart && !layoutStart {
+        if !animationStart {
             
             animationStart = true
-            layoutStart = true
             
             var path: UIBezierPath?
             var animation: CAKeyframeAnimation?
             
             switch ges.direction {
             case .left:
-<<<<<<< HEAD
                 if (self.leftAnimation == nil) {
                     path = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: -SCREEN_WIDTH, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: 100, y: 10))
                     
@@ -878,18 +867,6 @@ extension LLJCarouselMapView: CAAnimationDelegate {
                 }
                 self.rightRightView.layer.removeAllAnimations()
                 self.rightRightView.layer.add(self.rightAnimation!, forKey: "keyAniamtion")
-                
-=======
-                if self.leftPath == nil {
-                    self.leftPath = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: -SCREEN_WIDTH, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: 100, y: 10))
-                }
-                path = self.leftPath;
-            case .right:
-                if self.rightPath == nil {
-                    self.rightPath = LLJBezierPath.drawoQuadCurve(startPoint: self.rightRightView.center, endPoint: CGPoint(x: SCREEN_WIDTH + self.rightRightView.bounds.width, y: self.rightRightCenterPoint.y - 50), controlPoint: CGPoint(x: SCREEN_WIDTH - 100, y: 10))
-                }
-                path = self.rightPath;
->>>>>>> 1b9667483e1df86f595fa879748727466fe35a70
             default:break
             }
         }
