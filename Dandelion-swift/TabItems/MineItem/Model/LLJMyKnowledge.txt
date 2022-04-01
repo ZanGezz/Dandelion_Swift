@@ -74,5 +74,9 @@
 "代码注入-https://www.toutiao.com/i6632571119821914628/?group_id=6632571119821914628&wid=1626416715449",
 "深入理解Swift中的Class和Struct-https://www.jianshu.com/p/bde0fd4e56b4",
 "离屏渲染-https://www.jianshu.com/p/1172415850be",
-"根据模版生成HTML:https://www.cnblogs.com/slgkaifa/p/7220429.html"]
+"根据模版生成HTML-https://www.cnblogs.com/slgkaifa/p/7220429.html",
+"app启动优化-https://www.jianshu.com/p/5d4fcc5b534d",
+"appCreash异常及捕获-https://www.jianshu.com/p/51a443b69150",
+"重签名-https://www.cnblogs.com/xiaoleiel/p/11160837.html",
+"ios包瘦身-https://www.jianshu.com/p/db3c020d7ab4"]
 

@@ -20,7 +20,7 @@ class LLJMineViewController: UIViewController {
     
     //MARK:懒加载属性
     private lazy var myTableView: UITableView = {
-        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTabBarHeight - LLJTopHeight), style: UITableView.Style.plain)
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTabBarHeight), style: UITableView.Style.plain)
         tableView.register(LLJSMainCell.self, forCellReuseIdentifier: "MainCell")
         tableView.delegate = self
         tableView.dataSource = self

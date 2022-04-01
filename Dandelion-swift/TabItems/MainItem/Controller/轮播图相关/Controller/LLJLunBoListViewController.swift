@@ -11,7 +11,7 @@ class LLJLunBoListViewController: LLJFViewController {
 
     //MARK:懒加载属性
     private lazy var tableView: LLJTableView = {
-        let tableView = LLJTableView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTopHeight), style: UITableView.Style.plain)
+        let tableView = LLJTableView(frame: CGRect(x: 0, y: LLJTopHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTopHeight), style: UITableView.Style.plain)
         tableView.register(LLJSMainCell.self, forCellReuseIdentifier: "MainCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -35,6 +35,7 @@ extension LLJLunBoListViewController {
         
         sourceArray = ["正常轮播","缩放轮播","折叠样式","向上轮播","向下轮播","向左轮播","向右轮播","图片","自定义View"]
         
+        self.view.backgroundColor = LLJColor(248, 248, 248, 1.0);
         self.view.addSubview(self.tableView)
     }
 }

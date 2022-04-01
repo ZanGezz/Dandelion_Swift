@@ -38,7 +38,7 @@ extension LLJSTableViewController {
         
         //tableview
         self.myTableView.register(LLJSMainCell.self, forCellReuseIdentifier: "MainCell")
-        self.myTableView.frame = self.view.bounds
+        self.myTableView.frame = CGRect(x: 0, y: LLJTopHeight, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - LLJTopHeight)
         self.myTableView.delegate = self
         self.myTableView.dataSource = self
         self.view.addSubview(self.myTableView)

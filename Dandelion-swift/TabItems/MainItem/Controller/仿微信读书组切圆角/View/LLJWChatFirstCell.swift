@@ -12,7 +12,7 @@ class LLJWChatFirstCell: UITableViewCell {
     //懒加载属性
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView(image: UIImage(named: "head"))
-        headImageView.bounds = CGRect(x: 0, y: 0, width: 64, height: 64)
+        headImageView.bounds = CGRect(x: 0, y: 0, width: LLJDX(64), height: LLJDX(64))
         LLJSUIKitHelper.LLJCView(subView: headImageView, cornerRadius: 32)
         return headImageView
     }()

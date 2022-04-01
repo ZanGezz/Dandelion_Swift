@@ -8,13 +8,24 @@
 import UIKit
 import WebKit
 
-class LLJWebViewController: LLJFViewController {
-
+class LLJWebViewController: LLJFViewController,WKNavigationDelegate,WKScriptMessageHandler {
+   
     lazy var webView: WKWebView = {
-        let webView = WKWebView(frame: self.view.bounds)
-        webView.backgroundColor = UIColor.red
-        return webView
+        
+            let preferences = WKPreferences()
+
+            let configuration = WKWebViewConfiguration()
+            configuration.preferences = preferences
+            configuration.userContentController = WKUserContentController()
+            configuration.userContentController.add(self, name: "AppModel")
+
+            var webView = WKWebView(frame: self.view.frame, configuration: configuration)
+            webView.scrollView.bounces = true
+            webView.scrollView.alwaysBounceVertical = true
+            webView.navigationDelegate = self
+            return webView
     }()
+
     
     var messgaeHandlerArray: [String] = []
     
@@ -34,28 +45,14 @@ extension LLJWebViewController {
         
         
         self.view.backgroundColor = LLJWhiteColor()
-        
         self.title = self.titleName
-        //self.messgaeHandlerArray = ["backToViewController"]
-        
-        
-        //self.webUrlString = Bundle.main.path(forResource: "WKWebViewText", ofType: "html")!
-        
         let req = URLRequest(url: URL(string: self.webUrlString)!)
         self.webView.load(req)
         self.view.addSubview(self.webView)
-
-        //dealWithWebEvent()
     }
     
     
-    private func dealWithWebEvent() {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
-//        self.webView.webAction = { (status, message) in
-//
-//            if status == .receiveMessage {
-//                LLJLog(message.name)
-//            }
-//        }
     }
 }

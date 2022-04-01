@@ -394,10 +394,10 @@ extension LLJFWeChatCycleController {
      
         let model = self.cycleSourceListArray[sourceindex] as! LLJCycleMessageModel
         if model.hasZaned && type == 10001010 {
-            let array = model.zanList
+            let array = NSArray.init(array: model.zanList) as! [LLJPingListModel]
             for i in stride(from: 0, to: array.count, by: 1) {
                 let zanModel = array[i]
-                if zanModel.aUserId == model.userId {
+                if zanModel.aUserId == self.useModel!.userId {
                     model.zanList.remove(at: i)
                     let pre = String(format: "timeInterval = %ld", zanModel.timeInterval)
                     let r = LLJSCoreDataHelper().deleteRosource(entityName: "LLJCycleZanModel", predicate: pre)
