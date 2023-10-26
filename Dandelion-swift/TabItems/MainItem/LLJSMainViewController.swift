@@ -58,15 +58,17 @@ extension LLJSMainViewController: UITableViewDelegate, UITableViewDataSource {
         let sub = (self.sourceArray!.object(at: indexPath.row) as! NSString).components(separatedBy: ":")
         let viewController: LLJFViewController? = LLJSHelper.getClassFromString(sub.last!)
         if viewController != nil {
-            viewController?.titleName = sub.first!
-            if sub.last! == "LLJWChatMainViewController" {
-                viewController?.hiddenNavgationBarWhenPushIn = true
-            }
-            if sub.last! == "LLJFWeChatCycleController" {
-                viewController?.hiddenNavgationBarWhenPushIn = true
+            viewController!.titleName = sub.first!
+            if sub.last! == "LLJWChatMainViewController" || sub.last! == "LLJFWeChatCycleController" || sub.last! == "LLJVideoController" {
+                viewController!.hiddenNavgationBarWhenPushIn = true
             }
             //viewController?.addTransitionAinamition(animationType: .CurlDown, pushType: .push, duration: 0.35)
-            self.navigationController?.pushViewController(viewController!, animated: true)
+            if (sub.last! == "LLJVideoController") {
+                viewController!.presentFullfullScreen()
+                self.present(viewController!, animated: true)
+            } else {
+                self.navigationController?.pushViewController(viewController!, animated: true)
+            }
             //let _ = LLJTransition.init(add: .CurlDown, pushType: .dismiss, duration: 0.35, destinationContrller: viewController!)
             //self.present(viewController!, animated: true, completion: nil)
         }

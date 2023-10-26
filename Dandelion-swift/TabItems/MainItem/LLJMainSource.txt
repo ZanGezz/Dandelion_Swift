@@ -19,5 +19,6 @@
 "自定义密码输入框:LLJSTextFieldController",
 "手势指纹密码:LLJSGesAndAuthIDController",
 "滚动导航翻页:LLJNestListViewController",
-"swift语法相关:LLJAboutSwiftController"
+"swift语法相关:LLJAboutSwiftController",
+"音乐播放器:LLJVideoController"
 ]

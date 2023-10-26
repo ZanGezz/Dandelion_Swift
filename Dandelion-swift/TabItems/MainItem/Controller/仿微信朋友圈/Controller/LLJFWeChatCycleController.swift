@@ -784,10 +784,10 @@ extension LLJFWeChatCycleController {
     
     private func setAllUserInfo() {
         
-        let nickName: [String] = ["赞歌","纳兰丹青","微微一笑很倾城","青年文摘","在路上","奥运健儿加油！","浪漫的土耳其","小红书","逻辑-小燕子","国家博物馆"]
-        let headImageName: [String] = ["IMG_28","IMG_35","IMG_29","IMG_21","IMG_17","IMG_15","IMG_14","IMG_13","IMG_16","IMG_20"]
-        let userImageName: [String] = ["head","nituwang","shejilushang","shejizhijia","shejipai","zhongguo","wall-haven","zitibao","siyuansheji","tuyiwang"]
-        let userIds: [String] = ["100010001","100010002","100010003","100010004","100010005","100010006","100010007","100010008","100010009","1000100010"]
+        let nickName: [String] = ["刘帅","纳兰丹青","微微一笑很倾城","青年文摘","在路上","奥运健儿加油！","浪漫的土耳其","小红书","逻辑-小燕子","国家博物馆","朱辉","沧浪","汪大强","康鹏鹏"]
+        let headImageName: [String] = ["IMG_28","IMG_35","IMG_29","IMG_21","IMG_17","IMG_15","IMG_14","IMG_13","IMG_16","IMG_20","IMG_20","IMG_35","IMG_40","IMG_17"]
+        let userImageName: [String] = ["head","nituwang","shejilushang","shejizhijia","shejipai","zhongguo","wall-haven","zitibao","siyuansheji","tuyiwang","huige","tingting","qiangge","pengpeng"]
+        let userIds: [String] = ["100010001","100010002","100010003","100010004","100010005","100010006","100010007","100010008","100010009","1000100010","1000100011","1000100012","1000100013","1000100014"]
 
         self.allUser.removeAll()
         for i in stride(from: 0, to: nickName.count, by: 1) {
@@ -800,7 +800,7 @@ extension LLJFWeChatCycleController {
         }
         
         if self.useModel == nil {
-            let arm = LLJSHelper.arc4random(duration: 10)
+            let arm = LLJSHelper.arc4random(duration: 14)
             self.useModel = self.allUser[arm]
         }
     }

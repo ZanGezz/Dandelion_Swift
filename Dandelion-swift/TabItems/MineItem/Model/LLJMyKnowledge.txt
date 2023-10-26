@@ -78,5 +78,6 @@
 "app启动优化-https://www.jianshu.com/p/5d4fcc5b534d",
 "appCreash异常及捕获-https://www.jianshu.com/p/51a443b69150",
 "重签名-https://www.cnblogs.com/xiaoleiel/p/11160837.html",
-"ios包瘦身-https://www.jianshu.com/p/db3c020d7ab4"]
+"ios包瘦身-https://www.jianshu.com/p/db3c020d7ab4",
+"AF缓存-https://www.jianshu.com/p/1b8a6099f846"]
 

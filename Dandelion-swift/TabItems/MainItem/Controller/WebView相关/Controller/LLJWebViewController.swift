@@ -29,7 +29,7 @@ class LLJWebViewController: LLJFViewController,WKNavigationDelegate,WKScriptMess
     
     var messgaeHandlerArray: [String] = []
     
-    var webUrlString: String = ""
+    var webUrlString: String = "g"
     
     override func viewDidLoad() {
         super.viewDidLoad()
