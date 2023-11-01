@@ -141,6 +141,11 @@ extension LLJFViewController {
             return _statusBarStyle
         }
     }
+    
+    // 设置导航条样式
+    func presentFullfullScreen() {
+        self.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+    }
 }
 
 //转场动画
