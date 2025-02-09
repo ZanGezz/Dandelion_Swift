@@ -143,6 +143,7 @@
 		4BF187A625BAC45800B75EA6 /* LLJSUIKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF187A525BAC45800B75EA6 /* LLJSUIKitHelper.swift */; };
 		4BF8A2C9260C76A5007FD071 /* UIControl + SwizzlMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8A2C8260C76A5007FD071 /* UIControl + SwizzlMethod.swift */; };
 		6839C9283B8858DFF51B9EDA /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */; };
+		6E87D55E2AF22C3B00D2EFC7 /* SuanFa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E87D55D2AF22C3B00D2EFC7 /* SuanFa.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +316,7 @@
 		4BF187A525BAC45800B75EA6 /* LLJSUIKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLJSUIKitHelper.swift; sourceTree = "<group>"; };
 		4BF8A2C8260C76A5007FD071 /* UIControl + SwizzlMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl + SwizzlMethod.swift"; sourceTree = "<group>"; };
 		5142615B4B560257FBC16CB3 /* Pods-Dandelion-swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swiftTests.debug.xcconfig"; path = "Target Support Files/Pods-Dandelion-swiftTests/Pods-Dandelion-swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E87D55D2AF22C3B00D2EFC7 /* SuanFa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuanFa.swift; sourceTree = "<group>"; };
 		87E52498607B3344645E6EF9 /* Pods_Dandelion_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9014D35F43638A5BA7C5E7 /* Pods-Dandelion-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dandelion-swift.release.xcconfig"; path = "Target Support Files/Pods-Dandelion-swift/Pods-Dandelion-swift.release.xcconfig"; sourceTree = "<group>"; };
 		8CE93D4F1650AEA9DFB4AECC /* Pods_Dandelion_swift_Dandelion_swiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dandelion_swift_Dandelion_swiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -720,6 +722,7 @@
 		4B83E1A2258CB2660041B601 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6E87D55C2AF22C0700D2EFC7 /* 算法刷题 */,
 				0412874C2779B597007FB3E8 /* 仿斗鱼首页 */,
 				4B8C11AA26C0CFEA0062E707 /* 富文本相关 */,
 				4B8C119926BBE5970062E707 /* 视频录制播放 */,
@@ -1279,6 +1282,14 @@
 			path = LLJCategory;
 			sourceTree = "<group>";
 		};
+		6E87D55C2AF22C0700D2EFC7 /* 算法刷题 */ = {
+			isa = PBXGroup;
+			children = (
+				6E87D55D2AF22C3B00D2EFC7 /* SuanFa.swift */,
+			);
+			path = "算法刷题";
+			sourceTree = "<group>";
+		};
 		80B40C6B93A042C3CC840C52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1615,6 +1626,7 @@
 				4B68D1BE25DF5FA6001532E7 /* LLJNetHelper.swift in Sources */,
 				4B9034A025B7BDA6007E777D /* LLJSCoreDataController.swift in Sources */,
 				4B0BE1DF26E0719000B2DCE0 /* LLJBooKListController.swift in Sources */,
+				6E87D55E2AF22C3B00D2EFC7 /* SuanFa.swift in Sources */,
 				4B7BC022265C9C4F00CA9F17 /* LLJSegmentViewCell.swift in Sources */,
 				4B9FFE0A26AFF3AB00E1819E /* ParagraphStyle.swift in Sources */,
 				4BA2A80426ABCAC700DCE7AB /* LLJVideoView.swift in Sources */,
@@ -1841,6 +1853,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
@@ -1851,6 +1864,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-197692674-qq.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1862,6 +1876,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X44CE4T999;
 				INFOPLIST_FILE = "Dandelion-swift/Info.plist";
@@ -1872,6 +1887,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-197692674-qq.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

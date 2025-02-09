@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //FPS Label
         self.addFPSLabel()
         
+        var nums: [Character] = ["e","v","a","s","d","g","l","j"]
+        SuanFa().reverseString(&nums)
+        LLJLog(nums)
         return true
     }
     
